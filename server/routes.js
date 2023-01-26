@@ -1,12 +1,13 @@
 const express = require('express');
-const controllers = require('./controllers')
+const controllers = require('./controllers');
+
 const router = express.Router();
 require('dotenv').config();
-const axios = require('axios');
 
+router.get('/products/:product_id', controllers.products.getProductByID);
 
-router.get('/products/:product_id', controllers.products.getProductByID)
+router.get('/reviews/meta', controllers.reviews.getReviewMetaData);
 
-router.get('/reviews/meta', controllers.reviews.getReviewMetaData)
+router.get('/reviews', controllers.reviews.getReviewsByProduct);
 
 module.exports = router;
