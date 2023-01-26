@@ -1,4 +1,8 @@
 # DO NOT REMOVE
 config.js
-
+.env
+*bundle.js
+*.DS_Store
+*.map
+node_modules/
 # add more...?
