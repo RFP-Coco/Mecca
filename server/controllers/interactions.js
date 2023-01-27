@@ -1,31 +1,32 @@
 const axios = require('axios');
+
 const baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
 module.exports = {
-  addInteraction: function (req, res) {
-    const {element, widget, time} = req.body;
+  addInteraction: ((req, res) => {
+    const { element, widget, time } = req.body;
 
-    let url = '/interactions'
-    let options = {
+    const url = '/interactions';
+    const options = {
       method: 'post',
-      baseURL: baseURL,
-      url: url,
+      baseURL,
+      url,
       data: {
-        element: element,
-        widget: widget,
-        time: time
+        element,
+        widget,
+        time,
       },
       headers: {
-        'Authorization': process.env.API_KEY
+        Authorization: process.env.API_KEY,
       },
-    }
+    };
     axios(options)
-      .then(result => {
-        res.status(201).json(result.data)
+      .then((result) => {
+        res.status(201).json(result.data);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
-        res.sendStatus(422)
+        res.sendStatus(422);
       });
-  }
-}
+  }),
+};
