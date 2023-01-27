@@ -5,5 +5,4 @@ config.js
 *.DS_Store
 *.map
 node_modules/
-.eslintrc.js
 # add more...?

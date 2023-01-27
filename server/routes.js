@@ -12,4 +12,8 @@ router.get('/reviews', controllers.reviews.getReviewsByProduct);
 
 router.put('/reviews/:review_id/helpful', controllers.reviews.setHelpfulReview);
 
+router.put('/reviews/:review_id/report', controllers.reviews.reportReview);
+
+router.post('/reviews', controllers.reviews.addReview);
+
 module.exports = router;

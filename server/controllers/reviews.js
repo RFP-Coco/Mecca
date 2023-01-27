@@ -72,4 +72,49 @@ module.exports = {
         res.sendStatus(404);
       });
   },
+
+  addReview: (req, res) => {
+    const url = '/reviews';
+    const options = {
+      method: 'post',
+      baseURL,
+      url,
+      headers: {
+        Authorization: process.env.API_KEY,
+      },
+      data: req.body,
+    };
+
+    axios(options)
+      .then((result) => {
+        res.status(201).send(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+      });
+  },
+
+  reportReview: (req, res) => {
+    const { review_id } = req.body;
+    const url = `/reviews/${review_id}/report`;
+
+    const options = {
+      method: 'put',
+      baseURL,
+      url,
+      headers: {
+        Authorization: process.env.API_KEY,
+      },
+    };
+
+    axios(options)
+      .then((results) => {
+        res.status(204).json(results.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+      });
+  },
 };
