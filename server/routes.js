@@ -8,11 +8,16 @@ router.get('/products/:product_id', controllers.products.getProductByID);
 
 router.get('/reviews/meta', controllers.reviews.getReviewMetaData);
 
+router.get('/products/:product_id/related', controllers.products.getRelatedProductIDs);
+
 router.get('/reviews', controllers.reviews.getReviewsByProduct);
 
+router.put('/reviews/:review_id/helpful', controllers.reviews.setHelpfulReview);
 
-router.get('/products/:product_id', controllers.products.getProductByID)
+router.put('/reviews/:review_id/report', controllers.reviews.reportReview);
 
-router.get('/reviews/meta', controllers.reviews.getReviewMetaData)
+router.post('/reviews', controllers.reviews.addReview);
+
+router.post('/interactions', controllers.interactions.addInteraction);
 
 module.exports = router;
