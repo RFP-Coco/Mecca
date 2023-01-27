@@ -3,7 +3,7 @@ const axios = require('axios');
 const baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
 module.exports = {
-  getCart(req, res) {
+  getCart: (req, res) => {
     const url = '/cart';
     const options = {
       method: 'get',
@@ -23,7 +23,7 @@ module.exports = {
       });
   },
 
-  addToCart(req, res) {
+  addToCart: (req, res) => {
     const url = '/cart';
     const options = {
       method: 'post',

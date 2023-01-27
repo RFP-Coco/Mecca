@@ -4,7 +4,7 @@ const baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
 module.exports = {
 
-  getReviewMetaData(req, res) {
+  getReviewMetaData: (req, res) => {
     const url = '/reviews/meta?product_id=';
     const options = {
       method: 'get',

@@ -3,7 +3,7 @@ const axios = require('axios');
 const baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
 module.exports = {
-  getProductByID(req, res) {
+  getProductByID: (req, res) => {
     const url = `/products/${req.params.product_id}`;
     const options = {
       method: 'get',
@@ -23,7 +23,7 @@ module.exports = {
       });
   },
 
-  getProductStylesByID(req, res) {
+  getProductStylesByID: (req, res) => {
     const url = `/products/${req.params.product_id}/styles`;
     const options = {
       method: 'get',
