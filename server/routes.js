@@ -11,17 +11,20 @@ router.get('/products/:product_id/styles', controllers.products.getProductStyles
 
 router.get('/products/:product_id/related', controllers.products.getRelatedProductIDs);
 
-router.get('/reviews', controllers.reviews.getReviewsByProduct);
-
 router.get('/reviews/meta', controllers.reviews.getReviewMetaData);
+
+router.get('/reviews', controllers.reviews.getReviewsByProduct);
 
 router.post('/reviews', controllers.reviews.addReview);
 
-router.post('/interactions', controllers.interactions.addInteraction);
-
 router.put('/reviews/:review_id/helpful', controllers.reviews.setHelpfulReview);
-router.get('/reviews/meta', controllers.reviews.getReviewMetaData);
 
 router.put('/reviews/:review_id/report', controllers.reviews.reportReview);
+
+router.get('/cart', controllers.cart.getCart);
+
+router.post('/cart', controllers.cart.addToCart);
+
+router.post('/interactions', controllers.interactions.addInteraction);
 
 module.exports = router;
