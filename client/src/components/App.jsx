@@ -4,8 +4,8 @@ import RelatedItems from './RelatedItems.jsx';
 import QuestionsAnswers from './QuestionsAnswers.jsx';
 import RatingsReviews from './RatingsReviews.jsx';
 
-const App = () => {
-
+const App = (/*props for multiple widgets*/) => {
+// states that multiple widgets need access to
 
   return (
     <div>

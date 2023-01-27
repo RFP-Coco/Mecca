@@ -42,4 +42,25 @@ module.exports = {
         console.log(err);
       });
   },
+
+  getRelatedProductIDs: (req, res) => {
+    const id = req.params.product_id;
+    const url = `/products/${id}/related`;
+    const options = {
+      method: 'get',
+      baseURL,
+      url,
+      headers: {
+        Authorization: process.env.API_KEY,
+      },
+    };
+    axios(options)
+      .then((result) => {
+        res.status(200).json(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+      });
+  },
 };
