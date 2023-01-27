@@ -3,23 +3,45 @@ const axios = require('axios');
 const baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
 module.exports = {
-  getProductByID: function (req, res) {
-      let url = `/products/${req.params.product_id}`;
-      let options = {
+  getProductByID: ((req, res) => {
+    const url = `/products/${req.params.product_id}`;
+    const options = {
       method: 'get',
-      baseURL: baseURL,
-      url: url,
+      baseURL,
+      url,
       headers: {
-        'Authorization': process.env.API_KEY
+        Authorization: process.env.API_KEY,
       },
-    }
-      axios(options)
-        .then((result) => {
-        res.status(200).json(result.data)
-        })
-        .catch((err) => {
-        res.sendStatus(404)
-        console.log(err)
-    })
-  },
-}
+    };
+
+    axios(options)
+      .then((result) => {
+        res.status(200).json(result.data);
+      })
+      .catch((err) => {
+        res.sendStatus(404);
+        console.log(err);
+      });
+  }),
+
+  getRelatedProductIDs: ((req, res) => {
+    const id = req.params.product_id;
+    const url = `/products/${id}/related`;
+    const options = {
+      method: 'get',
+      baseURL,
+      url,
+      headers: {
+        Authorization: process.env.API_KEY,
+      },
+    };
+    axios(options)
+      .then((result) => {
+        res.status(200).json(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+      });
+  }),
+};
