@@ -3,9 +3,8 @@ const axios = require('axios');
 const baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
 module.exports = {
-  addInteraction: ((req, res) => {
+  addInteraction: (req, res) => {
     const { element, widget, time } = req.body;
-
     const url = '/interactions';
     const options = {
       method: 'post',
@@ -28,5 +27,5 @@ module.exports = {
         console.log(err);
         res.sendStatus(422);
       });
-  }),
+  },
 };
