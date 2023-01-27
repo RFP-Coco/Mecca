@@ -10,4 +10,6 @@ router.get('/reviews/meta', controllers.reviews.getReviewMetaData);
 
 router.get('/reviews', controllers.reviews.getReviewsByProduct);
 
+router.put('/reviews/:review_id/helpful', controllers.reviews.setHelpfulReview);
+
 module.exports = router;

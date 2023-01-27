@@ -46,4 +46,30 @@ module.exports = {
         res.sendStatus(404);
       });
   },
+
+  setHelpfulReview: (req, res) => {
+    const { review_id } = req.body;
+
+    const url = `/reviews/${review_id}/helpful`;
+    const options = {
+      method: 'put',
+      baseURL,
+      url,
+      headers: {
+        Authorization: process.env.API_KEY,
+      },
+      data: {
+        helpfulness: req.body.helpfulness += 1,
+      },
+    };
+
+    axios(options)
+      .then(() => {
+        res.status(204).send();
+      })
+      .catch((err) => {
+        console.log(err);
+        res.sendStatus(404);
+      });
+  },
 };
