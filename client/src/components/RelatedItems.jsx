@@ -1,9 +1,10 @@
 import React from 'react';
 
-// I am now working on my widget's branch.
+import RelProdContainer from './Sub_RelatedItems/RelProdContainer.jsx';
+import OutfitContainer from './Sub_RelatedItems/OutfitContainer.jsx';
 
 const RelatedItems = () => {
-  
+
   return null;
 };
 
