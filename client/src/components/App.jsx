@@ -10,18 +10,18 @@ import RatingsReviews from './RatingsReviews.jsx';
 function App() {
   // props for multiple widgets
   // states that multiple widgets need access to
-  const productID = 40345;
-  const urls = [
-    `/api/products/${productID}`, // get products by id
-    `/api/products/${productID}/styles`, // get styles by product id
-    `/api/reviews/meta?product_id=${productID}`, // get review metadata by id
-  ];
 
+  const [productID, setProductID] = useState(40345);
   const [currentProduct, setCurrentProduct] = useState({});
   const [productStyle, setProductStyle] = useState({});
   const [reviewMetadata, setReviewMetadata] = useState({});
 
   useEffect(() => {
+    const urls = [
+      `/api/products/${productID}`, // get products by id
+      `/api/products/${productID}/styles`, // get styles by product id
+      `/api/reviews/meta?product_id=${productID}`, // get review metadata by id
+    ];
     const requests = urls.map((url) => axios.get(url));
 
     axios.all(requests)
@@ -30,7 +30,7 @@ function App() {
         setProductStyle(responses[1].data);
         setReviewMetadata(responses[2].data);
       });
-  }, []);
+  }, [productID]);
 
   return (
     <div>
@@ -44,8 +44,10 @@ function App() {
         reviewMetadata={reviewMetadata}
         productStyle={productStyle}
         product={currentProduct}
+        productID={productID}
+        setProductID={setProductID}
       />
-      <QuestionsAnswers product={currentProduct} />
+      <QuestionsAnswers productID={productID} />
       <RatingsReviews reviewMetadata={reviewMetadata} product={currentProduct} />
     </div>
   );
