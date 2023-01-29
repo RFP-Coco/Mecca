@@ -48,7 +48,11 @@ function App() {
         setProductID={setProductID}
       />
       <QuestionsAnswers productID={productID} />
-      <RatingsReviews reviewMetadata={reviewMetadata} product={currentProduct} />
+      <RatingsReviews
+        productID={productID}
+        reviewMetadata={reviewMetadata}
+        product={currentProduct}
+      />
     </div>
   );
 }
