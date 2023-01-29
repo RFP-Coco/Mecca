@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
+<div>
+  <div>
+    <ul>
+      <li
+        class="reviewListEntry"
+      >
+        this is monks test
+         
+      </li>
+      <li
+        class="reviewListEntry"
+      >
+        meow
+         
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
+<div>
+  <div>
+    <ul>
+      <li
+        class="reviewListEntry"
+      >
+        this is monks test
+         
+      </li>
+      <li
+        class="reviewListEntry"
+      >
+        meow
+         
+      </li>
+    </ul>
+    <button
+      type="button"
+    >
+      More Reviews
+    </button>
+  </div>
+</div>
+`;

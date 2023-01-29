@@ -1,6 +1,5 @@
-import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import ProductDetail from './ProductDetail.jsx';
 import RelatedItems from './RelatedItems.jsx';
@@ -34,7 +33,6 @@ function App() {
 
   return (
     <div>
-      <p>Hello from Team Coco</p>
       <ProductDetail
         reviewMetadata={reviewMetadata}
         productStyle={productStyle}

@@ -19,5 +19,9 @@ module.exports = {
   ],
   rules: {
     camelcase: 'off',
+    'react/prop-types': 'off',
+    'import/extensions': 'off',
+    'react/jsx-filename-extension': 'off',
+    'react/jsx-one-expression-per-line': 'off',
   },
 };
