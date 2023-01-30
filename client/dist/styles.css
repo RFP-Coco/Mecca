@@ -1,3 +1,49 @@
+/* RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*KEVIN'S CSS*/
 h1 {
   color: red;
 }
@@ -5,3 +51,87 @@ h1 {
 p {
   color:black;
 }
+
+.review-summary{
+  font-weight: bold;
+}
+
+.review-list {
+  height: 1000px;
+  overflow-y: scroll;
+
+}
+
+/* review tile body */
+.review-tile {
+  margin: 1em;
+  border: .5em solid red;
+  /* overflow-y: scroll; */
+}
+
+.stars {
+  display: flex;
+}
+
+.star {
+  margin: 10px 0;
+  position: relative;
+  display: inline-block;
+  color: red;
+  width: 0px;
+  height: 0px;
+  /* for bigger stars, multiply the below 3 borders by x */
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid gold;
+  border-left: 10px solid transparent;
+  transform: rotate(35deg);
+}
+.star:before {
+  /* for bigger stars, multiply the below 3 borders by x */
+  border-bottom: 8px solid gold;
+  border-left: 3px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  /* for bigger stars, multiply the below 2 properties by x */
+  top: -5px;
+  left: -6px;
+  display: block;
+  content: '';
+  transform: rotate(-32deg);
+}
+.star:after {
+  position: absolute;
+  display: block;
+  color: red;
+  top: 0;
+  /* for bigger stars, multiply the below 1 properties by x */
+  left: -10px;
+  width: 0;
+  height: 0;
+  /* for bigger stars, multiply the below 3 properties by x */
+  border-right: 10px solid transparent;
+  border-bottom: 7px solid gold;
+  border-left: 10px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
+}
+.review-photos {
+  display: flex;
+}
+
+.review-thumbnail {
+  max-height: 20%;
+  max-width: 20%;
+}
+
+/* PRESENTATION STYLES */
+body {
+  align-items: center;
+  /* background: #333; */
+  display: flex;
+  height: 100vh;
+  /* justify-content: center; */
+}
+

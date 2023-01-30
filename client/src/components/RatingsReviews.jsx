@@ -8,7 +8,7 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
 
   const [reviews, setReviews] = React.useState(null);
   React.useEffect(() => {
-    const url = `/api/reviews/?product_id=${productID}&sort=${sort}`;
+    const url = `/api/reviews/?product_id=${productID}&sort=${sort}&count=50`;
     axios.get(url)
       .then((results) => {
         setReviews(results.data);
@@ -18,7 +18,9 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
 
   return (
     <div>
-      {reviews && <ReviewList reviews={reviews} />}
+      {reviews
+      && reviewMetadata
+      && <ReviewList reviewMetadata={reviewMetadata} reviews={reviews} />}
     </div>
   );
 }

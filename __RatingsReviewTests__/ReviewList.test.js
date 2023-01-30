@@ -2,6 +2,7 @@ import React from 'react';
 import { cleanup, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, it, expect } from '@jest/globals';
+import jest from 'jest';
 import ReviewList from '../client/src/components/Sub_RatingsReviews/ReviewList';
 
 afterEach(cleanup);
@@ -172,10 +173,11 @@ describe('More Reviews', () => {
       ],
     };
 
+    const user = userEvent.setup();
     render(<ReviewList reviews={reviews} />);
     const button = screen.getByRole('button', { name: 'More Reviews' });
-
-    userEvent.click(button);
+    // const handleButtonClick = jest.fn();
+    user.click(button);
 
     const list = screen.getByRole('list');
 
@@ -186,4 +188,39 @@ describe('More Reviews', () => {
     expect(items.length).toBe(4);
   });
 
+  it('renders response from seller if it exists', () => {
+    const reviews = {
+      product: '40345',
+      page: 0,
+      count: 5,
+      results: [
+        {
+          review_id: 1135753,
+          rating: 3,
+          summary: 'this is monks test',
+          recommend: true,
+          response: 'stoopid',
+          body: 'it fits me perfectly',
+          date: '2022-02-20T00:00:00.000Z',
+          reviewer_name: 'monks',
+          helpfulness: 1,
+          photos: [],
+        },
+        {
+          review_id: 1277605,
+          rating: 4,
+          summary: 'meow',
+          recommend: false,
+          response: null,
+          body: 'hello',
+          date: '2022-12-03T00:00:00.000Z',
+          reviewer_name: 'mo',
+          helpfulness: 0,
+          photos: [],
+        },
+      ],
+    };
+    const { container } = render(<ReviewList reviews={reviews} />);
+    expect(container).toMatchSnapshot();
+  });
 });

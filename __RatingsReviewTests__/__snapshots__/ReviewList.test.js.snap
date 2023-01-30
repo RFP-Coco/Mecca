@@ -3,18 +3,103 @@
 exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
 <div>
   <div>
-    <ul>
+    <ul
+      class="review-list"
+    >
       <li
-        class="reviewListEntry"
+        class="review-tile"
       >
-        this is monks test
-         
+        <b>
+          this is monks test
+        </b>
+        <p
+          class="reviewer-name"
+        >
+          monks
+        </p>
+        <small
+          class="review-date"
+        >
+          February 19, 2022
+        </small>
+        <div
+          class="stars"
+        >
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+        </div>
+        <p>
+          it fits me perfectly
+        </p>
+        <div
+          class="review-photos"
+        />
+        <small
+          class="review-recommend"
+        >
+          I recommend this product
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M170.718 216.482L141.6 245.6l93.6 93.6 208-208-29.118-29.118L235.2 279.918l-64.482-63.436zM422.4 256c0 91.518-74.883 166.4-166.4 166.4S89.6 347.518 89.6 256 164.482 89.6 256 89.6c15.6 0 31.2 2.082 45.764 6.241L334 63.6C310.082 53.2 284.082 48 256 48 141.6 48 48 141.6 48 256s93.6 208 208 208 208-93.6 208-208h-41.6z"
+            />
+          </svg>
+        </small>
+        <div />
       </li>
       <li
-        class="reviewListEntry"
+        class="review-tile"
       >
-        meow
-         
+        <b>
+          meow
+        </b>
+        <p
+          class="reviewer-name"
+        >
+          mo
+        </p>
+        <small
+          class="review-date"
+        >
+          December 2, 2022
+        </small>
+        <div
+          class="stars"
+        >
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+        </div>
+        <p>
+          hello
+        </p>
+        <div
+          class="review-photos"
+        />
+        <div />
       </li>
     </ul>
   </div>
@@ -24,18 +109,103 @@ exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
 exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
 <div>
   <div>
-    <ul>
+    <ul
+      class="review-list"
+    >
       <li
-        class="reviewListEntry"
+        class="review-tile"
       >
-        this is monks test
-         
+        <b>
+          this is monks test
+        </b>
+        <p
+          class="reviewer-name"
+        >
+          monks
+        </p>
+        <small
+          class="review-date"
+        >
+          February 19, 2022
+        </small>
+        <div
+          class="stars"
+        >
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+        </div>
+        <p>
+          it fits me perfectly
+        </p>
+        <div
+          class="review-photos"
+        />
+        <small
+          class="review-recommend"
+        >
+          I recommend this product
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M170.718 216.482L141.6 245.6l93.6 93.6 208-208-29.118-29.118L235.2 279.918l-64.482-63.436zM422.4 256c0 91.518-74.883 166.4-166.4 166.4S89.6 347.518 89.6 256 164.482 89.6 256 89.6c15.6 0 31.2 2.082 45.764 6.241L334 63.6C310.082 53.2 284.082 48 256 48 141.6 48 48 141.6 48 256s93.6 208 208 208 208-93.6 208-208h-41.6z"
+            />
+          </svg>
+        </small>
+        <div />
       </li>
       <li
-        class="reviewListEntry"
+        class="review-tile"
       >
-        meow
-         
+        <b>
+          meow
+        </b>
+        <p
+          class="reviewer-name"
+        >
+          mo
+        </p>
+        <small
+          class="review-date"
+        >
+          December 2, 2022
+        </small>
+        <div
+          class="stars"
+        >
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+        </div>
+        <p>
+          hello
+        </p>
+        <div
+          class="review-photos"
+        />
+        <div />
       </li>
     </ul>
     <button
@@ -43,6 +213,116 @@ exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
     >
       More Reviews
     </button>
+  </div>
+</div>
+`;
+
+exports[`More Reviews renders response from seller if it exists 1`] = `
+<div>
+  <div>
+    <ul
+      class="review-list"
+    >
+      <li
+        class="review-tile"
+      >
+        <b>
+          this is monks test
+        </b>
+        <p
+          class="reviewer-name"
+        >
+          monks
+        </p>
+        <small
+          class="review-date"
+        >
+          February 19, 2022
+        </small>
+        <div
+          class="stars"
+        >
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+        </div>
+        <p>
+          it fits me perfectly
+        </p>
+        <div
+          class="review-photos"
+        />
+        <small
+          class="review-recommend"
+        >
+          I recommend this product
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M170.718 216.482L141.6 245.6l93.6 93.6 208-208-29.118-29.118L235.2 279.918l-64.482-63.436zM422.4 256c0 91.518-74.883 166.4-166.4 166.4S89.6 347.518 89.6 256 164.482 89.6 256 89.6c15.6 0 31.2 2.082 45.764 6.241L334 63.6C310.082 53.2 284.082 48 256 48 141.6 48 48 141.6 48 256s93.6 208 208 208 208-93.6 208-208h-41.6z"
+            />
+          </svg>
+        </small>
+        <p>
+          Response From Seller: 
+          stoopid
+        </p>
+        <div />
+      </li>
+      <li
+        class="review-tile"
+      >
+        <b>
+          meow
+        </b>
+        <p
+          class="reviewer-name"
+        >
+          mo
+        </p>
+        <small
+          class="review-date"
+        >
+          December 2, 2022
+        </small>
+        <div
+          class="stars"
+        >
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+          <div
+            class="star"
+          />
+        </div>
+        <p>
+          hello
+        </p>
+        <div
+          class="review-photos"
+        />
+        <div />
+      </li>
+    </ul>
   </div>
 </div>
 `;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import ReviewTile from './ReviewTile.jsx';
 
-export default function ReviewList({ reviews }) {
+export default function ReviewList({ reviews, reviewMetadata }) {
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
   const render = [];
@@ -20,8 +21,8 @@ export default function ReviewList({ reviews }) {
 
   return (
     <div>
-      <ul>
-        {render.map((review) => <li className="reviewListEntry">{review.summary} </li>)}
+      <ul className="review-list">
+        {render.map((review) => <ReviewTile reviewMetadata={reviewMetadata} review={review} />)}
       </ul>
       {reviews.results.length > 2 && displayedReviews !== reviews.results.length
         ? <button type="button" onClick={handleMoreReviews}>More Reviews</button>
