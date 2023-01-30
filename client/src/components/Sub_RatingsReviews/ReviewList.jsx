@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
-export default function ReviewList({ reviews, reviewMetadata }) {
+export default function ReviewList({ reviews, reviewMetadata, update }) {
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
   const render = [];
@@ -23,7 +23,9 @@ export default function ReviewList({ reviews, reviewMetadata }) {
   const handleHelpfulClick = (event, review) => {
     event.preventDefault();
     axios.put(`/api/reviews/${review.review_id}/helpful`, review)
-      .then(() => {})
+      .then(() => {
+        update();
+      })
       .catch((err) => console.log(err));
   };
 
