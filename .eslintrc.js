@@ -19,5 +19,7 @@ module.exports = {
   ],
   rules: {
     camelcase: 'off',
+    react/prop-types: 'off',
+    import/extensions: 'off',
   },
 };
