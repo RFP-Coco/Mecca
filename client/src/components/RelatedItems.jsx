@@ -3,7 +3,7 @@ import React from 'react';
 import RelProdContainer from './Sub_RelatedItems/RelProdContainer.jsx';
 import OutfitContainer from './Sub_RelatedItems/OutfitContainer.jsx';
 
-function RelatedItems({ product, productID, setProductID, reviewMetadata }) {
+function RelatedItems({ product, productID, setProductID, productStyle, reviewMetadata }) {
 
   return (
     <section id="related-items">
@@ -12,6 +12,7 @@ function RelatedItems({ product, productID, setProductID, reviewMetadata }) {
           product={product}
           productID={productID}
           setProductID={setProductID}
+          productStyle={productStyle}
           reviewMetadata={reviewMetadata}
         />
       </div>
