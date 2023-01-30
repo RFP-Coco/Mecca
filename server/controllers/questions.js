@@ -21,8 +21,7 @@ module.exports = {
       .then((result) => {
         res.status(200).send(result.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         res.sendStatus(404);
       });
   },
@@ -42,8 +41,7 @@ module.exports = {
       .then((result) => {
         res.status(200).send(result.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         res.sendStatus(404);
       });
   },
@@ -64,8 +62,7 @@ module.exports = {
       .then(() => {
         res.sendStatus(201);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         res.sendStatus(404);
       });
   },
@@ -84,8 +81,7 @@ module.exports = {
       .then(() => {
         res.sendStatus(201);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         res.sendStatus(404);
       });
   },
@@ -103,8 +99,7 @@ module.exports = {
       .then(() => {
         res.sendStatus(204);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         res.sendStatus(404);
       });
   },
@@ -122,8 +117,7 @@ module.exports = {
       .then(() => {
         res.sendStatus(204);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         res.sendStatus(404);
       });
   },
@@ -141,8 +135,7 @@ module.exports = {
       .then(() => {
         res.sendStatus(204);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         res.sendStatus(404);
       });
   },
@@ -160,8 +153,7 @@ module.exports = {
       .then(() => {
         res.sendStatus(204);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         res.sendStatus(404);
       });
   },
