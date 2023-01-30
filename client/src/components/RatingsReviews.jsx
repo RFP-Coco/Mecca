@@ -17,7 +17,7 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
   }, []);
 
   return (
-    <div>
+    <div className="ratings-reviews">
       {reviews
       && reviewMetadata
       && <ReviewList reviewMetadata={reviewMetadata} reviews={reviews} />}

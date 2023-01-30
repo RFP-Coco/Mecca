@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { parseISO, format } from 'date-fns';
 
-export default function ReviewTile({ review, reviewMetadata }) {
+export default function ReviewTile({ review, reviewMetadata, handleHelpfulClick }) {
   const [showMoreBody, setShowMoreBody] = useState(false);
 
-  const { recommended } = reviewMetadata
-  console.log(recommended, 'recommended')
   const rating = new Array(review.rating).fill(0, (value, index) => index + 1);
   const date = format(parseISO(review.date), 'LLLL d, yyyy');
 
@@ -17,6 +15,7 @@ export default function ReviewTile({ review, reviewMetadata }) {
     : review.summary;
 
   const defaultBodyLength = 250;
+
 
   return (
     <li className="review-tile">
@@ -48,6 +47,10 @@ export default function ReviewTile({ review, reviewMetadata }) {
       {review.response && <p className="review-response">Response From Seller: {review.response}</p>}
       <div className="review-helpfulness">
         Was this review helpful?
+        <a
+          href=''
+          onClick={(event) => handleHelpfulClick(event, review)}>{review.helpfulness}
+        </a>
       </div>
     </li>
   );

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
 export default function ReviewList({ reviews, reviewMetadata }) {
@@ -19,10 +20,23 @@ export default function ReviewList({ reviews, reviewMetadata }) {
     }
   };
 
+  const handleHelpfulClick = (event, review) => {
+    event.preventDefault();
+    axios.put(`/api/reviews/${review.review_id}/helpful`, review)
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <ul className="review-list">
-        {render.map((review) => <ReviewTile reviewMetadata={reviewMetadata} review={review} />)}
+        {render.map((review) => (
+          <ReviewTile
+            reviewMetadata={reviewMetadata}
+            review={review}
+            handleHelpfulClick={handleHelpfulClick}
+          />
+        ))}
       </ul>
       {reviews.results.length > 2 && displayedReviews !== reviews.results.length
         ? <button type="button" onClick={handleMoreReviews}>More Reviews</button>
