@@ -18,5 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    camelcase: 'off',
+    ‘react/prop-types’: ‘off’,
+    ‘import/extensions’: ‘off’,
   },
 };
