@@ -13,12 +13,17 @@ router.get('/products/:product_id/related', controllers.products.getRelatedProdu
 
 router.get('/reviews/meta', controllers.reviews.getReviewMetaData);
 
+<<<<<<< HEAD
 router.get('/reviews', controllers.reviews.getReviewsByProduct);
+=======
+router.post('/qa/questions/:question_id/answers', controllers.questions.addAnswerById)
+>>>>>>> 54c303d (all routes are complete)
 
 router.post('/reviews', controllers.reviews.addReview);
 
 router.put('/reviews/:review_id/helpful', controllers.reviews.setHelpfulReview);
 
+<<<<<<< HEAD
 router.put('/reviews/:review_id/report', controllers.reviews.reportReview);
 
 router.get('/cart', controllers.cart.getCart);
@@ -42,5 +47,10 @@ router.put('/qa/questions/:question_id/report', controllers.questions.handleQues
 router.put('/qa/questions/:answer_id/helpful', controllers.questions.updateAnswerHelpful);
 
 router.put('/qa/questions/:answer_id/helpful', controllers.questions.handleAnswerReport);
+=======
+router.put('/qa/answers/:answer_id/helpful', controllers.questions.updateAnswerHelpful)
+
+router.put('/qa/answers/:answer_id/report', controllers.questions.handleAnswerReport)
+>>>>>>> 54c303d (all routes are complete)
 
 module.exports = router;
