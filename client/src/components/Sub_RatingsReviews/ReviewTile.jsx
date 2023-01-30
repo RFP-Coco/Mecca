@@ -16,7 +16,6 @@ export default function ReviewTile({ review, reviewMetadata, handleHelpfulClick 
 
   const defaultBodyLength = 250;
 
-
   return (
     <li className="review-tile">
       <b className="review-summary">{summary}</b>
