@@ -11,7 +11,7 @@ function DefaultView({ images, currentImageIndex, setCurrentImageIndex }) {
         prev
       </button>
 
-      <img src={images[currentImageIndex].url.substring(images[currentImageIndex].url.indexOf('http')) || 'https://demofree.sirv.com/products/123456/123456.jpg?profile=error-example'} alt="product" />
+      <img src={images[currentImageIndex].url ? images[currentImageIndex].url.substring(images[currentImageIndex].url.indexOf('http')) : 'https://demofree.sirv.com/products/123456/123456.jpg?profile=error-example'} alt="product" />
 
       <button
         type="button"

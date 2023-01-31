@@ -38,10 +38,9 @@ function SingleProd({ product, setProductID, productStyle, reviewMetadata, onCli
         setThisAvgRating(avg);
       })
       .catch((err) => err);
-  }, []);
+  }, [id]);
 
   // =================== HELPERS ===================
-  const { id } = product;
 
   // if we need to find the first available img
   // const setImg = () => {
