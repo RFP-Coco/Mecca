@@ -9,40 +9,28 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
 
-  // array of {related product}s
   const [relatedProds, setRelatedProds] = useState([]);
-
-  // array of relatedProds' review metas
-  const [singleReviewMeta, setSingleReviewMeta] = useState([]);
 
   // =================== EFFECTS ===================
 
-  useEffect(() => getRelatedProdsAndReviews(), [productID]); // fire on new setting of 'product'
+  useEffect(() => getRelatedProdsAndReviews(), [productID]);
 
   // =================== HELPERS ===================
   const getRelatedProdsAndReviews = () => {
     axios.get(`/api/products/${productID}/related`)
       .then((response) => {
         setRelatedIDs(response.data);
-        // pass the new array of prod IDs thru
         return response.data;
       })
       .then((ids) => {
-        // store an array of successful GET product promises
         const productReqs = ids.map((id) => axios.get(`/api/products/${id}`));
-        // pass it thru to next
         return axios.all(productReqs);
       })
       .then((responses) => {
-        // store, then set each response's data into the related prods state
         const prodSetter = [...responses.map((response) => response.data)];
         setRelatedProds(prodSetter);
-        // pass the 'stored state' on to get each review meta
         return prodSetter;
       })
-      // .then((products) => {
-      //   getEachReviewMeta(products)
-      // })
       .catch((err) => err);
   };
 
@@ -57,11 +45,12 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
       {relatedProds.map((product, i) => {
         return (
           < SingleProd
+            className={"related-prod card"}
             key={i}
-            product={product}
-            setProductID={setProductID}
-            productStyle={productStyle}
-            reviewMetadata={reviewMetadata}
+            product={product} // this single product
+            setProductID={setProductID} // function
+            productStyle={productStyle} // parent product's styles
+            reviewMetadata={reviewMetadata} // parent product's meta
           />
         );
       })}

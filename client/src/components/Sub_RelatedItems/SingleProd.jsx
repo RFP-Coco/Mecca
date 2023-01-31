@@ -8,60 +8,90 @@ import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 function SingleProd({ product, setProductID, productStyle, reviewMetadata }) {
 
   // =================== STATES ===================
+
+  const [theseStyles, setTheseStyles] = useState([]);
+
+  const [thisPrice, setThisPrice] = useState([]);
+
   const [thisAvgRating, setThisAvgRating] = useState([]);
+
+  const [imgUrl, setImgUrl] = useState('');
 
   // =================== EFFECTS ===================
 
-  useEffect(() => getSetAvg(), []);
+  useEffect(() => {
+    axios.get(`/api/products/${id}/styles`)
+      .then((styles) => {
+        const newStyles = styles.data.results;
+        setTheseStyles(newStyles);
+        setImgUrl('');
+        setImgUrl(newStyles[0].photos[0].url);
+        return newStyles.filter(style => style['default?'] === true);
+      })
+      .then((defaultStyle) => {
+        setPrice(defaultStyle);
+      })
+      .catch((err) => err);
 
-  // =================== HELPERS ===================
-  const {
-    category,
-    default_price,
-    description,
-    name,
-    slogan,
-    features
-  } = product;
-
-  const getSetAvg = () => {
-    axios.get(`/api/reviews/meta?product_id=${product.id}`)
-      .then((thisReviewMeta) => {
-        const avg = getAvg(thisReviewMeta.data);
+    axios.get(`/api/reviews/meta?product_id=${id}`)
+      .then((reviewMeta) => {
+        const avg = getAvg(reviewMeta.data);
         setThisAvgRating(avg);
       })
       .catch((err) => err);
+
+  }, []);
+
+  // =================== HELPERS ===================
+  const { id } = product;
+
+  // if we need to find the first available img
+  // const setImg = () => {
+  //       setImgUrl('');
+  //       setImgUrl(newStyles[0].photos[0].url);
+  // };
+
+  const setPrice = (style) => {
+    const find = style[0];
+
+    if (!style.length) {
+      setThisPrice([product['default_price'], null])
+    }
+
+    if (find['sale_price']) {
+      setThisPrice([find['sale_price'], find['original_price']]);
+    } else {
+      setThisPrice([find['original_price'], null]);
+    }
   };
 
-  const getAvg = ({ratings}) => {
+  const getAvg = ({ ratings }) => {
     let totalRatings = 0;
     let sum = 0;
+
     for (let num in ratings) {
       sum += Number(num) * ratings[num];
       totalRatings += Number(ratings[num]);
     }
+
     return [sum / totalRatings, totalRatings];
   };
 
   // =================== COMPONENT ===================
   return (
-    <div className="related-prod card">
-      This is a single product card.
-      <br></br>
-      Category: {category}
-      <br></br>
-      Name: {name}
-      <br></br>
-      Slogan: {slogan}
-      <br></br>
-      Description: {description}
-      <br></br>
-      Default Price: {default_price}
-      <br></br>
-      Avgerage rating: {thisAvgRating[0]} | {`(${thisAvgRating[1]})`}
-      <br></br>
-      <br></br>
-    </div>
+    <>
+      < ProdImg
+        className={"pic"}
+        defaultPic={imgUrl}
+        product={product}
+      />
+      < ProdInfo
+        className={"info"}
+        product={product}
+        thisPrice={thisPrice}
+        thisAvgRating={thisAvgRating}
+      />
+    </>
   );
 }
 
