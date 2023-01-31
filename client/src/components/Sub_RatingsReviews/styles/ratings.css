@@ -74,3 +74,13 @@ h3 {
   max-height: 20%;
   max-width: 20%;
 }
+
+/* DASHBOARD */
+
+.star-rating {
+  font-size: 2em;
+}
+
+.review-dashboard {
+  border: 2px solid green
+}

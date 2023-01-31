@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { parseISO, format } from 'date-fns';
 
-export default function ReviewTile({ review, reviewMetadata, handleHelpfulClick }) {
+export default function ReviewTile({
+  review, handleHelpfulClick,
+}) {
   const [showMoreBody, setShowMoreBody] = useState(false);
 
   const rating = new Array(review.rating).fill(0, (value, index) => index + 1);

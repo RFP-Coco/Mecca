@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Sub_RatingsReviews/styles/ratings.css';
 import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
+import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
 
 export default function RatingsReviews({ productID, reviewMetadata, product }) {
   const [sort, setSort] = useState('relevant');
@@ -29,6 +30,8 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
   return (
     <div className="ratings-reviews">
       <h3>Ratings & Reviews</h3>
+      {reviewMetadata
+      && <Dashboard reviewMetadata={reviewMetadata} />}
       {reviews
       && reviewMetadata
       && (
