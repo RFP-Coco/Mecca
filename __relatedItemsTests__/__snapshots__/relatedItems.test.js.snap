@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Related Items renders all related product cards to the DOM 1`] = `undefined`;

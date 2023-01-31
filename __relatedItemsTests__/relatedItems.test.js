@@ -1,11 +1,11 @@
 import React from 'react';
 
 import {
-  cleanup, test, render, screen, fireEevent
+  cleanup, test, render, screen, fireEevent,
 } from '@testing-library/react';
 
 import {
-  afterEach, describe, it, expect
+  afterEach, describe, it, expect,
 } from '@jest/globals';
 
 import userEvent from '@testing-library/user-event';
@@ -17,7 +17,134 @@ afterEach(cleanup);
 
 describe('Related Items', () => {
   it('renders all related product cards to the DOM', () => {
-    const { container } = (<RelatedItems productID={40348} />);
+    const relatedProds = [
+      {
+        id: 40349,
+        campus: 'hr-rfp',
+        name: 'Pumped Up Kicks',
+        slogan: 'Faster than a just about anything',
+        description: 'The Pumped Up serves up crisp court style with a modern look. These shoes show off tennis-whites shades and are constructed with a supple leather upper and a classic rubber cupsole.',
+        category: 'Kicks',
+        default_price: '89.00',
+        created_at: '2021-08-13T14:38:44.509Z',
+        updated_at: '2021-08-13T14:38:44.509Z',
+        features: [
+          {
+            feature: 'Sole',
+            value: 'Rubber',
+          },
+          {
+            feature: 'Material',
+            value: 'FullControlSkin',
+          },
+          {
+            feature: 'Mid-Sole',
+            value: 'ControlSupport Arch Bridge',
+          },
+          {
+            feature: 'Stitching',
+            value: 'Double Stitch',
+          },
+        ],
+      },
+      {
+        id: 40351,
+        campus: 'hr-rfp',
+        name: 'YEasy 350',
+        slogan: 'Just jumped over jumpman',
+        description: 'These stretchy knit shoes show off asymmetrical lacing and a big sculpted rubber midsole. In a nod to adidas soccer heritage.',
+        category: 'Kicks',
+        default_price: '450.00',
+        created_at: '2021-08-13T14:38:44.509Z',
+        updated_at: '2021-08-13T14:38:44.509Z',
+        features: [
+          {
+            feature: 'Sole',
+            value: 'Rubber',
+          },
+          {
+            feature: 'Material',
+            value: 'FullControlSkin',
+          },
+          {
+            feature: 'Stitching',
+            value: 'Double Stitch',
+          },
+        ],
+      },
+      {
+        id: 40352,
+        campus: 'hr-rfp',
+        name: 'Summer Shoes',
+        slogan: 'A risky call in the spring or fall',
+        description: 'Low-top panelled buffed leather and mesh sneakers. Sizing embroidered in black at round toe. Tonal lace-up closure. Pull-loop and rubberized style name at padded tongue. Padded collar. Pull-loop at heel collar. Logo embroidered in black at outer side. Tonal treaded rubber sole. Tonal stitching.',
+        category: 'Kicks',
+        default_price: '59.00',
+        created_at: '2021-08-13T14:38:44.509Z',
+        updated_at: '2021-08-13T14:38:44.509Z',
+        features: [
+          {
+            feature: 'Sole',
+            value: 'Rubber',
+          },
+          {
+            feature: 'Material',
+            value: 'FullControlSkin',
+          },
+          {
+            feature: 'Mid-Sole',
+            value: 'ControlSupport Arch Bridge',
+          },
+          {
+            feature: 'Stitching',
+            value: 'Double Stitch',
+          },
+        ],
+      },
+      {
+        id: 40344,
+        campus: 'hr-rfp',
+        name: 'Camo Onesie',
+        slogan: 'Blend in to your crowd',
+        description: 'The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.',
+        category: 'Jackets',
+        default_price: '140.00',
+        created_at: '2021-08-13T14:38:44.509Z',
+        updated_at: '2021-08-13T14:38:44.509Z',
+        features: [
+          {
+            feature: 'Fabric',
+            value: 'Canvas',
+          },
+          {
+            feature: 'Buttons',
+            value: 'Brass',
+          },
+        ],
+      },
+      {
+        id: 40346,
+        campus: 'hr-rfp',
+        name: 'Morning Joggers',
+        slogan: 'Make yourself a morning person',
+        description: "Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
+        category: 'Pants',
+        default_price: '40.00',
+        created_at: '2021-08-13T14:38:44.509Z',
+        updated_at: '2021-08-13T14:38:44.509Z',
+        features: [
+          {
+            feature: 'Fabric',
+            value: '100% Cotton',
+          },
+          {
+            feature: 'Cut',
+            value: 'Skinny',
+          },
+        ],
+      },
+    ];
+    const { container } = (<RelatedItems relatedProds={relatedProds} />);
     expect(container).toMatchSnapshot();
   });
 });
