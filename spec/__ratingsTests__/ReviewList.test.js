@@ -3,7 +3,7 @@ import { cleanup, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, it, expect } from '@jest/globals';
 import jest from 'jest';
-import ReviewList from '../client/src/components/Sub_RatingsReviews/ReviewList';
+import ReviewList from '../../client/src/components/Sub_RatingsReviews/ReviewList';
 
 afterEach(cleanup);
 
