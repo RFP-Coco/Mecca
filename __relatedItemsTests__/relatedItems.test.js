@@ -11,7 +11,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import jest from 'jest';
 
-import RelatedItems from '../client/src/components/RelatedItems.jsx';
+import RelProdContainer from '../client/src/components/Sub_RelatedItems/RelProdContainer.jsx';
 
 afterEach(cleanup);
 
@@ -144,7 +144,7 @@ describe('Related Items', () => {
         ],
       },
     ];
-    const { container } = (<RelatedItems relatedProds={relatedProds} />);
+    const { container } = (<RelProdContainer relatedProds={relatedProds} />);
     expect(container).toMatchSnapshot();
   });
 });
