@@ -67,7 +67,7 @@ module.exports = {
       });
   },
   addAnswerById: (req, res) => {
-    const url = `qa/questions?questions_id=${req.params.question_id}/answers`;
+    const url = `qa/questions/${req.params.question_id}/answers`;
     const config = {
       method: 'post',
       baseURL,
@@ -86,7 +86,7 @@ module.exports = {
       });
   },
   updateQuestionHelpful: (req, res) => {
-    const url = `qa/questions?question_id=${req.params.question_id}/helpful`;
+    const url = `qa/questions/${req.params.question_id}/helpful`;
     const config = {
       method: 'put',
       baseURL,
@@ -104,7 +104,7 @@ module.exports = {
       });
   },
   handleQuestionReport: (req, res) => {
-    const url = `qa/questions?question_id=${req.params.question_id}/report`;
+    const url = `qa/questions/${req.params.question_id}/report`;
     const config = {
       method: 'put',
       baseURL,
@@ -122,7 +122,7 @@ module.exports = {
       });
   },
   updateAnswerHelpful: (req, res) => {
-    const url = `qa/answers?${req.params.answer_id}/helpful`;
+    const url = `qa/answers/${req.params.answer_id}/helpful`;
     const config = {
       method: 'put',
       baseURL,
@@ -140,7 +140,7 @@ module.exports = {
       });
   },
   handleAnswerReport: (req, res) => {
-    const url = `qa/answers?${req.params.answer_id}/report`;
+    const url = `qa/answers/${req.params.answer_id}/report`;
     const config = {
       method: 'put',
       baseURL,
