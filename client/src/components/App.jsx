@@ -33,11 +33,14 @@ function App() {
 
   return (
     <div>
+      {/* <p>Hello from Team Coco</p> */}
+      { Object.keys(productStyle).length && (
       <ProductDetail
         reviewMetadata={reviewMetadata}
         productStyle={productStyle}
         product={currentProduct}
       />
+      )}
       <RelatedItems
         reviewMetadata={reviewMetadata}
         productStyle={productStyle}
