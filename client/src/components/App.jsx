@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import ProductDetail from './ProductDetail.jsx';
 import RelatedItems from './RelatedItems.jsx';
