@@ -5,4 +5,6 @@ config.js
 *.DS_Store
 *.map
 node_modules/
-# add more...?
+
+# ignore boilerplate jest
+specs/sum*

@@ -1,0 +1,38 @@
+.related-items {
+  height: 25%;
+  width: 75%;
+}
+
+.related-items .container {
+  display: flex;
+}
+
+.default-pic {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-btn,
+.compare-btn {
+  background-color: transparent;
+}
+
+.card-btn {
+  border: 2px solid red;
+}
+
+.compare-btn {
+  border: none;
+  border-radius: 50%;
+}
+
+.compare-btn img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.prod-info {
+  display: flex;
+  text-align: left;
+}
