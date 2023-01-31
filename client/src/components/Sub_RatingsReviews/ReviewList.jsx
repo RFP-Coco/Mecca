@@ -23,9 +23,7 @@ export default function ReviewList({ reviews, reviewMetadata, update }) {
   const handleHelpfulClick = (event, review) => {
     event.preventDefault();
     axios.put(`/api/reviews/${review.review_id}/helpful`, review)
-      .then(() => {
-        update();
-      })
+      .then(() => update())
       .catch((err) => console.log(err));
   };
 

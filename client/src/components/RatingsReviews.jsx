@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
 
 export default function RatingsReviews({ productID, reviewMetadata, product }) {
   const sort = 'helpful';
   // const url = `/api/reviews/?product_id=${productID}&page=1&count=5&sort=${sort}`;
-  const [reviews, setReviews] = React.useState(null);
+  const [reviews, setReviews] = useState(null);
 
   const updateData = () => {
     const url = `/api/reviews/?product_id=${productID}&sort=${sort}&count=50`;
@@ -16,7 +16,7 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
       .catch((err) => console.log(err));
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     updateData();
   }, []);
 
