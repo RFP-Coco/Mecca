@@ -4,8 +4,8 @@ import './Sub_RatingsReviews/styles/ratings.css';
 import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
 
 export default function RatingsReviews({ productID, reviewMetadata, product }) {
-  const sort = 'helpful';
-  // const url = `/api/reviews/?product_id=${productID}&page=1&count=5&sort=${sort}`;
+  const [sort, setSort] = useState('relevant');
+
   const [reviews, setReviews] = useState(null);
 
   const updateData = () => {
@@ -17,9 +17,14 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
       .catch((err) => console.log(err));
   };
 
+  // listens for sorting select-box change
   useEffect(() => {
     updateData();
-  }, []);
+  }, [sort]);
+
+  const handleSortChange = (event) => {
+    setSort(event.target.value);
+  };
 
   return (
     <div className="ratings-reviews">
@@ -27,6 +32,8 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
       && reviewMetadata
       && (
       <ReviewList
+        sort={sort}
+        onChange={handleSortChange}
         reviewMetadata={reviewMetadata}
         reviews={reviews}
         update={updateData}
