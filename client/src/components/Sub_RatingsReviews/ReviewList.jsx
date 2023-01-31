@@ -42,6 +42,7 @@ export default function ReviewList({
       <ul className="review-list">
         {render.map((review) => (
           <ReviewTile
+            key={review.review_id}
             reviewMetadata={reviewMetadata}
             review={review}
             handleHelpfulClick={handleHelpfulClick}

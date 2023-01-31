@@ -28,6 +28,7 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
 
   return (
     <div className="ratings-reviews">
+      <h3>Ratings & Reviews</h3>
       {reviews
       && reviewMetadata
       && (
