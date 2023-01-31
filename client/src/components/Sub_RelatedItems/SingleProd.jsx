@@ -4,7 +4,9 @@ import axios from 'axios';
 import ProdImg from './Sub_SingleProd/ProdImg.jsx';
 import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 
-function SingleProd({ product, setProductID, productStyle, reviewMetadata, onClick }) {
+function SingleProd({ product, productID, productStyle, reviewMetadata, onClick }) {
+
+  const { id } = product;
 
   // =================== STATES ===================
 
@@ -74,12 +76,10 @@ function SingleProd({ product, setProductID, productStyle, reviewMetadata, onCli
     return [sum / totalRatings, totalRatings];
   };
 
-  // =================== HANDLERS ===================
-  const handleClick = () => onClick(id);
-
   // =================== COMPONENT ===================
   return (
-    <button type="button" className="btn card-btn" onClick={handleClick}>
+
+    <div onClick={() => onClick(id)}>
       <ProdImg
         className="prod-pic"
         defaultPic={imgUrl}
@@ -91,7 +91,7 @@ function SingleProd({ product, setProductID, productStyle, reviewMetadata, onCli
         thisPrice={thisPrice}
         thisAvgRating={thisAvgRating}
       />
-    </button>
+    </div>
   );
 }
 
