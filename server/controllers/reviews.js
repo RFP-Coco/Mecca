@@ -24,7 +24,11 @@ module.exports = {
   },
 
   getReviewsByProduct: (req, res) => {
-    const { product_id, page, count, sort } = req.query;
+    const { product_id, sort } = req.query;
+    let { page, count } = req.query;
+
+    page = page || 1;
+    count = count || 5;
 
     const url = `/reviews/?product_id=${product_id}&page=${page}&count=${count}&sort=${sort}`;
 

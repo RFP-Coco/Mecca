@@ -10,7 +10,7 @@ function App() {
   // props for multiple widgets
   // states that multiple widgets need access to
 
-  const [productID, setProductID] = useState(40345);
+  const [productID, setProductID] = useState(40352);
   const [currentProduct, setCurrentProduct] = useState({});
   const [productStyle, setProductStyle] = useState({});
   const [reviewMetadata, setReviewMetadata] = useState({});
@@ -33,7 +33,6 @@ function App() {
 
   return (
     <div>
-      <p>Hello from Team Coco</p>
       <ProductDetail
         reviewMetadata={reviewMetadata}
         productStyle={productStyle}
@@ -47,7 +46,14 @@ function App() {
         setProductID={setProductID}
       />
       <QuestionsAnswers productID={productID} />
-      <RatingsReviews reviewMetadata={reviewMetadata} product={currentProduct} />
+      {reviewMetadata
+      && (
+      <RatingsReviews
+        productID={productID}
+        reviewMetadata={reviewMetadata}
+        product={currentProduct}
+      />
+      )}
     </div>
   );
 }
