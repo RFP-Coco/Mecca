@@ -79,14 +79,15 @@ function SingleProd({ product, productID, productStyle, reviewMetadata, onClick 
   // =================== COMPONENT ===================
   return (
 
-    <div onClick={() => onClick(id)}>
+    <div
+      className="single-prod container"
+      onClick={() => onClick(id)}
+    >
       <ProdImg
-        className="prod-pic"
         defaultPic={imgUrl}
         product={product}
       />
       <ProdInfo
-        className="prod-info"
         product={product}
         thisPrice={thisPrice}
         thisAvgRating={thisAvgRating}

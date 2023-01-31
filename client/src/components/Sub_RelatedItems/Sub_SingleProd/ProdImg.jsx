@@ -5,11 +5,11 @@ import ComparisonModal from './ComparisonModal.jsx';
 function ProdImg({ defaultPic, product }) {
 
   const picUrl = defaultPic || '../../../assets/noProdImg.png';
-  
+
   return (
-    <>
+    <div className="prod-pic">
       <button
-        className="compare-btn btn"
+        className="btn compare-btn"
         type="button"
       ><img src="../../../../assets/compareStar.png" alt="opens a comparison modal" />
       </button>
@@ -18,7 +18,7 @@ function ProdImg({ defaultPic, product }) {
         src={picUrl}
         alt={`a sample of the ${product.name} product`}
       />
-    </>
+    </div>
 
   );
 

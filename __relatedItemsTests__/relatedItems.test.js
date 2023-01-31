@@ -1,13 +1,26 @@
 import React from 'react';
-import { cleanup, test, render, screen, within } from '@testing-library/react';
+
+import {
+  cleanup, test, render, screen, fireEevent
+} from '@testing-library/react';
+
+import {
+  afterEach, describe, it, expect
+} from '@jest/globals';
+
 import userEvent from '@testing-library/user-event';
-import { afterEach, describe, it, expect } from '@jest/globals';
 import jest from 'jest';
 
-// import RelatedItems from '../client/src/components/RelatedItems';
-import RelProdContainer from '../client/src/components/Sub_RelatedItems/RelProdContainer';
+import RelatedItems from '../client/src/components/RelatedItems.jsx';
 
 afterEach(cleanup);
+
+describe('Related Items', () => {
+  it('renders all related product cards to the DOM', () => {
+    const { container } = (<RelatedItems productID={40348} />);
+    expect(container).toMatchSnapshot();
+  });
+});
 
 // RelProdContainer.jsx
 
