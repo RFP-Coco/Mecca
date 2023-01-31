@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
-export default function ReviewList({ reviews, reviewMetadata, update }) {
+export default function ReviewList({
+  reviews, reviewMetadata, update, onChange, sort,
+}) {
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
   const render = [];
@@ -29,6 +31,14 @@ export default function ReviewList({ reviews, reviewMetadata, update }) {
 
   return (
     <div>
+      <div>
+        <p>sorted by: </p>
+        <select value={sort} onChange={onChange}>
+          <option value="relevant">Relevant</option>
+          <option value="helpful">Helpful</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
       <ul className="review-list">
         {render.map((review) => (
           <ReviewTile
