@@ -12,8 +12,8 @@ function ImageThumbnail({
       <img
         className="image-thumbnail"
         style={index === currentImageIndex ? { borderBottom: '8px solid blue' } : {}}
-        src={img.thumbnail_url.substring(img.thumbnail_url.indexOf('http'))
- || 'https://demofree.sirv.com/products/123456/123456.jpg?profile=error-example'}
+        src={img.thumbnail_url ? img.thumbnail_url.substring(img.thumbnail_url.indexOf('http'))
+          : '../../../assets/noProdImg.png'}
         alt="thunmbnail"
       />
     </div>
