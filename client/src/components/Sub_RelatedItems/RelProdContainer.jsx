@@ -13,7 +13,7 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
 
   // =================== EFFECTS ===================
 
-  useEffect(() => getRelatedProdsAndReviews(), []);
+  useEffect(() => getRelatedProdsAndReviews(), [productID]);
 
   // =================== HELPERS ===================
   const getRelatedProdsAndReviews = () => {
@@ -35,9 +35,11 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
       .catch((err) => err);
   };
 
-  const handleCardClick = (productId) => {
-    event.preventDefault();
-    // setProductID(productId);
+  // =================== HANDLERS ===================
+  const setAsNewOverview = (id) => {
+    // event.preventDefault();
+    console.log('clicked product id: ', id);
+    setProductID(id);
   };
 
   // =================== COMPONENT ===================
@@ -51,7 +53,7 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
       {relatedProds.map((product, i) => (
         <SingleProd
           className="related-prod"
-          onClick={handleCardClick}
+          onClick={setAsNewOverview}
           key={i}
           product={product} // this single product
           setProductID={setProductID} // function
