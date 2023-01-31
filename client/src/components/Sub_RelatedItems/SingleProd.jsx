@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 
 import ProdImg from './Sub_SingleProd/ProdImg.jsx';
 import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 
-function SingleProd({ product, setProductID, productStyle, reviewMetadata }) {
+function SingleProd({ product, setProductID, productStyle, reviewMetadata, onClick }) {
 
   // =================== STATES ===================
 
@@ -39,7 +38,6 @@ function SingleProd({ product, setProductID, productStyle, reviewMetadata }) {
         setThisAvgRating(avg);
       })
       .catch((err) => err);
-
   }, []);
 
   // =================== HELPERS ===================
@@ -55,13 +53,13 @@ function SingleProd({ product, setProductID, productStyle, reviewMetadata }) {
     const find = style[0];
 
     if (!style.length) {
-      setThisPrice([product['default_price'], null])
+      setThisPrice([product.default_price, null]);
     }
 
-    if (find['sale_price']) {
-      setThisPrice([find['sale_price'], find['original_price']]);
+    if (find.sale_price) {
+      setThisPrice([find.sale_price, find.original_price]);
     } else {
-      setThisPrice([find['original_price'], null]);
+      setThisPrice([find.original_price, null]);
     }
   };
 
@@ -69,7 +67,7 @@ function SingleProd({ product, setProductID, productStyle, reviewMetadata }) {
     let totalRatings = 0;
     let sum = 0;
 
-    for (let num in ratings) {
+    for (const num in ratings) {
       sum += Number(num) * ratings[num];
       totalRatings += Number(ratings[num]);
     }
@@ -77,21 +75,24 @@ function SingleProd({ product, setProductID, productStyle, reviewMetadata }) {
     return [sum / totalRatings, totalRatings];
   };
 
+  // =================== HANDLERS ===================
+  const handleClick = () => onClick(id);
+
   // =================== COMPONENT ===================
   return (
-    <>
-      < ProdImg
-        className={"pic"}
+    <button type="button" className="btn card-btn" onClick={handleClick}>
+      <ProdImg
+        className="prod-pic"
         defaultPic={imgUrl}
         product={product}
       />
-      < ProdInfo
-        className={"info"}
+      <ProdInfo
+        className="prod-info"
         product={product}
         thisPrice={thisPrice}
         thisAvgRating={thisAvgRating}
       />
-    </>
+    </button>
   );
 }
 

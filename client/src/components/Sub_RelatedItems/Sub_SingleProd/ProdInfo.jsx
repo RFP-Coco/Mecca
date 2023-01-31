@@ -8,32 +8,45 @@ function ProdInfo({ product, thisPrice, thisAvgRating }) {
   // =================== HELPERS ===================
   const {
     category,
-    description,
     name,
-    id,
     slogan,
-    features
   } = product;
+
+  let niceOriginalPrice;
+  let niceSalePrice;
+
+  if (thisPrice[0]) {
+    niceOriginalPrice = thisPrice[0].slice(0, thisPrice[0].length - 3);
+  }
+  if (thisPrice[1]) {
+    niceSalePrice = thisPrice[1].slice(0, thisPrice[0].length - 3);
+  }
 
   // =================== COMPONENT ===================
   return (
-    <div className="related-prod card">
-      Category: {category}
-      <br></br>
-      Name: {name}
-      <br></br>
-      Slogan: {slogan}
-      <br></br>
-      Description: {description}
-      <br></br>
-      Current Price: {thisPrice[0]} --- {`(${thisPrice[1]})`}
-      <br></br>
-      Avgerage rating: {thisAvgRating[0]} --- {`(${thisAvgRating[1]})`}
-      <br></br>
-      <br></br>
+    <div>
+      <div>
+        {/* category */}
+        {category}
+      </div>
+
+      <div>
+        {/* product name, addtl text (slogan) */}
+        {name}: {slogan}
+      </div>
+
+      <div>
+        {/* orig price | sale price */}
+        {`$${niceOriginalPrice}`} {thisPrice[1] && ` | $${niceSalePrice}`}
+      </div>
+
+      <div>
+        {/* avg for stars | tot. reviews */}
+        {thisAvgRating[0]} | {`(${thisAvgRating[1]})`}
+      </div>
     </div>
 
   );
-};
+}
 
 export default ProdInfo;

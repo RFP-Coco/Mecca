@@ -13,14 +13,15 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
 
   // =================== EFFECTS ===================
 
-  useEffect(() => getRelatedProdsAndReviews(), [productID]);
+  useEffect(() => getRelatedProdsAndReviews(), []);
 
   // =================== HELPERS ===================
   const getRelatedProdsAndReviews = () => {
     axios.get(`/api/products/${productID}/related`)
       .then((response) => {
-        setRelatedIDs(response.data);
-        return response.data;
+        const uniqueIds = [...new Set(response.data)];
+        setRelatedIDs(uniqueIds);
+        return uniqueIds;
       })
       .then((ids) => {
         const productReqs = ids.map((id) => axios.get(`/api/products/${id}`));
@@ -34,29 +35,32 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
       .catch((err) => err);
   };
 
+  const handleCardClick = (productId) => {
+    event.preventDefault();
+    // setProductID(productId);
+  };
+
   // =================== COMPONENT ===================
   return (
-    <div className="related-products container">
+    <div className="related-items container">
       {!relatedProds.length && (
         <div className="related-prod null">
           There are no related products to display at this time...
         </div>
       )}
-      {relatedProds.map((product, i) => {
-        return (
-          < SingleProd
-            className={"related-prod card"}
-            key={i}
-            product={product} // this single product
-            setProductID={setProductID} // function
-            productStyle={productStyle} // parent product's styles
-            reviewMetadata={reviewMetadata} // parent product's meta
-          />
-        );
-      })}
+      {relatedProds.map((product, i) => (
+        <SingleProd
+          className="related-prod"
+          onClick={handleCardClick}
+          key={i}
+          product={product} // this single product
+          setProductID={setProductID} // function
+          productStyle={productStyle} // parent product's styles
+          reviewMetadata={reviewMetadata} // parent product's meta
+        />
+      ))}
     </div>
   );
-
 }
 
 export default RelProdContainer;

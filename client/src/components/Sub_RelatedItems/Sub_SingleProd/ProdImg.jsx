@@ -6,15 +6,15 @@ function ProdImg({ defaultPic, product }) {
 
   return (
     <>
-      <div>This is a single product card.</div>
       <button
         className="compare-btn btn"
-      ><img src={'../../../../assets/moreInfo.png'}/>
+        type="button"
+      ><img src="../../../../assets/moreInfo.png" alt="opens a comparison modal" />
       </button>
       <img
         className="default-pic"
         src={defaultPic}
-        alt={`a sample image of the ${product.name} product`}
+        alt={`a sample of the ${product.name} product`}
       />
     </>
 
