@@ -16,7 +16,7 @@ function ProductDetail({ product, productStyle }) {
     } else {
       setCurrentStyle(styles[0]);
     }
-  }, []);
+  }, [product]);
 
   return (
     <div className="product-detail">
