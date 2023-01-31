@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import './Sub_ProductDetail/styles/overview.css';
 import ImageGallery from './Sub_ProductDetail/ImageGallery.jsx';
-const ProductDetail = ({productStyle}) => {
+import ProductInfo from './Sub_ProductDetail/ProductInfo.jsx';
+
+function ProductDetail({ product, productStyle }) {
   const [currentStyle, setCurrentStyle] = useState();
-  console.log('SHOW PRODUCT STYLE: ', productStyle)
+  // console.log('SHOW PRODUCT STYLE: ', productStyle);
 
   useEffect(() => {
-    let styles = productStyle.results;
-    let defaultStyle = styles.filter(style => style['default?']);
+    const styles = productStyle.results;
+    const defaultStyle = styles.filter((style) => style['default?']);
     if (defaultStyle) {
-      console.log('SHOW DEFAULT STYLE: ', defaultStyle);
+      // console.log('SHOW DEFAULT STYLE: ', defaultStyle);
       setCurrentStyle(defaultStyle[0]);
     } else {
       setCurrentStyle(styles[0]);
@@ -16,11 +19,13 @@ const ProductDetail = ({productStyle}) => {
   }, []);
 
   return (
-    <div className='product-detail'>
-      {currentStyle && <ImageGallery currentStyle={currentStyle}/>}
-      {currentStyle && <div>style selector</div>}
+    <div className="product-detail">
+      {currentStyle && <ImageGallery currentStyle={currentStyle} />}
+      <div className="product-text">
+        {currentStyle && <ProductInfo product={product} />}
+      </div>
 
     </div>
   );
-};
+}
 export default ProductDetail;

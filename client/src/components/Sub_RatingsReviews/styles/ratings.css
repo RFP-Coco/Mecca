@@ -3,7 +3,7 @@
 }
 
 .review-list {
-  height: 1000px;
+  /* height: 500px; */
   overflow-y: scroll;
 
 }
@@ -77,7 +77,7 @@ body {
   align-items: center;
   /* background: #333; */
   display: flex;
-  height: 100vh;
-  /* justify-content: center; */
+  /* height: 100vh; */
+  justify-content: center;
 }
 

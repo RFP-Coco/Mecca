@@ -3,6 +3,7 @@
 .product-detail {
   display: flex;
   flex-direction: row;
+
 }
 
 .image-gallery {
@@ -12,6 +13,13 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.product-text {
+  margin: 1rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .image-slide {
@@ -48,3 +56,8 @@
   object-fit: contain;
 }
 
+
+.product-detail transparent-button {
+  visibility: hidden;
+
+}
