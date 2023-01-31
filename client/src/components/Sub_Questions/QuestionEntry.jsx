@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { parseISO, format } from 'date-fns';
 import AnswerEntry from './AnswerEntry.jsx';
 
 export default function QuestionEntry({ question }) {
@@ -18,8 +19,11 @@ export default function QuestionEntry({ question }) {
   }, []);
 
   useEffect(() => {
-    const { length } = currentAnswers;
-    setCurrentAnswers(allAnswers.slice(0, length + 2));
+    if (!clicked) {
+      setCurrentAnswers(allAnswers.slice(0, 2));
+    } else {
+      setCurrentAnswers(allAnswers);
+    }
   }, [allAnswers, clicked]);
 
   useEffect(() => {
@@ -30,18 +34,26 @@ export default function QuestionEntry({ question }) {
     <div>
       <div>
         <div>Q:{question.question_body} helpfulness: {question.question_helpfulness}</div>
-        by{question.asker_name}, {question.question_date}
+        by{question.asker_name}, {format(parseISO(question.question_date), 'LLLL d, yyyy')}
       </div>
       {currentAnswers.map((answer) => (
         <AnswerEntry answer={answer} key={answer.answer_id} />
       ))}
-      {!moreAnswers && (
-        <button
-          type="button"
-          onClick={() => { setClicked(!clicked); }}
-        > More Answers...
-        </button>
-      )}
+      {!moreAnswers
+        ? (
+          <button
+            type="button"
+            onClick={() => { setClicked(true); }}
+          > More Answers...
+          </button>
+        )
+        : (
+          <button
+            type="button"
+            onClick={() => { setClicked(false); }}
+          > Back
+          </button>
+        )}
     </div>
   );
 }

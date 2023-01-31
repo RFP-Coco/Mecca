@@ -18,7 +18,19 @@ export default function QuestionList({ questionList }) {
 
   useEffect(() => {
     setMoreQuestions(allQuestions.length <= currentQuestions.length);
-  }, [allQuestions, currentQuestions]);
+  }, [currentQuestions]);
+
+  useEffect(() => {
+    setCurrentQuestions(allQuestions.slice(0, 2));
+  }, [allQuestions]);
+
+  if (!allQuestions.length) {
+    return (
+      <div>
+        There is no questions
+      </div>
+    );
+  }
 
   return (
     <div>
