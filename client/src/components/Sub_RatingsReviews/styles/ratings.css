@@ -84,3 +84,18 @@ h3 {
 .review-dashboard {
   border: 2px solid green
 }
+
+.rating-container {
+  display: flex;
+}
+
+progress {
+  border: 1px solid grey;
+}
+
+progress::-webkit-progress-value {
+  background: rgb(141, 183, 139);
+}
+progress::-webkit-progress-bar {
+  background: rgb(220, 220, 234);
+}
