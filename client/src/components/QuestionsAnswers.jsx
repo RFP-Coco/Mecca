@@ -10,8 +10,10 @@ export default function QuestionsAnswers({ productID }) {
   const tempId = 40355;
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
+  const [show, setShow] = useState(false);
 
-  useEffect(() => {
+  const updateQuestions = () => {
+    console.log('invoked');
     axios.get(`/api/qa/questions?product_id=${tempId}&count=5&page=1`)
       .then((result) => {
         setQuestionList(result.data.results);
@@ -19,6 +21,9 @@ export default function QuestionsAnswers({ productID }) {
       .catch((err) => {
         console.log(err);
       });
+  };
+  useEffect(() => {
+    updateQuestions();
   }, [tempId]);
 
   useEffect(() => {
@@ -32,8 +37,9 @@ export default function QuestionsAnswers({ productID }) {
         questionList={questionList}
         setFilteredList={setFilteredList}
       />
-      <QuestionList questionList={filteredList} />
-      <AskQuestion />
+      <QuestionList questionList={filteredList} updateQuestions={updateQuestions} />
+      <button type="button" onClick={() => { setShow(true); }}> Ask a question</button>
+      <AskQuestion show={show} setShow={setShow} productID={tempId} update={updateQuestions} />
       <AnswerQuestion />
     </div>
   );

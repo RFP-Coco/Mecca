@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { parseISO, format } from 'date-fns';
 import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
 
-export default function QuestionEntry({ question }) {
+export default function QuestionEntry({ question, updateQuestions }) {
   const [allAnswers, setAllAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
@@ -18,6 +17,15 @@ export default function QuestionEntry({ question }) {
         console.log(err);
       });
   };
+
+  const handleHelpful = () => {
+    axios.put(`/api/qa/questions/${question.question_id}/helpful`)
+      .then(updateQuestions)
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     updateAnswers();
   }, [question]);
@@ -39,7 +47,7 @@ export default function QuestionEntry({ question }) {
       <div className="question">
         <div>
           <span className="question-item">Q: {question.question_body}</span>
-          <span>Helpful?</span> <button type="button">Yes</button>{question.question_helpfulness}
+          <span>Helpful?</span> <button type="button" onClick={handleHelpful}>Yes({question.question_helpfulness})</button>
           <button type="button"> Add Answer</button>
         </div>
       </div>
