@@ -2,14 +2,23 @@ import React from 'react';
 
 import ComparisonModal from './ComparisonModal.jsx';
 
-function ProdImg({ defaultPic, product }) {
-
+export default function ProdImg({ defaultPic, product, setAllowCardClick }) {
   const picUrl = defaultPic || '../../../assets/noProdImg.png';
 
+  // =================== Handlers ===================
+  const handleComparisonModal = (event) => {
+    event.preventDefault();
+    console.log('click event: ', event);
+  };
+
+  // =================== COMPONENT ===================
   return (
     <div className="prod-pic">
       <button
         className="btn compare-btn"
+        onMouseEnter={() => setAllowCardClick(false)}
+        onMouseLeave={() => setAllowCardClick(true)}
+        onClick={handleComparisonModal}
         type="button"
       ><img src="../../../../assets/compareStar.png" alt="opens a comparison modal" />
       </button>
@@ -21,7 +30,4 @@ function ProdImg({ defaultPic, product }) {
     </div>
 
   );
-
-};
-
-export default ProdImg;
+}

@@ -4,8 +4,9 @@ import axios from 'axios';
 import ProdImg from './Sub_SingleProd/ProdImg.jsx';
 import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 
-function SingleProd({ product, productID, productStyle, reviewMetadata, onClick }) {
-
+export default function SingleProd({
+  product, productID, productStyle, reviewMetadata, onClick, setAllowCardClick,
+}) {
   const { id } = product;
 
   // =================== STATES ===================
@@ -78,7 +79,6 @@ function SingleProd({ product, productID, productStyle, reviewMetadata, onClick 
 
   // =================== COMPONENT ===================
   return (
-
     <div
       className="single-prod container"
       onClick={() => onClick(id)}
@@ -86,6 +86,7 @@ function SingleProd({ product, productID, productStyle, reviewMetadata, onClick 
       <ProdImg
         defaultPic={imgUrl}
         product={product}
+        setAllowCardClick={setAllowCardClick}
       />
       <ProdInfo
         product={product}
@@ -95,5 +96,3 @@ function SingleProd({ product, productID, productStyle, reviewMetadata, onClick 
     </div>
   );
 }
-
-export default SingleProd;

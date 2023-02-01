@@ -1,15 +1,17 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import SingleProd from './SingleProd.jsx';
 
-function RelProdContainer({ product, productID, setProductID, productStyle, reviewMetadata }) {
-
+export default function RelProdContainer({
+  product, productID, setProductID, productStyle, reviewMetadata,
+}) {
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
 
   const [relatedProds, setRelatedProds] = useState([]);
+
+  const [allowCardClick, setAllowCardClick] = useState(true);
 
   // =================== EFFECTS ===================
 
@@ -38,8 +40,7 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
   // =================== HANDLERS ===================
   const setAsNewOverview = (id) => {
     // event.preventDefault();
-    console.log('clicked product id: ', id);
-    setProductID(id);
+    if (allowCardClick) setProductID(id);
   };
 
   // =================== COMPONENT ===================
@@ -59,10 +60,9 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
           setProductID={setProductID} // function
           productStyle={productStyle} // parent product's styles
           reviewMetadata={reviewMetadata} // parent product's meta
+          setAllowCardClick={setAllowCardClick}
         />
       ))}
     </div>
   );
 }
-
-export default RelProdContainer;
