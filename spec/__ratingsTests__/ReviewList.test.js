@@ -1,7 +1,11 @@
 import React from 'react';
-import { cleanup, render, screen, within } from '@testing-library/react';
+import {
+  cleanup, render, screen, within,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { afterEach, describe, it, expect } from '@jest/globals';
+import {
+  afterEach, describe, it, expect,
+} from '@jest/globals';
 import jest from 'jest';
 import ReviewList from '../../client/src/components/Sub_RatingsReviews/ReviewList';
 
@@ -177,15 +181,16 @@ describe('More Reviews', () => {
     render(<ReviewList reviews={reviews} />);
     const button = screen.getByRole('button', { name: 'More Reviews' });
     // const handleButtonClick = jest.fn();
-    user.click(button);
 
+    user.click(button);
     const list = screen.getByRole('list');
 
     const { getAllByRole } = within(list);
 
     const items = getAllByRole('listitem');
 
-    expect(items.length).toBe(4);
+    expect(items.length).toBe(4); // ...
+
   });
 
   it('renders response from seller if it exists', () => {

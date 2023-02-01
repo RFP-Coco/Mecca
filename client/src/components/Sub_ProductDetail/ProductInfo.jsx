@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 
 function ProductInfo({ product }) {
-  // console.log(product);
-
   return (
     <div>
       <p>stars and reviews here</p>
