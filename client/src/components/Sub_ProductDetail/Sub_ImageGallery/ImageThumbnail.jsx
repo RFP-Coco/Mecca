@@ -14,7 +14,7 @@ function ImageThumbnail({
         style={index === currentImageIndex ? { borderBottom: '8px solid blue' } : {}}
         src={img.thumbnail_url ? img.thumbnail_url.substring(img.thumbnail_url.indexOf('http'))
           : '../../../assets/noProdImg.png'}
-        alt="thunmbnail"
+        alt="thumbnail"
       />
     </div>
 

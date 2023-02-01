@@ -3,13 +3,37 @@
 exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
 <div>
   <div>
+    <div>
+      <p>
+        sorted by: 
+      </p>
+      <select>
+        <option
+          value="relevant"
+        >
+          Relevant
+        </option>
+        <option
+          value="helpful"
+        >
+          Helpful
+        </option>
+        <option
+          value="newest"
+        >
+          Newest
+        </option>
+      </select>
+    </div>
     <ul
       class="review-list"
     >
       <li
         class="review-tile"
       >
-        <b>
+        <b
+          class="review-summary"
+        >
           this is monks test
         </b>
         <p
@@ -59,12 +83,23 @@ exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
             />
           </svg>
         </small>
-        <div />
+        <div
+          class="review-helpfulness"
+        >
+          Was this review helpful?
+          <a
+            href=""
+          >
+            1
+          </a>
+        </div>
       </li>
       <li
         class="review-tile"
       >
-        <b>
+        <b
+          class="review-summary"
+        >
           meow
         </b>
         <p
@@ -99,7 +134,16 @@ exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
         <div
           class="review-photos"
         />
-        <div />
+        <div
+          class="review-helpfulness"
+        >
+          Was this review helpful?
+          <a
+            href=""
+          >
+            0
+          </a>
+        </div>
       </li>
     </ul>
   </div>
@@ -109,13 +153,37 @@ exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
 exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
 <div>
   <div>
+    <div>
+      <p>
+        sorted by: 
+      </p>
+      <select>
+        <option
+          value="relevant"
+        >
+          Relevant
+        </option>
+        <option
+          value="helpful"
+        >
+          Helpful
+        </option>
+        <option
+          value="newest"
+        >
+          Newest
+        </option>
+      </select>
+    </div>
     <ul
       class="review-list"
     >
       <li
         class="review-tile"
       >
-        <b>
+        <b
+          class="review-summary"
+        >
           this is monks test
         </b>
         <p
@@ -165,12 +233,23 @@ exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
             />
           </svg>
         </small>
-        <div />
+        <div
+          class="review-helpfulness"
+        >
+          Was this review helpful?
+          <a
+            href=""
+          >
+            1
+          </a>
+        </div>
       </li>
       <li
         class="review-tile"
       >
-        <b>
+        <b
+          class="review-summary"
+        >
           meow
         </b>
         <p
@@ -205,7 +284,16 @@ exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
         <div
           class="review-photos"
         />
-        <div />
+        <div
+          class="review-helpfulness"
+        >
+          Was this review helpful?
+          <a
+            href=""
+          >
+            0
+          </a>
+        </div>
       </li>
     </ul>
     <button
@@ -220,13 +308,37 @@ exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
 exports[`More Reviews renders response from seller if it exists 1`] = `
 <div>
   <div>
+    <div>
+      <p>
+        sorted by: 
+      </p>
+      <select>
+        <option
+          value="relevant"
+        >
+          Relevant
+        </option>
+        <option
+          value="helpful"
+        >
+          Helpful
+        </option>
+        <option
+          value="newest"
+        >
+          Newest
+        </option>
+      </select>
+    </div>
     <ul
       class="review-list"
     >
       <li
         class="review-tile"
       >
-        <b>
+        <b
+          class="review-summary"
+        >
           this is monks test
         </b>
         <p
@@ -276,16 +388,29 @@ exports[`More Reviews renders response from seller if it exists 1`] = `
             />
           </svg>
         </small>
-        <p>
+        <p
+          class="review-response"
+        >
           Response From Seller: 
           stoopid
         </p>
-        <div />
+        <div
+          class="review-helpfulness"
+        >
+          Was this review helpful?
+          <a
+            href=""
+          >
+            1
+          </a>
+        </div>
       </li>
       <li
         class="review-tile"
       >
-        <b>
+        <b
+          class="review-summary"
+        >
           meow
         </b>
         <p
@@ -320,7 +445,16 @@ exports[`More Reviews renders response from seller if it exists 1`] = `
         <div
           class="review-photos"
         />
-        <div />
+        <div
+          class="review-helpfulness"
+        >
+          Was this review helpful?
+          <a
+            href=""
+          >
+            0
+          </a>
+        </div>
       </li>
     </ul>
   </div>
