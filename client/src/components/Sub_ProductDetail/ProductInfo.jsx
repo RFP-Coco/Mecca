@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import SocialMediaShare from './Sub_ProductInfo/SocialMediaShare.jsx';
 
 function ProductInfo({ product }) {
   return (
@@ -13,7 +14,7 @@ function ProductInfo({ product }) {
       {product.features.map(
         (feature, index) => <p key={index}>{feature.feature} : {feature.value}</p>,
       )}
-      <p>share on social media</p>
+      <SocialMediaShare product={product} />
     </div>
   );
 }
