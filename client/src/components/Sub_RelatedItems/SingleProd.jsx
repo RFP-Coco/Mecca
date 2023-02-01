@@ -22,6 +22,8 @@ export default function SingleProd({
 
   const [showComparisonModal, setShowComparisonModal] = useState(false);
 
+  const [thisReviewMeta, setThisReviewMeta] = useState({});
+
   // =================== EFFECTS ===================
 
   useEffect(() => {
@@ -42,8 +44,10 @@ export default function SingleProd({
       .then((reviewMeta) => {
         const avg = getAvg(reviewMeta.data);
         setThisAvgRating(avg);
+        setThisReviewMeta(reviewMeta.data);
       })
       .catch((err) => err);
+    setShowComparisonModal(false);
   }, [id]);
 
   // =================== HELPERS ===================
@@ -93,13 +97,16 @@ export default function SingleProd({
       {showComparisonModal
         ? (
           <ComparisonModal
-            onClick={handleOutsideClick}
             thisProduct={thisProduct}
             theseStyles={theseStyles}
             thisAvgRating={thisAvgRating}
+            thisPrice={thisPrice}
+            thisReviewMeta={thisReviewMeta}
             parentProduct={parentProduct}
             productStyle={productStyle}
             reviewMetadata={reviewMetadata}
+            setAllowCardClick={setAllowCardClick}
+            setShowComparisonModal={setShowComparisonModal}
           />
         )
         : null}
