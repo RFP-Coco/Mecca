@@ -1,11 +1,14 @@
+h3 {
+  font-size: 32px;
+}
+
 .review-summary{
   font-weight: bold;
 }
 
 .review-list {
-  /* height: 500px; */
+  height: 25rem;
   overflow-y: scroll;
-
 }
 
 /* review tile body */
@@ -72,12 +75,31 @@
   max-width: 20%;
 }
 
-/* PRESENTATION STYLES */
-body {
-  align-items: center;
-  /* background: #333; */
-  display: flex;
-  /* height: 100vh; */
-  /* justify-content: center; */
+/* DASHBOARD */
+.star-rating {
+  font-size: 2em;
 }
 
+.review-dashboard {
+  border: 2px solid green
+}
+
+.rating-container {
+  display: flex;
+}
+
+.rating-bar:hover{
+  background-color: aquamarine;
+}
+
+progress {
+  border: 1px solid grey;
+}
+
+progress::-webkit-progress-value {
+  background: rgb(141, 183, 139);
+}
+progress::-webkit-progress-bar {
+  background: rgb(220, 220, 234);
+
+}
