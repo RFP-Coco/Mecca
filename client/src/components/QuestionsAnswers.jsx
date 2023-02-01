@@ -25,7 +25,7 @@ export default function QuestionsAnswers({ productID }) {
   }, [questionList]);
 
   return (
-    <div>
+    <div id="qna">
       Hello from QnA
       <QuestionsSearch />
       <QuestionList questionList={filteredList} />
