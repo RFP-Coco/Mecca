@@ -8,8 +8,9 @@ import AnswerQuestion from './Sub_Questions/AnswerQuestion.jsx';
 export default function QuestionsAnswers() {
   const tempId = 40355;
   const [questionList, setQuestionList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
 
-  const updateList = () => {
+  useEffect(() => {
     axios.get(`/api/qa/questions?product_id=${tempId}&count=5&page=1`)
       .then((result) => {
         setQuestionList(result.data.results);
@@ -17,16 +18,17 @@ export default function QuestionsAnswers() {
       .catch((err) => {
         console.log(err);
       });
-  };
+  }, []);
 
   useEffect(() => {
-    updateList();
-  }, []);
+    setFilteredList(questionList);
+  }, [questionList]);
+
   return (
     <div>
       Hello from QnA
       <QuestionsSearch />
-      <QuestionList questionList={questionList} />
+      <QuestionList questionList={filteredList} />
       <AskQuestion />
       <AnswerQuestion />
     </div>

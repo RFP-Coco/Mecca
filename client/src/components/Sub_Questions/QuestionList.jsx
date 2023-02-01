@@ -2,50 +2,45 @@ import React, { useState, useEffect } from 'react';
 import QuestionEntry from './QuestionEntry.jsx';
 
 export default function QuestionList({ questionList }) {
-  const [allQuestions, setAllAnswers] = useState([]);
-  const [currentQuestions, setCurrentQuestions] = useState([]);
-  const [clicked, setClicked] = useState(false);
-  const [moreQuestions, setMoreQuestions] = useState(false);
+  const [allQuestions, setAllQuestions] = useState([]);
+  const [currentDisplay, setCurrentDisplay] = useState([]);
+  const [moreQuestions, setMoreQuestions] = useState(true);
 
   useEffect(() => {
-    setAllAnswers(questionList);
+    setAllQuestions(questionList);
   }, [questionList]);
 
   useEffect(() => {
-    const { length } = currentQuestions;
-    setCurrentQuestions(questionList.slice(0, length + 2));
-  }, [clicked]);
-
-  useEffect(() => {
-    setMoreQuestions(allQuestions.length <= currentQuestions.length);
-  }, [currentQuestions]);
-
-  useEffect(() => {
-    setCurrentQuestions(allQuestions.slice(0, 2));
+    setCurrentDisplay(allQuestions.slice(0, 2));
   }, [allQuestions]);
+
+  const handleClick = () => {
+    setCurrentDisplay(allQuestions.slice(0, currentDisplay.length + 2));
+    if (allQuestions.length <= currentDisplay.length + 2) {
+      setMoreQuestions(false);
+    }
+  };
 
   if (!allQuestions.length) {
     return (
       <div>
-        There is no questions
+        There are no questions
       </div>
     );
   }
 
   return (
     <div>
-      {currentQuestions.map((question) => (
+      {currentDisplay.map((question) => (
         <QuestionEntry
           question={question}
           key={question.question_id}
         />
       ))}
-      {!moreQuestions && (
+      {moreQuestions && (
         <button
           type="button"
-          onClick={() => {
-            setClicked(!clicked);
-          }}
+          onClick={handleClick}
         > More Questions...
         </button>
       )}

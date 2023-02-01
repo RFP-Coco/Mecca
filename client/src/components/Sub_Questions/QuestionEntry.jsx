@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { parseISO, format } from 'date-fns';
+import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
 
 export default function QuestionEntry({ question }) {
@@ -8,6 +8,7 @@ export default function QuestionEntry({ question }) {
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
   const [moreAnswers, setMoreAnswers] = useState(false);
+
   useEffect(() => {
     axios.get(`/api/qa/questions/${question.question_id}/answers?page=1&count=5`)
       .then(({ data: { results } }) => {
