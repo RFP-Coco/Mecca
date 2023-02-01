@@ -47,6 +47,7 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
       {reviews && reviewMetadata
       && (
       <Dashboard
+        selectedRatings={selectedRatings}
         toggleSelectedRating={toggleSelectedRating}
         selectedRatings={selectedRatings}
         setSelectedRatings={setSelectedRatings}

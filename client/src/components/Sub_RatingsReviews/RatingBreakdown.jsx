@@ -1,10 +1,14 @@
 import React from 'react';
 
 export default function RatingBreakdown({
-  reviewMetadata, totalAmtOfReviews, toggleSelectedRating,
+  reviewMetadata, totalAmtOfReviews, toggleSelectedRating, selectedRatings,
 }) {
   const progress = Object.entries(reviewMetadata.ratings)
     .map((entry) => [entry[0], entry[1] / totalAmtOfReviews, entry[1]]);
+
+  const currentFilters = Object.entries(selectedRatings)
+    .filter((entry) => !!entry[1])
+    .map((entry) => entry[0]);
 
   return (
     <div className="rating-breakdown">
@@ -26,6 +30,12 @@ export default function RatingBreakdown({
           </div>
         );
       })}
+      {}
+      <div className="">currently displaying:
+        {currentFilters.length === 0 || currentFilters.length === 5
+          ? 'all'
+          : `${currentFilters.join(', ')} star`} reviews
+      </div>
     </div>
   );
 }

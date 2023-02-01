@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import RatingSummary from './RatingSummary.jsx';
-import RatingBreakdown from './RatingBreakdown.jsx'
+import RatingBreakdown from './RatingBreakdown.jsx';
 
 export default function Dashboard({
-  reviews, reviewMetadata, toggleSelectedRating,
+  reviews, reviewMetadata, toggleSelectedRating, selectedRatings,
 }) {
   const totalAmtOfReviews = Object.values(reviewMetadata.ratings)
     .reduce((accumulator, currrent) => Number(currrent) + accumulator, 0);
@@ -22,6 +22,7 @@ export default function Dashboard({
         avgStarRating={avgStarRating}
       />
       <RatingBreakdown
+        selectedRatings={selectedRatings}
         toggleSelectedRating={toggleSelectedRating}
         reviews={reviews}
         reviewMetadata={reviewMetadata}
