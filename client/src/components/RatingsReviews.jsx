@@ -4,8 +4,15 @@ import './Sub_RatingsReviews/styles/ratings.css';
 import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
 import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
 
-export default function RatingsReviews({ productID, reviewMetadata, product }) {
+export default function RatingsReviews({ productID, reviewMetadata}) {
   const [sort, setSort] = useState('relevant');
+  const [selectedRatings, setSelectedRatings] = useState({
+    1: false,
+    2: false,
+    3: true,
+    4: true,
+    5: false,
+  });
 
   const [reviews, setReviews] = useState(null);
 
@@ -27,18 +34,27 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
     setSort(event.target.value);
   };
 
+  // toggle handle
+  // const toggle
+
   return (
     <div className="ratings-reviews">
       <h3>Ratings & Reviews</h3>
-      {reviewMetadata
-      && <Dashboard reviewMetadata={reviewMetadata} />}
+      {reviews && reviewMetadata
+      && (
+      <Dashboard
+        setSelectedRatings={setSelectedRatings}
+        reviewMetadata={reviewMetadata}
+        reviews={reviews}
+      />
+      )}
       {reviews
       && reviewMetadata
       && (
       <ReviewList
+        selectedRatings={selectedRatings}
         sort={sort}
         onChange={handleSortChange}
-        reviewMetadata={reviewMetadata}
         reviews={reviews}
         update={updateData}
       />

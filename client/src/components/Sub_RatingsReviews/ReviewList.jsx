@@ -3,9 +3,17 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
 export default function ReviewList({
-  reviews, reviewMetadata, update, onChange, sort,
+  reviews, update, onChange, sort, selectedRatings,
 }) {
   const [displayedReviews, setDisplayedReviews] = useState(2);
+
+  // filter reviews based on user selected state
+  let filteredReviews;
+  const filterReviewsByStar = () => {
+    filteredReviews = reviews.results.filter((review) => !!selectedRatings[review.rating]);
+  }
+  filterReviewsByStar();
+  console.log(filteredReviews);
 
   const render = [];
   for (let i = 0; i < displayedReviews; i += 1) {
@@ -40,10 +48,16 @@ export default function ReviewList({
         </select>
       </div>
       <ul className="review-list">
-        {render.map((review) => (
+        {/* {render.map((review) => (
           <ReviewTile
             key={review.review_id}
-            reviewMetadata={reviewMetadata}
+            review={review}
+            handleHelpfulClick={handleHelpfulClick}
+          />
+        ))} */}
+        {filteredReviews.map((review) => (
+          <ReviewTile
+            key={review.review_id}
             review={review}
             handleHelpfulClick={handleHelpfulClick}
           />

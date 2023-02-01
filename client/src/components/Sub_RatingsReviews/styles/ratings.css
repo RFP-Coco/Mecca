@@ -76,7 +76,6 @@ h3 {
 }
 
 /* DASHBOARD */
-
 .star-rating {
   font-size: 2em;
 }
@@ -89,6 +88,10 @@ h3 {
   display: flex;
 }
 
+.rating-bar:hover{
+  background-color: aquamarine;
+}
+
 progress {
   border: 1px solid grey;
 }
@@ -98,4 +101,5 @@ progress::-webkit-progress-value {
 }
 progress::-webkit-progress-bar {
   background: rgb(220, 220, 234);
+
 }
