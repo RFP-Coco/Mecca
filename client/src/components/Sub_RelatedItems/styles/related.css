@@ -1,10 +1,16 @@
 .related-items {
   height: 25%;
   width: 75%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
 .container {
   display: flex;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .default-pic {
@@ -24,8 +30,8 @@
 }
 
 .compare-btn img {
-  height: 2rem;
-  width: 2rem;
+  height: 2px;
+  width: 2px;
 }
 
 .single-prod {
