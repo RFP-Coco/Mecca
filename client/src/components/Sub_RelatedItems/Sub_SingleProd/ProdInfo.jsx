@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ProdInfo({ product, thisPrice, thisAvgRating }) {
+function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
 
   // =================== EFFECTS ===================
 
@@ -10,7 +10,7 @@ function ProdInfo({ product, thisPrice, thisAvgRating }) {
     category,
     name,
     slogan,
-  } = product;
+  } = thisProduct;
 
   let niceOriginalPrice;
   let niceSalePrice;
@@ -24,7 +24,7 @@ function ProdInfo({ product, thisPrice, thisAvgRating }) {
 
   // =================== COMPONENT ===================
   return (
-    <div>
+    <div className="prod-info">
       <div>
         {/* category */}
         {category}
@@ -32,7 +32,7 @@ function ProdInfo({ product, thisPrice, thisAvgRating }) {
 
       <div>
         {/* product name, addtl text (slogan) */}
-        {name}: {slogan}
+        {name}<br />{slogan}
       </div>
 
       <div>

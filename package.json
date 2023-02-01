@@ -39,6 +39,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
+    "jest-transform-stub": "^2.0.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "react-test-renderer": "^18.2.0",
@@ -60,7 +61,11 @@
   "jest": {
     "verbose": false,
     "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
+      "^.+\\.[t|j]sx?$": "babel-jest",
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    },
+    "moduleNameMapper": {
+      "^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
     },
     "testEnvironment": "jsdom"
   }

@@ -4,8 +4,9 @@ import RelProdContainer from './Sub_RelatedItems/RelProdContainer.jsx';
 import OutfitContainer from './Sub_RelatedItems/OutfitContainer.jsx';
 import './Sub_RelatedItems/styles/related.css';
 
-function RelatedItems({ product, productID, setProductID, productStyle, reviewMetadata }) {
-
+export default function RelatedItems({
+  product, productID, setProductID, productStyle, reviewMetadata,
+}) {
   return (
     <section className="related-items">
       <div>
@@ -23,5 +24,3 @@ function RelatedItems({ product, productID, setProductID, productStyle, reviewMe
     </section>
   );
 }
-
-export default RelatedItems;

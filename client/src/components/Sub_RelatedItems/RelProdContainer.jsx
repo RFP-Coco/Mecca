@@ -1,15 +1,17 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import SingleProd from './SingleProd.jsx';
 
-function RelProdContainer({ product, productID, setProductID, productStyle, reviewMetadata }) {
-
+export default function RelProdContainer({
+  product, productID, setProductID, productStyle, reviewMetadata,
+}) {
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
 
   const [relatedProds, setRelatedProds] = useState([]);
+
+  const [allowCardClick, setAllowCardClick] = useState(true);
 
   // =================== EFFECTS ===================
 
@@ -38,8 +40,7 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
   // =================== HANDLERS ===================
   const setAsNewOverview = (id) => {
     // event.preventDefault();
-    console.log('clicked product id: ', id);
-    setProductID(id);
+    if (allowCardClick) setProductID(id);
   };
 
   // =================== COMPONENT ===================
@@ -50,19 +51,19 @@ function RelProdContainer({ product, productID, setProductID, productStyle, revi
           There are no related products to display at this time...
         </div>
       )}
-      {relatedProds.map((product, i) => (
+      {relatedProds.map((thisProduct, i) => (
         <SingleProd
           className="related-prod"
           onClick={setAsNewOverview}
           key={i}
-          product={product} // this single product
+          parentProduct={product}
+          thisProduct={thisProduct} // this single product
           setProductID={setProductID} // function
           productStyle={productStyle} // parent product's styles
           reviewMetadata={reviewMetadata} // parent product's meta
+          setAllowCardClick={setAllowCardClick}
         />
       ))}
     </div>
   );
 }
-
-export default RelProdContainer;
