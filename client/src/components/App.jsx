@@ -49,7 +49,7 @@ function App() {
         setProductID={setProductID}
       />
       <QuestionsAnswers productID={productID} />
-      {reviewMetadata
+      {Object.keys(reviewMetadata).length !== 0
       && (
       <RatingsReviews
         productID={productID}
