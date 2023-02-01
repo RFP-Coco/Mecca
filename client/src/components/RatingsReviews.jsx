@@ -16,6 +16,8 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
 
   const [reviews, setReviews] = useState(null);
 
+  const [filtered, setFiltered] = useState(false);
+
   const updateData = () => {
     const url = `/api/reviews/?product_id=${productID}&sort=${sort}&count=50`;
     axios.get(url)
@@ -39,6 +41,7 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
       ...selectedRatings,
       [starAmt]: !selectedRatings[starAmt],
     });
+    setFiltered(true);
   };
 
   return (
@@ -58,6 +61,7 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
       && reviewMetadata
       && (
       <ReviewList
+        filtered={filtered}
         selectedRatings={selectedRatings}
         sort={sort}
         onChange={handleSortChange}
