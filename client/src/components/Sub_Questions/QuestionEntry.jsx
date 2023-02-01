@@ -9,7 +9,7 @@ export default function QuestionEntry({ question }) {
   const [clicked, setClicked] = useState(false);
   const [moreAnswers, setMoreAnswers] = useState(false);
 
-  useEffect(() => {
+  const updateAnswers = () => {
     axios.get(`/api/qa/questions/${question.question_id}/answers?page=1&count=5`)
       .then(({ data: { results } }) => {
         setAllAnswers(results);
@@ -17,6 +17,9 @@ export default function QuestionEntry({ question }) {
       .catch((err) => {
         console.log(err);
       });
+  };
+  useEffect(() => {
+    updateAnswers();
   }, [question]);
 
   useEffect(() => {
@@ -33,12 +36,19 @@ export default function QuestionEntry({ question }) {
 
   return (
     <div>
-      <div>
-        <div>Q:{question.question_body} helpfulness: {question.question_helpfulness}</div>
-        by{question.asker_name}, {format(parseISO(question.question_date), 'LLLL d, yyyy')}
+      <div className="question">
+        <div>
+          <span className="question-item">Q: {question.question_body}</span>
+          <span>Helpful?</span> <button type="button">Yes</button>{question.question_helpfulness}
+          <button type="button"> Add Answer</button>
+        </div>
       </div>
       {currentAnswers.map((answer) => (
-        <AnswerEntry answer={answer} key={answer.answer_id} />
+        <AnswerEntry
+          answer={answer}
+          key={answer.answer_id}
+          updateAnswers={updateAnswers}
+        />
       ))}
       {!moreAnswers
         ? (

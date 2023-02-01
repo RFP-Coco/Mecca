@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Sub_Questions/styles/questions.css';
 import QuestionsSearch from './Sub_Questions/QuestionSearch.jsx';
 import QuestionList from './Sub_Questions/QuestionList.jsx';
 import AskQuestion from './Sub_Questions/AskQuestion.jsx';
@@ -25,8 +26,8 @@ export default function QuestionsAnswers({ productID }) {
   }, [questionList]);
 
   return (
-    <div id="qna">
-      Hello from QnA
+    <div className="qna">
+      <h3>Questions & Answers</h3>
       <QuestionsSearch
         questionList={questionList}
         setFilteredList={setFilteredList}

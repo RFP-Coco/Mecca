@@ -1,0 +1,17 @@
+.question-search-bar input {
+  width: 80%;
+  font-size: 20px;
+}
+
+.question-item, .answer-item {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.question-item {
+  margin-right: 10%;
+}
+
+.answer-info {
+  font-size: 14px;
+}
