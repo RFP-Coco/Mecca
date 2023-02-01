@@ -3,11 +3,12 @@ import axios from 'axios';
 
 import ProdImg from './Sub_SingleProd/ProdImg.jsx';
 import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
+import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
 export default function SingleProd({
-  product, productID, productStyle, reviewMetadata, onClick, setAllowCardClick,
+  thisProduct, parentProduct, productID, productStyle, reviewMetadata, onClick, setAllowCardClick,
 }) {
-  const { id } = product;
+  const { id } = thisProduct;
 
   // =================== STATES ===================
 
@@ -18,6 +19,8 @@ export default function SingleProd({
   const [thisAvgRating, setThisAvgRating] = useState([]);
 
   const [imgUrl, setImgUrl] = useState('');
+
+  const [showComparisonModal, setShowComparisonModal] = useState(false);
 
   // =================== EFFECTS ===================
 
@@ -55,7 +58,7 @@ export default function SingleProd({
     const find = style[0];
 
     if (!style.length) {
-      setThisPrice([product.default_price, null]);
+      setThisPrice([thisProduct.default_price, null]);
     }
 
     if (find.sale_price) {
@@ -76,6 +79,10 @@ export default function SingleProd({
 
     return [sum / totalRatings, totalRatings];
   };
+  // =================== HANDLERS ===================
+  const handleOutsideClick = () => {
+    return null;
+  };
 
   // =================== COMPONENT ===================
   return (
@@ -83,13 +90,28 @@ export default function SingleProd({
       className="single-prod container"
       onClick={() => onClick(id)}
     >
+      {showComparisonModal
+        ? (
+          <ComparisonModal
+            onClick={handleOutsideClick}
+            thisProduct={thisProduct}
+            theseStyles={theseStyles}
+            thisAvgRating={thisAvgRating}
+            parentProduct={parentProduct}
+            productStyle={productStyle}
+            reviewMetadata={reviewMetadata}
+          />
+        )
+        : null}
       <ProdImg
         defaultPic={imgUrl}
-        product={product}
+        thisProduct={thisProduct}
         setAllowCardClick={setAllowCardClick}
+        showComparisonModal={showComparisonModal}
+        setShowComparisonModal={setShowComparisonModal}
       />
       <ProdInfo
-        product={product}
+        thisProduct={thisProduct}
         thisPrice={thisPrice}
         thisAvgRating={thisAvgRating}
       />

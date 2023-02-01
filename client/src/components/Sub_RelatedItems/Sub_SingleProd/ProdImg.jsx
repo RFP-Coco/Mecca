@@ -1,14 +1,15 @@
 import React from 'react';
 
-import ComparisonModal from './ComparisonModal.jsx';
-
-export default function ProdImg({ defaultPic, product, setAllowCardClick }) {
+export default function ProdImg({
+  defaultPic, thisProduct, setAllowCardClick, showComparisonModal, setShowComparisonModal,
+}) {
   const picUrl = defaultPic || '../../../assets/noProdImg.png';
 
   // =================== Handlers ===================
   const handleComparisonModal = (event) => {
     event.preventDefault();
     console.log('click event: ', event);
+    setShowComparisonModal(!showComparisonModal);
   };
 
   // =================== COMPONENT ===================
@@ -25,7 +26,7 @@ export default function ProdImg({ defaultPic, product, setAllowCardClick }) {
       <img
         className="default-pic"
         src={picUrl}
-        alt={`a sample of the ${product.name} product`}
+        alt={`a sample of the ${thisProduct.name} product`}
       />
     </div>
 

@@ -51,12 +51,13 @@ export default function RelProdContainer({
           There are no related products to display at this time...
         </div>
       )}
-      {relatedProds.map((product, i) => (
+      {relatedProds.map((thisProduct, i) => (
         <SingleProd
           className="related-prod"
           onClick={setAsNewOverview}
           key={i}
-          product={product} // this single product
+          parentProduct={product}
+          thisProduct={thisProduct} // this single product
           setProductID={setProductID} // function
           productStyle={productStyle} // parent product's styles
           reviewMetadata={reviewMetadata} // parent product's meta
