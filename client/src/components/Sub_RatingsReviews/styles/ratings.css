@@ -7,11 +7,7 @@ h3 {
 }
 
 .review-list {
-<<<<<<< HEAD
-  height: 50rem;
-=======
-  /* height: 500px; */
->>>>>>> main
+  height: 25rem;
   overflow-y: scroll;
 }
 
@@ -79,19 +75,9 @@ h3 {
   max-width: 20%;
 }
 
-<<<<<<< HEAD
 /* DASHBOARD */
 .star-rating {
   font-size: 2em;
-=======
-/* PRESENTATION STYLES */
-body {
-  align-items: center;
-  /* background: #333; */
-  display: flex;
-  /* height: 100vh; */
-  /* justify-content: center; */
->>>>>>> main
 }
 
 .review-dashboard {

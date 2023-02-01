@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
@@ -7,23 +7,16 @@ export default function ReviewList({
 }) {
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
-  // filter reviews based on user selected state
-  let filteredReviews;
-  const filterReviewsByStar = () => {
-    filteredReviews = reviews.results.filter((review) => !!selectedRatings[review.rating]);
-  };
-  filterReviewsByStar();
+  const [filtered, setFiltered] = useState([]);
 
-  // render 2 reviews at a time, conditionally
-  const render = [];
-  if (filteredReviews.length !== 0) {
-    for (let i = 0; i < displayedReviews; i += 1) {
-      render.push(filteredReviews[i]);
-    }
-  }
+  useEffect(() => {
+    const filteredReviews = reviews.results.filter((review) => !!selectedRatings[review.rating]);
+    if (filteredReviews.length === 0) setFiltered(reviews.results);
+    else setFiltered(filteredReviews);
+  }, [selectedRatings]);
 
   const handleMoreReviews = () => {
-    const totalNumberReviews = filteredReviews.length;
+    const totalNumberReviews = filtered.length;
     // if rendered reviews is only 1 lower, add one, otherwise add the normal 2
     if (displayedReviews + 2 > totalNumberReviews) {
       setDisplayedReviews(displayedReviews + 1);
@@ -51,14 +44,15 @@ export default function ReviewList({
         </select>
       </div>
       <ul className="review-list">
-        {render.length !== 0 ? render.map((review) => (
-          <ReviewTile
-            key={review.review_id}
-            review={review}
-            handleHelpfulClick={handleHelpfulClick}
-          />
-        ))
-          : reviews.results.map((review) => (
+        {filtered.length !== 0
+          ? filtered.slice(0, displayedReviews).map((review) => (
+            <ReviewTile
+              key={review.review_id}
+              review={review}
+              handleHelpfulClick={handleHelpfulClick}
+            />
+          ))
+          : reviews.results.slice(0, displayedReviews).map((review) => (
             <ReviewTile
               key={review.review_id}
               review={review}
@@ -66,7 +60,7 @@ export default function ReviewList({
             />
           ))}
       </ul>
-      {filteredReviews.length > 2 && displayedReviews !== filteredReviews.length
+      {reviews.results.length > 2 && displayedReviews <= filtered.length
         ? <button type="button" onClick={handleMoreReviews}>More Reviews</button>
         : null}
     </div>
