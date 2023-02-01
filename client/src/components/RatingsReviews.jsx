@@ -34,12 +34,21 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
     setSort(event.target.value);
   };
 
+  const toggleSelectedRating = (starAmt) => {
+    setSelectedRatings({
+      ...selectedRatings,
+      [starAmt]: !selectedRatings[starAmt],
+    });
+  };
+
   return (
     <div className="ratings-reviews">
       <h3>Ratings & Reviews</h3>
       {reviews && reviewMetadata
       && (
       <Dashboard
+        toggleSelectedRating={toggleSelectedRating}
+        selectedRatings={selectedRatings}
         setSelectedRatings={setSelectedRatings}
         reviewMetadata={reviewMetadata}
         reviews={reviews}

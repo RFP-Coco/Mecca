@@ -3,7 +3,7 @@ import RatingSummary from './RatingSummary.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx'
 
 export default function Dashboard({
-  reviews, reviewMetadata,
+  reviews, reviewMetadata, toggleSelectedRating,
 }) {
   const totalAmtOfReviews = Object.values(reviewMetadata.ratings)
     .reduce((accumulator, currrent) => Number(currrent) + accumulator, 0);
@@ -14,7 +14,6 @@ export default function Dashboard({
 
   const avgStarRating = Math.round((totalStarRating / totalAmtOfReviews) * 10) / 10;
 
-
   return (
     <div className="review-dashboard">
       <RatingSummary
@@ -23,6 +22,7 @@ export default function Dashboard({
         avgStarRating={avgStarRating}
       />
       <RatingBreakdown
+        toggleSelectedRating={toggleSelectedRating}
         reviews={reviews}
         reviewMetadata={reviewMetadata}
         totalAmtOfReviews={totalAmtOfReviews}

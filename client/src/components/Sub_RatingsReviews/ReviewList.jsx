@@ -14,10 +14,12 @@ export default function ReviewList({
   };
   filterReviewsByStar();
 
-  // render 2 reviews at a time
+  // render 2 reviews at a time, conditionally
   const render = [];
-  for (let i = 0; i < displayedReviews; i += 1) {
-    render.push(filteredReviews[i]);
+  if (filteredReviews.length !== 0) {
+    for (let i = 0; i < displayedReviews; i += 1) {
+      render.push(filteredReviews[i]);
+    }
   }
 
   const handleMoreReviews = () => {
@@ -49,13 +51,20 @@ export default function ReviewList({
         </select>
       </div>
       <ul className="review-list">
-        {render.map((review) => (
+        {render.length !== 0 ? render.map((review) => (
           <ReviewTile
             key={review.review_id}
             review={review}
             handleHelpfulClick={handleHelpfulClick}
           />
-        ))}
+        ))
+          : reviews.results.map((review) => (
+            <ReviewTile
+              key={review.review_id}
+              review={review}
+              handleHelpfulClick={handleHelpfulClick}
+            />
+          ))}
       </ul>
       {filteredReviews.length > 2 && displayedReviews !== filteredReviews.length
         ? <button type="button" onClick={handleMoreReviews}>More Reviews</button>
