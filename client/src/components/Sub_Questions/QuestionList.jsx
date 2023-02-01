@@ -12,6 +12,7 @@ export default function QuestionList({ questionList }) {
 
   useEffect(() => {
     setCurrentDisplay(allQuestions.slice(0, 2));
+    setMoreQuestions(allQuestions.length > 2);
   }, [allQuestions]);
 
   const handleClick = () => {
