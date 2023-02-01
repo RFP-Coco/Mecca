@@ -10,9 +10,6 @@ import jest from 'jest';
 import ReviewList from '../../client/src/components/Sub_RatingsReviews/ReviewList';
 
 afterEach(cleanup);
-const waitFor = (ms) => new Promise((resolve) => {
-  setTimeout(resolve, ms);
-});
 
 describe('More Reviews', () => {
   it('renders a "More Reviews" button if # reviews > 2', () => {
@@ -186,15 +183,14 @@ describe('More Reviews', () => {
     // const handleButtonClick = jest.fn();
 
     user.click(button);
-    waitFor(500).then(() => {
-      const list = screen.getByRole('list');
+    const list = screen.getByRole('list');
 
-      const { getAllByRole } = within(list);
+    const { getAllByRole } = within(list);
 
-      const items = getAllByRole('listitem');
+    const items = getAllByRole('listitem');
 
-      expect(items.length).toBe(4); // ...
-    });
+    expect(items.length).toBe(4); // ...
+
   });
 
   it('renders response from seller if it exists', () => {
