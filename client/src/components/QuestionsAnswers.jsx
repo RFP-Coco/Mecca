@@ -5,7 +5,7 @@ import QuestionList from './Sub_Questions/QuestionList.jsx';
 import AskQuestion from './Sub_Questions/AskQuestion.jsx';
 import AnswerQuestion from './Sub_Questions/AnswerQuestion.jsx';
 
-export default function QuestionsAnswers() {
+export default function QuestionsAnswers({ productID }) {
   const tempId = 40355;
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -18,7 +18,7 @@ export default function QuestionsAnswers() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [tempId]);
 
   useEffect(() => {
     setFilteredList(questionList);

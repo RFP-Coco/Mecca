@@ -17,7 +17,7 @@ export default function QuestionEntry({ question }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [question]);
 
   useEffect(() => {
     if (!clicked) {
