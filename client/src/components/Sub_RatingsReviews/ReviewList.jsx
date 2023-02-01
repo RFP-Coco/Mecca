@@ -11,17 +11,17 @@ export default function ReviewList({
   let filteredReviews;
   const filterReviewsByStar = () => {
     filteredReviews = reviews.results.filter((review) => !!selectedRatings[review.rating]);
-  }
+  };
   filterReviewsByStar();
-  console.log(filteredReviews);
 
+  // render 2 reviews at a time
   const render = [];
   for (let i = 0; i < displayedReviews; i += 1) {
-    render.push(reviews.results[i]);
+    render.push(filteredReviews[i]);
   }
 
   const handleMoreReviews = () => {
-    const totalNumberReviews = reviews.results.length;
+    const totalNumberReviews = filteredReviews.length;
     // if rendered reviews is only 1 lower, add one, otherwise add the normal 2
     if (displayedReviews + 2 > totalNumberReviews) {
       setDisplayedReviews(displayedReviews + 1);
@@ -30,6 +30,7 @@ export default function ReviewList({
     }
   };
 
+  // increments a review's helpfulness
   const handleHelpfulClick = (event, review) => {
     event.preventDefault();
     axios.put(`/api/reviews/${review.review_id}/helpful`, review)
@@ -48,14 +49,7 @@ export default function ReviewList({
         </select>
       </div>
       <ul className="review-list">
-        {/* {render.map((review) => (
-          <ReviewTile
-            key={review.review_id}
-            review={review}
-            handleHelpfulClick={handleHelpfulClick}
-          />
-        ))} */}
-        {filteredReviews.map((review) => (
+        {render.map((review) => (
           <ReviewTile
             key={review.review_id}
             review={review}
@@ -63,7 +57,7 @@ export default function ReviewList({
           />
         ))}
       </ul>
-      {reviews.results.length > 2 && displayedReviews !== reviews.results.length
+      {filteredReviews.length > 2 && displayedReviews !== filteredReviews.length
         ? <button type="button" onClick={handleMoreReviews}>More Reviews</button>
         : null}
     </div>
