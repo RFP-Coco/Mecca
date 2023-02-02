@@ -7,6 +7,7 @@ export default function AnswerButtons({ moreAnswers, allAnswers, setClicked }) {
       {!moreAnswers
         ? (
           <button
+            className="stringbutton"
             type="button"
             onClick={() => { setClicked(true); }}
           > See more answers
@@ -15,6 +16,7 @@ export default function AnswerButtons({ moreAnswers, allAnswers, setClicked }) {
         : allAnswers.length > 2
           ? (
             <button
+              className="stringbutton"
               type="button"
               onClick={() => { setClicked(false); }}
             > Collapse answers

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function AskQuestion({ setShow, productID, update }) {
+export default function AskQuestion({ setShow, productID, update, productName }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
@@ -44,7 +44,7 @@ export default function AskQuestion({ setShow, productID, update }) {
         <form onSubmit={handleSubmit}>
           <div className="modal-header">
             <h3>Ask Your Question</h3>
-            <h4>Product name goes here</h4>
+            <h4>About the {productName}</h4>
           </div>
           <div className="modal-body">
             YourName:

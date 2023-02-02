@@ -17,11 +17,6 @@ export default function QuestionsSearch({ questionList, setFilteredList }) {
         placeholder="Have a question? Search for answers…"
         onChange={handleChange}
       />
-      <button
-        type="button"
-      >
-        Search
-      </button>
     </div>
   );
 }

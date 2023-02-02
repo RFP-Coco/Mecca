@@ -4,6 +4,7 @@ import { parseISO, format } from 'date-fns';
 
 export default function AnswerEntry({ answer, updateAnswers }) {
   const [reported, setReported] = useState(false);
+  const [voted, setVoted] = useState(false);
 
   const handleHelpful = () => {
     axios.put(`/api/qa/answers/${answer.answer_id}/helpful`)
@@ -11,6 +12,7 @@ export default function AnswerEntry({ answer, updateAnswers }) {
       .catch((err) => {
         console.log(err);
       });
+    setVoted(true);
   };
 
   const handleReport = () => {
@@ -23,17 +25,24 @@ export default function AnswerEntry({ answer, updateAnswers }) {
   };
   return (
     <div>
-      <div>
+      <div className="answer-entry">
         <span className="answer-item">A:</span> {answer.body}
       </div>
       <div className="answer-info">
         by {answer.answerer_name}  {format(parseISO(answer.date), 'LLLL d, yyyy')}   |  Helpful?
-        <button
-          type="button"
-          onClick={handleHelpful}
-        >
-          Yes({answer.helpfulness})
-        </button>
+        {voted
+          ? (
+            <span>Yes({answer.helpfulness})</span>
+          )
+          : (
+            <button
+              className="stringbutton helpful"
+              type="button"
+              onClick={handleHelpful}
+            >
+              Yes({answer.helpfulness})
+            </button>
+          )}
         {reported
           ? (
             <>
@@ -42,6 +51,7 @@ export default function AnswerEntry({ answer, updateAnswers }) {
           )
           : (
             <button
+              className="stringbutton report"
               type="button"
               onClick={handleReport}
             >

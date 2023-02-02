@@ -48,7 +48,10 @@ function App() {
         productID={productID}
         setProductID={setProductID}
       />
-      <QuestionsAnswers productID={productID} />
+      <QuestionsAnswers
+        productID={productID}
+        productName={currentProduct.name}
+      />
       {Object.keys(reviewMetadata).length !== 0
       && (
       <RatingsReviews

@@ -5,7 +5,7 @@ import AnswerButtons from './AnswerButtons.jsx';
 import AnswerQuestion from './AnswerQuestion.jsx';
 import QuestionItem from './QuestionItem.jsx';
 
-export default function QuestionEntry({ question, updateQuestions }) {
+export default function QuestionEntry({ question, updateQuestions, productName }) {
   const [allAnswers, setAllAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
@@ -47,18 +47,21 @@ export default function QuestionEntry({ question, updateQuestions }) {
       />
       {show && (
         <AnswerQuestion
+          productName={productName}
           question={question}
           setShow={setShow}
           updateAnswers={updateAnswers}
         />
       )}
-      {currentAnswers.map((answer) => (
-        <AnswerEntry
-          answer={answer}
-          key={answer.answer_id}
-          updateAnswers={updateAnswers}
-        />
-      ))}
+      <div className="answer-list">
+        {currentAnswers.map((answer) => (
+          <AnswerEntry
+            answer={answer}
+            key={answer.answer_id}
+            updateAnswers={updateAnswers}
+          />
+        ))}
+      </div>
       <AnswerButtons moreAnswers={moreAnswers} setClicked={setClicked} allAnswers={allAnswers} />
     </div>
   );

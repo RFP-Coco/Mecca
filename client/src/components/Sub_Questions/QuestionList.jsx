@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import QuestionEntry from './QuestionEntry.jsx';
 
-export default function QuestionList({ questionList, updateQuestions }) {
+export default function QuestionList({ questionList, updateQuestions, productName }) {
   const [allQuestions, setAllQuestions] = useState([]);
   const [currentDisplay, setCurrentDisplay] = useState([]);
   const [moreQuestions, setMoreQuestions] = useState(true);
@@ -31,9 +31,10 @@ export default function QuestionList({ questionList, updateQuestions }) {
   }
 
   return (
-    <div>
+    <div className="question-list">
       {currentDisplay.map((question) => (
         <QuestionEntry
+          productName={productName}
           question={question}
           key={question.question_id}
           updateQuestions={updateQuestions}
@@ -41,6 +42,7 @@ export default function QuestionList({ questionList, updateQuestions }) {
       ))}
       {moreQuestions && (
         <button
+          className="stringbutton"
           type="button"
           onClick={handleClick}
         > More Answered Questions
