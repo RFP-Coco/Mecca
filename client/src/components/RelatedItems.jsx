@@ -9,14 +9,18 @@ export default function RelatedItems({
 }) {
   return (
     <section className="related-items">
-      <RelProdContainer
-        product={product}
-        productID={productID}
-        setProductID={setProductID}
-        productStyle={productStyle}
-        reviewMetadata={reviewMetadata}
-      />
-      <OutfitContainer />
+      <div>
+        <RelProdContainer
+          product={product}
+          productID={productID}
+          setProductID={setProductID}
+          productStyle={productStyle}
+          reviewMetadata={reviewMetadata}
+        />
+      </div>
+      <div>
+        <OutfitContainer />
+      </div>
     </section>
   );
 }

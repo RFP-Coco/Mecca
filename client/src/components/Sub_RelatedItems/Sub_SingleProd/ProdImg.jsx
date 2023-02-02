@@ -8,6 +8,7 @@ export default function ProdImg({
   // =================== Handlers ===================
   const handleComparisonModal = (event) => {
     event.preventDefault();
+    console.log('click event: ', event);
     setShowComparisonModal(!showComparisonModal);
   };
 
