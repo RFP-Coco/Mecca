@@ -1,27 +1,22 @@
-/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
+import AnswerButtons from './AnswerButtons.jsx';
+import AnswerQuestion from './AnswerQuestion.jsx';
+import QuestionItem from './QuestionItem.jsx';
 
-export default function QuestionEntry({ question, updateQuestions }) {
+export default function QuestionEntry({ question, updateQuestions, productName }) {
   const [allAnswers, setAllAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
   const [moreAnswers, setMoreAnswers] = useState(false);
+  const [show, setShow] = useState(false);
 
   const updateAnswers = () => {
     axios.get(`/api/qa/questions/${question.question_id}/answers`)
       .then(({ data: { results } }) => {
         setAllAnswers(results);
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const handleHelpful = () => {
-    axios.put(`/api/qa/questions/${question.question_id}/helpful`)
-      .then(updateQuestions)
       .catch((err) => {
         console.log(err);
       });
@@ -45,37 +40,29 @@ export default function QuestionEntry({ question, updateQuestions }) {
 
   return (
     <div>
-      <div className="question">
-        <div>
-          <span className="question-item">Q: {question.question_body}</span>
-          <span>Helpful?</span> <button type="button" onClick={handleHelpful}>Yes({question.question_helpfulness})</button>
-          <button type="button"> Add Answer</button>
-        </div>
-      </div>
-      {currentAnswers.map((answer) => (
-        <AnswerEntry
-          answer={answer}
-          key={answer.answer_id}
+      <QuestionItem
+        updateQuestions={updateQuestions}
+        question={question}
+        setShow={setShow}
+      />
+      {show && (
+        <AnswerQuestion
+          productName={productName}
+          question={question}
+          setShow={setShow}
           updateAnswers={updateAnswers}
         />
-      ))}
-      {!moreAnswers
-        ? (
-          <button
-            type="button"
-            onClick={() => { setClicked(true); }}
-          > More Answers...
-          </button>
-        )
-        : allAnswers.length > 2
-          ? (
-            <button
-              type="button"
-              onClick={() => { setClicked(false); }}
-            > Back
-            </button>
-          )
-          : null }
+      )}
+      <div className="answer-list">
+        {currentAnswers.map((answer) => (
+          <AnswerEntry
+            answer={answer}
+            key={answer.answer_id}
+            updateAnswers={updateAnswers}
+          />
+        ))}
+      </div>
+      <AnswerButtons moreAnswers={moreAnswers} setClicked={setClicked} allAnswers={allAnswers} />
     </div>
   );
 }

@@ -41,6 +41,6 @@ router.put('/qa/questions/:question_id/report', controllers.questions.handleQues
 
 router.put('/qa/answers/:answer_id/helpful', controllers.questions.updateAnswerHelpful);
 
-router.put('/qa/answers/:answer_id/helpful', controllers.questions.handleAnswerReport);
+router.put('/qa/answers/:answer_id/report', controllers.questions.handleAnswerReport);
 
 module.exports = router;

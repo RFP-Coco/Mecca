@@ -1,5 +1,5 @@
 .question-search-bar input {
-  width: 80%;
+  width: 90%;
   font-size: 20px;
 }
 
@@ -47,4 +47,34 @@
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+}
+
+.stringbutton {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: rgb(140, 201, 105);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.question-list {
+  height: 70vh;
+  overflow-y: scroll;
+}
+.answer-list {
+  height: 30vh;
+  overflow-y: scroll;
+}
+
+.answer-entry {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.question {
+  margin-top: 10px;
 }

@@ -14,14 +14,9 @@ export default function QuestionsSearch({ questionList, setFilteredList }) {
   return (
     <div className="question-search-bar">
       <input
-        placeholder="Have a question?"
+        placeholder="Have a question? Search for answers…"
         onChange={handleChange}
       />
-      <button
-        type="button"
-      >
-        Search
-      </button>
     </div>
   );
 }

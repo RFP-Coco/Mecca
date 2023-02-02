@@ -4,9 +4,8 @@ import './Sub_Questions/styles/questions.css';
 import QuestionsSearch from './Sub_Questions/QuestionSearch.jsx';
 import QuestionList from './Sub_Questions/QuestionList.jsx';
 import AskQuestion from './Sub_Questions/AskQuestion.jsx';
-import AnswerQuestion from './Sub_Questions/AnswerQuestion.jsx';
 
-export default function QuestionsAnswers({ productID }) {
+export default function QuestionsAnswers({ productID, productName }) {
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [show, setShow] = useState(false);
@@ -35,12 +34,24 @@ export default function QuestionsAnswers({ productID }) {
         questionList={questionList}
         setFilteredList={setFilteredList}
       />
-      <QuestionList questionList={filteredList} updateQuestions={updateQuestions} />
-      <button type="button" onClick={() => { setShow(true); }}> Ask a question</button>
+      <QuestionList
+        questionList={filteredList}
+        updateQuestions={updateQuestions}
+        productName={productName}
+      />
+      <button
+        type="button"
+        onClick={() => { setShow(true); }}
+      > Ask a question
+      </button>
       {show && (
-        <AskQuestion setShow={setShow} productID={productID} update={updateQuestions} />
+        <AskQuestion
+          productName={productName}
+          setShow={setShow}
+          productID={productID}
+          update={updateQuestions}
+        />
       )}
-      <AnswerQuestion />
     </div>
   );
 }
