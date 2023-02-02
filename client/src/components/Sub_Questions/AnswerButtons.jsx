@@ -9,7 +9,7 @@ export default function AnswerButtons({ moreAnswers, allAnswers, setClicked }) {
           <button
             type="button"
             onClick={() => { setClicked(true); }}
-          > More Answers...
+          > See more answers
           </button>
         )
         : allAnswers.length > 2
@@ -17,7 +17,7 @@ export default function AnswerButtons({ moreAnswers, allAnswers, setClicked }) {
             <button
               type="button"
               onClick={() => { setClicked(false); }}
-            > Back
+            > Collapse answers
             </button>
           )
           : null }

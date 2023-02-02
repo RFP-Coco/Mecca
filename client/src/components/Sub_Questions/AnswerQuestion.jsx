@@ -16,39 +16,73 @@ export default function AnswerQuestion({ question, setShow, updateAnswers }) {
   const handleQuestionChange = (e) => {
     setBody(e.target.value);
   };
-  const handleSubmit = () => {
-    const config = {
-      name,
-      email,
-      body,
-      photos,
-    };
-    axios.post(`/api/qa/questions/${question.question_id}/answers`, config)
-      .then(updateAnswers)
-      .catch((err) => console.log(err));
-    setShow(false);
+
+  const handleSubmit = (e) => {
+    if (name === '') {
+      alert('you must fill out your name');
+    } else if (email === '') {
+      alert('you must fill out your name');
+    } else if (body === '') {
+      alert('you must fill out your question');
+    } else {
+      e.preventDefault();
+      const config = {
+        name,
+        email,
+        body,
+        photos,
+      };
+      axios.post(`/api/qa/questions/${question.question_id}/answers`, config)
+        .then(updateAnswers)
+        .catch((err) => console.log(err));
+      setShow(false);
+    }
   };
 
   return (
     <div className="modal">
       <div className="modal-content">
-        <div className="modal-header">
-          <h3>Answer Question </h3>
-        </div>
-        <div className="modal-body">
-          Question: {question.question_body}
-          <br />
-          YourName:
-          <input placeholder="Your Name" onChange={handleNameChange} />
-          Email:
-          <input placeholder="email" onChange={handleEmailChange} />
-          Answer:
-          <input type="text" placeholder="your question" onChange={handleQuestionChange} />
-        </div>
-        <div className="modal-footer">
-          <button type="button" onClick={handleSubmit}> answer </button>
-          <button type="button" onClick={() => { setShow(false); }}> cancel</button>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="modal-header">
+            <h3>Submit your Answer</h3>
+            <h4>Product name goes here</h4>
+            <h4>QuestionBody name goes here</h4>
+          </div>
+          <div className="modal-body">
+            YourName:
+            <input
+              placeholder="Example: jackson11!"
+              onChange={handleNameChange}
+              maxLength="60"
+              required
+            />
+            Email:
+            <input
+              type="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              placeholder="Example: jackson11@random.email"
+              onChange={handleEmailChange}
+              maxLength="60"
+              required
+            />
+            Answer:
+            <textarea
+              type="text"
+              rows="8"
+              cols="50"
+              placeholder="your answer"
+              onChange={handleQuestionChange}
+              maxLength="1000"
+              required
+            />
+            For privacy reasons, do not use your full name or email address
+            For authentication reasons, you will not be emailed
+          </div>
+          <div className="modal-footer">
+            <button type="submit" onClick={handleSubmit}> Submit </button>
+            <button type="button" onClick={() => { setShow(false); }}> Cancel</button>
+          </div>
+        </form>
       </div>
     </div>
   );
