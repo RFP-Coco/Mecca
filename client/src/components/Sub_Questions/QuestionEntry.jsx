@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
 import AnswerButtons from './AnswerButtons.jsx';
+import AnswerQuestion from './AnswerQuestion.jsx';
 
 export default function QuestionEntry({ question, updateQuestions }) {
   const [allAnswers, setAllAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
   const [moreAnswers, setMoreAnswers] = useState(false);
+  const [show, setShow] = useState(false);
 
   const updateAnswers = () => {
     axios.get(`/api/qa/questions/${question.question_id}/answers`)
@@ -49,9 +51,16 @@ export default function QuestionEntry({ question, updateQuestions }) {
         <div>
           <span className="question-item">Q: {question.question_body}</span>
           <span>Helpful?</span> <button type="button" onClick={handleHelpful}>Yes({question.question_helpfulness})</button>
-          <button type="button"> Add Answer</button>
+          <button type="button" onClick={() => setShow(true)}> Add Answer</button>
         </div>
       </div>
+      {show && (
+        <AnswerQuestion
+          question={question}
+          setShow={setShow}
+          updateAnswers={updateAnswers}
+        />
+      )}
       {currentAnswers.map((answer) => (
         <AnswerEntry
           answer={answer}

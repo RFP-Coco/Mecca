@@ -4,7 +4,6 @@ import './Sub_Questions/styles/questions.css';
 import QuestionsSearch from './Sub_Questions/QuestionSearch.jsx';
 import QuestionList from './Sub_Questions/QuestionList.jsx';
 import AskQuestion from './Sub_Questions/AskQuestion.jsx';
-import AnswerQuestion from './Sub_Questions/AnswerQuestion.jsx';
 
 export default function QuestionsAnswers({ productID }) {
   const [questionList, setQuestionList] = useState([]);
@@ -40,7 +39,6 @@ export default function QuestionsAnswers({ productID }) {
       {show && (
         <AskQuestion setShow={setShow} productID={productID} update={updateQuestions} />
       )}
-      <AnswerQuestion />
     </div>
   );
 }
