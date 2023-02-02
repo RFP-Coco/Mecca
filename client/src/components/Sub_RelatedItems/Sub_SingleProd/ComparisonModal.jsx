@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function ComparisonModal({
-  thisProduct, theseStyles, thisAvgRating, thisPrice,
-  parentProduct, productStyle, reviewMetadata,
-  setAllowCardClick, setShowComparisonModal
+  thisProduct, thisReviewMetadata,
+  parentProduct, parentReviewMetadata,
+  setAllowCardClick, setShowComparisonModal, getAvgRating,
 }) {
+  const thisAvgRating = getAvgRating(thisReviewMetadata)[0];
+  const parentAvgRating = getAvgRating(parentReviewMetadata)[0];
 
-  // const
+  const characteristicsCompare = [
+    thisReviewMetadata.characteristics, parentReviewMetadata.characteristics
+  ];
+
   const handleMouseEnter = () => {
     setAllowCardClick(false);
   };
@@ -23,18 +28,39 @@ export default function ComparisonModal({
       onMouseLeave={handleMouseLeave}
     >
       <table className="comparison-modal-content">
-        <tr className="comparison-modal-header">
-          <th>{thisProduct.name}</th>
-          <th>vs.</th>
-          <th>{parentProduct.name}</th>
-        </tr>
-        <tr>
-          {/* compare price & ratings */}
-          <td>{thisAvgRating.toFixed(2)}</td>
-          <td>Average Rating</td>
-          <td></td>
-        </tr>
-
+        <tbody className="comparison-modal-header">
+          <tr>
+            <th>{thisProduct.name}</th>
+            <th>vs.</th>
+            <th>{parentProduct.name}</th>
+          </tr>
+          <tr>
+            {/* compare price & ratings */}
+            <td>Overall: {thisAvgRating}</td>
+            <td>{thisAvgRating && parentAvgRating ? '✔' : null}</td>
+            <td>Overall: {parentAvgRating}</td>
+          </tr>
+          {/* <tr>
+            {characteristicsCompare.map(characteristic, i, collection => {
+              for (const key in characteristic) {
+                if (characteristic[key] && collection[i][key]) {
+                  return (
+                    <td>{characteristic}: {characteristic[key]}</td>
+                    <td>✔</td>
+                    <td>{collection[i]}: {collection[i][key]}</td>
+                  );
+                } else if (characteristic[key] && !collection[i][key]) {
+                  return (
+                    <td>{characteristic}: {characteristic[key]}</td>
+                    <td>{null}</td>
+                    <td>{null}</td>
+                  );
+                }
+              }
+            })
+            }
+          </tr> */}
+        </tbody>
       </table>
     </div>
   );

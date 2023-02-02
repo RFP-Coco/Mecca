@@ -16,13 +16,13 @@ export default function SingleProd({
 
   const [thisPrice, setThisPrice] = useState([]);
 
-  const [thisAvgRating, setThisAvgRating] = useState([]);
-
   const [imgUrl, setImgUrl] = useState('');
 
   const [showComparisonModal, setShowComparisonModal] = useState(false);
 
   const [thisReviewMeta, setThisReviewMeta] = useState({});
+
+  const [thisAvgRating, setThisAvgRating] = useState([]);
 
   // =================== EFFECTS ===================
 
@@ -81,7 +81,7 @@ export default function SingleProd({
       totalRatings += Number(ratings[num]);
     }
 
-    return [sum / totalRatings, totalRatings];
+    return [(sum / totalRatings).toFixed(2), totalRatings];
   };
   // =================== HANDLERS ===================
   const handleOutsideClick = () => {
@@ -98,15 +98,12 @@ export default function SingleProd({
         ? (
           <ComparisonModal
             thisProduct={thisProduct}
-            theseStyles={theseStyles}
-            thisAvgRating={thisAvgRating}
-            thisPrice={thisPrice}
-            thisReviewMeta={thisReviewMeta}
+            thisReviewMetadata={thisReviewMeta}
             parentProduct={parentProduct}
-            productStyle={productStyle}
-            reviewMetadata={reviewMetadata}
+            parentReviewMetadata={reviewMetadata}
             setAllowCardClick={setAllowCardClick}
             setShowComparisonModal={setShowComparisonModal}
+            getAvgRating={getAvg}
           />
         )
         : null}

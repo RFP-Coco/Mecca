@@ -23,12 +23,6 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
     niceSalePrice = thisPrice[1].slice(0, thisPrice[0].length - 3);
   }
 
-  if (thisAvgRating[0]) {
-    niceAvgRating = thisAvgRating[0].toFixed(2);
-  } else {
-    niceAvgRating = 0;
-  }
-
   // =================== COMPONENT ===================
   return (
     <div className="prod-info">
@@ -38,7 +32,7 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
       <p className="no-sale price">{`$${niceOriginalPrice}`}</p>
       <p className="sale price">{thisPrice[1] && ` | $${niceSalePrice}`}</p>
       <p className="star-rating">
-        {niceAvgRating} | {`(${thisAvgRating[1]})`}
+        {thisAvgRating[0]} | {`(${thisAvgRating[1]})`}
       </p>
     </div>
 
