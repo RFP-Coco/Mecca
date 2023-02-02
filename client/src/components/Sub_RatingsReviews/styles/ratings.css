@@ -2,6 +2,13 @@ h3 {
   font-size: 32px;
 }
 
+
+/* REVIEW DASHBOARD */
+
+.review-dashboard {
+  margin-left: 1.5em;
+}
+
 .review-summary{
   font-weight: bold;
 }
@@ -32,10 +39,6 @@ h3 {
   font-size: 2em;
 }
 
-.review-dashboard {
-  border: 2px solid green
-}
-
 .rating-container {
   display: flex;
 }
@@ -55,6 +58,22 @@ progress::-webkit-progress-bar {
   background: rgb(220, 220, 234);
 }
 
-/* .star {
-  transform: scale(1.1)
-} */
+/* PRODUCT DASHBOARD */
+
+datalist#labels {
+  display: flex;
+  flex-direction: column;
+  writing-mode: vertical-lr;
+  width: 11rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  height: 2em;
+}
+
+.characteristics-label{
+  font-size: .5em;
+  transform: rotate(-67deg);
+  margin: 1.2em;
+  margin-top: -2.5em;
+  justify-content: center;
+}
