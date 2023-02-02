@@ -53,7 +53,7 @@
 }
 
 .image-thumbnail:hover {
-  border-bottom: 8px solid blue;
+  border-bottom: 8px solid grey;
 }
 
 .default-view {
@@ -67,13 +67,13 @@
 }
 
 
-.default-view img{
+.default-view img {
   max-width: 80%;
   max-height: 80%;
   object-fit: contain;
 }
 
-.default-view button{
+.default-view button {
   max-width: 10%;
   object-fit: contain;
 }
@@ -81,5 +81,60 @@
 
 .product-detail transparent-button {
   visibility: hidden;
-
 }
+
+.product-info .icon:hover {
+  fill:black;
+}
+.product-info .icon-twitter {
+  fill: #1DA1F2;
+}
+.product-info .icon-facebook {
+  fill: #4267B2;
+}
+.product-info .icon-pinterest {
+  fill: #c8232c;
+}
+
+.style-selector {
+  height:50%;
+}
+
+.sale-price {
+  color: red;
+}
+
+.original-sale-price {
+  text-decoration-line: line-through;
+}
+.style-list-container {
+  margin:0 10% 0 2%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+}
+
+
+.style-entry-container {
+  width: 100%;
+  padding-bottom: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  position: relative;
+}
+
+.style-entry-container:hover {
+  box-shadow: 0 0 10px #333;
+}
+
+.style-entry-container .checkmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 40%;
+  color:red;
+  background-color: transparent;
+}
+

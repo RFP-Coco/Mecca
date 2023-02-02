@@ -1,10 +1,10 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SocialMediaShare from './Sub_ProductInfo/SocialMediaShare.jsx';
 
 function ProductInfo({ product }) {
   return (
-    <div>
+    <div className="product-info">
       <p>stars and reviews here</p>
       <p>Category {'>'} {product.category}</p>
       <h1>{product.name}</h1>

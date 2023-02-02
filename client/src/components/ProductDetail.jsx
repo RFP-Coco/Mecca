@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './Sub_ProductDetail/styles/overview.css';
 import ImageGallery from './Sub_ProductDetail/ImageGallery.jsx';
 import ProductInfo from './Sub_ProductDetail/ProductInfo.jsx';
+import StyleSelector from './Sub_ProductDetail/StyleSelector.jsx';
 
-function ProductDetail({ product, productStyle }) {
+function ProductDetail({ product, productStyle, productID }) {
   const [currentStyle, setCurrentStyle] = useState();
   // console.log('SHOW PRODUCT STYLE: ', productStyle);
 
@@ -17,11 +18,21 @@ function ProductDetail({ product, productStyle }) {
     }
   }, [product]);
 
+  if (!currentStyle) {
+    return null;
+  }
+
   return (
     <div className="product-detail">
-      {currentStyle && <ImageGallery currentStyle={currentStyle} />}
+      <ImageGallery currentStyle={currentStyle} productID={productID} />
       <div className="product-text">
-        {currentStyle && <ProductInfo product={product} />}
+        <ProductInfo product={product} />
+        <StyleSelector
+          productStyle={productStyle}
+          currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle}
+          productID={productID}
+        />
       </div>
 
     </div>

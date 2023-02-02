@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageSlide from './Sub_ImageGallery/ImageSlide.jsx';
 import DefaultView from './Sub_ImageGallery/DefaultView.jsx';
 
-function ImageGallery({ currentStyle }) {
+function ImageGallery({ currentStyle, productID }) {
   // console.log('SHOW CURRENT STYLE: ', currentStyle);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [styleMemo, setStyleMemo] = useState({});
+
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [productID]);
 
   return (
     <div className="image-gallery">
