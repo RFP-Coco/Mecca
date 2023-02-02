@@ -1,7 +1,10 @@
+/* eslint-disable no-alert */
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function AnswerQuestion({ question, setShow, updateAnswers, productName }) {
+export default function AnswerQuestion({
+  question, setShow, updateAnswers, productName,
+}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
