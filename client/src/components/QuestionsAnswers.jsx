@@ -13,7 +13,6 @@ export default function QuestionsAnswers({ productID }) {
   const [show, setShow] = useState(false);
 
   const updateQuestions = () => {
-    console.log('invoked');
     axios.get(`/api/qa/questions?product_id=${tempId}&count=5&page=1`)
       .then((result) => {
         setQuestionList(result.data.results);
@@ -39,7 +38,9 @@ export default function QuestionsAnswers({ productID }) {
       />
       <QuestionList questionList={filteredList} updateQuestions={updateQuestions} />
       <button type="button" onClick={() => { setShow(true); }}> Ask a question</button>
-      <AskQuestion show={show} setShow={setShow} productID={tempId} update={updateQuestions} />
+      {show && (
+        <AskQuestion setShow={setShow} productID={tempId} update={updateQuestions} />
+      )}
       <AnswerQuestion />
     </div>
   );

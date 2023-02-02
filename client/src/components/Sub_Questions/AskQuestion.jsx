@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function AskQuestion({ show, setShow, productID, update }) {
+export default function AskQuestion({ setShow, productID, update }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
@@ -28,9 +28,6 @@ export default function AskQuestion({ show, setShow, productID, update }) {
     setShow(false);
   };
 
-  if (!show) {
-    return null;
-  }
   return (
     <div className="modal">
       <div className="modal-content">
