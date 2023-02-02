@@ -49,20 +49,21 @@
   cursor: pointer;
 }
 
-.card-btn,
-.compare-btn {
-  background-color: transparent;
-}
-
 .compare-btn {
   border: none;
-  /* cursor: pointer; */
+  position:sticky;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.compare-btn>img {
+.compare-btn > img {
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  top: 0.4rem;
+  left: 17.3rem;
   height: 2rem;
   width: 2rem;
-  cursor: pointer;
 }
 
 
@@ -71,22 +72,27 @@
   text-align: left;
 }
 
-.prod-info>.category {
+.prod-info > * {
+  padding-top: 2px;
+}
+
+.prod-info > .category {
   font-size: 0.8rem;
   color: #636363;
   text-transform: uppercase;
 }
 
-.prod-info>.name {
+.prod-info > .name {
   font-size: 1.5rem;
   font-style: bold;
 }
 
-.prod-info>.slogan {
+.prod-info > .slogan {
   font-size: 1.2rem;
   text-transform: lowercase;
+  font-style: italic;
 }
 
-.prod-info>.star-rating {
+.prod-info > .star-rating {
   font-size: 1rem;
 }

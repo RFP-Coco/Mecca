@@ -28,7 +28,7 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
     <div className="prod-info">
       <p className="category">{category}</p>
       <p className="name">{name}</p>
-      <p className="slogan">{slogan}</p>
+      <p className="slogan">&quot;{slogan}&quot;</p>
       <p className="no-sale price">{`$${niceOriginalPrice}`}</p>
       <p className="sale price">{thisPrice[1] && ` | $${niceSalePrice}`}</p>
       <p className="star-rating">
