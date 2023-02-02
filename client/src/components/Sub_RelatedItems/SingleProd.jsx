@@ -42,7 +42,7 @@ export default function SingleProd({
 
     axios.get(`/api/reviews/meta?product_id=${id}`)
       .then((reviewMeta) => {
-        const avg = getAvg(reviewMeta.data);
+        const avg = getAvgRating(reviewMeta.data.ratings);
         setThisAvgRating(avg);
         setThisReviewMeta(reviewMeta.data);
       })
@@ -72,7 +72,7 @@ export default function SingleProd({
     }
   };
 
-  const getAvg = ({ ratings }) => {
+  const getAvgRating = (ratings) => {
     let totalRatings = 0;
     let sum = 0;
 
@@ -103,7 +103,7 @@ export default function SingleProd({
             parentReviewMetadata={reviewMetadata}
             setAllowCardClick={setAllowCardClick}
             setShowComparisonModal={setShowComparisonModal}
-            getAvgRating={getAvg}
+            getAvgRating={getAvgRating}
           />
         )
         : null}

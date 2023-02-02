@@ -41,6 +41,16 @@
   margin: 0.2rem;
 }
 
+/* CARD MODAL */
+tr {
+  object-fit: fill;
+}
+
+td {
+  text-align: center;
+}
+
+/* CARD PIC */
 .default-pic {
   border-radius: var(--littleRound);
   width: 20rem;
@@ -60,10 +70,11 @@
   border: none;
   position: absolute;
   cursor: pointer;
+  object-fit: cover;
   top: 0.4rem;
   left: 17.3rem;
-  height: 2rem;
-  width: 2rem;
+  height: 2.2rem;
+  width: 2.2rem;
 }
 
 
