@@ -7,13 +7,12 @@ import AskQuestion from './Sub_Questions/AskQuestion.jsx';
 import AnswerQuestion from './Sub_Questions/AnswerQuestion.jsx';
 
 export default function QuestionsAnswers({ productID }) {
-  const tempId = 40355;
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [show, setShow] = useState(false);
 
   const updateQuestions = () => {
-    axios.get(`/api/qa/questions?product_id=${tempId}&count=5&page=1`)
+    axios.get(`/api/qa/questions?product_id=${productID}`)
       .then((result) => {
         setQuestionList(result.data.results);
       })
@@ -23,7 +22,7 @@ export default function QuestionsAnswers({ productID }) {
   };
   useEffect(() => {
     updateQuestions();
-  }, [tempId]);
+  }, [productID]);
 
   useEffect(() => {
     setFilteredList(questionList);
@@ -39,7 +38,7 @@ export default function QuestionsAnswers({ productID }) {
       <QuestionList questionList={filteredList} updateQuestions={updateQuestions} />
       <button type="button" onClick={() => { setShow(true); }}> Ask a question</button>
       {show && (
-        <AskQuestion setShow={setShow} productID={tempId} update={updateQuestions} />
+        <AskQuestion setShow={setShow} productID={productID} update={updateQuestions} />
       )}
       <AnswerQuestion />
     </div>
