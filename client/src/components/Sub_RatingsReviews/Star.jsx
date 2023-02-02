@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Star({
-  size = 50, percentage, id,
+  size, percentage, id, color,
 }) {
   // star default size is 50, if you want to resize, pass in the size as props
   // need 2 stops inside of the linearGradient to ensure instant transition.
@@ -18,7 +18,7 @@ export default function Star({
         <linearGradient id={`grad-${id}`}>
           <stop
             offset={percentage}
-            stopColor="#FFB940"
+            stopColor={color}
           />
           <stop
             offset={percentage}
