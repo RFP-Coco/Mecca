@@ -13,7 +13,7 @@ export default function RatingSummary({
     <div className="rating-summary">
       <div className="stars">
         {avgStarRating !== null
-        && generateStars(avgStarRating, 5, 30)}
+        && generateStars(avgStarRating, 5, 30, '#FDEBED')}
       </div>
       <div className="total-reviews">{totalAmtOfReviews} reviews</div>
       <h2 className="star-rating">
