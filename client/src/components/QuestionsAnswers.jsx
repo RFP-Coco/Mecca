@@ -3,12 +3,10 @@ import axios from 'axios';
 import './Sub_Questions/styles/questions.css';
 import QuestionsSearch from './Sub_Questions/QuestionSearch.jsx';
 import QuestionList from './Sub_Questions/QuestionList.jsx';
-import AskQuestion from './Sub_Questions/AskQuestion.jsx';
 
 export default function QuestionsAnswers({ productID, productName }) {
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
-  const [show, setShow] = useState(false);
 
   const updateQuestions = () => {
     axios.get(`/api/qa/questions?product_id=${productID}`)
@@ -35,23 +33,11 @@ export default function QuestionsAnswers({ productID, productName }) {
         setFilteredList={setFilteredList}
       />
       <QuestionList
+        productID={productID}
         questionList={filteredList}
         updateQuestions={updateQuestions}
         productName={productName}
       />
-      <button
-        type="button"
-        onClick={() => { setShow(true); }}
-      > Ask a question
-      </button>
-      {show && (
-        <AskQuestion
-          productName={productName}
-          setShow={setShow}
-          productID={productID}
-          update={updateQuestions}
-        />
-      )}
     </div>
   );
 }
