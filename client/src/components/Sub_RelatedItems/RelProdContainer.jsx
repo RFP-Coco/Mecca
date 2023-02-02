@@ -45,7 +45,7 @@ export default function RelProdContainer({
 
   // =================== COMPONENT ===================
   return (
-    <div className="related-items container">
+    <div className="scrollable container">
       {!relatedProds.length && (
         <div className="related-prod null">
           There are no related products to display at this time...
@@ -53,7 +53,6 @@ export default function RelProdContainer({
       )}
       {relatedProds.map((thisProduct, i) => (
         <SingleProd
-          className="related-prod"
           onClick={setAsNewOverview}
           key={i}
           parentProduct={product}

@@ -16,11 +16,13 @@ export default function SingleProd({
 
   const [thisPrice, setThisPrice] = useState([]);
 
-  const [thisAvgRating, setThisAvgRating] = useState([]);
-
   const [imgUrl, setImgUrl] = useState('');
 
   const [showComparisonModal, setShowComparisonModal] = useState(false);
+
+  const [thisReviewMeta, setThisReviewMeta] = useState({});
+
+  const [thisAvgRating, setThisAvgRating] = useState([]);
 
   // =================== EFFECTS ===================
 
@@ -40,10 +42,12 @@ export default function SingleProd({
 
     axios.get(`/api/reviews/meta?product_id=${id}`)
       .then((reviewMeta) => {
-        const avg = getAvg(reviewMeta.data);
+        const avg = getAvgRating(reviewMeta.data.ratings);
         setThisAvgRating(avg);
+        setThisReviewMeta(reviewMeta.data);
       })
       .catch((err) => err);
+    setShowComparisonModal(false);
   }, [id]);
 
   // =================== HELPERS ===================
@@ -68,7 +72,7 @@ export default function SingleProd({
     }
   };
 
-  const getAvg = ({ ratings }) => {
+  const getAvgRating = (ratings) => {
     let totalRatings = 0;
     let sum = 0;
 
@@ -77,7 +81,7 @@ export default function SingleProd({
       totalRatings += Number(ratings[num]);
     }
 
-    return [sum / totalRatings, totalRatings];
+    return [(sum / totalRatings).toFixed(2), totalRatings];
   };
   // =================== HANDLERS ===================
   const handleOutsideClick = () => {
@@ -93,13 +97,13 @@ export default function SingleProd({
       {showComparisonModal
         ? (
           <ComparisonModal
-            onClick={handleOutsideClick}
             thisProduct={thisProduct}
-            theseStyles={theseStyles}
-            thisAvgRating={thisAvgRating}
+            thisReviewMetadata={thisReviewMeta}
             parentProduct={parentProduct}
-            productStyle={productStyle}
-            reviewMetadata={reviewMetadata}
+            parentReviewMetadata={reviewMetadata}
+            setAllowCardClick={setAllowCardClick}
+            setShowComparisonModal={setShowComparisonModal}
+            getAvgRating={getAvgRating}
           />
         )
         : null}

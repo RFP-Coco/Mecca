@@ -1,44 +1,109 @@
+:root {
+  --littleRound: 0.3rem;
+  --circle: 50%;
+}
+
 .related-items {
-  height: 25%;
-  width: 75%;
+  /* height: 25%;
+  width: 75%; */
   box-sizing: border-box;
-  padding: 0.5rem;
-  margin: 0.5rem;
+  display: flex;
+  /* overflow-x: auto;
+  overscroll-behavior-inline: contain; */
+  padding: 2px;
+  margin: 0.3rem;
+}
+
+.scrollable {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 1rem;
+}
+
+.scrollable > * {
+  scroll-snap-align: start;
 }
 
 .container {
   display: flex;
   box-sizing: border-box;
-  padding: 1rem;
-  margin: 1rem;
-}
-
-.default-pic {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card-btn,
-.compare-btn {
-  background-color: transparent;
-}
-
-.compare-btn {
-  border: none;
-  border-radius: 50%;
-}
-
-.compare-btn img {
-  height: 2px;
-  width: 2px;
+  margin: 0.4rem;
 }
 
 .single-prod {
   flex-direction: column;
-  border: 2px solid red;
+  margin-inline: auto;
+  border: 2px solid #636363;
+  padding: 2px;
+  border-radius: var(--littleRound);
+  /* inline-size: 30%; */
+  margin: 0.2rem;
 }
 
+/* CARD MODAL */
+tr {
+  object-fit: fill;
+}
+
+td {
+  text-align: center;
+}
+
+/* CARD PIC */
+.default-pic {
+  border-radius: var(--littleRound);
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.compare-btn {
+  border: none;
+  position:sticky;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.compare-btn > img {
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  object-fit: cover;
+  top: 0.4rem;
+  left: 17.3rem;
+  height: 2.2rem;
+  width: 2.2rem;
+}
+
+
+/* CARD PRODUCT INFO */
 .prod-info {
   text-align: left;
+}
+
+.prod-info > * {
+  padding-top: 2px;
+}
+
+.prod-info > .category {
+  font-size: 0.8rem;
+  color: #636363;
+  text-transform: uppercase;
+}
+
+.prod-info > .name {
+  font-size: 1.5rem;
+  font-style: bold;
+}
+
+.prod-info > .slogan {
+  font-size: 1.2rem;
+  text-transform: lowercase;
+  font-style: italic;
+}
+
+.prod-info > .star-rating {
+  font-size: 1rem;
 }

@@ -14,6 +14,7 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
 
   let niceOriginalPrice;
   let niceSalePrice;
+  let niceAvgRating;
 
   if (thisPrice[0]) {
     niceOriginalPrice = thisPrice[0].slice(0, thisPrice[0].length - 3);
@@ -25,25 +26,14 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
   // =================== COMPONENT ===================
   return (
     <div className="prod-info">
-      <div>
-        {/* category */}
-        {category}
-      </div>
-
-      <div>
-        {/* product name, addtl text (slogan) */}
-        {name}<br />{slogan}
-      </div>
-
-      <div>
-        {/* orig price | sale price */}
-        {`$${niceOriginalPrice}`} {thisPrice[1] && ` | $${niceSalePrice}`}
-      </div>
-
-      <div>
-        {/* avg for stars | tot. reviews */}
+      <p className="category">{category}</p>
+      <p className="name">{name}</p>
+      <p className="slogan">&quot;{slogan}&quot;</p>
+      <p className="no-sale price">{`$${niceOriginalPrice}`}</p>
+      <p className="sale price">{thisPrice[1] && ` | $${niceSalePrice}`}</p>
+      <p className="star-rating">
         {thisAvgRating[0]} | {`(${thisAvgRating[1]})`}
-      </div>
+      </p>
     </div>
 
   );
