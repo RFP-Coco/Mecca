@@ -1,7 +1,7 @@
-/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
+import AnswerButtons from './AnswerButtons.jsx';
 
 export default function QuestionEntry({ question, updateQuestions }) {
   const [allAnswers, setAllAnswers] = useState([]);
@@ -59,23 +59,7 @@ export default function QuestionEntry({ question, updateQuestions }) {
           updateAnswers={updateAnswers}
         />
       ))}
-      {!moreAnswers
-        ? (
-          <button
-            type="button"
-            onClick={() => { setClicked(true); }}
-          > More Answers...
-          </button>
-        )
-        : allAnswers.length > 2
-          ? (
-            <button
-              type="button"
-              onClick={() => { setClicked(false); }}
-            > Back
-            </button>
-          )
-          : null }
+      <AnswerButtons moreAnswers={moreAnswers} setClicked={setClicked} allAnswers={allAnswers} />
     </div>
   );
 }
