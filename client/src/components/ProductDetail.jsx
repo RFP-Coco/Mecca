@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Sub_ProductDetail/styles/overview.css';
 import ImageGallery from './Sub_ProductDetail/ImageGallery.jsx';
 import ProductInfo from './Sub_ProductDetail/ProductInfo.jsx';
+import StyleSelector from './Sub_ProductDetail/StyleSelector.jsx';
 
 function ProductDetail({ product, productStyle }) {
   const [currentStyle, setCurrentStyle] = useState();
@@ -16,12 +17,16 @@ function ProductDetail({ product, productStyle }) {
       setCurrentStyle(styles[0]);
     }
   }, [product]);
+  if (!currentStyle) {
+    return null;
+  }
 
   return (
     <div className="product-detail">
-      {currentStyle && <ImageGallery currentStyle={currentStyle} />}
+      <ImageGallery currentStyle={currentStyle} />
       <div className="product-text">
-        {currentStyle && <ProductInfo product={product} />}
+        <ProductInfo product={product} />
+        <StyleSelector currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} />
       </div>
 
     </div>

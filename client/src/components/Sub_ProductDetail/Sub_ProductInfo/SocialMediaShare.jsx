@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { AiFillTwitterCircle } from 'react-icons/ai';
-import { AiFillFacebook } from 'react-icons/ai';
+import React from 'react';
+import { AiFillTwitterCircle, AiFillFacebook } from 'react-icons/ai';
 import { RiPinterestFill } from 'react-icons/ri';
 
 function SocialMediaShare({ product }) {
