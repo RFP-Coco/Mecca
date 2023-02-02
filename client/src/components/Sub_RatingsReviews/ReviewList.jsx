@@ -1,29 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
 export default function ReviewList({
-  reviews, update, onChange, sort, selectedRatings,
+  reviews, update, onChange, sort, selectedRatings, filtered,
 }) {
   const [displayedReviews, setDisplayedReviews] = useState(2);
-
-  const [filtered, setFiltered] = useState([]);
-
-  useEffect(() => {
-    const filteredReviews = reviews.results.filter((review) => !!selectedRatings[review.rating]);
-    if (filteredReviews.length === 0) setFiltered(reviews.results);
-    else setFiltered(filteredReviews);
-  }, [selectedRatings]);
-
-  const handleMoreReviews = () => {
-    const totalNumberReviews = filtered.length;
-    // if rendered reviews is only 1 lower, add one, otherwise add the normal 2
-    if (displayedReviews + 2 > totalNumberReviews) {
-      setDisplayedReviews(displayedReviews + 1);
-    } else if (totalNumberReviews - displayedReviews >= 2) {
-      setDisplayedReviews(displayedReviews + 2);
-    }
-  };
 
   // increments a review's helpfulness
   const handleHelpfulClick = (event, review) => {
@@ -31,6 +13,55 @@ export default function ReviewList({
     axios.put(`/api/reviews/${review.review_id}/helpful`, review)
       .then(() => update())
       .catch((err) => console.log(err));
+  };
+
+  // filtering logic
+  const mappedFilter = () => {
+    const filteredReviews = reviews.results.filter((review) => !!selectedRatings[review.rating]);
+    if (filteredReviews.length === 0) {
+      return reviews.results
+        .slice(0, displayedReviews)
+        .map((review) => (
+          <ReviewTile
+            key={review.review_id}
+            review={review}
+            handleHelpfulClick={handleHelpfulClick}
+          />
+        ));
+    }
+    return reviews.results
+      .filter((review) => !!selectedRatings[review.rating])
+      .slice(0, displayedReviews)
+      .map((review) => (
+        <ReviewTile
+          key={review.review_id}
+          review={review}
+          handleHelpfulClick={handleHelpfulClick}
+        />
+      ));
+  };
+
+  // display button logic
+  const displayButton = () => {
+    if (filtered === true
+      && displayedReviews <= reviews.results
+        .filter((review) => !!selectedRatings[review.rating]).length) {
+      return <button type="button" onClick={handleMoreReviews}>More Reviews</button>;
+    } if (filtered === false
+      && displayedReviews <= reviews.results.length) {
+      return <button type="button" onClick={handleMoreReviews}>More Reviews</button>;
+    }
+    return null;
+  };
+
+  const handleMoreReviews = () => {
+    const totalNumberReviews = reviews.results.length;
+    // if rendered reviews is only 1 lower, add one, otherwise add the normal 2
+    if (displayedReviews + 2 > totalNumberReviews) {
+      setDisplayedReviews(displayedReviews + 1);
+    } else if (totalNumberReviews - displayedReviews >= 2) {
+      setDisplayedReviews(displayedReviews + 2);
+    }
   };
 
   return (
@@ -44,25 +75,19 @@ export default function ReviewList({
         </select>
       </div>
       <ul className="review-list">
-        {filtered.length !== 0
-          ? filtered.slice(0, displayedReviews).map((review) => (
-            <ReviewTile
-              key={review.review_id}
-              review={review}
-              handleHelpfulClick={handleHelpfulClick}
-            />
-          ))
-          : reviews.results.slice(0, displayedReviews).map((review) => (
-            <ReviewTile
-              key={review.review_id}
-              review={review}
-              handleHelpfulClick={handleHelpfulClick}
-            />
-          ))}
+        {filtered === true
+          ? mappedFilter()
+          : reviews.results
+            .slice(0, displayedReviews)
+            .map((review) => (
+              <ReviewTile
+                key={review.review_id}
+                review={review}
+                handleHelpfulClick={handleHelpfulClick}
+              />
+            ))}
       </ul>
-      {reviews.results.length > 2 && displayedReviews <= filtered.length
-        ? <button type="button" onClick={handleMoreReviews}>More Reviews</button>
-        : null}
+      {displayButton()}
     </div>
   );
 }

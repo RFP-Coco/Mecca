@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { parseISO, format } from 'date-fns';
 import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
 
-export default function QuestionEntry({ question }) {
+export default function QuestionEntry({ question, updateQuestions }) {
   const [allAnswers, setAllAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
   const [moreAnswers, setMoreAnswers] = useState(false);
 
-  useEffect(() => {
+  const updateAnswers = () => {
     axios.get(`/api/qa/questions/${question.question_id}/answers?page=1&count=5`)
       .then(({ data: { results } }) => {
         setAllAnswers(results);
@@ -17,6 +16,18 @@ export default function QuestionEntry({ question }) {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const handleHelpful = () => {
+    axios.put(`/api/qa/questions/${question.question_id}/helpful`)
+      .then(updateQuestions)
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    updateAnswers();
   }, [question]);
 
   useEffect(() => {
@@ -33,12 +44,19 @@ export default function QuestionEntry({ question }) {
 
   return (
     <div>
-      <div>
-        <div>Q:{question.question_body} helpfulness: {question.question_helpfulness}</div>
-        by{question.asker_name}, {format(parseISO(question.question_date), 'LLLL d, yyyy')}
+      <div className="question">
+        <div>
+          <span className="question-item">Q: {question.question_body}</span>
+          <span>Helpful?</span> <button type="button" onClick={handleHelpful}>Yes({question.question_helpfulness})</button>
+          <button type="button"> Add Answer</button>
+        </div>
       </div>
       {currentAnswers.map((answer) => (
-        <AnswerEntry answer={answer} key={answer.answer_id} />
+        <AnswerEntry
+          answer={answer}
+          key={answer.answer_id}
+          updateAnswers={updateAnswers}
+        />
       ))}
       {!moreAnswers
         ? (

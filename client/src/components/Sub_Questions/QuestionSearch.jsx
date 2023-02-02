@@ -12,11 +12,15 @@ export default function QuestionsSearch({ questionList, setFilteredList }) {
     }
   };
   return (
-    <div>
-      Hello from Search
-      <input placeholder="Have a question?" onChange={handleChange} />
-      <button type="button">
-        Hello
+    <div className="question-search-bar">
+      <input
+        placeholder="Have a question?"
+        onChange={handleChange}
+      />
+      <button
+        type="button"
+      >
+        Search
       </button>
     </div>
   );
