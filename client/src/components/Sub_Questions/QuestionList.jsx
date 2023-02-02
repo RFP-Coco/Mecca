@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import QuestionEntry from './QuestionEntry.jsx';
 
-export default function QuestionList({ questionList }) {
+export default function QuestionList({ questionList, updateQuestions }) {
   const [allQuestions, setAllQuestions] = useState([]);
   const [currentDisplay, setCurrentDisplay] = useState([]);
   const [moreQuestions, setMoreQuestions] = useState(true);
@@ -12,6 +12,7 @@ export default function QuestionList({ questionList }) {
 
   useEffect(() => {
     setCurrentDisplay(allQuestions.slice(0, 2));
+    setMoreQuestions(allQuestions.length > 2);
   }, [allQuestions]);
 
   const handleClick = () => {
@@ -35,6 +36,7 @@ export default function QuestionList({ questionList }) {
         <QuestionEntry
           question={question}
           key={question.question_id}
+          updateQuestions={updateQuestions}
         />
       ))}
       {moreQuestions && (

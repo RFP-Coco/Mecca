@@ -24,17 +24,20 @@ function ImageSlide({ images, currentImageIndex, setCurrentImageIndex }) {
       >
         prev
       </button>
-      {images.map((img, index) => (index >= start && index - start < maxImages
-        ? (
-          <ImageThumbnail
-            key={index}
-            index={index}
-            img={img}
-            currentImageIndex={currentImageIndex}
-            setCurrentImageIndex={setCurrentImageIndex}
-          />
-        ) : null
-      ))}
+
+      <div className="image-slide-show">
+        {images.map((img, index) => (index >= start && index - start < maxImages
+          ? (
+            <ImageThumbnail
+              key={index}
+              index={index}
+              img={img}
+              currentImageIndex={currentImageIndex}
+              setCurrentImageIndex={setCurrentImageIndex}
+            />
+          ) : null
+        ))}
+      </div>
       <button
         type="button"
         style={{ visibility: (images.length > maxImages && start + maxImages < images.length) ? 'visible' : 'hidden' }}

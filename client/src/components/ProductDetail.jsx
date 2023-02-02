@@ -10,8 +10,7 @@ function ProductDetail({ product, productStyle }) {
   useEffect(() => {
     const styles = productStyle.results;
     const defaultStyle = styles.filter((style) => style['default?']);
-    if (defaultStyle) {
-      // console.log('SHOW DEFAULT STYLE: ', defaultStyle);
+    if (defaultStyle.length) {
       setCurrentStyle(defaultStyle[0]);
     } else {
       setCurrentStyle(styles[0]);
