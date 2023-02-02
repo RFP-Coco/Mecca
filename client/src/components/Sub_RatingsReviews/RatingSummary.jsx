@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import '../../../dist/assets/ratings/star.svg';
+import Star from './Star.jsx';
+import generateStars from './generateStars.js';
 
 export default function RatingSummary({
   reviewMetadata, totalAmtOfReviews, avgStarRating,
 }) {
+  // function takes in an integer and splits it into an array that's mappable to generate stars
+  // size in px
+
   return (
     <div className="rating-summary">
       <div className="stars">STARS WOULD GO HERE... IF I HAD THEM</div>
+      {/* <div className="stars-svg">
+
+      </div> */}
+
       <div className="total-reviews">{totalAmtOfReviews} reviews</div>
-      <h2 className="star-rating">{avgStarRating}</h2>
+      <h2 className="star-rating">
+        {avgStarRating}
+        {avgStarRating !== null
+        && generateStars(avgStarRating, 5, 30)}
+      </h2>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { parseISO, format } from 'date-fns';
+// import uuid from 'uuid4';
+import generateStars from './generateStars.js';
 
 export default function ReviewTile({
   review, handleHelpfulClick,
 }) {
   const [showMoreBody, setShowMoreBody] = useState(false);
-
-  const rating = new Array(review.rating).fill(0, (value, index) => index + 1);
   const date = format(parseISO(review.date), 'LLLL d, yyyy');
 
   // limit max summary length to 60 chars
@@ -24,7 +24,7 @@ export default function ReviewTile({
       <p className="reviewer-name">{review.reviewer_name}</p>
       <small className="review-date">{date}</small>
       <div className="stars">
-        {rating.map((star, index) => <div className="star" key={index} />)}
+        {generateStars(review.rating, review.rating, 15)}
       </div>
       <p>{!showMoreBody
         ? review.body.slice(0, defaultBodyLength)
