@@ -1,10 +1,8 @@
 import React from 'react';
+import generateStars from '../../Sub_RatingsReviews/generateStars.js';
+
 
 function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
-
-  // =================== EFFECTS ===================
-
-
   // =================== HELPERS ===================
   const {
     category,
@@ -14,7 +12,6 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
 
   let niceOriginalPrice;
   let niceSalePrice;
-  let niceAvgRating;
 
   if (thisPrice[0]) {
     niceOriginalPrice = thisPrice[0].slice(0, thisPrice[0].length - 3);
@@ -32,7 +29,7 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
       <p className="no-sale price">{`$${niceOriginalPrice}`}</p>
       <p className="sale price">{thisPrice[1] && ` | $${niceSalePrice}`}</p>
       <p className="star-rating">
-        {thisAvgRating[0]} | {`(${thisAvgRating[1]})`}
+        {generateStars(thisAvgRating[0], 5)} | {`(${thisAvgRating[1]})`}
       </p>
     </div>
 
