@@ -43,7 +43,7 @@ export default function QuestionList({ questionList, updateQuestions }) {
         <button
           type="button"
           onClick={handleClick}
-        > More Questions...
+        > More Answered Questions
         </button>
       )}
     </div>

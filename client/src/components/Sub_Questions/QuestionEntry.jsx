@@ -3,6 +3,7 @@ import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
 import AnswerButtons from './AnswerButtons.jsx';
 import AnswerQuestion from './AnswerQuestion.jsx';
+import QuestionItem from './QuestionItem.jsx';
 
 export default function QuestionEntry({ question, updateQuestions }) {
   const [allAnswers, setAllAnswers] = useState([]);
@@ -16,14 +17,6 @@ export default function QuestionEntry({ question, updateQuestions }) {
       .then(({ data: { results } }) => {
         setAllAnswers(results);
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const handleHelpful = () => {
-    axios.put(`/api/qa/questions/${question.question_id}/helpful`)
-      .then(updateQuestions)
       .catch((err) => {
         console.log(err);
       });
@@ -47,13 +40,11 @@ export default function QuestionEntry({ question, updateQuestions }) {
 
   return (
     <div>
-      <div className="question">
-        <div>
-          <span className="question-item">Q: {question.question_body}</span>
-          <span>Helpful?</span> <button type="button" onClick={handleHelpful}>Yes({question.question_helpfulness})</button>
-          <button type="button" onClick={() => setShow(true)}> Add Answer</button>
-        </div>
-      </div>
+      <QuestionItem
+        updateQuestions={updateQuestions}
+        question={question}
+        setShow={setShow}
+      />
       {show && (
         <AnswerQuestion
           question={question}
