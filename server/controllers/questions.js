@@ -7,8 +7,7 @@ module.exports = {
   getAllQuestionsByProductId: (req, res) => {
     // page&count has default value 1&5.
     // keep this in mind in case you need to change these value.
-    const { page, count, product_id } = req.query;
-    const url = `/qa/questions?page=${page}&count=${count}&product_id=${product_id}`;
+    const url = `/qa/questions?page=1&count=100&product_id=${req.query.product_id}`;
     const config = {
       method: 'get',
       baseURL,
@@ -27,8 +26,7 @@ module.exports = {
   },
   getAnswersByQuestionId: (req, res) => {
     // default value for page and counts
-    const { page, count } = req.query;
-    const url = `qa/questions/${req.params.question_id}/answers?page=${page}&count=${count}`;
+    const url = `qa/questions/${req.params.question_id}/answers?page=1&count=100`;
     const config = {
       method: 'get',
       baseURL,
