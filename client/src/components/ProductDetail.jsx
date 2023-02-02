@@ -4,7 +4,7 @@ import ImageGallery from './Sub_ProductDetail/ImageGallery.jsx';
 import ProductInfo from './Sub_ProductDetail/ProductInfo.jsx';
 import StyleSelector from './Sub_ProductDetail/StyleSelector.jsx';
 
-function ProductDetail({ product, productStyle }) {
+function ProductDetail({ product, productStyle, productID }) {
   const [currentStyle, setCurrentStyle] = useState();
   // console.log('SHOW PRODUCT STYLE: ', productStyle);
 
@@ -17,16 +17,22 @@ function ProductDetail({ product, productStyle }) {
       setCurrentStyle(styles[0]);
     }
   }, [product]);
+
   if (!currentStyle) {
     return null;
   }
 
   return (
     <div className="product-detail">
-      <ImageGallery currentStyle={currentStyle} />
+      <ImageGallery currentStyle={currentStyle} productID={productID} />
       <div className="product-text">
         <ProductInfo product={product} />
-        <StyleSelector currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} />
+        <StyleSelector
+          productStyle={productStyle}
+          currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle}
+          productID={productID}
+        />
       </div>
 
     </div>

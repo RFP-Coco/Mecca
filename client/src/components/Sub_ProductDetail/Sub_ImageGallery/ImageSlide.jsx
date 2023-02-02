@@ -19,8 +19,8 @@ function ImageSlide({ images, currentImageIndex, setCurrentImageIndex }) {
     <div className="image-slide">
       <button
         type="button"
-        style={{ visibility: (images.length > maxImages && start > 0) ? 'visible' : 'hidden' }}
-        onClick={() => setStart(start - 1)}
+        style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
+        onClick={() => setCurrentImageIndex(currentImageIndex - 1)}
       >
         prev
       </button>
@@ -40,8 +40,8 @@ function ImageSlide({ images, currentImageIndex, setCurrentImageIndex }) {
       </div>
       <button
         type="button"
-        style={{ visibility: (images.length > maxImages && start + maxImages < images.length) ? 'visible' : 'hidden' }}
-        onClick={() => setStart(start + 1)}
+        style={{ visibility: (currentImageIndex < images.length - 1) ? 'visible' : 'hidden' }}
+        onClick={() => { setCurrentImageIndex(currentImageIndex + 1); }}
       >
         next
       </button>
