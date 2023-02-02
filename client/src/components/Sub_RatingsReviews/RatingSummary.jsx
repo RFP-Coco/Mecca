@@ -11,16 +11,13 @@ export default function RatingSummary({
 
   return (
     <div className="rating-summary">
-      <div className="stars">STARS WOULD GO HERE... IF I HAD THEM</div>
-      {/* <div className="stars-svg">
-
-      </div> */}
-
+      <div className="stars">
+        {avgStarRating !== null
+        && generateStars(avgStarRating, 5, 30)}
+      </div>
       <div className="total-reviews">{totalAmtOfReviews} reviews</div>
       <h2 className="star-rating">
         {avgStarRating}
-        {avgStarRating !== null
-        && generateStars(avgStarRating, 5, 30)}
       </h2>
     </div>
   );
