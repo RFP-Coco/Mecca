@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AnswerEntry from './AnswerEntry.jsx';
@@ -9,7 +10,7 @@ export default function QuestionEntry({ question, updateQuestions }) {
   const [moreAnswers, setMoreAnswers] = useState(false);
 
   const updateAnswers = () => {
-    axios.get(`/api/qa/questions/${question.question_id}/answers?page=1&count=5`)
+    axios.get(`/api/qa/questions/${question.question_id}/answers`)
       .then(({ data: { results } }) => {
         setAllAnswers(results);
       })
@@ -66,13 +67,15 @@ export default function QuestionEntry({ question, updateQuestions }) {
           > More Answers...
           </button>
         )
-        : (
-          <button
-            type="button"
-            onClick={() => { setClicked(false); }}
-          > Back
-          </button>
-        )}
+        : allAnswers.length > 2
+          ? (
+            <button
+              type="button"
+              onClick={() => { setClicked(false); }}
+            > Back
+            </button>
+          )
+          : null }
     </div>
   );
 }
