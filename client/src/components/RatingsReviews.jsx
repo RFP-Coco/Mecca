@@ -5,8 +5,8 @@ import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
 import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
 import ReviewModal from './Sub_RatingsReviews/ReviewModal.jsx';
 
-
 export default function RatingsReviews({ productID, reviewMetadata }) {
+  // STATES
   const [sort, setSort] = useState('relevant');
   const [showModal, setShowModal] = useState(false);
 
@@ -19,9 +19,9 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
   });
 
   const [reviews, setReviews] = useState(null);
-
   const [filtered, setFiltered] = useState(false);
 
+  // EFFECTS
   const updateData = () => {
     const url = `/api/reviews/?product_id=${productID}&sort=${sort}&count=50`;
     axios.get(url)
@@ -31,7 +31,6 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
       .catch((err) => console.log(err));
   };
 
-  // listens for sorting select-box change
   useEffect(() => {
     updateData();
   }, [sort]);
@@ -41,6 +40,13 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
     else document.body.style.overflow = 'scroll';
   }, [showModal]);
 
+  useEffect(() => {
+    if (Object.values(selectedRatings).every((selected) => selected === false)) {
+      setFiltered(false);
+    }
+  }, [selectedRatings]);
+
+  // HANDLERS
   const handleSortChange = (event) => {
     setSort(event.target.value);
   };
@@ -53,6 +59,16 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
     setFiltered(true);
   };
 
+  const clearFilters = () => {
+    setSelectedRatings({
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+    });
+  };
+
   return (
     <div className="ratings-reviews">
       <h3>Ratings & Reviews</h3>
@@ -61,6 +77,7 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
       {reviews && reviewMetadata
       && (
       <Dashboard
+        clear={clearFilters}
         selectedRatings={selectedRatings}
         toggleSelectedRating={toggleSelectedRating}
         setSelectedRatings={setSelectedRatings}

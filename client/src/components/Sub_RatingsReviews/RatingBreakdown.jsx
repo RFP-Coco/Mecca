@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function RatingBreakdown({
-  reviewMetadata, totalAmtOfReviews, toggleSelectedRating, selectedRatings,
+  reviewMetadata, totalAmtOfReviews, toggleSelectedRating, selectedRatings, clear,
 }) {
   const progress = Object.entries(reviewMetadata.ratings)
     .map((entry) => [entry[0], entry[1] / totalAmtOfReviews, entry[1]]);
@@ -30,12 +30,14 @@ export default function RatingBreakdown({
           </div>
         );
       })}
-      {}
       <div className="">currently displaying:
         {currentFilters.length === 0 || currentFilters.length === 5
           ? 'all'
           : `${currentFilters.join(', ')} star`} reviews
       </div>
+      {Object.values(selectedRatings).some((selected) => selected === true)
+        ? <button className="clear-filters-btn" type="button" onClick={clear}>CLEAR ALL FILTERS</button>
+        : null}
     </div>
   );
 }
