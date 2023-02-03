@@ -2,7 +2,7 @@ import React from 'react';
 import generateStars from '../../Sub_RatingsReviews/generateStars.js';
 
 
-function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
+export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
   // =================== HELPERS ===================
   const {
     category,
@@ -32,8 +32,5 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
         {generateStars(thisAvgRating[0], 5)} | {`(${thisAvgRating[1]})`}
       </p>
     </div>
-
   );
 }
-
-export default ProdInfo;

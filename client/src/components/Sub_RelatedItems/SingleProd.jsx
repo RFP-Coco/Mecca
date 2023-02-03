@@ -6,7 +6,7 @@ import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
 export default function SingleProd({
-  thisProduct, parentProduct, reviewMetadata, onClick, setAllowCardClick,
+  thisProduct, parentProduct, parentReviewMetadata, setAllowCardClick, setAsNewOverview,
 }) {
   const { id } = thisProduct;
 
@@ -52,12 +52,6 @@ export default function SingleProd({
 
   // =================== HELPERS ===================
 
-  // if we need to find the first available img
-  // const setImg = () => {
-  //       setImgUrl('');
-  //       setImgUrl(newStyles[0].photos[0].url);
-  // };
-
   const setPrice = (style) => {
     const find = style[0];
 
@@ -90,7 +84,7 @@ export default function SingleProd({
   return (
     <div
       className="single-prod container"
-      onClick={() => onClick(id)}
+      onClick={() => setAsNewOverview(id)}
     >
       {showComparisonModal
         ? (
@@ -98,7 +92,7 @@ export default function SingleProd({
             thisProduct={thisProduct}
             thisReviewMetadata={thisReviewMeta}
             parentProduct={parentProduct}
-            parentReviewMetadata={reviewMetadata}
+            parentReviewMetadata={parentReviewMetadata}
             setAllowCardClick={setAllowCardClick}
             setShowComparisonModal={setShowComparisonModal}
             getAvgRating={getAvgRating}

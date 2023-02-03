@@ -6,11 +6,14 @@
 /* ======== WIDGET ======== */
 
 .related-items,
-.related-items > * {
+.related-items > *,
+.my-outfit,
+.my-outfit > * {
   box-sizing: border-box;
 }
 
-.related-items {
+.related-items,
+.my-outfit {
   display: flex;
   padding: 2px;
   margin: 0.3rem;
@@ -129,7 +132,8 @@ td {
 }
 
 /* ======== CARD PIC ======== */
-.default-pic {
+.default-pic,
+.add-outfit {
   border-radius: var(--littleRound);
   width: 20rem;
   height: 20rem;
@@ -153,6 +157,10 @@ td {
   left: 17.3rem;
   height: 2.2rem;
   width: 2.2rem;
+}
+
+.add-outfit {
+  border: 
 }
 
 /* ======== CARD PRODUCT INFO ======== */
