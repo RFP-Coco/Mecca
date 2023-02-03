@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import QuestionEntry from './QuestionEntry.jsx';
+import AskQuestion from './AskQuestion.jsx';
 
-export default function QuestionList({ questionList, updateQuestions, productName }) {
+export default function QuestionList({
+  questionList, updateQuestions, productName, productID,
+}) {
+  const [show, setShow] = useState(false);
   const [allQuestions, setAllQuestions] = useState([]);
   const [currentDisplay, setCurrentDisplay] = useState([]);
   const [moreQuestions, setMoreQuestions] = useState(true);
@@ -42,11 +46,25 @@ export default function QuestionList({ questionList, updateQuestions, productNam
       ))}
       {moreQuestions && (
         <button
-          className="stringbutton"
+          className="stringbutton bottom"
           type="button"
           onClick={handleClick}
         > More Answered Questions
         </button>
+      )}
+      <button
+        className="stringbutton bottom"
+        type="button"
+        onClick={() => { setShow(true); }}
+      > Ask a question
+      </button>
+      {show && (
+        <AskQuestion
+          productName={productName}
+          setShow={setShow}
+          productID={productID}
+          update={updateQuestions}
+        />
       )}
     </div>
   );
