@@ -19,10 +19,10 @@ export default function ProductDashboard({
     <div className="review-product-dashboard">
       {Object.entries(characteristics)
         .map((characteristic) => (
-          <>
+          <div className="characteristic">
             <div
               key={characteristic[1].id}
-              className="characteristic"
+              className="characteristic-name"
             >
               {characteristic[0]}
             </div>
@@ -46,7 +46,7 @@ export default function ProductDashboard({
                   ))}
               </datalist>
             </div>
-          </>
+          </div>
         ))}
     </div>
   );
