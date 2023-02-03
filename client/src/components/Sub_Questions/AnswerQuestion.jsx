@@ -6,7 +6,7 @@ import { Image } from 'cloudinary-react';
 import ImageModal from './ImageModal.jsx';
 
 export default function AnswerQuestion({
-  question, setShow, updateAnswers, productName,
+  question, setShow, fetchAnswers, productName,
 }) {
   const [displayModal, setDisplayModal] = useState(false);
   const [name, setName] = useState('');
@@ -30,7 +30,7 @@ export default function AnswerQuestion({
         photos,
       };
       axios.post(`/api/qa/questions/${question.question_id}/answers`, config)
-        .then(updateAnswers)
+        .then(fetchAnswers)
         .catch((err) => console.log(err));
       setShow(false);
     }

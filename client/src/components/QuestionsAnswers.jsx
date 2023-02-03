@@ -8,7 +8,7 @@ export default function QuestionsAnswers({ productID, productName }) {
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
 
-  const updateQuestions = () => {
+  const fetchQuestions = () => {
     axios.get(`/api/qa/questions?product_id=${productID}`)
       .then((result) => {
         setQuestionList(result.data.results);
@@ -18,7 +18,7 @@ export default function QuestionsAnswers({ productID, productName }) {
       });
   };
   useEffect(() => {
-    updateQuestions();
+    fetchQuestions();
   }, [productID]);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function QuestionsAnswers({ productID, productName }) {
       <QuestionList
         productID={productID}
         questionList={filteredList}
-        updateQuestions={updateQuestions}
+        updateQuestions={fetchQuestions}
         productName={productName}
       />
     </div>
