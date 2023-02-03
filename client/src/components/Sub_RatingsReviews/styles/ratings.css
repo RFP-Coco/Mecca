@@ -29,7 +29,8 @@ h3 {
   position: fixed;
   position: relative;
   background-color: var(--gray);
-  /* border-radius: 1rem; */
+  background-color: white;
+  border-radius: 1rem;
   color: white;
   padding: 8rem 16rem;
   z-index: 1000;
@@ -63,7 +64,8 @@ h3 {
 /* review tile body */
 .review-tile {
   margin: 1em;
-  border: .25em solid red;
+  border-top: .1em solid gray;
+  padding: .5em
   /* overflow-y: scroll; */
 }
 
@@ -126,6 +128,7 @@ datalist#labels {
   margin: 1.2em;
   margin-top: -1em;
   justify-content: center;
+  z-index: -1;
 }
 
 /* PRODUCT DASHBOARD BAR */
