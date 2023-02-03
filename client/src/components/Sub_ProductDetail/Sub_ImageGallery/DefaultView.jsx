@@ -1,6 +1,8 @@
 import React from 'react';
 
 function DefaultView({ images, currentImageIndex, setCurrentImageIndex }) {
+  const { url } = images[currentImageIndex];
+  const defaultUrl = '../../../assets/noProdImg.png';
   return (
     <div className="default-view">
       <button
@@ -11,7 +13,10 @@ function DefaultView({ images, currentImageIndex, setCurrentImageIndex }) {
         prev
       </button>
 
-      <img src={images[currentImageIndex].url ? images[currentImageIndex].url.substring(images[currentImageIndex].url.indexOf('http')) : '../../../assets/noProdImg.png'} alt="product" />
+      <img
+        src={url ? url.substring(url.indexOf('http')) : defaultUrl}
+        alt="product"
+      />
 
       <button
         type="button"

@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 
-function ImageThumbnail({
-  index, img, currentImageIndex, setCurrentImageIndex,
-}) {
+function ImageThumbnail({ index, img, currentImageIndex, setCurrentImageIndex }) {
+  const { thumbnail_url } = img;
+  const defaultUrl = '../../../assets/noProdImg.png';
   return (
     <div
       onClick={() => { setCurrentImageIndex(index); }}
@@ -12,8 +12,9 @@ function ImageThumbnail({
       <img
         className="image-thumbnail"
         style={index === currentImageIndex ? { borderBottom: '8px solid blue' } : {}}
-        src={img.thumbnail_url ? img.thumbnail_url.substring(img.thumbnail_url.indexOf('http'))
-          : '../../../assets/noProdImg.png'}
+        src={thumbnail_url
+          ? thumbnail_url.substring(thumbnail_url.indexOf('http'))
+          : defaultUrl}
         alt="thumbnail"
       />
     </div>
