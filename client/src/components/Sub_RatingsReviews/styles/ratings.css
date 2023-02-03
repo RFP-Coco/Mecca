@@ -1,6 +1,11 @@
 h3 {
   font-size: 32px;
 }
+/* FORM CONTENT */
+.form-stars{
+  display: flex;
+}
+
 
 /* MODAL STYLING */
 /* ReviewModal.jsx */
@@ -28,6 +33,7 @@ h3 {
 .review-modal-container {
   position: fixed;
   position: relative;
+  /* display: flex; */
   background-color: var(--gray);
   background-color: white;
   border-radius: 1rem;
