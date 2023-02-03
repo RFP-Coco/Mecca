@@ -59,6 +59,11 @@ progress::-webkit-progress-bar {
 }
 
 /* PRODUCT DASHBOARD */
+.review-product-dashboard {
+  margin: 1.5em;
+  margin-left: 0;
+}
+
 
 datalist#labels {
   display: flex;
@@ -70,10 +75,43 @@ datalist#labels {
   height: 2em;
 }
 
+.characteristic {
+  height: 5em;
+}
 .characteristics-label{
   font-size: .5em;
   transform: rotate(-67deg);
   margin: 1.2em;
-  margin-top: -2.5em;
+  margin-top: -1em;
   justify-content: center;
 }
+
+/* PRODUCT DASHBOARD BAR */
+
+.characteristics-slider input {
+  background-color: red;
+}
+
+
+/* INPUT RANGE CSS RESET */
+input[type=range]{
+  -webkit-appearance: none;
+  /* width: 25%; */
+  background: transparent;
+  background: #000000;
+  /* background-image: linear-gradient(#ff4500, #ff4500); */
+  height: 0.25em;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-bottom: 1rem;
+  border: 1px solid #ffffff;
+  border-radius: 30%;
+  background: #ffffff;
+  height: 15px;
+  width: 2px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+  transition: background .3s ease-in-out;
+}
+
