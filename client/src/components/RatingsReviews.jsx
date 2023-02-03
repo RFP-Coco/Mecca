@@ -3,9 +3,13 @@ import axios from 'axios';
 import './Sub_RatingsReviews/styles/ratings.css';
 import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
 import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
+import ReviewModal from './Sub_RatingsReviews/ReviewModal.jsx';
+
 
 export default function RatingsReviews({ productID, reviewMetadata }) {
   const [sort, setSort] = useState('relevant');
+  const [showModal, setShowModal] = useState(false);
+
   const [selectedRatings, setSelectedRatings] = useState({
     1: false,
     2: false,
@@ -32,6 +36,11 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
     updateData();
   }, [sort]);
 
+  useEffect(() => {
+    if (showModal) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'scroll';
+  }, [showModal]);
+
   const handleSortChange = (event) => {
     setSort(event.target.value);
   };
@@ -47,6 +56,8 @@ export default function RatingsReviews({ productID, reviewMetadata }) {
   return (
     <div className="ratings-reviews">
       <h3>Ratings & Reviews</h3>
+      <button type="button" onClick={() => setShowModal(true)}>SHOW MODAL</button>
+      {showModal && <ReviewModal setShowModal={setShowModal} />}
       {reviews && reviewMetadata
       && (
       <Dashboard

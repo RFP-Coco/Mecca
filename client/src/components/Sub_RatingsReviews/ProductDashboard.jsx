@@ -31,6 +31,7 @@ export default function ProductDashboard({
                 type="range"
                 min="1"
                 max="5"
+                step="1"
                 value={characteristic[1].value}
                 list="labels"
                 readOnly

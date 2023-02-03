@@ -2,6 +2,48 @@ h3 {
   font-size: 32px;
 }
 
+/* MODAL STYLING */
+/* ReviewModal.jsx */
+.review-comp-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0 0 0 0;
+  margin: auto;
+  position: fixed;
+}
+
+.review-modal-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  inset: 0 0 0 0;
+  z-index: 1000;
+}
+
+/* ReviewModalContent.jsx */
+.review-modal-container {
+  position: fixed;
+  position: relative;
+  background-color: var(--gray);
+  /* border-radius: 1rem; */
+  color: white;
+  padding: 8rem 16rem;
+  z-index: 1000;
+}
+
+.return-btn-container {
+  /* background-color: red; */
+  position: absolute;
+  color: white;
+  padding: 1rem;
+  top: 0;
+  right: 0;
+  margin-left: auto;
+}
 
 /* REVIEW DASHBOARD */
 
@@ -98,7 +140,7 @@ input[type=range]{
   -webkit-appearance: none;
   /* width: 25%; */
   background: transparent;
-  background: #000000;
+  background: #837d7d;
   /* background-image: linear-gradient(#ff4500, #ff4500); */
   height: 0.25em;
 }
