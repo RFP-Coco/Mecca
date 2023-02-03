@@ -3,13 +3,15 @@
   --circle: 50%;
 }
 
-.related-items {
-  /* height: 25%;
-  width: 75%; */
+/* ======== WIDGET ======== */
+
+.related-items,
+.related-items > * {
   box-sizing: border-box;
+}
+
+.related-items {
   display: flex;
-  /* overflow-x: auto;
-  overscroll-behavior-inline: contain; */
   padding: 2px;
   margin: 0.3rem;
 }
@@ -27,7 +29,6 @@
 
 .container {
   display: flex;
-  box-sizing: border-box;
   margin: 0.4rem;
 }
 
@@ -37,20 +38,97 @@
   border: 2px solid #636363;
   padding: 2px;
   border-radius: var(--littleRound);
-  /* inline-size: 30%; */
   margin: 0.2rem;
 }
 
-/* CARD MODAL */
+/* ======== COMPARISON MODAL ======== */
+
+.modal-close {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  margin-left: auto;
+  display: block;
+  height: 1.4rem;
+  width: 1.4rem;
+  padding: 0.2rem;
+  z-index: 2;
+}
+
+.comparison-modal-content > table {
+  position:fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  left: 20%;
+  top: 20%;
+  right: 20%;
+  bottom: 20%;
+  background-color: rgba(198, 207, 217, 0.9);
+  z-index: 1;
+}
+
+.comparison-modal-content > * {
+  vertical-align: middle;
+}
+
+.comparison-modal-header {
+  border-radius: 2rem;
+}
+
+.comparison-modal-header > table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-modal-header > th {
+  overflow-y: auto;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #ffffff;
+  background-color: #636363;
+  padding: 0.3rem;
+  margin: 0.3rem;
+}
+
+.comparison-modal-header > th:first-of-type {
+  border-radius: 0.5rem 0 0 0.5rem
+}
+
+.comparison-modal-header > th:last-of-type {
+  border-radius: 0rem 0.5rem 0.5rem 0
+}
+
 tr {
   object-fit: fill;
 }
 
+tr.overall-rating:hover,
+tr.additional-rating:hover {
+  background-color: rgba(130, 165, 202, 0.8);
+}
+
 td {
+  text-align: right;
+  font-size: 1.2rem;;
+  padding: 0.2rem 0;
+  margin: 0.2rem 0;
+}
+
+.overall-rating > td,
+.additional-rating > td {
   text-align: center;
 }
 
-/* CARD PIC */
+.remove-x {
+  height: 2.2rem;
+  width: 2.2rem;
+  padding-bottom: 2rem;
+  cursor: pointer;
+}
+
+/* ======== CARD PIC ======== */
 .default-pic {
   border-radius: var(--littleRound);
   width: 20rem;
@@ -77,8 +155,7 @@ td {
   width: 2.2rem;
 }
 
-
-/* CARD PRODUCT INFO */
+/* ======== CARD PRODUCT INFO ======== */
 .prod-info {
   text-align: left;
 }

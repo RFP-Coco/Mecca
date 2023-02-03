@@ -9,7 +9,7 @@
 }
 
 .question-item {
-  margin-right: 10%;
+  margin-right: auto;
 }
 
 .answer-info {
@@ -17,6 +17,7 @@
 }
 
 .modal {
+  z-index: 10;
   position: fixed;
   left: 0;
   top: 0;
@@ -49,24 +50,16 @@
   border-bottom: 1px solid #eee;
 }
 
-.stringbutton {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: rgb(140, 201, 105);
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .question-list {
-  height: 70vh;
+  min-height: 20vh;
+  max-height: 70vh;
   overflow-y: scroll;
 }
 .answer-list {
-  height: 30vh;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px ;
+  min-height: 5vh;
+  max-height: 20vh;
   overflow-y: scroll;
 }
 
@@ -77,4 +70,66 @@
 
 .question {
   margin-top: 10px;
+}
+
+.question-container {
+  display: flex;
+}
+
+/* CSS */
+.stringbutton {
+  z-index: 0;
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  margin-right: 10px;
+  min-height: 30px;
+  min-width: 0;
+  outline: none;
+  padding: 0 4px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  min-width: 0;
+  will-change: transform;
+}
+
+.stringbutton:disabled {
+  pointer-events: none;
+}
+
+.stringbutton:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.stringbutton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.bottom {
+  margin-top: 5px;
+}
+
+.search-bar {
+  height: 46px;
+  border-radius: 48px;
+  border: 0.5px solid lightgrey;
+  width: 85%;
+  padding-right: 40px;
+  padding-left: 10px;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import RatingSummary from './RatingSummary.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
+import ProductDashboard from './ProductDashboard.jsx';
 
 export default function Dashboard({
   reviews, reviewMetadata, toggleSelectedRating, selectedRatings,
@@ -29,6 +30,7 @@ export default function Dashboard({
         totalAmtOfReviews={totalAmtOfReviews}
         avgStarRating={avgStarRating}
       />
+      <ProductDashboard reviewMetadata={reviewMetadata} />
     </div>
   );
 }

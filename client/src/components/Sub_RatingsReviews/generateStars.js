@@ -2,7 +2,7 @@ import React from 'react';
 import uuid4 from 'uuid4';
 import Star from './Star.jsx';
 
-export default function generateStars(rating, amtStars, size = 25) {
+export default function generateStars(rating, amtStars = 5, size = 25, color = '#FFB940') {
   const result = [];
   let remaining = rating;
   let counter = 0;
@@ -20,6 +20,7 @@ export default function generateStars(rating, amtStars, size = 25) {
   return result
     .map((percent, index) => (
       <Star
+        color={color}
         size={size}
         key={`star_${index}`}
         percentage={percent}
