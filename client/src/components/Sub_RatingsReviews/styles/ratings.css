@@ -31,7 +31,7 @@ h3 {
   background-color: var(--gray);
   background-color: white;
   border-radius: 1rem;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 8rem 16rem;
   z-index: 1000;
 }
@@ -44,6 +44,13 @@ h3 {
   top: 0;
   right: 0;
   margin-left: auto;
+}
+
+.review-modal-header{
+  position: absolute;
+  margin-bottom: auto;
+  top: 1em;
+  left: 12em;
 }
 
 /* REVIEW DASHBOARD */
