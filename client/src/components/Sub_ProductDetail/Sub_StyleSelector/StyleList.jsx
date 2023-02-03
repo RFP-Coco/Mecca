@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import StyleEntry from './StyleEntry.jsx';
 
-function StyleList({ productStyle, currentStyle, setCurrentStyle, startSelect, setStartSelect}) {
-  // console.log('SHOW CURRENT STYLE: ', currentStyle);
-
+function StyleList({ productStyle, currentStyle, setCurrentStyle, startSelect, setStartSelect }) {
   return (
     <div className="style-list-container">
       {productStyle.results.map((style) => (

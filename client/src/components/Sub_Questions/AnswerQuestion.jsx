@@ -1,24 +1,18 @@
 /* eslint-disable no-alert */
+/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Image } from 'cloudinary-react';
+import ImageModal from './ImageModal.jsx';
 
 export default function AnswerQuestion({
-  question, setShow, updateAnswers, productName,
+  question, setShow, fetchAnswers, productName,
 }) {
+  const [displayModal, setDisplayModal] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [body, setBody] = useState('');
-  const photos = [];
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleQuestionChange = (e) => {
-    setBody(e.target.value);
-  };
+  const [photos, setPhotos] = useState([]);
 
   const handleSubmit = (e) => {
     if (name === '') {
@@ -36,7 +30,7 @@ export default function AnswerQuestion({
         photos,
       };
       axios.post(`/api/qa/questions/${question.question_id}/answers`, config)
-        .then(updateAnswers)
+        .then(fetchAnswers)
         .catch((err) => console.log(err));
       setShow(false);
     }
@@ -54,7 +48,7 @@ export default function AnswerQuestion({
             YourName:
             <input
               placeholder="Example: jackson11!"
-              onChange={handleNameChange}
+              onChange={(e) => { setName(e.target.value); }}
               maxLength="60"
               required
             />
@@ -63,7 +57,7 @@ export default function AnswerQuestion({
               type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               placeholder="Example: jackson11@random.email"
-              onChange={handleEmailChange}
+              onChange={(e) => { setEmail(e.target.value); }}
               maxLength="60"
               required
             />
@@ -73,10 +67,32 @@ export default function AnswerQuestion({
               rows="8"
               cols="50"
               placeholder="your answer"
-              onChange={handleQuestionChange}
+              onChange={(e) => { setBody(e.target.value); }}
               maxLength="1000"
               required
             />
+            <div className="images">
+              {photos.map((photo, index) => (
+                <Image
+                  key={index}
+                  style={{ width: 100 }}
+                  cloudName="dfxarumgq"
+                  publicId={photo}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => { setDisplayModal(true); }}
+            > Add Image
+            </button>
+            {displayModal && (
+              <ImageModal
+                display={setDisplayModal}
+                photos={photos}
+                setPhotos={setPhotos}
+              />
+            )}
             For privacy reasons, do not use your full name or email address
             For authentication reasons, you will not be emailed
           </div>

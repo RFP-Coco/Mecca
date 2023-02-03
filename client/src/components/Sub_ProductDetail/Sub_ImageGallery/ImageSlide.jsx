@@ -38,6 +38,7 @@ function ImageSlide({ images, currentImageIndex, setCurrentImageIndex }) {
           ) : null
         ))}
       </div>
+
       <button
         type="button"
         style={{ visibility: (currentImageIndex < images.length - 1) ? 'visible' : 'hidden' }}
