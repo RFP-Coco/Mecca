@@ -115,6 +115,16 @@
   margin-right: 0.5rem;
 }
 
+.product-info .link-review {
+  text-decoration: underline;
+}
+
+.product-info .link-review:hover {
+  text-color: underline;
+  cursor: pointer;
+  color:orange;
+}
+
 .social-media-share {
   display: flex;
   align-items: center;

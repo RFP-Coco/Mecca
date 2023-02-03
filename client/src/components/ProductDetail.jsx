@@ -5,7 +5,7 @@ import ProductInfo from './Sub_ProductDetail/ProductInfo.jsx';
 import StyleSelector from './Sub_ProductDetail/StyleSelector.jsx';
 import AddToCart from './Sub_ProductDetail/AddToCart.jsx';
 
-function ProductDetail({ product, productStyle, productID, reviewMetadata }) {
+function ProductDetail({ product, productStyle, productID, reviewMetadata, reviewRef }) {
   const [currentStyle, setCurrentStyle] = useState();
   const [startSelect, setStartSelect] = useState(false);
 
@@ -34,6 +34,7 @@ function ProductDetail({ product, productStyle, productID, reviewMetadata }) {
         <ProductInfo
           product={product}
           reviewMetadata={reviewMetadata}
+          reviewRef={reviewRef}
         />
         <StyleSelector
           productStyle={productStyle}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 import ProductDetail from './ProductDetail.jsx';
@@ -14,6 +14,7 @@ function App() {
   const [currentProduct, setCurrentProduct] = useState({});
   const [productStyle, setProductStyle] = useState({});
   const [reviewMetadata, setReviewMetadata] = useState({});
+  const reviewRef = useRef(null);
 
   console.log('productID: ', productID);
 
@@ -42,6 +43,7 @@ function App() {
         productStyle={productStyle}
         product={currentProduct}
         productID={productID}
+        reviewRef={reviewRef}
       />
       )}
       <RelatedItems
@@ -61,6 +63,7 @@ function App() {
         productID={productID}
         reviewMetadata={reviewMetadata}
         product={currentProduct}
+        reviewRef={reviewRef}
       />
       )}
     </div>
