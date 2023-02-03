@@ -10,10 +10,12 @@ function App() {
   // props for multiple widgets
   // states that multiple widgets need access to
 
-  const [productID, setProductID] = useState(40346);
+  const [productID, setProductID] = useState(40344);
   const [currentProduct, setCurrentProduct] = useState({});
   const [productStyle, setProductStyle] = useState({});
   const [reviewMetadata, setReviewMetadata] = useState({});
+
+  console.log('productID: ', productID);
 
   useEffect(() => {
     const urls = [

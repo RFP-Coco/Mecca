@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AiFillCheckCircle } from 'react-icons/ai';
 
 function StyleEntry({ style, currentStyle, setCurrentStyle, startSelect, setStartSelect }) {
   // console.log('SHOW CURRENT STYLE: ', currentStyle);
   const { thumbnail_url } = style.photos[0];
-
-
   return (
     <div
       className="style-entry-container"
@@ -16,7 +14,9 @@ function StyleEntry({ style, currentStyle, setCurrentStyle, startSelect, setStar
       }}
       onClick={() => { setCurrentStyle(style); setStartSelect(true); }}
     >
-      {startSelect && style.style_id === currentStyle.style_id ? <AiFillCheckCircle className="checkmark" /> : null}
+      {startSelect && style.style_id === currentStyle.style_id
+        ? <AiFillCheckCircle className="checkmark" />
+        : null}
     </div>
   );
 }

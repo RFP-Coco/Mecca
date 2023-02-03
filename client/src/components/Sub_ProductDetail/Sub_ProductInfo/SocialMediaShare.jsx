@@ -1,5 +1,7 @@
 import React from 'react';
-import { AiFillTwitterCircle, AiFillFacebook } from 'react-icons/ai';
+import { AiFillTwitterCircle } from 'react-icons/ai';
+import { SiFacebook } from 'react-icons/si';
+
 import { RiPinterestFill } from 'react-icons/ri';
 
 function SocialMediaShare({ product }) {
@@ -17,12 +19,22 @@ function SocialMediaShare({ product }) {
   };
 
   return (
-    <div>
-      <AiFillTwitterCircle className="icon icon-twitter" size={35} onClick={() => handleClick('twitter')} />
-
-        <AiFillFacebook className="icon icon-facebook" size={35} onClick={() => handleClick('facebook')} />
-
-      <RiPinterestFill className="icon icon-pinterest" size={35} onClick={() => handleClick('pinterest')} />
+    <div className="social-media-share">
+      <AiFillTwitterCircle
+        className="icon icon-twitter"
+        size={35}
+        onClick={() => handleClick('twitter')}
+      />
+      <SiFacebook
+        className="icon icon-facebook"
+        size={29}
+        onClick={() => handleClick('facebook')}
+      />
+      <RiPinterestFill
+        className="icon icon-pinterest"
+        size={35}
+        onClick={() => handleClick('pinterest')}
+      />
     </div>
   );
 }
