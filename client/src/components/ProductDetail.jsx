@@ -4,8 +4,8 @@ import ImageGallery from './Sub_ProductDetail/ImageGallery.jsx';
 import ProductInfo from './Sub_ProductDetail/ProductInfo.jsx';
 import StyleSelector from './Sub_ProductDetail/StyleSelector.jsx';
 
-function ProductDetail({ product, productStyle, productID }) {
-  const [currentStyle, setCurrentStyle] = useState();
+function ProductDetail({ product, productStyle, productID, currentStyle, setCurrentStyle }) {
+  // const [currentStyle, setCurrentStyle] = useState();
   // console.log('SHOW PRODUCT STYLE: ', productStyle);
 
   useEffect(() => {

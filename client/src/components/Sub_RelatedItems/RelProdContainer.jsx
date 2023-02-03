@@ -8,28 +8,6 @@ export default function RelProdContainer({
   parentProductStyle, parentReviewMetadata,
   setAsNewOverview, setAllowCardClick,
 }) {
-  const urls = [
-    `/api/products/${parentProductID}/related`,
-    
-  ];
-
-    axios.get(`/api/products/${parentProductID}/related`)
-      .then((response) => {
-        const uniqueIds = [...new Set(response.data)];
-        setRelatedIDs(uniqueIds);
-        return uniqueIds;
-      })
-      .then((ids) => {
-        const productReqs = ids.map((id) => axios.get(`/api/products/${id}`));
-        return axios.all(productReqs);
-      })
-      .then((responses) => {
-        const prodSetter = [...responses.map((response) => response.data)];
-        setRelatedProds(prodSetter);
-        return prodSetter;
-      })
-      .catch((err) => err);
-
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
 
@@ -37,16 +15,16 @@ export default function RelProdContainer({
 
   // =================== EFFECTS ===================
 
-  useEffect(() => getRelatedProdsAndReviews(), [parentProductID]);
-
-  // =================== HELPERS ===================
-
-  const getRelatedProdsAndReviews = () => {
+  useEffect(() => {
     axios.get(`/api/products/${parentProductID}/related`)
       .then((response) => {
-        const uniqueIds = [...new Set(response.data)];
-        setRelatedIDs(uniqueIds);
-        return uniqueIds;
+        let uniqueIDs = new Set(response.data);
+        if (uniqueIDs.has(parentProductID)) {
+          uniqueIDs.delete(parentProductID);
+        }
+        uniqueIDs = [...uniqueIDs];
+        setRelatedIDs(uniqueIDs);
+        return uniqueIDs;
       })
       .then((ids) => {
         const productReqs = ids.map((id) => axios.get(`/api/products/${id}`));
@@ -58,7 +36,7 @@ export default function RelProdContainer({
         return prodSetter;
       })
       .catch((err) => err);
-  };
+  }, [parentProductID]);
 
   // =================== COMPONENT ===================
   return (

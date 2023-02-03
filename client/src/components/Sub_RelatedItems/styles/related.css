@@ -5,11 +5,21 @@
 
 /* ======== WIDGET ======== */
 
+.title,
 .related-items,
 .related-items > *,
 .my-outfit,
 .my-outfit > * {
   box-sizing: border-box;
+}
+
+.title {
+  font-size: x-large;
+  font-weight: 600;
+  border-top: 1.5rem solid #20364ecc;
+  padding: 0.5rem;
+  padding-left: 3rem;
+  margin: 0.3rem;
 }
 
 .related-items,
@@ -160,7 +170,12 @@ td {
 }
 
 .add-outfit {
-  border: 
+  border:
+}
+
+.single-prod.container.add-outfit {
+  flex-direction: row;
+  border: none;
 }
 
 /* ======== CARD PRODUCT INFO ======== */

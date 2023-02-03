@@ -6,8 +6,8 @@ export default function ProdImg({
   const picUrl = defaultPic || '../../../assets/noProdImg.png';
 
   // =================== Handlers ===================
-  const handleComparisonModal = (event) => {
-    event.preventDefault();
+  const handleComparisonModal = (e) => {
+    e.preventDefault();
     setShowComparisonModal(!showComparisonModal);
   };
 

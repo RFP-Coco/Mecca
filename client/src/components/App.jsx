@@ -14,6 +14,7 @@ function App() {
   const [currentProduct, setCurrentProduct] = useState({});
   const [productStyle, setProductStyle] = useState({});
   const [reviewMetadata, setReviewMetadata] = useState({});
+  const [currentStyle, setCurrentStyle] = useState();
 
   useEffect(() => {
     const urls = [
@@ -40,6 +41,8 @@ function App() {
         productStyle={productStyle}
         product={currentProduct}
         productID={productID}
+        currentStyle={currentStyle}
+        setCurrentStyle={setCurrentStyle}
       />
       )}
       <RelatedItems
@@ -48,6 +51,7 @@ function App() {
         product={currentProduct}
         productID={productID}
         setProductID={setProductID}
+        currentStyle={currentStyle}
       />
       <QuestionsAnswers
         productID={productID}
