@@ -5,6 +5,14 @@ import generateStars from './generateStars.js';
 export default function ReviewModalContent({ setShowModal, product }) {
   console.log(product, 'product');
   const [starsFilled, setStarsFilled] = useState(0);
+  const [starInfo, setStarInfo] = useState({
+    1: 'Poor',
+    2: 'Fair',
+    3: 'Average',
+    4: 'Good',
+    5: 'Great',
+  });
+
   const [reviewBody, setReviewBody] = useState({
     product_id: product.id,
     rating: 0,
@@ -46,10 +54,14 @@ export default function ReviewModalContent({ setShowModal, product }) {
                 <div onClick={() => handleStarClick(5)}>{generateStars(0, 1)}</div>
               </span>
             )
-            : generateStars(reviewBody.rating)}
+            : (
+              <span className="form-stars">
+                {generateStars(reviewBody.rating)}
+                <span>{starInfo[reviewBody.rating]}</span>
+              </span>
+            )}
         </div>
       </div>
-
     </form>
   );
 }
