@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import generateStars from './generateStars.js';
+import RecommendedButton from './RecommendedButton.jsx';
 
 export default function ReviewModalContent({ setShowModal, product }) {
   console.log(product, 'product');
@@ -17,7 +18,7 @@ export default function ReviewModalContent({ setShowModal, product }) {
     product_id: product.id,
     rating: 0,
     summary: '',
-    reccomend: false,
+    recommend: false,
     body: '',
     name: '',
     email: '',
@@ -30,6 +31,13 @@ export default function ReviewModalContent({ setShowModal, product }) {
     setReviewBody({
       ...reviewBody,
       rating,
+    });
+  };
+
+  const toggleRecommended = (bool) => {
+    setReviewBody({
+      ...reviewBody,
+      recommend: bool,
     });
   };
 
@@ -62,6 +70,10 @@ export default function ReviewModalContent({ setShowModal, product }) {
             )}
         </div>
       </div>
+      <RecommendedButton
+        toggle={toggleRecommended}
+        setReviewBody={setReviewBody}
+      />
     </form>
   );
 }
