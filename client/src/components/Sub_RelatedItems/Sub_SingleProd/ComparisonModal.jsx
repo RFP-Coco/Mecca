@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import generateStars from '../../Sub_RatingsReviews/generateStars.js';
 
 export default function ComparisonModal({
   thisProduct, thisReviewMetadata,
@@ -7,19 +8,6 @@ export default function ComparisonModal({
 }) {
   const thisAvgRating = getAvgRating(thisReviewMetadata.ratings)[0];
   const parentAvgRating = getAvgRating(parentReviewMetadata.ratings)[0];
-
-  /*
-    create a 'combined' array to hold data
-    create a Set of keys from both characteristics objects
-    iterate over the Set
-    create a nested array of 'this' value, key, and 'parent' value,
-      and push it to the combined array
-      push 'null' if this or parent do not have that key
-
-    [ [3.4, Quality, 3.7], [4.2, Fit, 3.8], [null, Length, 4.6] ]
-    a mappable array where each nested array fills a <tr> with three <td>s
-    can I convert these to Kevin's stars?
-  */
 
   const allCharacteristics = [
     ...new Set(Object.keys(thisReviewMetadata.characteristics)
@@ -54,7 +42,6 @@ export default function ComparisonModal({
 
   const handleMouseLeave = () => {
     setAllowCardClick(true);
-    // setShowComparisonModal(false);
   };
 
   return (
@@ -63,27 +50,41 @@ export default function ComparisonModal({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <table className="comparison-modal-content">
-        <tbody className="comparison-modal-header">
-          <tr>
-            <th>{thisProduct.name}</th>
-            <th>vs.</th>
-            <th>{parentProduct.name}</th>
-          </tr>
-          <tr className="overall-rating">
-            <td>{thisAvgRating}</td>
-            <td>Overall Rating</td>
-            <td>{parentAvgRating}</td>
-          </tr>
-          {combinedStats.map((nestedStats, i) => (
-            <tr key={i} className="additional-rating">
-              <td>{nestedStats[0]}</td>
-              <td>{nestedStats[1]}</td>
-              <td>{nestedStats[2]}</td>
+      <div className="comparison-modal-content">
+        <table>
+          <tbody className="comparison-modal-body">
+            <tr>
+              <td>{null}</td>
+              <td>{null}</td>
+              <td>
+                <img
+                  className="remove-x"
+                  src="../../../../assets/remove2.png"
+                  alt="close this modal"
+                  onClick={() => setShowComparisonModal(false)}
+                />
+              </td>
             </tr>
-          ))}
-        </tbody>
-      </table>
+            <tr className="comparison-modal-header">
+              <th>{thisProduct.name}</th>
+              <th>vs.</th>
+              <th>{parentProduct.name}</th>
+            </tr>
+            <tr className="overall-rating">
+              <td>{generateStars(thisAvgRating, 5)}</td>
+              <td>Overall Rating</td>
+              <td>{generateStars(parentAvgRating, 5)}</td>
+            </tr>
+            {combinedStats.map((nestedStats, i) => (
+              <tr key={i} className="additional-rating">
+                <td>{nestedStats[0] ? generateStars(nestedStats[0], 5) : null}</td>
+                <td>{nestedStats[1]}</td>
+                <td>{nestedStats[2] ? generateStars(nestedStats[2], 5) : null}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-};
+}

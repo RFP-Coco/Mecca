@@ -6,7 +6,7 @@ import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
 export default function SingleProd({
-  thisProduct, parentProduct, productID, productStyle, reviewMetadata, onClick, setAllowCardClick,
+  thisProduct, parentProduct, reviewMetadata, onClick, setAllowCardClick,
 }) {
   const { id } = thisProduct;
 
@@ -33,7 +33,7 @@ export default function SingleProd({
         setTheseStyles(newStyles);
         setImgUrl('');
         setImgUrl(newStyles[0].photos[0].url);
-        return newStyles.filter(style => style['default?'] === true);
+        return newStyles.filter((style) => style['default?'] === true);
       })
       .then((defaultStyle) => {
         setPrice(defaultStyle);
@@ -81,11 +81,9 @@ export default function SingleProd({
       totalRatings += Number(ratings[num]);
     }
 
-    return [(sum / totalRatings).toFixed(2), totalRatings];
-  };
-  // =================== HANDLERS ===================
-  const handleOutsideClick = () => {
-    return null;
+    const thisRoundedRating = Math.round((sum / totalRatings).toFixed(2) / 0.25) * 0.25;
+
+    return [thisRoundedRating, totalRatings];
   };
 
   // =================== COMPONENT ===================
