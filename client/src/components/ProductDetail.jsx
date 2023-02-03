@@ -18,7 +18,7 @@ function ProductDetail({ product, productStyle, productID, reviewMetadata }) {
     } else {
       setCurrentStyle(styles[0]);
     }
-  }, [productID]);
+  }, [product]);
 
   if (!currentStyle) {
     return null;

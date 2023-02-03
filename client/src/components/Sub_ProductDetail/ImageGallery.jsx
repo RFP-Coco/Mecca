@@ -3,7 +3,7 @@ import ImageSlide from './Sub_ImageGallery/ImageSlide.jsx';
 import DefaultView from './Sub_ImageGallery/DefaultView.jsx';
 
 function ImageGallery({ currentStyle, productID }) {
-  // console.log('SHOW CURRENT STYLE: ', currentStyle);
+  console.log('SHOW CURRENT STYLE: ', currentStyle);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [styleMemo, setStyleMemo] = useState({});
   const { style_id } = currentStyle;
