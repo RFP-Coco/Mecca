@@ -3,8 +3,8 @@ import React from 'react';
 export default function ProdImg({
   defaultPic, thisProduct,
   currentParentProductStyle, setAllowCardClick,
-  showComparisonModal, setShowComparisonModal,
-  handleRemoveOutfit,
+  showComparisonModal, setShowComparisonModal, thisStyleID,
+  myOutfits, setMyOutfits, checkStyles, setCheckStyles
 }) {
   const picUrl = defaultPic || '../../../assets/noProdImg.png';
 
@@ -14,12 +14,30 @@ export default function ProdImg({
     setShowComparisonModal(!showComparisonModal);
   };
 
+  const handleRemoveOutfit = (e) => {
+    e.preventDefault();
+
+    const toRemove = myOutfits.indexOf(myOutfits.find((outfit) => (
+      outfit.style_id === thisStyleID
+    )));
+
+    const tempOutfits = myOutfits.slice();
+    const tempChecks = { ...checkStyles };
+    tempOutfits.splice(toRemove, 1);
+    delete tempChecks[thisStyleID];
+
+    console.log(tempChecks);
+
+    setCheckStyles(tempChecks);
+    setMyOutfits(tempOutfits);
+  };
+
   // =================== COMPONENT ===================
   return (
     <div className="prod-pic">
       {currentParentProductStyle && (
         <button
-          className="btn remove-outfit"
+          className="btn remove-btn"
           onMouseEnter={() => setAllowCardClick(false)}
           onMouseLeave={() => setAllowCardClick(true)}
           onClick={handleRemoveOutfit}
@@ -28,14 +46,16 @@ export default function ProdImg({
           <img src="../../../../assets/remove.png" alt="remove this product from your collection" />
         </button>
       )}
-      <button
-        className="btn compare-btn"
-        onMouseEnter={() => setAllowCardClick(false)}
-        onMouseLeave={() => setAllowCardClick(true)}
-        onClick={handleComparisonModal}
-        type="button"
-      ><img src="../../../../assets/compareStar.png" alt="opens a comparison modal" />
-      </button>
+      {!currentParentProductStyle && (
+        <button
+          className="btn compare-btn"
+          onMouseEnter={() => setAllowCardClick(false)}
+          onMouseLeave={() => setAllowCardClick(true)}
+          onClick={handleComparisonModal}
+          type="button"
+        ><img src="../../../../assets/compareStar.png" alt="opens a comparison modal" />
+        </button>
+      )}
       <img
         className="default-pic"
         src={picUrl}

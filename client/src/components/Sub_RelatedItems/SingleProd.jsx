@@ -6,8 +6,10 @@ import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
 export default function SingleProd({
-  thisProduct, parentProduct, parentReviewMetadata, currentParentProductStyle, handleRemoveOutfit,
-  setAllowCardClick, setAsNewOverview,
+  thisProduct, parentProduct, parentReviewMetadata,
+  currentParentProductStyle, setAllowCardClick,
+  setAsNewOverview, thisStyleID,
+  myOutfits, setMyOutfits, checkStyles, setCheckStyles,
 }) {
   const { id } = thisProduct;
 
@@ -37,10 +39,9 @@ export default function SingleProd({
         if (!currentParentProductStyle) {
           setImgUrl(newStyles[0].photos[0].url);
           return newStyles.filter((style) => style['default?'] === true);
-        } else {
-          setImgUrl(currentParentProductStyle.photos[0].url);
-          return [currentParentProductStyle]
         }
+        setImgUrl(currentParentProductStyle.photos[0].url);
+        return [currentParentProductStyle];
       })
       .then((style) => {
         setPrice(style);
@@ -109,11 +110,15 @@ export default function SingleProd({
       <ProdImg
         defaultPic={imgUrl}
         thisProduct={thisProduct}
+        thisStyleID={thisStyleID}
         setAllowCardClick={setAllowCardClick}
         showComparisonModal={showComparisonModal}
         setShowComparisonModal={setShowComparisonModal}
         currentParentProductStyle={currentParentProductStyle}
-        handleRemoveOutfit={handleRemoveOutfit}
+        myOutfits={myOutfits}
+        setMyOutfits={setMyOutfits}
+        checkStyles={checkStyles}
+        setCheckStyles={setCheckStyles}
       />
       <ProdInfo
         thisProduct={thisProduct}

@@ -14,13 +14,9 @@ export default function OutfitContainer({
   const [myOutfits, setMyOutfits] = useState([]);
   const [checkStyles, setCheckStyles] = useState({});
 
-  const [outfitsUpdated, setOutfitsUpdated] = useState(false);
+  // const [outfitsUpdated, setOutfitsUpdated] = useState(false);
 
-  useEffect(() => {
-    if (myOutfits.length) {
-      setOutfitsUpdated(false);
-    }
-  }, [myOutfits]);
+  useEffect(() => {console.log(checkStyles)}, [myOutfits]);
 
   const handleAddOutfit = (e) => {
     e.preventDefault();
@@ -32,13 +28,13 @@ export default function OutfitContainer({
     setCheckStyles(Object.assign(checkStyles, checkStyles[style_id] = 1));
 
     setMyOutfits(myOutfits.concat([myOutfitEntry]));
-    setOutfitsUpdated(true);
+    // setOutfitsUpdated(true);
   };
 
-  // const generateOutfitObj = () => {
-  //   const addOn = { style_id: currentParentProductStyle.style_id };
+  // const handleRemoveOutfit = (e) => {
+  //   e.preventDefault();
+  //   console.log('hit handleRemoveOutfit');
 
-  //   return Object.create(parentProduct, addOn);
   // };
 
   return (
@@ -51,7 +47,8 @@ export default function OutfitContainer({
       />
       {myOutfits.map((thisProduct) => (
         <SingleProd
-          key={currentParentProductStyle.style_id}
+          key={thisProduct.id}
+          thisStyleID={thisProduct.style_id}
           parentProduct={parentProduct}
           setParentProductID={setParentProductID}
           parentProductStyle={parentProductStyle}
@@ -60,7 +57,10 @@ export default function OutfitContainer({
           thisProduct={thisProduct}
           setAllowCardClick={setAllowCardClick}
           setAsNewOverview={setAsNewOverview}
-          handleRemoveOutfit={handleRemoveOutfit}
+          myOutfits={myOutfits}
+          setMyOutfits={setMyOutfits}
+          checkStyles={checkStyles}
+          setCheckStyles={setCheckStyles}
         />
       ))}
     </div>
