@@ -207,3 +207,7 @@ td {
 .prod-info > .star-rating {
   font-size: 1rem;
 }
+
+.sale {
+  color: #ff0000;
+}

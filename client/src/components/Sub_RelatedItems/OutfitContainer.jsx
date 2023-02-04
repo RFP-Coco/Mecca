@@ -20,7 +20,6 @@ export default function OutfitContainer({
     }
   }, [outfitsUpdated]);
 
-
   const handleAddOutfit = (e) => {
     e.preventDefault();
     // const { style_id } = currentParentProductStyle;
@@ -50,6 +49,7 @@ export default function OutfitContainer({
           setParentProductID={setParentProductID}
           parentProductStyle={parentProductStyle}
           parentReviewMetadata={parentReviewMetadata}
+          currentParentProductStyle={currentParentProductStyle}
           thisProduct={thisProduct}
           setAllowCardClick={setAllowCardClick}
           setAsNewOverview={setAsNewOverview}
@@ -59,10 +59,7 @@ export default function OutfitContainer({
   );
 }
 
-function AddOutfitCard({
-  parentProduct, myOutfits, handleAddOutfit,
-  setMyOutfits /* currentParentProductStyle */ }) {
-
+function AddOutfitCard({ handleAddOutfit }) {
   const addOutfitPic = '../../../../assets/addToOutfit.png';
 
   return (

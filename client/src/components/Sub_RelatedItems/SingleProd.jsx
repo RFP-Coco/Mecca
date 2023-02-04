@@ -6,7 +6,8 @@ import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
 export default function SingleProd({
-  thisProduct, parentProduct, parentReviewMetadata, setAllowCardClick, setAsNewOverview,
+  thisProduct, parentProduct, parentReviewMetadata, currentParentProductStyle,
+  setAllowCardClick, setAsNewOverview,
 }) {
   const { id } = thisProduct;
 
@@ -32,11 +33,17 @@ export default function SingleProd({
         const newStyles = styles.data.results;
         setTheseStyles(newStyles);
         setImgUrl('');
-        setImgUrl(newStyles[0].photos[0].url);
-        return newStyles.filter((style) => style['default?'] === true);
+        // if it's for the related items
+        if (!currentParentProductStyle) {
+          setImgUrl(newStyles[0].photos[0].url);
+          return newStyles.filter((style) => style['default?'] === true);
+        } else {
+          setImgUrl(currentParentProductStyle.photos[0].url);
+          return [currentParentProductStyle]
+        }
       })
-      .then((defaultStyle) => {
-        setPrice(defaultStyle);
+      .then((style) => {
+        setPrice(style);
       })
       .catch((err) => err);
 
@@ -52,15 +59,15 @@ export default function SingleProd({
 
   // =================== HELPERS ===================
 
-  const setPrice = (style) => {
-    const find = style[0];
+  const setPrice = (item) => {
+    const find = item[0];
 
-    if (!style.length) {
+    if (!item.length) {
       setThisPrice([thisProduct.default_price, null]);
     }
 
     if (find.sale_price) {
-      setThisPrice([find.sale_price, find.original_price]);
+      setThisPrice([find.original_price, find.sale_price]);
     } else {
       setThisPrice([find.original_price, null]);
     }
