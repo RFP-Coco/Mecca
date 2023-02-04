@@ -6,25 +6,33 @@ export default function OutfitContainer({
   parentProductStyle, currentParentProductStyle,
   parentReviewMetadata, setAsNewOverview, setAllowCardClick,
 }) {
-  const [myOutfits, setMyOutfits] = useState(new Set());
+
+  // const { id } = thisProduct;
+
+  // const [myOutfits, setMyOutfits] = useState(new Set());
+
+  const [myOutfits, setMyOutfits] = useState([]);
+  const [checkStyles, setCheckStyles] = useState({});
+
+  const [outfitsUpdated, setOutfitsUpdated] = useState(false);
 
   useEffect(() => {
-    if (myOutfits.size) {
-      setMyOutfits(myOutfits.add(parentProduct));
-      // setMyOutfits(myOutfits.add(generateOutfitObj()));
+    if (myOutfits.length) {
+      setOutfitsUpdated(false);
     }
   }, [myOutfits]);
 
   const handleAddOutfit = (e) => {
     e.preventDefault();
-    setMyOutfits(myOutfits.add(parentProduct));
-    // setMyOutfits(myOutfits.add(generateOutfitObj()));
-  };
+    const { style_id } = currentParentProductStyle;
+    const myOutfitEntry = Object.assign(parentProduct, { style_id });
 
-  const handleRemoveOutfit = (e) => {
-    e.preventDefault();
-    // setMyOutfits(myOutfits.delete(parentProduct));
-    // setMyOutfits(myOutfits.delete());
+    if (checkStyles[style_id]) return;
+
+    setCheckStyles(Object.assign(checkStyles, checkStyles[style_id] = 1));
+
+    setMyOutfits(myOutfits.concat([myOutfitEntry]));
+    setOutfitsUpdated(true);
   };
 
   // const generateOutfitObj = () => {
@@ -41,7 +49,7 @@ export default function OutfitContainer({
         setMyOutfits={setMyOutfits}
         handleAddOutfit={handleAddOutfit}
       />
-      {[...myOutfits].map((thisProduct) => (
+      {myOutfits.map((thisProduct) => (
         <SingleProd
           key={currentParentProductStyle.style_id}
           parentProduct={parentProduct}
