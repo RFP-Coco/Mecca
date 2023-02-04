@@ -5,7 +5,9 @@ import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
 import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
 import ReviewModal from './Sub_RatingsReviews/ReviewModal.jsx';
 
-export default function RatingsReviews({ productID, reviewMetadata, product }) {
+export default function RatingsReviews({
+  productID, reviewMetadata, product, reviewRef,
+}) {
   // STATES
   const [sort, setSort] = useState('relevant');
   const [showModal, setShowModal] = useState(false);
@@ -70,7 +72,7 @@ export default function RatingsReviews({ productID, reviewMetadata, product }) {
   };
 
   return (
-    <div className="ratings-reviews">
+    <div className="ratings-reviews" ref={reviewRef}>
       <h3>Ratings & Reviews</h3>
       <button type="button" onClick={() => setShowModal(true)}>Add a review</button>
       {showModal
