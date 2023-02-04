@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import generateStars from './generateStars.js';
+import generateStars from '../generateStars.js';
 import RecommendedButton from './RecommendedButton.jsx';
 import RadioGroup from './RadioGroup.jsx';
+import AddReviewBody from './AddReviewBody.jsx';
 
 export default function ReviewModalContent({ setShowModal, product, reviewMetadata }) {
   // STATES/CONSTANTS
@@ -60,6 +61,14 @@ export default function ReviewModalContent({ setShowModal, product, reviewMetada
     });
   };
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setReviewBody({
+      ...reviewBody,
+      [name]: value,
+    });
+  };
+
   return (
     <form className="review-modal-container">
       <div className="return-btn-container">
@@ -113,6 +122,13 @@ export default function ReviewModalContent({ setShowModal, product, reviewMetada
           </div>
         </legend>
       </fieldset>
+      <AddReviewBody
+        onChange={handleInputChange}
+        reviewBody={reviewBody}
+        minBodyLength={50}
+        maxBodyLength={1000}
+        maxSummaryLength={60}
+      />
     </form>
   );
 }

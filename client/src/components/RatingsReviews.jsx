@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Sub_RatingsReviews/styles/ratings.css';
 import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
 import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
-import ReviewModal from './Sub_RatingsReviews/ReviewModal.jsx';
+import ReviewModal from './Sub_RatingsReviews/FormComponents/ReviewModal.jsx';
 
 export default function RatingsReviews({
   productID, reviewMetadata, product, reviewRef,
