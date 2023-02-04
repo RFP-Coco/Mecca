@@ -7,10 +7,10 @@ import AddToCart from './Sub_ProductDetail/AddToCart.jsx';
 
 function ProductDetail({
   product, productStyle, productID,
-  currentStyle, setCurrentStyle, reviewMetadata,
+  currentStyle, setCurrentStyle, reviewMetadata, reviewRef,
 }) {
   // const [currentStyle, setCurrentStyle] = useState();
-  // console.log('SHOW PRODUCT STYLE: ', productStyle);
+  const [startSelect, setStartSelect] = useState(false);
 
   useEffect(() => {
     setStartSelect(false);
@@ -37,6 +37,7 @@ function ProductDetail({
         <ProductInfo
           product={product}
           reviewMetadata={reviewMetadata}
+          reviewRef={reviewRef}
         />
         <StyleSelector
           productStyle={productStyle}
