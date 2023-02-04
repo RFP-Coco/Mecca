@@ -8,7 +8,7 @@ export default function AddReviewBody({
       <div className="form-review-summary">
         <input
           onChange={onChange}
-          placeholder="maximum 60 chars"
+          placeholder="example: jackson11!"
           maxLength={maxSummaryLength}
           name="summary"
         />

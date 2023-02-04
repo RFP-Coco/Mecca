@@ -5,7 +5,9 @@ import RecommendedButton from './RecommendedButton.jsx';
 import RadioGroup from './RadioGroup.jsx';
 import AddReviewBody from './AddReviewBody.jsx';
 
-export default function ReviewModalContent({ setShowModal, product, reviewMetadata }) {
+export default function ReviewModalContent({
+  setShowModal, product, reviewMetadata, setShowImgModal,
+}) {
   // STATES/CONSTANTS
   const starInfo = {
     1: 'Poor',
@@ -129,6 +131,12 @@ export default function ReviewModalContent({ setShowModal, product, reviewMetada
         maxBodyLength={1000}
         maxSummaryLength={60}
       />
+      <button
+        type="button"
+        onClick={() => setShowImgModal(true)}
+      >
+        ADD AN IMAGE HERE
+      </button>
     </form>
   );
 }
