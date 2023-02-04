@@ -1,12 +1,13 @@
 import React from 'react';
 
 export default function RadioButton({
-  id, name, value, labelText, subLabel,
+  id, name, value, labelText, subLabel, onClick, char_id,
 }) {
   return (
     <div className="radio-btn">
       <label className="radio-btn-label" htmlFor={id}>
         <input
+          onClick={(event) => onClick(event, char_id)}
           className="radio-input"
           type="radio"
           id={id}

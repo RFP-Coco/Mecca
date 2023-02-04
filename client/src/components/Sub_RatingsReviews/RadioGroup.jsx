@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RadioButton from './RadioButton.jsx';
 
 export default function RadioGroup({
-  numButtons, name, labels,
+  numButtons, name, labels, char_id, onClick,
 }) {
   const nums = Array.from({ length: numButtons }, (_, i) => i + 1);
 
@@ -12,6 +12,9 @@ export default function RadioGroup({
       {nums
         .map((num) => (
           <RadioButton
+            key={`${name}-${num}`}
+            char_id={char_id}
+            onClick={onClick}
             id={`${name}-${num}`}
             name={name}
             value={num}
