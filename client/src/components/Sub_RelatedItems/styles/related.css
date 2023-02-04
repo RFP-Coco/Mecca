@@ -151,14 +151,16 @@ td {
   cursor: pointer;
 }
 
-.compare-btn {
+.compare-btn,
+.remove-btn {
   border: none;
   position:sticky;
   background-color: transparent;
   cursor: pointer;
 }
 
-.compare-btn > img {
+.compare-btn > img,
+.remove-btn > img {
   border: none;
   position: absolute;
   cursor: pointer;

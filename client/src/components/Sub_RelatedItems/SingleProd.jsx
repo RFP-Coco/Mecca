@@ -6,7 +6,7 @@ import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
 export default function SingleProd({
-  thisProduct, parentProduct, parentReviewMetadata, currentParentProductStyle,
+  thisProduct, parentProduct, parentReviewMetadata, currentParentProductStyle, handleRemoveOutfit,
   setAllowCardClick, setAsNewOverview,
 }) {
   const { id } = thisProduct;
@@ -112,6 +112,8 @@ export default function SingleProd({
         setAllowCardClick={setAllowCardClick}
         showComparisonModal={showComparisonModal}
         setShowComparisonModal={setShowComparisonModal}
+        currentParentProductStyle={currentParentProductStyle}
+        handleRemoveOutfit={handleRemoveOutfit}
       />
       <ProdInfo
         thisProduct={thisProduct}
