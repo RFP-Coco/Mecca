@@ -50,7 +50,7 @@ export default function QuestionEntry({ question, updateQuestions, productName }
           productName={productName}
           question={question}
           setShow={setShow}
-          updateAnswers={updateAnswers}
+          fetchAnswers={updateAnswers}
         />
       )}
       <div className="answer-list">
