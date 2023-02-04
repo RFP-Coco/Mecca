@@ -8,6 +8,7 @@ export default function RadioGroup({
 
   return (
     <div className="radio-group">
+      <div className="radio-group-name">{name}</div>
       {nums
         .map((num) => (
           <RadioButton
@@ -15,6 +16,7 @@ export default function RadioGroup({
             name={name}
             value={num}
             labelText={num}
+            subLabel={labels[num - 1]}
           />
         ))}
     </div>

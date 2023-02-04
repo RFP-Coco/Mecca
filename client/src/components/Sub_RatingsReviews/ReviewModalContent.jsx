@@ -93,7 +93,7 @@ export default function ReviewModalContent({ setShowModal, product, reviewMetada
         toggle={toggleRecommended}
         setReviewBody={setReviewBody}
       />
-      <fieldset>
+      <fieldset className="form-characteristics">
         <legend>
           Please select a rating for each of these characteristics:
           <div>

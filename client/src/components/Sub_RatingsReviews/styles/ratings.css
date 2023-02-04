@@ -6,6 +6,34 @@ h3 {
   display: flex;
 }
 
+.radio-group{
+  display: flex;
+  width: 24em;
+}
+
+.radio-btn{
+  display: flex;
+  flex-direction: column;
+  width: 5em;
+  align-items: center;
+  text-align: center;
+}
+
+.radio-btn-label{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.radio-label-text{
+  display: flex;
+  justify-content: center;
+}
+/*
+.form-characteristics{
+  display: flex;
+  flex-direction: column;
+  width: 27em;
+} */
 
 /* MODAL STYLING */
 /* ReviewModal.jsx */
