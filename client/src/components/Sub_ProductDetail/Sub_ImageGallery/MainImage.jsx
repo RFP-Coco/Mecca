@@ -1,8 +1,13 @@
 import React from 'react';
 
-function MainImage({ images, currentImageIndex, setCurrentImageIndex }) {
+function MainImage({ images, currentImageIndex, setCurrentImageIndex, showExpandView, setShowExpandView }) {
   const { url } = images[currentImageIndex];
   const defaultUrl = '../../../assets/noProdImg.png';
+  const handleClick = () => {
+    if (!showExpandView) {
+      setShowExpandView(true);
+    }
+  };
   return (
     <div className="main-image">
       <button
@@ -14,6 +19,7 @@ function MainImage({ images, currentImageIndex, setCurrentImageIndex }) {
       </button>
 
       <img
+        onClick={handleClick}
         src={url ? url.substring(url.indexOf('http')) : defaultUrl}
         alt="product"
       />

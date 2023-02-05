@@ -100,6 +100,67 @@
   object-fit: contain;
 }
 
+.expand-view {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.expand-view .image-slide {
+  flex-direction: row;
+  width: 60%;
+  height: 10%;
+}
+
+.expand-view .image-slide-show {
+  flex-direction: row;
+  width: 80%;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+
+.expand-view .image-thumbnail-container {
+  display: inline;
+  margin: 0 5%;
+}
+
+.expand-view .image-thumbnail {
+  display: inline;
+  width: 5%;
+  border-bottom: 8px solid transparent;
+  transition: border 0.5s;
+}
+
+.expand-view .main-image {
+  /* width: 80%; */
+  height: 100%;
+}
+
+.expand-view .main-image img {
+  max-width: 90%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.expand-view .close-icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background-color: white;
+  width: 3%;
+  height: 3%;
+}
 
 .product-detail transparent-button {
   visibility: hidden;
