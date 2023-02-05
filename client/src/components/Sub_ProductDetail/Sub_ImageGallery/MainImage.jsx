@@ -1,10 +1,20 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 
-function DefaultView({ images, currentImageIndex, setCurrentImageIndex }) {
+function MainImage({
+  images, currentImageIndex, setCurrentImageIndex, showExpandView, setShowExpandView,
+}) {
   const { url } = images[currentImageIndex];
   const defaultUrl = '../../../assets/noProdImg.png';
+  const handleClick = () => {
+    if (!showExpandView) {
+      setShowExpandView(true);
+    }
+  };
+
   return (
-    <div className="default-view">
+    <div className="main-image">
       <button
         type="button"
         style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
@@ -14,6 +24,7 @@ function DefaultView({ images, currentImageIndex, setCurrentImageIndex }) {
       </button>
 
       <img
+        onClick={handleClick}
         src={url ? url.substring(url.indexOf('http')) : defaultUrl}
         alt="product"
       />
@@ -28,4 +39,4 @@ function DefaultView({ images, currentImageIndex, setCurrentImageIndex }) {
     </div>
   );
 }
-export default DefaultView;
+export default MainImage;

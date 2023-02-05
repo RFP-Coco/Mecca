@@ -26,6 +26,7 @@ function ImageSlide({ images, currentImageIndex, setCurrentImageIndex }) {
       </button>
 
       <div className="image-slide-show">
+
         {images.map((img, index) => (index >= start && index - start < maxImages
           ? (
             <ImageThumbnail

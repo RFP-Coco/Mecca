@@ -9,7 +9,6 @@ function ProductDetail({
   product, productStyle, productID,
   currentStyle, setCurrentStyle, reviewMetadata, reviewRef,
 }) {
-  // const [currentStyle, setCurrentStyle] = useState();
   const [startSelect, setStartSelect] = useState(false);
 
   useEffect(() => {
