@@ -81,6 +81,7 @@ export default function RatingsReviews({
         reviewMetadata={reviewMetadata}
         setShowModal={setShowModal}
         product={product}
+        update={updateData}
       />
       )}
       {reviews && reviewMetadata

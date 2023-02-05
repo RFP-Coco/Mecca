@@ -6,6 +6,7 @@ export default function AddReviewBody({
   return (
     <div className="form-review-text">
       <div className="form-review-summary">
+        Summary:
         <input
           onChange={onChange}
           placeholder="example: jackson11!"
@@ -24,7 +25,8 @@ export default function AddReviewBody({
         </div>
       </div>
       <div className="form-review-body">
-        <input
+        Enter your review here:
+        <textarea
           onChange={onChange}
           className="form-review-body-input"
           placeholder="Why did you like the product or not?"

@@ -4,10 +4,11 @@ import generateStars from '../generateStars.js';
 import RecommendedButton from './RecommendedButton.jsx';
 import RadioGroup from './RadioGroup.jsx';
 import AddReviewBody from './AddReviewBody.jsx';
+import ReviewImageModal from './ReviewImageModal.jsx';
 import { Image } from 'cloudinary-react';
 
 export default function ReviewModalContent({
-  setShowModal, product, reviewMetadata, setShowImgModal, photoURLs
+  setShowModal, product, reviewMetadata, update,
 }) {
   // STATES/CONSTANTS
   const starInfo = {
@@ -17,6 +18,9 @@ export default function ReviewModalContent({
     4: 'Good',
     5: 'Great',
   };
+
+  const [showImgModal, setShowImgModal] = useState(false);
+  // const [photoURLs, setPhotoURLs] = useState([]);
 
   const [reviewBody, setReviewBody] = useState({
     product_id: product.id,
@@ -40,6 +44,15 @@ export default function ReviewModalContent({
   };
 
   // HANDLERS
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    axios.post('/api/reviews', reviewBody)
+      .then(() => {
+        update();
+      })
+      .catch((err) => console.log(err));
+  };
+
   const handleStarClick = (rating) => {
     setReviewBody({
       ...reviewBody,
@@ -138,13 +151,28 @@ export default function ReviewModalContent({
       >
         Add An Image Here (Max 5)
       </button>
-      {photoURLs.map((photoURL) => (
+      {reviewBody.photos.map((photoURL) => (
         <Image
           style={{ width: 100 }}
           cloudName="do544o5be"
           publicId={photoURL}
         />
       ))}
+      {showImgModal && (
+      <ReviewImageModal
+        setShowImgModal={setShowImgModal}
+        // photoURLs={photoURLs}
+        // setPhotoURLs={setPhotoURLs}
+        reviewBody={reviewBody}
+        setReviewBody={setReviewBody}
+      />
+      )}
+      <button
+        type="submit"
+        onClick={handleFormSubmit}
+      >
+        Submit your Review
+      </button>
     </form>
   );
 }

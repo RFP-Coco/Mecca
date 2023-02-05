@@ -3,10 +3,9 @@ import { createPortal } from 'react-dom';
 import ReviewModalContent from './ReviewModalContent.jsx';
 import ReviewImageModal from './ReviewImageModal.jsx';
 
-export default function ReviewModal({ setShowModal, product, reviewMetadata }) {
-  const [photoURLs, setPhotoURLs] = useState([]);
-  const [showImgModal, setShowImgModal] = useState(false);
-
+export default function ReviewModal({
+  setShowModal, product, reviewMetadata, update,
+}) {
   const portal = document.getElementById('modal');
   const modal = (
     <div className="review-comp-container">
@@ -18,16 +17,8 @@ export default function ReviewModal({ setShowModal, product, reviewMetadata }) {
         product={product}
         setShowModal={setShowModal}
         reviewMetadata={reviewMetadata}
-        setShowImgModal={setShowImgModal}
-        photoURLs={photoURLs}
+        update={update}
       />
-      {showImgModal && (
-      <ReviewImageModal
-        setShowImgModal={setShowImgModal}
-        photoURLs={photoURLs}
-        setPhotoURLs={setPhotoURLs}
-      />
-      )}
     </div>
   );
   return createPortal(modal, portal);
