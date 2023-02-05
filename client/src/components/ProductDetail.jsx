@@ -5,8 +5,11 @@ import ProductInfo from './Sub_ProductDetail/ProductInfo.jsx';
 import StyleSelector from './Sub_ProductDetail/StyleSelector.jsx';
 import AddToCart from './Sub_ProductDetail/AddToCart.jsx';
 
-function ProductDetail({ product, productStyle, productID, reviewMetadata, reviewRef }) {
-  const [currentStyle, setCurrentStyle] = useState();
+function ProductDetail({
+  product, productStyle, productID,
+  currentStyle, setCurrentStyle, reviewMetadata, reviewRef,
+}) {
+  // const [currentStyle, setCurrentStyle] = useState();
   const [startSelect, setStartSelect] = useState(false);
 
   useEffect(() => {

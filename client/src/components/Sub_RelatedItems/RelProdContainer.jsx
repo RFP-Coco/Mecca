@@ -4,26 +4,27 @@ import axios from 'axios';
 import SingleProd from './SingleProd.jsx';
 
 export default function RelProdContainer({
-  product, productID, setProductID, productStyle, reviewMetadata,
+  parentProduct, parentProductID, setParentProductID,
+  parentProductStyle, parentReviewMetadata,
+  setAsNewOverview, setAllowCardClick,
 }) {
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
 
   const [relatedProds, setRelatedProds] = useState([]);
 
-  const [allowCardClick, setAllowCardClick] = useState(true);
-
   // =================== EFFECTS ===================
 
-  useEffect(() => getRelatedProdsAndReviews(), [productID]);
-
-  // =================== HELPERS ===================
-  const getRelatedProdsAndReviews = () => {
-    axios.get(`/api/products/${productID}/related`)
+  useEffect(() => {
+    axios.get(`/api/products/${parentProductID}/related`)
       .then((response) => {
-        const uniqueIds = [...new Set(response.data)];
-        setRelatedIDs(uniqueIds);
-        return uniqueIds;
+        let uniqueIDs = new Set(response.data);
+        if (uniqueIDs.has(parentProductID)) {
+          uniqueIDs.delete(parentProductID);
+        }
+        uniqueIDs = [...uniqueIDs];
+        setRelatedIDs(uniqueIDs);
+        return uniqueIDs;
       })
       .then((ids) => {
         const productReqs = ids.map((id) => axios.get(`/api/products/${id}`));
@@ -35,13 +36,7 @@ export default function RelProdContainer({
         return prodSetter;
       })
       .catch((err) => err);
-  };
-
-  // =================== HANDLERS ===================
-  const setAsNewOverview = (id) => {
-    // event.preventDefault();
-    if (allowCardClick) setProductID(id);
-  };
+  }, [parentProductID]);
 
   // =================== COMPONENT ===================
   return (
@@ -51,16 +46,16 @@ export default function RelProdContainer({
           There are no related products to display at this time...
         </div>
       )}
-      {relatedProds.map((thisProduct, i) => (
+      {relatedProds.map((thisProduct) => (
         <SingleProd
-          onClick={setAsNewOverview}
-          key={i}
-          parentProduct={product}
-          thisProduct={thisProduct} // this single product
-          setProductID={setProductID} // function
-          productStyle={productStyle} // parent product's styles
-          reviewMetadata={reviewMetadata} // parent product's meta
+          key={thisProduct.id}
+          parentProduct={parentProduct}
+          setParentProductID={setParentProductID}
+          parentProductStyle={parentProductStyle}
+          parentReviewMetadata={parentReviewMetadata}
+          thisProduct={thisProduct}
           setAllowCardClick={setAllowCardClick}
+          setAsNewOverview={setAsNewOverview}
         />
       ))}
     </div>

@@ -36,19 +36,16 @@ export default function ComparisonModal({
     return nested;
   });
 
-  const handleMouseEnter = () => {
-    setAllowCardClick(false);
-  };
-
-  const handleMouseLeave = () => {
+  const handleModalX = () => {
     setAllowCardClick(true);
+    setShowComparisonModal(false);
   };
 
   return (
     <div
       className="comparison-modal"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => setAllowCardClick(false)}
+      onMouseLeave={() => setAllowCardClick(true)}
     >
       <div className="comparison-modal-content">
         <table>
@@ -61,7 +58,7 @@ export default function ComparisonModal({
                   className="remove-x"
                   src="../../../../assets/remove2.png"
                   alt="close this modal"
-                  onClick={() => setShowComparisonModal(false)}
+                  onClick={handleModalX}
                 />
               </td>
             </tr>

@@ -2,7 +2,7 @@ import React from 'react';
 import generateStars from '../../Sub_RatingsReviews/generateStars.js';
 
 
-function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
+export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
   // =================== HELPERS ===================
   const {
     category,
@@ -26,14 +26,16 @@ function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
       <p className="category">{category}</p>
       <p className="name">{name}</p>
       <p className="slogan">&quot;{slogan}&quot;</p>
-      <p className="no-sale price">{`$${niceOriginalPrice}`}</p>
-      <p className="sale price">{thisPrice[1] && ` | $${niceSalePrice}`}</p>
+      <p className="sale price">{thisPrice[1] && `$${niceSalePrice}`}</p>
+      <p
+        className="no-sale price"
+        style={thisPrice[1] && { textDecorationLine: 'line-through' }}
+      >
+        {`$${niceOriginalPrice}`}
+      </p>
       <p className="star-rating">
         {generateStars(thisAvgRating[0], 5)} | {`(${thisAvgRating[1]})`}
       </p>
     </div>
-
   );
 }
-
-export default ProdInfo;

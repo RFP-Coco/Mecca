@@ -6,7 +6,10 @@ import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
 export default function SingleProd({
-  thisProduct, parentProduct, reviewMetadata, onClick, setAllowCardClick,
+  thisProduct, parentProduct, parentReviewMetadata,
+  currentParentProductStyle, setAllowCardClick,
+  setAsNewOverview, thisStyleID,
+  myOutfits, setMyOutfits, checkStyles, setCheckStyles,
 }) {
   const { id } = thisProduct;
 
@@ -32,11 +35,16 @@ export default function SingleProd({
         const newStyles = styles.data.results;
         setTheseStyles(newStyles);
         setImgUrl('');
-        setImgUrl(newStyles[0].photos[0].url);
-        return newStyles.filter((style) => style['default?'] === true);
+        // if it's for the related items
+        if (!currentParentProductStyle) {
+          setImgUrl(newStyles[0].photos[0].url);
+          return newStyles.filter((style) => style['default?'] === true);
+        }
+        setImgUrl(currentParentProductStyle.photos[0].url);
+        return [currentParentProductStyle];
       })
-      .then((defaultStyle) => {
-        setPrice(defaultStyle);
+      .then((style) => {
+        setPrice(style);
       })
       .catch((err) => err);
 
@@ -52,21 +60,15 @@ export default function SingleProd({
 
   // =================== HELPERS ===================
 
-  // if we need to find the first available img
-  // const setImg = () => {
-  //       setImgUrl('');
-  //       setImgUrl(newStyles[0].photos[0].url);
-  // };
+  const setPrice = (item) => {
+    const find = item[0];
 
-  const setPrice = (style) => {
-    const find = style[0];
-
-    if (!style.length) {
+    if (!item.length) {
       setThisPrice([thisProduct.default_price, null]);
     }
 
     if (find.sale_price) {
-      setThisPrice([find.sale_price, find.original_price]);
+      setThisPrice([find.original_price, find.sale_price]);
     } else {
       setThisPrice([find.original_price, null]);
     }
@@ -90,7 +92,7 @@ export default function SingleProd({
   return (
     <div
       className="single-prod container"
-      onClick={() => onClick(id)}
+      onClick={() => setAsNewOverview(id)}
     >
       {showComparisonModal
         ? (
@@ -98,7 +100,7 @@ export default function SingleProd({
             thisProduct={thisProduct}
             thisReviewMetadata={thisReviewMeta}
             parentProduct={parentProduct}
-            parentReviewMetadata={reviewMetadata}
+            parentReviewMetadata={parentReviewMetadata}
             setAllowCardClick={setAllowCardClick}
             setShowComparisonModal={setShowComparisonModal}
             getAvgRating={getAvgRating}
@@ -108,9 +110,15 @@ export default function SingleProd({
       <ProdImg
         defaultPic={imgUrl}
         thisProduct={thisProduct}
+        thisStyleID={thisStyleID}
         setAllowCardClick={setAllowCardClick}
         showComparisonModal={showComparisonModal}
         setShowComparisonModal={setShowComparisonModal}
+        currentParentProductStyle={currentParentProductStyle}
+        myOutfits={myOutfits}
+        setMyOutfits={setMyOutfits}
+        checkStyles={checkStyles}
+        setCheckStyles={setCheckStyles}
       />
       <ProdInfo
         thisProduct={thisProduct}

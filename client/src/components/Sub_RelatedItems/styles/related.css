@@ -5,12 +5,25 @@
 
 /* ======== WIDGET ======== */
 
+.title,
 .related-items,
-.related-items > * {
+.related-items > *,
+.my-outfit,
+.my-outfit > * {
   box-sizing: border-box;
 }
 
-.related-items {
+.title {
+  font-size: x-large;
+  font-weight: 600;
+  border-top: 1.5rem solid #20364ecc;
+  padding: 0.5rem;
+  padding-left: 3rem;
+  margin: 0.3rem;
+}
+
+.related-items,
+.my-outfit {
   display: flex;
   padding: 2px;
   margin: 0.3rem;
@@ -129,7 +142,8 @@ td {
 }
 
 /* ======== CARD PIC ======== */
-.default-pic {
+.default-pic,
+.add-outfit {
   border-radius: var(--littleRound);
   width: 20rem;
   height: 20rem;
@@ -137,14 +151,16 @@ td {
   cursor: pointer;
 }
 
-.compare-btn {
+.compare-btn,
+.remove-btn {
   border: none;
   position:sticky;
   background-color: transparent;
   cursor: pointer;
 }
 
-.compare-btn > img {
+.compare-btn > img,
+.remove-btn > img {
   border: none;
   position: absolute;
   cursor: pointer;
@@ -153,6 +169,15 @@ td {
   left: 17.3rem;
   height: 2.2rem;
   width: 2.2rem;
+}
+
+.add-outfit {
+  border:
+}
+
+.single-prod.container.add-outfit {
+  flex-direction: row;
+  border: none;
 }
 
 /* ======== CARD PRODUCT INFO ======== */
@@ -183,4 +208,8 @@ td {
 
 .prod-info > .star-rating {
   font-size: 1rem;
+}
+
+.sale {
+  color: #ff0000;
 }

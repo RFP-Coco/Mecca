@@ -15,6 +15,7 @@ function App() {
   const [productStyle, setProductStyle] = useState({});
   const [reviewMetadata, setReviewMetadata] = useState({});
   const reviewRef = useRef(null);
+  const [currentStyle, setCurrentStyle] = useState();
 
   console.log('productID: ', productID);
 
@@ -44,6 +45,8 @@ function App() {
         product={currentProduct}
         productID={productID}
         reviewRef={reviewRef}
+        currentStyle={currentStyle}
+        setCurrentStyle={setCurrentStyle}
       />
       )}
       <RelatedItems
@@ -52,6 +55,7 @@ function App() {
         product={currentProduct}
         productID={productID}
         setProductID={setProductID}
+        currentStyle={currentStyle}
       />
       <QuestionsAnswers
         productID={productID}
