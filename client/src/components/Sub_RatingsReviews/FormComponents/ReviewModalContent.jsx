@@ -5,6 +5,7 @@ import RecommendedButton from './RecommendedButton.jsx';
 import RadioGroup from './RadioGroup.jsx';
 import AddReviewBody from './AddReviewBody.jsx';
 import ReviewImageModal from './ReviewImageModal.jsx';
+import UserInfo from './UserInfo.jsx';
 import { Image } from 'cloudinary-react';
 
 export default function ReviewModalContent({
@@ -20,7 +21,6 @@ export default function ReviewModalContent({
   };
 
   const [showImgModal, setShowImgModal] = useState(false);
-  // const [photoURLs, setPhotoURLs] = useState([]);
 
   const [reviewBody, setReviewBody] = useState({
     product_id: product.id,
@@ -46,10 +46,8 @@ export default function ReviewModalContent({
   // HANDLERS
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    axios.post('/api/reviews', reviewBody)
-      .then(() => {
-        update();
-      })
+    axios.post('/api/reviews/', reviewBody)
+      .then(() => update())
       .catch((err) => console.log(err));
   };
 
@@ -145,6 +143,9 @@ export default function ReviewModalContent({
         maxBodyLength={1000}
         maxSummaryLength={60}
       />
+      <UserInfo
+        onChange={handleInputChange}
+      />
       <button
         type="button"
         onClick={() => setShowImgModal(true)}
@@ -161,8 +162,6 @@ export default function ReviewModalContent({
       {showImgModal && (
       <ReviewImageModal
         setShowImgModal={setShowImgModal}
-        // photoURLs={photoURLs}
-        // setPhotoURLs={setPhotoURLs}
         reviewBody={reviewBody}
         setReviewBody={setReviewBody}
       />
