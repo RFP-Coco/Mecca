@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ImageSlide from './Sub_ImageGallery/ImageSlide.jsx';
-import DefaultView from './Sub_ImageGallery/DefaultView.jsx';
+import MainImage from './Sub_ImageGallery/MainImage.jsx';
 
 function ImageGallery({ currentStyle, productID }) {
   console.log('SHOW CURRENT STYLE: ', currentStyle);
@@ -27,16 +27,19 @@ function ImageGallery({ currentStyle, productID }) {
 
   return (
     <div className="image-gallery">
-      <ImageSlide
-        images={currentStyle.photos}
-        currentImageIndex={currentImageIndex}
-        setCurrentImageIndex={setCurrentImageIndex}
-      />
-      <DefaultView
-        images={currentStyle.photos}
-        currentImageIndex={currentImageIndex}
-        setCurrentImageIndex={setCurrentImageIndex}
-      />
+      <div className="default-view">
+        <ImageSlide
+          images={currentStyle.photos}
+          currentImageIndex={currentImageIndex}
+          setCurrentImageIndex={setCurrentImageIndex}
+        />
+        <MainImage
+          images={currentStyle.photos}
+          currentImageIndex={currentImageIndex}
+          setCurrentImageIndex={setCurrentImageIndex}
+        />
+      </div>
+
     </div>
   );
 }

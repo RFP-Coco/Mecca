@@ -1,10 +1,10 @@
 import React from 'react';
 
-function DefaultView({ images, currentImageIndex, setCurrentImageIndex }) {
+function MainImage({ images, currentImageIndex, setCurrentImageIndex }) {
   const { url } = images[currentImageIndex];
   const defaultUrl = '../../../assets/noProdImg.png';
   return (
-    <div className="default-view">
+    <div className="main-image">
       <button
         type="button"
         style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
@@ -28,4 +28,4 @@ function DefaultView({ images, currentImageIndex, setCurrentImageIndex }) {
     </div>
   );
 }
-export default DefaultView;
+export default MainImage;
