@@ -4,9 +4,10 @@ import generateStars from '../generateStars.js';
 import RecommendedButton from './RecommendedButton.jsx';
 import RadioGroup from './RadioGroup.jsx';
 import AddReviewBody from './AddReviewBody.jsx';
+import { Image } from 'cloudinary-react';
 
 export default function ReviewModalContent({
-  setShowModal, product, reviewMetadata, setShowImgModal,
+  setShowModal, product, reviewMetadata, setShowImgModal, photoURLs
 }) {
   // STATES/CONSTANTS
   const starInfo = {
@@ -135,8 +136,15 @@ export default function ReviewModalContent({
         type="button"
         onClick={() => setShowImgModal(true)}
       >
-        ADD AN IMAGE HERE
+        Add An Image Here (Max 5)
       </button>
+      {photoURLs.map((photoURL) => (
+        <Image
+          style={{ width: 100 }}
+          cloudName="do544o5be"
+          publicId={photoURL}
+        />
+      ))}
     </form>
   );
 }

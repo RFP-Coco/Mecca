@@ -54,14 +54,15 @@ h3 {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   inset: 0 0 0 0;
-  z-index: 1000;
+  z-index: 1000
 }
 
 /* ReviewModalContent.jsx */
 .review-modal-container {
   position: fixed;
   position: relative;
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
   background-color: var(--gray);
   background-color: white;
   border-radius: 1rem;
@@ -87,6 +88,38 @@ h3 {
   left: 12em;
 }
 
+/* IMAGE MODAL */
+.img-modal-overlay {
+  position: fixed;
+  width: 50vw;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  inset: 0 0 0 0;
+}
+
+.img-modal-container {
+  /* position: fixed; */
+  /* position: relative; */
+  background-color: rgb(211, 190, 190);
+  border-radius: 1rem;
+  color: rgb(0, 0, 0);
+  padding: 8em 16rem;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  right: 25%;
+  bottom: 25%;
+  z-index: 1000;
+}
+
+.choose-btn-container {
+  position: absolute;
+  margin-bottom: auto;
+  top: 0;
+  left: 0;
+  padding: 1em;
+  border-radius: 1rem;
+}
 /* REVIEW DASHBOARD */
 
 .review-dashboard {
