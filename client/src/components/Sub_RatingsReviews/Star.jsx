@@ -1,13 +1,14 @@
 import React from 'react';
 
 export default function Star({
-  size, percentage, id, color,
+  size, percentage, id, color, callback,
 }) {
   // star default size is 50, if you want to resize, pass in the size as props
   // need 2 stops inside of the linearGradient to ensure instant transition.
 
   return (
     <svg
+      onClick={() => callback()}
       className="star"
       width={size}
       height={size}

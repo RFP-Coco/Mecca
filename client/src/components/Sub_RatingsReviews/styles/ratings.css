@@ -1,7 +1,91 @@
 h3 {
   font-size: 32px;
 }
+/* FORM CONTENT */
+.form-stars{
+  display: flex;
+}
 
+.radio-group{
+  display: flex;
+  width: 24em;
+}
+
+.radio-btn{
+  display: flex;
+  flex-direction: column;
+  width: 5em;
+  align-items: center;
+  text-align: center;
+}
+
+.radio-btn-label{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.radio-label-text{
+  display: flex;
+  justify-content: center;
+}
+/*
+.form-characteristics{
+  display: flex;
+  flex-direction: column;
+  width: 27em;
+} */
+
+/* MODAL STYLING */
+/* ReviewModal.jsx */
+.review-comp-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0 0 0 0;
+  margin: auto;
+  position: fixed;
+}
+
+.review-modal-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  inset: 0 0 0 0;
+  z-index: 1000;
+}
+
+/* ReviewModalContent.jsx */
+.review-modal-container {
+  position: fixed;
+  position: relative;
+  /* display: flex; */
+  background-color: var(--gray);
+  background-color: white;
+  border-radius: 1rem;
+  color: rgb(0, 0, 0);
+  padding: 8rem 16rem;
+  z-index: 1000;
+}
+
+.return-btn-container {
+  /* background-color: red; */
+  position: absolute;
+  color: white;
+  padding: 1rem;
+  top: 0;
+  right: 0;
+  margin-left: auto;
+}
+
+.review-modal-header{
+  position: absolute;
+  margin-bottom: auto;
+  top: 1em;
+  left: 12em;
+}
 
 /* REVIEW DASHBOARD */
 
@@ -21,7 +105,8 @@ h3 {
 /* review tile body */
 .review-tile {
   margin: 1em;
-  border: .25em solid red;
+  border-top: .1em solid gray;
+  padding: .5em
   /* overflow-y: scroll; */
 }
 
@@ -84,6 +169,7 @@ datalist#labels {
   margin: 1.2em;
   margin-top: -1em;
   justify-content: center;
+  z-index: -1;
 }
 
 /* PRODUCT DASHBOARD BAR */
@@ -98,7 +184,7 @@ input[type=range]{
   -webkit-appearance: none;
   /* width: 25%; */
   background: transparent;
-  background: #000000;
+  background: #837d7d;
   /* background-image: linear-gradient(#ff4500, #ff4500); */
   height: 0.25em;
 }
