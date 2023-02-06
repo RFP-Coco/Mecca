@@ -1,11 +1,15 @@
 import React from 'react';
 
-function MainImage({ images, currentImageIndex, setCurrentImageIndex, showExpandView, setShowExpandView }) {
+function MainImage({
+  images, currentImageIndex, setCurrentImageIndex, showModalView, setShowModalView,
+}) {
   const { url } = images[currentImageIndex];
   const defaultUrl = '../../../assets/noProdImg.png';
   const handleClick = () => {
-    if (!showExpandView) {
-      setShowExpandView(true);
+    if (showModalView === 'default') {
+      setShowModalView('expand');
+    } else if (showModalView === 'expand') {
+      setShowModalView('zoom');
     }
   };
   return (
