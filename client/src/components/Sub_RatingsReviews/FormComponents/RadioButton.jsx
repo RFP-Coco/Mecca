@@ -7,6 +7,7 @@ export default function RadioButton({
     <div className="radio-btn">
       <label className="radio-btn-label" htmlFor={id}>
         <input
+          required
           onClick={(event) => onClick(event, char_id)}
           className="radio-input"
           type="radio"

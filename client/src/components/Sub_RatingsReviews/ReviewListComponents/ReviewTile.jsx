@@ -1,22 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { parseISO, format } from 'date-fns';
-// import uuid from 'uuid4';
-import generateStars from './generateStars.js';
+import ThumbnailModal from './ThumbnailModal.jsx';
+import generateStars from '../generateStars.js';
 
 export default function ReviewTile({
   review, handleHelpfulClick,
 }) {
+
+  /**
+   * States
+   * @type {boolean}
+   * @type {function}
+   */
   const [showMoreBody, setShowMoreBody] = useState(false);
+  const [expandThumbnail, setExpandThumbnail] = useState(false);
+  const [currExpandedImg, setCurrExpandedImg] = useState(false);
+
+  useEffect(() => {
+    if (expandThumbnail) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'scroll';
+  }, [expandThumbnail]);
+
+
+
+  /** @type {string} date */
   const date = format(parseISO(review.date), 'LLLL d, yyyy');
 
-  // limit max summary length to 60 chars
+  /**
+   * Constants
+   * @type {number}
+   */
   const maxSummaryLength = 60;
+  const defaultBodyLength = 250;
+
+  /** @type {string} */
   const summary = review.summary.length > maxSummaryLength
     ? review.summary.slice(0, maxSummaryLength)
     : review.summary;
 
-  const defaultBodyLength = 250;
+  /** @type {function} */
+  const handleThumbnailClick = (event) => {
+    const imgUrl = event.target.src;
+    setCurrExpandedImg(imgUrl);
+    setExpandThumbnail(true);
+  };
 
   return (
     <li className="review-tile">
@@ -30,14 +58,29 @@ export default function ReviewTile({
         ? review.body.slice(0, defaultBodyLength)
         : review.body}
       </p>
-      {review.body.length > 250 && !showMoreBody
+      {review.body.length > defaultBodyLength && !showMoreBody
         ? <button type="button" onClick={() => setShowMoreBody(true)}>Show More</button>
         : null}
       <div className="review-photos">
         {review.photos.length > 0
-          ? review.photos.map((img) => <img className="review-thumbnail" key={img.id} src={img.url} alt="" />)
+          ? review.photos.map((img) => (
+            <img
+              className="review-thumbnail"
+              key={img.id}
+              src={img.url}
+              alt="user uploaded img"
+              onClick={(event) => handleThumbnailClick(event)}
+            />
+          ))
           : null}
       </div>
+      {expandThumbnail && currExpandedImg !== null && (
+      <ThumbnailModal
+        imgUrl={currExpandedImg}
+        expand={setExpandThumbnail}
+        setCurrImg={setCurrExpandedImg}
+      />
+      )}
       {review.recommend
       && (
       <small className="review-recommend">
@@ -49,8 +92,9 @@ export default function ReviewTile({
       <div className="review-helpfulness">
         Was this review helpful?
         <a
-          href=''
-          onClick={(event) => handleHelpfulClick(event, review)}>{review.helpfulness}
+          href=""
+          onClick={(event) => handleHelpfulClick(event, review)}
+        >{review.helpfulness}
         </a>
       </div>
     </li>
