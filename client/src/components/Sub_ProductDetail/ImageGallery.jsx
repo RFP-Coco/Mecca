@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { AiOutlineClose } from 'react-icons/ai';
-import ImageSlide from './Sub_ImageGallery/ImageSlide.jsx';
-import MainImage from './Sub_ImageGallery/MainImage.jsx';
+import ModalView from './Sub_ImageGallery/ModalView.jsx';
 
 function ImageGallery({ currentStyle, productID }) {
-  console.log('SHOW CURRENT STYLE: ', currentStyle);
+  // console.log('SHOW CURRENT STYLE: ', currentStyle);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [styleMemo, setStyleMemo] = useState({});
-  const [showExpandView, setShowExpandView] = useState(false);
+  const [showModalView, setShowModalView] = useState('default');
+
   const { style_id } = currentStyle;
 
   useEffect(() => {
@@ -28,48 +27,46 @@ function ImageGallery({ currentStyle, productID }) {
   }, [currentStyle]);
 
   useEffect(() => {
-    if (showExpandView) document.body.style.overflow = 'hidden';
+    if (showModalView !== 'default') document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'scroll';
-  }, [showExpandView]);
+  }, [showModalView]);
 
   return (
     // <div className={`image-gallery ${showExpandView ? 'expand-view' : ''}`}>
     <div className="image-gallery">
-      {showExpandView
-        && (
-          <div className="expand-view">
-            <ImageSlide
-              images={currentStyle.photos}
-              currentImageIndex={currentImageIndex}
-              setCurrentImageIndex={setCurrentImageIndex}
-              showExpandView={showExpandView}
-            />
-            <MainImage
-              images={currentStyle.photos}
-              currentImageIndex={currentImageIndex}
-              setCurrentImageIndex={setCurrentImageIndex}
-              showExpandView={showExpandView}
-              setShowExpandView={setShowExpandView}
-            />
-            <AiOutlineClose className="close-icon" onClick={() => setShowExpandView(false)} />
-          </div>
+      {showModalView === 'expand'
+    && (
+    <ModalView
+      modalClass="expand-view"
+      currentStyle={currentStyle}
+      currentImageIndex={currentImageIndex}
+      setCurrentImageIndex={setCurrentImageIndex}
+      showModalView={showModalView}
+      setShowModalView={setShowModalView}
+    />
+    )}
 
-        )}
-      <div className="default-view">
-        <ImageSlide
-          images={currentStyle.photos}
-          currentImageIndex={currentImageIndex}
-          setCurrentImageIndex={setCurrentImageIndex}
-          showExpandView={showExpandView}
-        />
-        <MainImage
-          images={currentStyle.photos}
-          currentImageIndex={currentImageIndex}
-          setCurrentImageIndex={setCurrentImageIndex}
-          showExpandView={showExpandView}
-          setShowExpandView={setShowExpandView}
-        />
-      </div>
+      {showModalView === 'zoom'
+    && (
+    <ModalView
+      modalClass="zoom-view"
+      currentStyle={currentStyle}
+      currentImageIndex={currentImageIndex}
+      setCurrentImageIndex={setCurrentImageIndex}
+      showModalView={showModalView}
+      setShowModalView={setShowModalView}
+    />
+    )}
+
+      <ModalView
+        modalClass="default-view"
+        currentStyle={currentStyle}
+        currentImageIndex={currentImageIndex}
+        setCurrentImageIndex={setCurrentImageIndex}
+        showModalView={showModalView}
+        setShowModalView={setShowModalView}
+      />
+
     </div>
   );
 }
