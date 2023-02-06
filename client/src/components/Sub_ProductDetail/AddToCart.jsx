@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SizeSelector from './Sub_AddToCart/SizeSelector.jsx';
 import QuantitySelector from './Sub_AddToCart/QuantitySelector.jsx';
+import SocialMediaShare from './Sub_ProductInfo/SocialMediaShare.jsx';
 
-function AddToCart({ skus, startSelect, currentStyle }) {
+
+function AddToCart({ product, skus, startSelect, currentStyle }) {
   const [skuID, setSkuID] = useState();
   const [quantity, setQuantity] = useState(1);
   const [showAlert, setShowAlert] = useState(false);
@@ -73,6 +75,8 @@ function AddToCart({ skus, startSelect, currentStyle }) {
           ADD TO BAG
         </button>
       </div>
+      <SocialMediaShare product={product} />
+
     </div>
   );
 }
