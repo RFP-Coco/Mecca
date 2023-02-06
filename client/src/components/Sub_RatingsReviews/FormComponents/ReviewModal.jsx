@@ -8,7 +8,7 @@ export default function ReviewModal({
 }) {
   const portal = document.getElementById('modal');
   const modal = (
-    <div className="review-comp-container">
+    <div className="review-comp-container" id="add-form-modal">
       <div
         className="review-modal-overlay"
         onClick={() => setShowModal(false)}

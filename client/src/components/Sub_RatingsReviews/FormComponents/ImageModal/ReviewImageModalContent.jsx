@@ -11,7 +11,7 @@ export default function ReviewImageModalContent({ reviewBody, setShowImgModal, s
 
   /**
    * uploads a file
-   * @param {object} file A file array that contains file objects
+   * @param {object} files A file array that contains file objects
    */
 
   const uploadFile = (files) => {
@@ -22,14 +22,14 @@ export default function ReviewImageModalContent({ reviewBody, setShowImgModal, s
     imgConfig.append('file', files[0]);
     imgConfig.append('upload_preset', 'wtgoio26');
 
-    // optimaize with a conditional post
+    // TODO: image should not upload to cloud immediately after file is chosen
+    // TODO: allow users to add multiple images at a time
     axios.post('https://api.cloudinary.com/v1_1/do544o5be/image/upload', imgConfig)
       .then((result) => {
         setReviewBody({
           ...reviewBody,
           photos: [...photos, result.data.url],
         });
-        // setPhotoURLs([...photoURLs, result.data.url]);
       });
     return null;
   };
