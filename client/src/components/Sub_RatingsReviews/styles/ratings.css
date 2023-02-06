@@ -1,6 +1,14 @@
-h3 {
+.ratings-reviews h3 {
+  margin: 2rem 1rem;
   font-size: 32px;
+  border-top: 3px solid grey;
+  padding: 1rem 0rem;
 }
+
+.ratings-reviews-body {
+  display: flex;
+}
+
 /* FORM CONTENT */
 .form-stars{
   display: flex;
@@ -130,11 +138,27 @@ h3 {
   font-weight: bold;
 }
 
-.review-list {
-  height: 25rem;
-  overflow-y: scroll;
+.review-list-container {
+  border-radius: 2em;
+  margin-left: 6em;
 }
 
+.review-list {
+  height: 50vh;
+  overflow-y: scroll;
+  width: 80vw;
+  border: 1px solid grey;
+  border-radius: 2em;
+  margin-top: 1em;
+}
+
+.review-list-container button {
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 0 0 5px 3px #c5b8b8;
+  border-radius: 0.5em;
+  border: 2em;
+}
 /* review tile body */
 .review-tile {
   margin: 1em;

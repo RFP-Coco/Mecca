@@ -74,7 +74,7 @@ export default function RatingsReviews({
   return (
     <div className="ratings-reviews" ref={reviewRef}>
       <h3>Ratings & Reviews</h3>
-      <button type="button" onClick={() => setShowModal(true)}>Add a review</button>
+
       {showModal
       && (
       <ReviewModal
@@ -84,29 +84,33 @@ export default function RatingsReviews({
         update={updateData}
       />
       )}
-      {reviews && reviewMetadata
-      && (
-      <Dashboard
-        clear={clearFilters}
-        selectedRatings={selectedRatings}
-        toggleSelectedRating={toggleSelectedRating}
-        setSelectedRatings={setSelectedRatings}
-        reviewMetadata={reviewMetadata}
-        reviews={reviews}
-      />
-      )}
-      {reviews
-      && reviewMetadata
-      && (
-      <ReviewList
-        filtered={filtered}
-        selectedRatings={selectedRatings}
-        sort={sort}
-        onChange={handleSortChange}
-        reviews={reviews}
-        update={updateData}
-      />
-      )}
+      <div className="ratings-reviews-body">
+        {reviews && reviewMetadata
+        && (
+        <Dashboard
+          clear={clearFilters}
+          selectedRatings={selectedRatings}
+          toggleSelectedRating={toggleSelectedRating}
+          setSelectedRatings={setSelectedRatings}
+          reviewMetadata={reviewMetadata}
+          reviews={reviews}
+        />
+        )}
+        {reviews
+        && reviewMetadata
+        && (
+          <ReviewList
+            setShowModal={setShowModal}
+            filtered={filtered}
+            selectedRatings={selectedRatings}
+            sort={sort}
+            onChange={handleSortChange}
+            reviews={reviews}
+            update={updateData}
+          />
+        )}
+        {/* <button type="button" onClick={() => setShowModal(true)}>Add a review</button> */}
+      </div>
     </div>
   );
 }

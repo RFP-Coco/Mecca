@@ -132,7 +132,7 @@ export default function ReviewModalContent({
         Write Your Review
       </div>
       <span>{product.name}</span>
-      <div>OVERALL RATING:
+      <div>OVERALL RATING: *
         <div className="overall-rating">
           {reviewBody.rating === 0
             ? (
@@ -158,7 +158,7 @@ export default function ReviewModalContent({
       />
       <fieldset className="form-characteristics">
         <legend>
-          Please select a rating for each of these characteristics:
+          Please select a rating for each of these characteristics: *
           <div>
             {
             Object.entries(reviewMetadata.characteristics)

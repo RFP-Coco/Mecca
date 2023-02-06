@@ -25,7 +25,7 @@ export default function AddReviewBody({
         </div>
       </div>
       <div className="form-review-body">
-        Enter your review here:
+        Enter your review here: *
         <textarea
           required
           onChange={onChange}
