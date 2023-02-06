@@ -30,7 +30,7 @@ function ModalView({
         showModalView={showModalView}
         setShowModalView={setShowModalView}
       />
-      { showModalView !== 'default' && <AiOutlineClose className="close-icon" onClick={handleClick} />}
+      { showModalView === 'expand' && <AiOutlineClose className="close-icon" onClick={handleClick} />}
 
     </div>
   );

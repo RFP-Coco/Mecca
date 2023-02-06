@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ModalView from './Sub_ImageGallery/ModalView.jsx';
 
 function ImageGallery({ currentStyle, productID }) {
-  console.log('SHOW CURRENT STYLE: ', currentStyle);
+  // console.log('SHOW CURRENT STYLE: ', currentStyle);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [styleMemo, setStyleMemo] = useState({});
   const [showModalView, setShowModalView] = useState('default');
