@@ -39,11 +39,14 @@ export default function ProductDashboard({
               <datalist id="labels">
                 {labels[characteristic[0].toLowerCase()]
                   .map((label, index) => (
-                    <option
-                      className="characteristics-label"
-                      value={index + 1}
-                      label={label}
-                    />
+                    <div className="option-container">
+                      <option
+                        style={{ color: 'black' }}
+                        className="characteristics-label"
+                        value={index + 1}
+                        label={label}
+                      />
+                    </div>
                   ))}
               </datalist>
             </div>

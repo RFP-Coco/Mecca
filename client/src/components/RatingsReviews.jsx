@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Sub_RatingsReviews/styles/ratings.css';
-import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
+import ReviewList from './Sub_RatingsReviews/ReviewListComponents/ReviewList.jsx';
 import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
 import ReviewModal from './Sub_RatingsReviews/FormComponents/ReviewModal.jsx';
 
@@ -74,38 +74,43 @@ export default function RatingsReviews({
   return (
     <div className="ratings-reviews" ref={reviewRef}>
       <h3>Ratings & Reviews</h3>
-      <button type="button" onClick={() => setShowModal(true)}>Add a review</button>
+
       {showModal
       && (
       <ReviewModal
         reviewMetadata={reviewMetadata}
         setShowModal={setShowModal}
         product={product}
-      />
-      )}
-      {reviews && reviewMetadata
-      && (
-      <Dashboard
-        clear={clearFilters}
-        selectedRatings={selectedRatings}
-        toggleSelectedRating={toggleSelectedRating}
-        setSelectedRatings={setSelectedRatings}
-        reviewMetadata={reviewMetadata}
-        reviews={reviews}
-      />
-      )}
-      {reviews
-      && reviewMetadata
-      && (
-      <ReviewList
-        filtered={filtered}
-        selectedRatings={selectedRatings}
-        sort={sort}
-        onChange={handleSortChange}
-        reviews={reviews}
         update={updateData}
       />
       )}
+      <div className="ratings-reviews-body">
+        {reviews && reviewMetadata
+        && (
+        <Dashboard
+          clear={clearFilters}
+          selectedRatings={selectedRatings}
+          toggleSelectedRating={toggleSelectedRating}
+          setSelectedRatings={setSelectedRatings}
+          reviewMetadata={reviewMetadata}
+          reviews={reviews}
+        />
+        )}
+        {reviews
+        && reviewMetadata
+        && (
+          <ReviewList
+            setShowModal={setShowModal}
+            filtered={filtered}
+            selectedRatings={selectedRatings}
+            sort={sort}
+            onChange={handleSortChange}
+            reviews={reviews}
+            update={updateData}
+          />
+        )}
+        {/* <button type="button" onClick={() => setShowModal(true)}>Add a review</button> */}
+      </div>
     </div>
   );
 }
