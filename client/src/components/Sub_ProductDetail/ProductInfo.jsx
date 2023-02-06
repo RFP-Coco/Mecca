@@ -23,8 +23,8 @@ function ProductInfo({ product, reviewMetadata, reviewRef }) {
         </span>
         <span className="link-review" onClick={handleClick}>Read {totalVotes} reviews</span>
       </div>
-      <p>Category {'>'} {product.category}</p>
-      <h1>{product.name}</h1>
+      <div className="product-category">Category {'>'} {product.category}</div>
+      <div className="product-name">{product.name}</div>
     </div>
   );
 }
