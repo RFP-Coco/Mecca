@@ -44,6 +44,19 @@ function ImageGallery({ currentStyle, productID }) {
       setShowModalView={setShowModalView}
     />
     )}
+
+    {showModalView === 'zoom'
+    && (
+    <ModalView
+      modalClass="zoom-view"
+      currentStyle={currentStyle}
+      currentImageIndex={currentImageIndex}
+      setCurrentImageIndex={setCurrentImageIndex}
+      showModalView={showModalView}
+      setShowModalView={setShowModalView}
+    />
+    )}
+
       <ModalView
         modalClass="default-view"
         currentStyle={currentStyle}

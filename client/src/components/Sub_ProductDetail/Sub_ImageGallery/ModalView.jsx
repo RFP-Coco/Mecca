@@ -4,15 +4,25 @@ import ImageSlide from './ImageSlide.jsx';
 import MainImage from './MainImage.jsx';
 
 function ModalView({
-  modalClass, currentStyle, currentImageIndex, setCurrentImageIndex, showModalView, setShowModalView
+  modalClass, currentStyle, currentImageIndex, setCurrentImageIndex, showModalView, setShowModalView,
 }) {
+  const handleClick = () => {
+    if (showModalView === 'expand') {
+      setShowModalView('default');
+    } else if (showModalView === 'zoom') {
+      setShowModalView('expand');
+    }
+  };
   return (
     <div className={modalClass}>
+      {showModalView !== 'zoom' && (
       <ImageSlide
         images={currentStyle.photos}
         currentImageIndex={currentImageIndex}
         setCurrentImageIndex={setCurrentImageIndex}
       />
+      )}
+
       <MainImage
         images={currentStyle.photos}
         currentImageIndex={currentImageIndex}
@@ -20,7 +30,7 @@ function ModalView({
         showModalView={showModalView}
         setShowModalView={setShowModalView}
       />
-      { showModalView !== 'default' && <AiOutlineClose className="close-icon" onClick={() => setShowModalView('default')} />}
+      { showModalView !== 'default' && <AiOutlineClose className="close-icon" onClick={handleClick} />}
 
     </div>
   );

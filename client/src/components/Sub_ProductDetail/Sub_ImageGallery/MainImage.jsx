@@ -14,6 +14,7 @@ function MainImage({
   };
   return (
     <div className="main-image">
+      {showModalView !== 'zoom' && (
       <button
         type="button"
         style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
@@ -21,6 +22,7 @@ function MainImage({
       >
         prev
       </button>
+      ) }
 
       <img
         onClick={handleClick}
@@ -28,6 +30,7 @@ function MainImage({
         alt="product"
       />
 
+      {showModalView !== 'zoom' && (
       <button
         type="button"
         style={{ visibility: (currentImageIndex !== images.length - 1) ? 'visible' : 'hidden' }}
@@ -35,6 +38,8 @@ function MainImage({
       >
         next
       </button>
+      )}
+
     </div>
   );
 }
