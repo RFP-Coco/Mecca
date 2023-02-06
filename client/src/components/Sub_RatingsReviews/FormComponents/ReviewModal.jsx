@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import ReviewModalContent from './ReviewModalContent.jsx';
-import ReviewImageModal from './ReviewImageModal.jsx';
+import ReviewImageModal from './ImageModal/ReviewImageModal.jsx';
 
 export default function ReviewModal({
   setShowModal, product, reviewMetadata, update,

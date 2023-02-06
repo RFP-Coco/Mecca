@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { parseISO, format } from 'date-fns';
 // import uuid from 'uuid4';
-import generateStars from './generateStars.js';
+import generateStars from '../generateStars.js';
 
 export default function ReviewTile({
   review, handleHelpfulClick,

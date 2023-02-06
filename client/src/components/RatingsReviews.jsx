@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Sub_RatingsReviews/styles/ratings.css';
-import ReviewList from './Sub_RatingsReviews/ReviewList.jsx';
+import ReviewList from './Sub_RatingsReviews/ReviewListComponents/ReviewList.jsx';
 import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
 import ReviewModal from './Sub_RatingsReviews/FormComponents/ReviewModal.jsx';
 

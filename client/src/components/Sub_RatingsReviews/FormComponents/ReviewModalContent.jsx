@@ -4,7 +4,7 @@ import generateStars from '../generateStars.js';
 import RecommendedButton from './RecommendedButton.jsx';
 import RadioGroup from './RadioGroup.jsx';
 import AddReviewBody from './AddReviewBody.jsx';
-import ReviewImageModal from './ReviewImageModal.jsx';
+import ReviewImageModal from './ImageModal/ReviewImageModal.jsx';
 import UserInfo from './UserInfo.jsx';
 import { Image } from 'cloudinary-react';
 
