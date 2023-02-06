@@ -4,20 +4,20 @@ import React from 'react';
 import ZoomImage from './ZoomImage.jsx';
 
 function MainImage({
-  images, currentImageIndex, setCurrentImageIndex, showModalView, setShowModalView,
+  images, currentImageIndex, setCurrentImageIndex, modalView, setModalView,
 }) {
   const { url } = images[currentImageIndex];
   const defaultUrl = '../../../assets/noProdImg.png';
   const handleClick = () => {
-    if (showModalView === 'default') {
-      setShowModalView('expand');
-    } else if (showModalView === 'expand') {
-      setShowModalView('zoom');
+    if (modalView === 'default') {
+      setModalView('expand');
+    } else if (modalView === 'expand') {
+      setModalView('zoom');
     }
   };
   return (
     <div className="main-image">
-      {showModalView !== 'zoom' && (
+      {modalView !== 'zoom' && (
         <button
           type="button"
           style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
@@ -27,7 +27,7 @@ function MainImage({
         </button>
       )}
 
-      {showModalView !== 'zoom' && (
+      {modalView !== 'zoom' && (
         <img
           onClick={handleClick}
           src={url ? url.substring(url.indexOf('http')) : defaultUrl}
@@ -35,15 +35,15 @@ function MainImage({
         />
       )}
 
-      {showModalView === 'zoom' && (
+      {modalView === 'zoom' && (
         <ZoomImage
           src={url ? url.substring(url.indexOf('http')) : defaultUrl}
-          showModalView={showModalView}
-          setShowModalView={setShowModalView}
+          modalView={modalView}
+          setModalView={setModalView}
         />
       )}
 
-      {showModalView !== 'zoom' && (
+      {modalView !== 'zoom' && (
         <button
           type="button"
           style={{ visibility: (currentImageIndex !== images.length - 1) ? 'visible' : 'hidden' }}

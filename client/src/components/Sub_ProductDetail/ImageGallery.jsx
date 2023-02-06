@@ -5,7 +5,10 @@ function ImageGallery({ currentStyle, productID }) {
   // console.log('SHOW CURRENT STYLE: ', currentStyle);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [styleMemo, setStyleMemo] = useState({});
-  const [showModalView, setShowModalView] = useState('default');
+  /**
+    * @param {('default' | "expand" | zoom')} initialState
+  */
+  const [modalView, setModalView] = useState('default');
 
   const { style_id } = currentStyle;
 
@@ -27,34 +30,34 @@ function ImageGallery({ currentStyle, productID }) {
   }, [currentStyle]);
 
   useEffect(() => {
-    if (showModalView !== 'default') document.body.style.overflow = 'hidden';
+    if (modalView !== 'default') document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'scroll';
-  }, [showModalView]);
+  }, [modalView]);
 
   return (
     // <div className={`image-gallery ${showExpandView ? 'expand-view' : ''}`}>
     <div className="image-gallery">
-      {showModalView === 'expand'
+      {modalView === 'expand'
     && (
     <ModalView
       modalClass="expand-view"
       currentStyle={currentStyle}
       currentImageIndex={currentImageIndex}
       setCurrentImageIndex={setCurrentImageIndex}
-      showModalView={showModalView}
-      setShowModalView={setShowModalView}
+      modalView={modalView}
+      setModalView={setModalView}
     />
     )}
 
-      {showModalView === 'zoom'
+      {modalView === 'zoom'
     && (
     <ModalView
       modalClass="zoom-view"
       currentStyle={currentStyle}
       currentImageIndex={currentImageIndex}
       setCurrentImageIndex={setCurrentImageIndex}
-      showModalView={showModalView}
-      setShowModalView={setShowModalView}
+      modalView={modalView}
+      setModalView={setModalView}
     />
     )}
 
@@ -63,8 +66,8 @@ function ImageGallery({ currentStyle, productID }) {
         currentStyle={currentStyle}
         currentImageIndex={currentImageIndex}
         setCurrentImageIndex={setCurrentImageIndex}
-        showModalView={showModalView}
-        setShowModalView={setShowModalView}
+        modalView={modalView}
+        setModalView={setModalView}
       />
 
     </div>

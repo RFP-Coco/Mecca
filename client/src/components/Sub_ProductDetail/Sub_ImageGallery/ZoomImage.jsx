@@ -3,13 +3,13 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useRef, useEffect} from 'react';
 
-function ZoomImage({ src, showModalView, setShowModalView }) {
+function ZoomImage({ src, modalView, setModalView }) {
   const [imageX, setImageX] = useState(0);
   const [imageY, setImageY] = useState(0);
   const imageRef = useRef(null);
 
   const handleClick = () => {
-    setShowModalView('expand');
+    setModalView('expand');
   };
 
   const handleMouseMove = (e) => {
@@ -26,7 +26,7 @@ function ZoomImage({ src, showModalView, setShowModalView }) {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [showModalView]);
+  }, [modalView]);
 
   return (
     <img

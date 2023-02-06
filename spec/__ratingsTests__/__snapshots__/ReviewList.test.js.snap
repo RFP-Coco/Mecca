@@ -49,15 +49,90 @@ exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
         <div
           class="stars"
         >
-          <div
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-e45989e2-9f44-4138-ae66-c8e8f2926d7b"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-e45989e2-9f44-4138-ae66-c8e8f2926d7b)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-46cbe152-d3eb-4d59-944f-085c6333f637"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-46cbe152-d3eb-4d59-944f-085c6333f637)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-0e39b411-c046-4468-9e28-50da9ac6a5ef"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-0e39b411-c046-4468-9e28-50da9ac6a5ef)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
         </div>
         <p>
           it fits me perfectly
@@ -115,18 +190,118 @@ exports[`More Reviews if product has <2 reviews, button does not appear 1`] = `
         <div
           class="stars"
         >
-          <div
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-c1e13b12-e8d8-4830-9e1d-5b23eb57e158"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-c1e13b12-e8d8-4830-9e1d-5b23eb57e158)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-17c77c68-9383-4a54-a4be-aa19e8361464"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-17c77c68-9383-4a54-a4be-aa19e8361464)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-14ed56ec-c020-413f-96b9-d2887337f1c3"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-14ed56ec-c020-413f-96b9-d2887337f1c3)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-cb72207d-9e0e-49bd-aaa3-2cd87b5700b6"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-cb72207d-9e0e-49bd-aaa3-2cd87b5700b6)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
         </div>
         <p>
           hello
@@ -199,15 +374,90 @@ exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
         <div
           class="stars"
         >
-          <div
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-123e36b0-2601-4083-9e15-e12ecaf3f26c"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-123e36b0-2601-4083-9e15-e12ecaf3f26c)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-efe7a564-b69c-46f0-8bd9-89fc37615484"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-efe7a564-b69c-46f0-8bd9-89fc37615484)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-c333e369-1bf6-487e-aa31-241aacc436aa"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-c333e369-1bf6-487e-aa31-241aacc436aa)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
         </div>
         <p>
           it fits me perfectly
@@ -265,18 +515,118 @@ exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
         <div
           class="stars"
         >
-          <div
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-a02fa867-d690-4d49-babf-b8f1f66d7f42"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-a02fa867-d690-4d49-babf-b8f1f66d7f42)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-5c35124d-f781-4b59-bb51-c9e44e79f6a4"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-5c35124d-f781-4b59-bb51-c9e44e79f6a4)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-fbe5268d-0015-49f1-9097-e85d7cf4fcea"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-fbe5268d-0015-49f1-9097-e85d7cf4fcea)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-511bedcf-3ffa-43a4-865f-e7fa148246a3"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-511bedcf-3ffa-43a4-865f-e7fa148246a3)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
         </div>
         <p>
           hello
@@ -296,11 +646,6 @@ exports[`More Reviews renders a "More Reviews" button if # reviews > 2 1`] = `
         </div>
       </li>
     </ul>
-    <button
-      type="button"
-    >
-      More Reviews
-    </button>
   </div>
 </div>
 `;
@@ -354,15 +699,90 @@ exports[`More Reviews renders response from seller if it exists 1`] = `
         <div
           class="stars"
         >
-          <div
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-525e495a-15e8-498b-a8b9-062c34425c34"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-525e495a-15e8-498b-a8b9-062c34425c34)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-77d35e7c-2426-4be5-9844-46bef4d2d194"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-77d35e7c-2426-4be5-9844-46bef4d2d194)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-ad48c651-2906-4791-9975-a89ee2960510"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-ad48c651-2906-4791-9975-a89ee2960510)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
         </div>
         <p>
           it fits me perfectly
@@ -426,18 +846,118 @@ exports[`More Reviews renders response from seller if it exists 1`] = `
         <div
           class="stars"
         >
-          <div
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-33f38461-225a-4c6d-a8ca-80bb75ca0df2"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-33f38461-225a-4c6d-a8ca-80bb75ca0df2)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-58584ecd-b279-45f3-8221-2f60a098043c"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-58584ecd-b279-45f3-8221-2f60a098043c)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
-          <div
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-ed3c5b7f-a41b-4aa2-8b50-55f685d2f788"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-ed3c5b7f-a41b-4aa2-8b50-55f685d2f788)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
+          <svg
             class="star"
-          />
+            height="15"
+            viewBox="0 0 1792 1792"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <lineargradient
+                id="grad-a5c90db5-da7d-4e27-bd4d-0a2491cdd3b1"
+              >
+                <stop
+                  offset="1"
+                  stop-color="#FFB940"
+                />
+                <stop
+                  offset="1"
+                  stop-color="white"
+                />
+              </lineargradient>
+            </defs>
+            <path
+              d="M1728 647q0 22-26 48l-363 354 86 500q1 7 1 20 0 21-10.5 35.5t-30.5 14.5q-19 0-40-12l-449-236-449 236q-22 12-40 12-21 0-31.5-14.5t-10.5-35.5q0-6 2-20l86-500-364-354q-25-27-25-48 0-37 56-46l502-73 225-455q19-41 49-41t49 41l225 455 502 73q56 9 56 46z"
+              fill="url(#grad-a5c90db5-da7d-4e27-bd4d-0a2491cdd3b1)"
+              stroke="black"
+              stroke-width="10"
+            />
+          </svg>
         </div>
         <p>
           hello
