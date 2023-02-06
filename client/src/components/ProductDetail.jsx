@@ -53,7 +53,8 @@ function ProductDetail({
           currentStyle={currentStyle}
         />
       </div>
-
+      <div>product description </div>
+      <div>product feature </div>
     </div>
   );
 }

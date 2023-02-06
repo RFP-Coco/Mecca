@@ -45,7 +45,7 @@ function ImageGallery({ currentStyle, productID }) {
     />
     )}
 
-    {showModalView === 'zoom'
+      {showModalView === 'zoom'
     && (
     <ModalView
       modalClass="zoom-view"
