@@ -26,7 +26,7 @@ export default function ReviewModalContent({
     product_id: product.id,
     rating: 0,
     summary: '',
-    recommend: false,
+    recommend: null,
     body: '',
     name: '',
     email: '',
@@ -43,12 +43,52 @@ export default function ReviewModalContent({
     Fit: ['runs tight', 'runs slightly tight', 'perfect', 'runs slightly long', 'runs long'],
   };
 
-  // HANDLERS
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    axios.post('/api/reviews/', reviewBody)
-      .then(() => update())
-      .catch((err) => console.log(err));
+    // perform checks using review body state as the single source of truth
+    let validForm = true;
+
+    // rating is 0
+    if (reviewBody.rating === 0) {
+      validForm = false;
+    }
+
+    if (reviewBody.recommend === null) {
+      validForm = false;
+    }
+
+    // user has not given enough input for characteristics
+    if (Object.keys(reviewBody.characteristics).length
+    !== Object.keys(reviewMetadata.characteristics).length) {
+      validForm = false;
+    }
+
+    // review body is not sufficient length
+    if (reviewBody.length < 50) {
+      validForm = false;
+    }
+    // user has not input a name
+    if (reviewBody.name.length === 0) {
+      validForm = false;
+    }
+
+    // user has not input an email
+    if (reviewBody.email.length === 0) {
+      // TODO: make an actual email validator using REGEX
+      validForm = false;
+    }
+
+    if (validForm) {
+      axios.post('/api/reviews/', reviewBody)
+        .then(() => {
+          update();
+          setShowModal(false);
+          alert('review submitted!')
+        })
+        .catch((err) => console.log(err));
+    } else {
+      alert('please fill out remaining required forms.')
+    }
   };
 
   const handleStarClick = (rating) => {

@@ -8,6 +8,7 @@ export default function UserInfo({
       <div className="form-review-email">
         Enter your email:
         <input
+          required
           placeholder="'jackson11@email.com"
           name="email"
           onChange={onChange}
@@ -16,6 +17,7 @@ export default function UserInfo({
       <div className="form-review-name">
         Enter your display name:
         <input
+          required
           placeholder="'jackson11!"
           name="name"
           onChange={onChange}

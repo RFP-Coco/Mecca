@@ -27,6 +27,7 @@ export default function AddReviewBody({
       <div className="form-review-body">
         Enter your review here:
         <textarea
+          required
           onChange={onChange}
           className="form-review-body-input"
           placeholder="Why did you like the product or not?"
