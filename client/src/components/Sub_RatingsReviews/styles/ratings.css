@@ -1,3 +1,7 @@
+.ratings-reviews {
+  background-color: #EFF5F5;
+}
+
 .ratings-reviews h3 {
   margin: 2rem 1rem;
   font-size: 32px;
@@ -72,9 +76,9 @@
   display: flex;
   flex-direction: column;
   background-color: var(--gray);
-  background-color: white;
+  background-color: #EFF5F5;
   border-radius: 1rem;
-  color: rgb(0, 0, 0);
+  color: #497174;
   padding: 8rem 16rem;
   z-index: 1000;
 }
@@ -93,7 +97,22 @@
   position: absolute;
   margin-bottom: auto;
   top: 1em;
-  left: 12em;
+  left: 33%;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.form-body-container{
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.form-body-container h3{
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 /* IMAGE MODAL */
@@ -159,6 +178,13 @@
   border-radius: 0.5em;
   border: 2em;
 }
+
+.review-list-container button:hover {
+  box-shadow: rgb(0 0 0 / 25%) 0 8px 15px;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
 /* review tile body */
 .review-tile {
   margin: 1em;
@@ -220,6 +246,7 @@ datalist#labels {
 .characteristic {
   height: 5em;
 }
+
 .characteristics-label{
   font-size: .5em;
   transform: rotate(-67deg);
@@ -227,6 +254,7 @@ datalist#labels {
   margin-top: -1em;
   justify-content: center;
   z-index: -1;
+  color: black;
 }
 
 /* PRODUCT DASHBOARD BAR */

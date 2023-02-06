@@ -53,6 +53,7 @@ export default function ReviewModalContent({
       validForm = false;
     }
 
+    // user has not clicked a radio button
     if (reviewBody.recommend === null) {
       validForm = false;
     }
@@ -87,7 +88,7 @@ export default function ReviewModalContent({
         })
         .catch((err) => console.log(err));
     } else {
-      alert('please fill out remaining required forms.')
+      alert('please fill out remaining required forms.');
     }
   };
 
@@ -128,90 +129,92 @@ export default function ReviewModalContent({
       <div className="return-btn-container">
         <button className="" onClick={() => setShowModal(false)} type="button">X</button>
       </div>
-      <div className="review-modal-header">
+      <h1 className="review-modal-header">
         Write Your Review
-      </div>
-      <span>{product.name}</span>
-      <div>OVERALL RATING: *
-        <div className="overall-rating">
-          {reviewBody.rating === 0
-            ? (
-              <span className="form-stars">
-                <div onClick={() => handleStarClick(1)}>{generateStars(0, 1)}</div>
-                <div onClick={() => handleStarClick(2)}>{generateStars(0, 1)}</div>
-                <div onClick={() => handleStarClick(3)}>{generateStars(0, 1)}</div>
-                <div onClick={() => handleStarClick(4)}>{generateStars(0, 1)}</div>
-                <div onClick={() => handleStarClick(5)}>{generateStars(0, 1)}</div>
-              </span>
-            )
-            : (
-              <span className="form-stars">
-                {generateStars(reviewBody.rating)}
-                <span>{starInfo[reviewBody.rating]}</span>
-              </span>
-            )}
-        </div>
-      </div>
-      <RecommendedButton
-        toggle={toggleRecommended}
-        setReviewBody={setReviewBody}
-      />
-      <fieldset className="form-characteristics">
-        <legend>
-          Please select a rating for each of these characteristics: *
-          <div>
-            {
-            Object.entries(reviewMetadata.characteristics)
-              .map((entry) => (
-                <RadioGroup
-                  key={entry[1].id}
-                  onClick={handleRadioChange}
-                  char_id={entry[1].id}
-                  numButtons={5}
-                  name={entry[0]}
-                  labels={labels[entry[0]]}
-                />
-              ))
-            }
+      </h1>
+      <div className="form-body-container">
+        <h3>{product.name}</h3>
+        <div>OVERALL RATING: *
+          <div className="overall-rating">
+            {reviewBody.rating === 0
+              ? (
+                <span className="form-stars">
+                  <div onClick={() => handleStarClick(1)}>{generateStars(0, 1)}</div>
+                  <div onClick={() => handleStarClick(2)}>{generateStars(0, 1)}</div>
+                  <div onClick={() => handleStarClick(3)}>{generateStars(0, 1)}</div>
+                  <div onClick={() => handleStarClick(4)}>{generateStars(0, 1)}</div>
+                  <div onClick={() => handleStarClick(5)}>{generateStars(0, 1)}</div>
+                </span>
+              )
+              : (
+                <span className="form-stars">
+                  {generateStars(reviewBody.rating)}
+                  <span>{starInfo[reviewBody.rating]}</span>
+                </span>
+              )}
           </div>
-        </legend>
-      </fieldset>
-      <AddReviewBody
-        onChange={handleInputChange}
-        reviewBody={reviewBody}
-        minBodyLength={50}
-        maxBodyLength={1000}
-        maxSummaryLength={60}
-      />
-      <UserInfo
-        onChange={handleInputChange}
-      />
-      <button
-        type="button"
-        onClick={() => setShowImgModal(true)}
-      >
-        Add An Image Here (Max 5)
-      </button>
-      {reviewBody.photos.map((photoURL) => (
-        <Image
-          style={{ width: 100 }}
-          cloudName="do544o5be"
-          publicId={photoURL}
+        </div>
+        <RecommendedButton
+          toggle={toggleRecommended}
+          setReviewBody={setReviewBody}
         />
-      ))}
-      {showImgModal && (
-      <ReviewImageModal
-        setShowImgModal={setShowImgModal}
-        reviewBody={reviewBody}
-        setReviewBody={setReviewBody}
-      />
-      )}
-      <button
-        type="submit"
-        onClick={handleFormSubmit}
-      >
-        Submit your Review
-      </button>
+        <fieldset className="form-characteristics">
+          <legend>
+            Please select a rating for each of these characteristics: *
+            <div>
+              {
+              Object.entries(reviewMetadata.characteristics)
+                .map((entry) => (
+                  <RadioGroup
+                    key={entry[1].id}
+                    onClick={handleRadioChange}
+                    char_id={entry[1].id}
+                    numButtons={5}
+                    name={entry[0]}
+                    labels={labels[entry[0]]}
+                  />
+                ))
+              }
+            </div>
+          </legend>
+        </fieldset>
+        <AddReviewBody
+          onChange={handleInputChange}
+          reviewBody={reviewBody}
+          minBodyLength={50}
+          maxBodyLength={1000}
+          maxSummaryLength={60}
+        />
+        <UserInfo
+          onChange={handleInputChange}
+        />
+        <button
+          type="button"
+          onClick={() => setShowImgModal(true)}
+        >
+          Add An Image Here (Max 5)
+        </button>
+        {reviewBody.photos.map((photoURL) => (
+          <Image
+            style={{ width: 100 }}
+            cloudName="do544o5be"
+            publicId={photoURL}
+          />
+        ))}
+        {showImgModal && (
+        <ReviewImageModal
+          setShowImgModal={setShowImgModal}
+          reviewBody={reviewBody}
+          setReviewBody={setReviewBody}
+        />
+        )}
+        <button
+          type="submit"
+          onClick={handleFormSubmit}
+        >
+          Submit your Review
+        </button>
+      </div>
     </form>
   );
 }
