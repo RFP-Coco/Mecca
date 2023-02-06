@@ -4,12 +4,13 @@ import ImageGallery from './Sub_ProductDetail/ImageGallery.jsx';
 import ProductInfo from './Sub_ProductDetail/ProductInfo.jsx';
 import StyleSelector from './Sub_ProductDetail/StyleSelector.jsx';
 import AddToCart from './Sub_ProductDetail/AddToCart.jsx';
+import ProductDesciption from './Sub_ProductDetail/ProductDesciption.jsx';
+import ProductFeature from './Sub_ProductDetail/ProductFeature.jsx';
 
 function ProductDetail({
   product, productStyle, productID,
   currentStyle, setCurrentStyle, reviewMetadata, reviewRef,
 }) {
-  // const [currentStyle, setCurrentStyle] = useState();
   const [startSelect, setStartSelect] = useState(false);
 
   useEffect(() => {
@@ -48,12 +49,14 @@ function ProductDetail({
           setStartSelect={setStartSelect}
         />
         <AddToCart
+          product={product}
           skus={currentStyle.skus}
           startSelect={startSelect}
           currentStyle={currentStyle}
         />
       </div>
-
+      <ProductDesciption product={product} />
+      <ProductFeature product={product} />
     </div>
   );
 }

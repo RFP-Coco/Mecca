@@ -6,6 +6,7 @@ function ImageThumbnail({ index, img, currentImageIndex, setCurrentImageIndex })
   const defaultUrl = '../../../assets/noProdImg.png';
   return (
     <div
+      className="image-thumbnail-container"
       onClick={() => { setCurrentImageIndex(index); }}
       onKeyDown={() => { setCurrentImageIndex(index); }}
     >

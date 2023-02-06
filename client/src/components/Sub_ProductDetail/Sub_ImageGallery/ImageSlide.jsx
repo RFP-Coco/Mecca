@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import ImageThumbnail from './ImageThumbnail.jsx';
 
-function ImageSlide({ images, currentImageIndex, setCurrentImageIndex }) {
+function ImageSlide({ images, currentImageIndex, setCurrentImageIndex, modalView }) {
   const [start, setStart] = useState(0);
-  const maxImages = 7;
+  const maxImages = modalView === 'default' ? 2 : 7;
 
   useEffect(() => {
     if (currentImageIndex < start) {
@@ -26,6 +26,7 @@ function ImageSlide({ images, currentImageIndex, setCurrentImageIndex }) {
       </button>
 
       <div className="image-slide-show">
+
         {images.map((img, index) => (index >= start && index - start < maxImages
           ? (
             <ImageThumbnail
