@@ -6,17 +6,17 @@ export default function OutfitContainer({
   parentProductStyle, currentParentProductStyle,
   parentReviewMetadata, setAsNewOverview, setAllowCardClick,
 }) {
-
-  // const { id } = thisProduct;
-
-  // const [myOutfits, setMyOutfits] = useState(new Set());
-
   const [myOutfits, setMyOutfits] = useState([]);
   const [checkStyles, setCheckStyles] = useState({});
 
-  // const [outfitsUpdated, setOutfitsUpdated] = useState(false);
-
-  useEffect(() => {console.log(checkStyles)}, [myOutfits]);
+  useEffect(() => {
+    if (localStorage.length) {
+      const storedKeys = Object.keys(localStorage);
+      const storedOutfits = storedKeys.map((key) => (
+        JSON.parse(localStorage.getItem(key))));
+      setMyOutfits(storedOutfits);
+    }
+  }, []);
 
   const handleAddOutfit = (e) => {
     e.preventDefault();
@@ -28,14 +28,8 @@ export default function OutfitContainer({
     setCheckStyles(Object.assign(checkStyles, checkStyles[style_id] = 1));
 
     setMyOutfits(myOutfits.concat([myOutfitEntry]));
-    // setOutfitsUpdated(true);
+    localStorage.setItem(style_id, JSON.stringify(myOutfitEntry));
   };
-
-  // const handleRemoveOutfit = (e) => {
-  //   e.preventDefault();
-  //   console.log('hit handleRemoveOutfit');
-
-  // };
 
   return (
     <div className="scrollable container">

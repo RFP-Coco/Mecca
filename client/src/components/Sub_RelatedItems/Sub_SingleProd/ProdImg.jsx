@@ -26,10 +26,9 @@ export default function ProdImg({
     tempOutfits.splice(toRemove, 1);
     delete tempChecks[thisStyleID];
 
-    console.log(tempChecks);
-
     setCheckStyles(tempChecks);
     setMyOutfits(tempOutfits);
+    localStorage.removeItem(thisStyleID);
   };
 
   // =================== COMPONENT ===================
