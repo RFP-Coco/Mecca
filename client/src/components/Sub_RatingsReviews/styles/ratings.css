@@ -44,6 +44,34 @@
   display: flex;
   justify-content: center;
 }
+
+.form-review-summary{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-review-summary input {
+  width: 30vw;
+}
+
+.form-review-email {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-review-email{
+  width: 30vw;
+  margin-bottom: 1em;
+}
+
+.form-review-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-review-name{
+  width: 30vw;
+}
 /*
 .form-characteristics{
   display: flex;
@@ -105,12 +133,14 @@
   font-size: 2em;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 0px 2px 5px #497174;
 }
 
 .form-body-container{
   display: flex;
   flex-direction: column;
   gap: 2em;
+  width: 30vw;
 }
 
 .form-body-container h3{
@@ -283,6 +313,8 @@
 
 progress {
   border: 0px solid grey;
+  border-radius: 20px;
+  width: 100%;
 }
 
 progress::-webkit-progress-value {
@@ -333,7 +365,7 @@ datalist#labels {
 /* INPUT RANGE CSS RESET */
 input[type=range]{
   -webkit-appearance: none;
-  /* width: 25%; */
+  width: 100%;
   background: transparent;
   background: #837d7d;
   /* background-image: linear-gradient(#ff4500, #ff4500); */

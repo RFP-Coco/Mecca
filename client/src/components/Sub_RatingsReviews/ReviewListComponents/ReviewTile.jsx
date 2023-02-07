@@ -21,8 +21,6 @@ export default function ReviewTile({
     else document.body.style.overflow = 'scroll';
   }, [expandThumbnail]);
 
-
-
   /** @type {string} date */
   const date = format(parseISO(review.date), 'LLLL d, yyyy');
 
