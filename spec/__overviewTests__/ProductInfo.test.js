@@ -33,7 +33,9 @@ describe('Render product name', () => {
         },
       ],
     };
-    const { getByRole } = render(<ProductInfo product={product} />);
+
+    const
+    const { getByRole } = render(<ProductInfo product={product} reviewMetadata={reviewMetadata} reviewRef={} />);
     expect(getByRole('heading').textContent).toMatch(/YEasy 350/i);
   });
 });
