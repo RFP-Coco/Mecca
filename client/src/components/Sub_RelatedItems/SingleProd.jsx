@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import axios from 'axios';
 
 import ProdImg from './Sub_SingleProd/ProdImg.jsx';
 import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
-export default function SingleProd({
+const SingleProd = forwardRef(function SingeProd({
   thisProduct, parentProduct, parentReviewMetadata,
   currentParentProductStyle, setAllowCardClick,
   setAsNewOverview, thisStyleID,
   myOutfits, setMyOutfits, checkStyles, setCheckStyles,
-}) {
+}, ref) {
   const { id } = thisProduct;
 
   // =================== STATES ===================
@@ -91,6 +91,7 @@ export default function SingleProd({
   // =================== COMPONENT ===================
   return (
     <div
+      ref={ref}
       className="single-prod container"
       onClick={() => setAsNewOverview(id)}
     >
@@ -127,4 +128,5 @@ export default function SingleProd({
       />
     </div>
   );
-}
+});
+export default SingleProd;

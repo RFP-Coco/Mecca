@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { BiChevronLeftCircle, BiChevronRightCircle } from 'react-icons/bi';
+import { flushSync } from 'react-dom';
 import SingleProd from './SingleProd.jsx';
 
 export default function OutfitContainer({
@@ -6,17 +8,62 @@ export default function OutfitContainer({
   parentProductStyle, currentParentProductStyle,
   parentReviewMetadata, setAsNewOverview, setAllowCardClick,
 }) {
+  // =================== STATES ===================
   const [myOutfits, setMyOutfits] = useState([]);
   const [checkStyles, setCheckStyles] = useState({});
+  const [index, setIndex] = useState(0);
+  const cardsRef = useRef(null);
 
+  // =================== EFFECTS ===================
   useEffect(() => {
     if (localStorage.length) {
+      const storedCheckStyles = JSON.parse(localStorage.getItem('inUse'));
+
       const storedKeys = Object.keys(localStorage);
+      const checkStyleIdx = storedKeys.indexOf('inUse');
+
+      console.log('\nstoredCheckStyles: ', storedCheckStyles);
+      console.log('\nstoredKeys: ', storedKeys, '\ncheckStyleIdx: ', checkStyleIdx);
+
+      storedKeys.splice(checkStyleIdx, 1);
+
       const storedOutfits = storedKeys.map((key) => (
         JSON.parse(localStorage.getItem(key))));
+
       setMyOutfits(storedOutfits);
+      setCheckStyles(storedCheckStyles);
     }
   }, []);
+  // =================== HELPERS ===================
+  const handleRightClick = () => {
+    flushSync(() => {
+      if (index < myOutfits.length - 1) {
+        setIndex(index + 1);
+      } else {
+        setIndex(0);
+      }
+    });
+    cardsRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    });
+  };
+
+  const handleLeftClick = () => {
+    flushSync(() => {
+      if (!index) {
+        setIndex(myOutfits.length - 1);
+      } else {
+        setIndex(index - 1);
+      }
+    });
+    cardsRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    });
+  };
 
   const handleAddOutfit = (e) => {
     e.preventDefault();
@@ -26,22 +73,31 @@ export default function OutfitContainer({
     if (checkStyles[style_id]) return;
 
     setCheckStyles(Object.assign(checkStyles, checkStyles[style_id] = 1));
-
     setMyOutfits(myOutfits.concat([myOutfitEntry]));
+
+    localStorage.setItem('inUse', JSON.stringify(checkStyles));
     localStorage.setItem(style_id, JSON.stringify(myOutfitEntry));
   };
 
+  // =================== COMPONENT ===================
   return (
     <div className="scrollable container">
+      {index > 0 && (
+        <BiChevronLeftCircle
+          className="scroll-left"
+          onClick={handleLeftClick}
+        />
+      )}
       <AddOutfitCard
         parentProduct={parentProduct}
         myOutfits={myOutfits}
         setMyOutfits={setMyOutfits}
         handleAddOutfit={handleAddOutfit}
       />
-      {myOutfits.map((thisProduct) => (
+      {myOutfits.map((thisProduct, i) => (
         <SingleProd
           key={thisProduct.id}
+          ref={index === i ? cardsRef : null}
           thisStyleID={thisProduct.style_id}
           parentProduct={parentProduct}
           setParentProductID={setParentProductID}
@@ -57,6 +113,12 @@ export default function OutfitContainer({
           setCheckStyles={setCheckStyles}
         />
       ))}
+      {index < myOutfits.length - 1 && (
+        <BiChevronRightCircle
+          className="scroll-right"
+          onClick={handleRightClick}
+        />
+      )}
     </div>
   );
 }

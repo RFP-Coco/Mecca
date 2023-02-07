@@ -1,6 +1,5 @@
 :root {
   --littleRound: 0.3rem;
-  --circle: 50%;
 }
 
 /* ======== WIDGET ======== */
@@ -25,14 +24,17 @@
 .related-items,
 .my-outfit {
   display: flex;
+  position: relative;
   padding: 2px;
   margin: 0.3rem;
 }
 
 .scrollable {
-  overflow-x: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
+  scroll-snap-align: start;
   scroll-padding-inline: 1rem;
 }
 
@@ -52,6 +54,26 @@
   padding: 2px;
   border-radius: var(--littleRound);
   margin: 0.2rem;
+}
+
+.scroll-left,
+.scroll-right {
+  background-color: #e2e2e2b4;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  top: 35%;
+  z-index: 3;
+  font-size: 3rem;
+}
+
+.scroll-right {
+  right: 1%;
+}
+
+.scroll-left {
+  left: 1%;
 }
 
 /* ======== COMPARISON MODAL ======== */
@@ -110,7 +132,7 @@
 }
 
 .comparison-modal-header > th:last-of-type {
-  border-radius: 0rem 0.5rem 0.5rem 0
+  border-radius: 0 0.5rem 0.5rem 0
 }
 
 tr {
@@ -145,6 +167,7 @@ td {
 .default-pic,
 .add-outfit {
   border-radius: var(--littleRound);
+  display: flex;
   width: 20rem;
   height: 20rem;
   object-fit: cover;
@@ -169,10 +192,6 @@ td {
   left: 17.3rem;
   height: 2.2rem;
   width: 2.2rem;
-}
-
-.add-outfit {
-  border:
 }
 
 .single-prod.container.add-outfit {

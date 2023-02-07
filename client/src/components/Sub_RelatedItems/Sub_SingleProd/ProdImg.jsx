@@ -17,6 +17,8 @@ export default function ProdImg({
   const handleRemoveOutfit = (e) => {
     e.preventDefault();
 
+    const storedCheckStyles = JSON.parse(localStorage.getItem('inUse'));
+
     const toRemove = myOutfits.indexOf(myOutfits.find((outfit) => (
       outfit.style_id === thisStyleID
     )));
@@ -25,9 +27,11 @@ export default function ProdImg({
     const tempChecks = { ...checkStyles };
     tempOutfits.splice(toRemove, 1);
     delete tempChecks[thisStyleID];
+    delete storedCheckStyles[thisStyleID];
 
     setCheckStyles(tempChecks);
     setMyOutfits(tempOutfits);
+    localStorage.setItem('inUse', JSON.stringify(storedCheckStyles));
     localStorage.removeItem(thisStyleID);
   };
 
