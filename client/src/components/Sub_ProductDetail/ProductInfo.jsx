@@ -21,7 +21,7 @@ function ProductInfo({ product, reviewMetadata, reviewRef }) {
           {avgStarRating !== null
             && generateStars(avgStarRating, 5, 20)}
         </span>
-        <span className="link-review" onClick={handleClick}>Read {totalVotes} reviews</span>
+        <span className="link-review" onClick={handleClick}>Read all {totalVotes} reviews</span>
       </div>
       <div className="product-category">Category {'>'} {product.category}</div>
       <div className="product-name">{product.name}</div>
