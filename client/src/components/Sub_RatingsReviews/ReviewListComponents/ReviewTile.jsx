@@ -47,12 +47,14 @@ export default function ReviewTile({
 
   return (
     <li className="review-tile">
-      <b className="review-summary">{summary}</b>
-      <p className="reviewer-name">{review.reviewer_name}</p>
-      <small className="review-date">{date}</small>
       <div className="stars">
-        {generateStars(review.rating, review.rating, 15)}
+        {generateStars(review.rating, review.rating, 25, '#EB6440')}
       </div>
+      <div className="review-top-corner">
+        <p className="reviewer-name">{review.reviewer_name}</p>
+        <small className="review-date">{date}</small>
+      </div>
+      <b className="review-summary">{summary}</b>
       <p>{!showMoreBody
         ? review.body.slice(0, defaultBodyLength)
         : review.body}
