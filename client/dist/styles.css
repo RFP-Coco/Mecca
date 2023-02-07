@@ -44,3 +44,12 @@ table {
 }
 
 /* INDIVIDUAL WIDGET CSS BELONGS IN ITS OWN CSS FILE */
+
+html {
+	scroll-behavior: smooth;
+}
+
+:root {
+	--motion-theme: #EFF5F5;
+	--star-color: #EB6440;
+}
