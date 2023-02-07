@@ -1,5 +1,8 @@
 .ratings-reviews {
-  background-color: #EFF5F5;
+  /* background-color: #EFF5F5; */
+  background-color: var(--motion-theme);
+  font-family: 'Merriweather', serif;
+  /* font-family: 'Montserrat', 'Times New Roman'; */
 }
 
 .ratings-reviews h3 {
@@ -203,12 +206,36 @@
 }
 
 /* DASHBOARD */
-.star-rating {
-  font-size: 2em;
+
+/* RATING BREAKDOWN */
+.rating-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
+.total-reviews {
+  margin: 1em 1em 1em 0em;
+}
+
+.star-rating {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.rating-summary .stars {
+  display: flex;
+  gap: 0.5em;
+  padding: 1em 1em 0em 0em;
+}
 .rating-container {
   display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.rating-container:hover {
+  transform: translateX(2px);
 }
 
 .rating-bar:hover{
@@ -216,7 +243,7 @@
 }
 
 progress {
-  border: 1px solid grey;
+  border: 0px solid grey;
 }
 
 progress::-webkit-progress-value {

@@ -7,7 +7,6 @@ import generateStars from '../generateStars.js';
 export default function ReviewTile({
   review, handleHelpfulClick,
 }) {
-
   /**
    * States
    * @type {boolean}
