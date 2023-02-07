@@ -11,13 +11,14 @@ export default function ThumbnailModal({
         className="review-modal-overlay"
         onClick={() => { expand(false); setCurrImg(''); }}
       />
-      <img
-        // className="expanded-thumbnail"
-        className="review-modal-container"
-        onClick={() => { expand(false); setCurrImg(''); }}
-        src={imgUrl}
-        alt="expanded pic"
-      />
+      <div className="review-modal-container">
+        <img
+          className="expanded-thumbnail"
+          onClick={() => { expand(false); setCurrImg(''); }}
+          src={imgUrl}
+          alt="expanded pic"
+        />
+      </div>
     </div>
   );
   return createPortal(modal, portal);
