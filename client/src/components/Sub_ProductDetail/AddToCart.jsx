@@ -3,6 +3,7 @@ import axios from 'axios';
 import SizeSelector from './Sub_AddToCart/SizeSelector.jsx';
 import QuantitySelector from './Sub_AddToCart/QuantitySelector.jsx';
 import SocialMediaShare from './Sub_ProductInfo/SocialMediaShare.jsx';
+import { AiOutlineStar } from 'react-icons/ai';
 
 
 function AddToCart({ product, skus, startSelect, currentStyle }) {
@@ -69,11 +70,13 @@ function AddToCart({ product, skus, startSelect, currentStyle }) {
       <div className="cart">
         <button
           type="button"
+          className="cart-button"
           style={{ visibility: validSkus.length ? 'visible' : 'hidden' }}
           onClick={handleClick}
         >
           ADD TO BAG
         </button>
+        <button className="fav-icon" type="button"> <AiOutlineStar size={15} /> </button>
       </div>
       <SocialMediaShare product={product} />
 
