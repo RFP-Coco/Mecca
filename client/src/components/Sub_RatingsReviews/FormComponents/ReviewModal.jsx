@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import ReviewModalContent from './ReviewModalContent.jsx';
+import ReviewImageModal from './ImageModal/ReviewImageModal.jsx';
 
-export default function ReviewModal({ setShowModal, product, reviewMetadata}) {
+export default function ReviewModal({
+  setShowModal, product, reviewMetadata, update,
+}) {
   const portal = document.getElementById('modal');
-  return createPortal(<div
-    className="review-comp-container"
-  >
-    <div
-      className="review-modal-overlay"
-      onClick={() => setShowModal(false)}
-    />
-    <ReviewModalContent
-      product={product}
-      setShowModal={setShowModal}
-      reviewMetadata={reviewMetadata}
+  const modal = (
+    <div className="review-comp-container" id="add-form-modal">
+      <div
+        className="review-modal-overlay"
+        onClick={() => setShowModal(false)}
       />
-  </div>, portal);
+      <ReviewModalContent
+        product={product}
+        setShowModal={setShowModal}
+        reviewMetadata={reviewMetadata}
+        update={update}
+      />
+    </div>
+  );
+  return createPortal(modal, portal);
 }

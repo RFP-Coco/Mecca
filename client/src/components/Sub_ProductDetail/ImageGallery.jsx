@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import ImageSlide from './Sub_ImageGallery/ImageSlide.jsx';
-import DefaultView from './Sub_ImageGallery/DefaultView.jsx';
+import ModalView from './Sub_ImageGallery/ModalView.jsx';
 
 function ImageGallery({ currentStyle, productID }) {
-  console.log('SHOW CURRENT STYLE: ', currentStyle);
+  // console.log('SHOW CURRENT STYLE: ', currentStyle);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [styleMemo, setStyleMemo] = useState({});
+  /**
+    * @param {('default' | "expand" | zoom')} initialState
+  */
+  const [modalView, setModalView] = useState('default');
+
   const { style_id } = currentStyle;
 
   useEffect(() => {
@@ -25,18 +29,47 @@ function ImageGallery({ currentStyle, productID }) {
     }
   }, [currentStyle]);
 
+  useEffect(() => {
+    if (modalView !== 'default') document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'scroll';
+  }, [modalView]);
+
   return (
+    // <div className={`image-gallery ${showExpandView ? 'expand-view' : ''}`}>
     <div className="image-gallery">
-      <ImageSlide
-        images={currentStyle.photos}
+      {modalView === 'expand'
+    && (
+    <ModalView
+      modalClass="expand-view"
+      currentStyle={currentStyle}
+      currentImageIndex={currentImageIndex}
+      setCurrentImageIndex={setCurrentImageIndex}
+      modalView={modalView}
+      setModalView={setModalView}
+    />
+    )}
+
+      {modalView === 'zoom'
+    && (
+    <ModalView
+      modalClass="zoom-view"
+      currentStyle={currentStyle}
+      currentImageIndex={currentImageIndex}
+      setCurrentImageIndex={setCurrentImageIndex}
+      modalView={modalView}
+      setModalView={setModalView}
+    />
+    )}
+
+      <ModalView
+        modalClass="default-view"
+        currentStyle={currentStyle}
         currentImageIndex={currentImageIndex}
         setCurrentImageIndex={setCurrentImageIndex}
+        modalView={modalView}
+        setModalView={setModalView}
       />
-      <DefaultView
-        images={currentStyle.photos}
-        currentImageIndex={currentImageIndex}
-        setCurrentImageIndex={setCurrentImageIndex}
-      />
+
     </div>
   );
 }

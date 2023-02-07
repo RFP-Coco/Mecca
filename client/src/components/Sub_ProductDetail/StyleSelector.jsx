@@ -22,7 +22,7 @@ function StyleSelector({
           )}
       </div>
       <div style={{ paddingBottom: '1rem' }}>
-        STYLE {'>'}
+        STYLE {'>'} &nbsp;
         <span style={{ fontStyle: 'italic' }}>{startSelect ? name : 'SELECTED STYLE'}</span>
       </div>
       <StyleList

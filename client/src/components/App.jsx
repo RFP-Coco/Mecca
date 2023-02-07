@@ -10,7 +10,8 @@ function App() {
   // props for multiple widgets
   // states that multiple widgets need access to
 
-  const [productID, setProductID] = useState(40344);
+
+  const [productID, setProductID] = useState(40352);
   const [currentProduct, setCurrentProduct] = useState({});
   const [productStyle, setProductStyle] = useState({});
   const [reviewMetadata, setReviewMetadata] = useState({});
