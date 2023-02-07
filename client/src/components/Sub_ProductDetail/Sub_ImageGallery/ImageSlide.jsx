@@ -1,10 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
+import { RxDoubleArrowUp, RxDoubleArrowDown } from 'react-icons/rx';
 import ImageThumbnail from './ImageThumbnail.jsx';
 
-function ImageSlide({ images, currentImageIndex, setCurrentImageIndex, modalView }) {
+function ImageSlide({
+  images, currentImageIndex, setCurrentImageIndex, modalView,
+}) {
   const [start, setStart] = useState(0);
-  const maxImages = modalView === 'default' ? 2 : 7;
+  const maxImages = modalView === 'default' ? 4 : 4;
 
   useEffect(() => {
     if (currentImageIndex < start) {
@@ -17,13 +20,11 @@ function ImageSlide({ images, currentImageIndex, setCurrentImageIndex, modalView
   return (
 
     <div className="image-slide">
-      <button
-        type="button"
+      <RxDoubleArrowUp
+        className="image-slide-button"
         style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
         onClick={() => setCurrentImageIndex(currentImageIndex - 1)}
-      >
-        prev
-      </button>
+      />
 
       <div className="image-slide-show">
 
@@ -39,14 +40,11 @@ function ImageSlide({ images, currentImageIndex, setCurrentImageIndex, modalView
           ) : null
         ))}
       </div>
-
-      <button
-        type="button"
+      <RxDoubleArrowDown
+        className="image-slide-button"
         style={{ visibility: (currentImageIndex < images.length - 1) ? 'visible' : 'hidden' }}
         onClick={() => { setCurrentImageIndex(currentImageIndex + 1); }}
-      >
-        next
-      </button>
+      />
     </div>
   );
 }

@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function SizeSelector({ skuID, validSkus, startSelect, handleSize }) {
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleClick = () => {
+    if (!startSelect) {
+      setShowAlert(true);
+    }
+  };
+
+  useEffect(() => { setShowAlert(false); }, [startSelect]);
+
   return (
     <div className="size-selector">
-      <select name="size" value={skuID ? skuID.size : ''} onChange={handleSize}>
+      {showAlert && <div>please select a style</div>}
+      <select
+        name="size"
+        value={skuID ? skuID.size : ''}
+        onClick={handleClick}
+        onChange={handleSize}
+      >
         <option value="" disabled>
           {startSelect && !validSkus.length ? 'OUT OF STOCK' : 'SELECT SIZE'}
         </option>
