@@ -21,16 +21,19 @@ function SocialMediaShare({ product }) {
   return (
     <div className="social-media-share">
       <AiFillTwitterCircle
+        aria-label="icon-twitter"
         className="icon icon-twitter"
         size={35}
         onClick={() => handleClick('twitter')}
       />
       <SiFacebook
+        aria-label="icon-facebook"
         className="icon icon-facebook"
         size={29}
         onClick={() => handleClick('facebook')}
       />
       <RiPinterestFill
+        aria-label="icon-pinterest"
         className="icon icon-pinterest"
         size={35}
         onClick={() => handleClick('pinterest')}

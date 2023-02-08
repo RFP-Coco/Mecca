@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1675819393323" clover="3.2.0">
-  <project timestamp="1675819393323" name="All files">
-    <metrics statements="96" coveredstatements="79" conditionals="74" coveredconditionals="54" methods="38" coveredmethods="29" elements="208" coveredelements="162" complexity="0" loc="96" ncloc="96" packages="4" files="12" classes="12"/>
+<coverage generated="1675834849505" clover="3.2.0">
+  <project timestamp="1675834849505" name="All files">
+    <metrics statements="145" coveredstatements="120" conditionals="102" coveredconditionals="72" methods="62" coveredmethods="46" elements="309" coveredelements="238" complexity="0" loc="145" ncloc="145" packages="6" files="18" classes="18"/>
     <package name="Sub_ProductDetail">
-      <metrics statements="28" coveredstatements="26" conditionals="14" coveredconditionals="11" methods="10" coveredmethods="9"/>
+      <metrics statements="54" coveredstatements="47" conditionals="22" coveredconditionals="16" methods="23" coveredmethods="17"/>
+      <file name="AddToCart.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/AddToCart.jsx">
+        <metrics statements="23" coveredstatements="18" conditionals="8" coveredconditionals="5" methods="10" coveredmethods="5"/>
+        <line num="9" count="10" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="13" count="110" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="10" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="37" count="10" type="stmt"/>
+        <line num="38" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="8" type="stmt"/>
+        <line num="44" count="10" type="stmt"/>
+        <line num="45" count="8" type="stmt"/>
+        <line num="46" count="8" type="stmt"/>
+        <line num="49" count="10" type="stmt"/>
+      </file>
       <file name="ImageGallery.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/ImageGallery.jsx">
         <metrics statements="17" coveredstatements="16" conditionals="8" coveredconditionals="7" methods="5" coveredmethods="5"/>
         <line num="6" count="25" type="stmt"/>
@@ -24,6 +50,15 @@
         <line num="34" count="9" type="stmt"/>
         <line num="37" count="25" type="stmt"/>
       </file>
+      <file name="ProductDesciption.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/ProductDesciption.jsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="ProductFeature.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/ProductFeature.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+      </file>
       <file name="ProductInfo.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/ProductInfo.jsx">
         <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="3"/>
         <line num="6" count="4" type="stmt"/>
@@ -40,6 +75,24 @@
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="7" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="Sub_ProductDetail.Sub_AddToCart">
+      <metrics statements="9" coveredstatements="6" conditionals="14" coveredconditionals="8" methods="6" coveredmethods="4"/>
+      <file name="QuantitySelector.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_AddToCart/QuantitySelector.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+        <line num="4" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+      </file>
+      <file name="SizeSelector.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_AddToCart/SizeSelector.jsx">
+        <metrics statements="7" coveredstatements="5" conditionals="12" coveredconditionals="7" methods="4" coveredmethods="3"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="6" count="10" type="stmt"/>
+        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="29" count="110" type="stmt"/>
       </file>
     </package>
     <package name="Sub_ProductDetail.Sub_ImageGallery">
@@ -106,6 +159,26 @@
         <line num="26" count="2" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="Sub_ProductDetail.Sub_ProductInfo">
+      <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="5" coveredmethods="5"/>
+      <file name="SocialMediaShare.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_ProductInfo/SocialMediaShare.jsx">
+        <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="5" coveredmethods="5"/>
+        <line num="8" count="9" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="21" count="9" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
       </file>
     </package>
     <package name="Sub_ProductDetail.Sub_StyleSelector">
