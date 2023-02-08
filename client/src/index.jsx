@@ -1,9 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-
 import App from './components/App.jsx';
+import TrackerContext from './utilities/TrackerContext.js';
+import clickTracker from './utilities/clickTracker.js';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-root.render(<App />);
+root.render(
+  <TrackerContext.Provider value={clickTracker}>
+    <App />
+  </TrackerContext.Provider>,
+);

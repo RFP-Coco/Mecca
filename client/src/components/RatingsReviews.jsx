@@ -74,7 +74,6 @@ export default function RatingsReviews({
   return (
     <div className="ratings-reviews" ref={reviewRef}>
       <h3>Ratings & Reviews</h3>
-
       {showModal
       && (
       <ReviewModal
@@ -109,7 +108,6 @@ export default function RatingsReviews({
             update={updateData}
           />
         )}
-        {/* <button type="button" onClick={() => setShowModal(true)}>Add a review</button> */}
       </div>
     </div>
   );
