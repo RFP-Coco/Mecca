@@ -227,6 +227,8 @@ td {
 
 .prod-info > .star-rating {
   font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
 }
 
 .sale {

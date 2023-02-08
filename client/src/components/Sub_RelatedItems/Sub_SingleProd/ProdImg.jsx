@@ -4,7 +4,7 @@ export default function ProdImg({
   defaultPic, thisProduct,
   currentParentProductStyle, setAllowCardClick,
   showComparisonModal, setShowComparisonModal, thisStyleID,
-  myOutfits, setMyOutfits, checkStyles, setCheckStyles
+  myOutfits, setMyOutfits, checkStyles, setCheckStyles,
 }) {
   const picUrl = defaultPic || '../../../assets/noProdImg.png';
 
@@ -29,10 +29,11 @@ export default function ProdImg({
     delete tempChecks[thisStyleID];
     delete storedCheckStyles[thisStyleID];
 
-    setCheckStyles(tempChecks);
-    setMyOutfits(tempOutfits);
     localStorage.setItem('inUse', JSON.stringify(storedCheckStyles));
     localStorage.removeItem(thisStyleID);
+
+    setCheckStyles(tempChecks);
+    setMyOutfits(tempOutfits);
   };
 
   // =================== COMPONENT ===================

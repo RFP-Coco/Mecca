@@ -33,7 +33,8 @@ export default function OutfitContainer({
       setMyOutfits(storedOutfits);
       setCheckStyles(storedCheckStyles);
     }
-  }, []);
+  }, [localStorage]);
+
   // =================== HELPERS ===================
   const handleRightClick = () => {
     flushSync(() => {
@@ -67,8 +68,8 @@ export default function OutfitContainer({
 
   const handleAddOutfit = (e) => {
     e.preventDefault();
-    const { style_id } = currentParentProductStyle;
-    const myOutfitEntry = Object.assign(parentProduct, { style_id });
+    const { style_id, photos, original_price, sale_price } = currentParentProductStyle;
+    const myOutfitEntry = Object.assign(parentProduct, { style_id, photos, original_price, sale_price });
 
     if (checkStyles[style_id]) return;
 
@@ -96,9 +97,12 @@ export default function OutfitContainer({
       />
       {myOutfits.map((thisProduct, i) => (
         <SingleProd
-          key={thisProduct.id}
+          key={thisProduct.style_id}
           ref={index === i ? cardsRef : null}
+          thisImgUrl={thisProduct.photos[0].url}
           thisStyleID={thisProduct.style_id}
+          original_price={thisProduct.original_price}
+          sale_price={thisProduct.sale_price}
           parentProduct={parentProduct}
           setParentProductID={setParentProductID}
           parentProductStyle={parentProductStyle}

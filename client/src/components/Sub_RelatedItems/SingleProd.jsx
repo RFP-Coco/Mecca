@@ -5,12 +5,13 @@ import ProdImg from './Sub_SingleProd/ProdImg.jsx';
 import ProdInfo from './Sub_SingleProd/ProdInfo.jsx';
 import ComparisonModal from './Sub_SingleProd/ComparisonModal.jsx';
 
-const SingleProd = forwardRef(function SingeProd({
+const SingleProd = forwardRef(({
   thisProduct, parentProduct, parentReviewMetadata,
   currentParentProductStyle, setAllowCardClick,
-  setAsNewOverview, thisStyleID,
+  setAsNewOverview, thisStyleID, thisImgUrl,
   myOutfits, setMyOutfits, checkStyles, setCheckStyles,
-}, ref) {
+  original_price, sale_price,
+}, ref) => {
   const { id } = thisProduct;
 
   // =================== STATES ===================
@@ -35,15 +36,15 @@ const SingleProd = forwardRef(function SingeProd({
         const newStyles = styles.data.results;
         setTheseStyles(newStyles);
         setImgUrl('');
-        // if it's for the related items
-        if (!currentParentProductStyle) {
+        if (!thisImgUrl) {
           setImgUrl(newStyles[0].photos[0].url);
           return newStyles.filter((style) => style['default?'] === true);
         }
-        setImgUrl(currentParentProductStyle.photos[0].url);
-        return [currentParentProductStyle];
+        setImgUrl(thisImgUrl);
+        return [{ original_price, sale_price }];
       })
       .then((style) => {
+        console.log('setting price on: ', style);
         setPrice(style);
       })
       .catch((err) => err);
@@ -124,6 +125,8 @@ const SingleProd = forwardRef(function SingeProd({
       <ProdInfo
         thisProduct={thisProduct}
         thisPrice={thisPrice}
+        original_price={original_price}
+        sale_price={sale_price}
         thisAvgRating={thisAvgRating}
       />
     </div>
