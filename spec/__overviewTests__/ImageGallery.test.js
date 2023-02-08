@@ -31,7 +31,7 @@ describe('test image gallery', () => {
   });
 
   it('Render the default view', async () => {
-    const modalView = await screen.getByTestId('modalView');
+    const modalView = screen.getByTestId('modalView');
     expect(modalView.classList.contains('default-view')).toBe(true);
   });
 

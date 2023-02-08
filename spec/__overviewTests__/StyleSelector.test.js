@@ -11,6 +11,7 @@ require('dotenv').config();
 afterEach(cleanup);
 describe('test style selector', () => {
   let container;
+  let styles;
   let productStyle;
   let currentStyle;
   const startSelect = false;
@@ -31,7 +32,7 @@ describe('test style selector', () => {
     };
     const response = await axios(options);
     productStyle = response.data;
-    const styles = productStyle.results;
+    styles = productStyle.results;
 
     const defaultStyle = styles.filter((style) => style['default?']);
     currentStyle = defaultStyle[0];
@@ -45,13 +46,24 @@ describe('test style selector', () => {
     container = renderedContainer;
   });
 
-  it('Render the style selector', async () => {
-    expect(container).toMatchSnapshot();
+  // it('Render the style selector', async () => {
+  //   expect(container).toMatchSnapshot();
+  // });
+
+  it('Render the correct number of styles', async () => {
+    const styleContainer = screen.getByLabelText('select a style');
+    expect(styleContainer.childNodes).toHaveLength(styles.length);
   });
 
-  it('Render the style selector', async () => {
-    expect(container).toMatchSnapshot();
+  it('Set the background image URL correctly', async () => {
+    const firstStyle = screen.getAllByLabelText('individual style')[0];
+    // console.log(firstStyle.getAttribute('style'));
+    expect(firstStyle.style.backgroundImage).toEqual(`url(${styles[0].photos[0].thumbnail_url})`);
   });
 
-
+  it('Click the style thumbnail will call the function setCurrentStyle', async () => {
+    const secondStyle = screen.getAllByLabelText('individual style')[1];
+    await userEvent.click(secondStyle);
+    expect(setCurrentStyle).toHaveBeenCalled();
+  });
 });

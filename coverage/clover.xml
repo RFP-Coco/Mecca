@@ -1,27 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1675815558226" clover="3.2.0">
-  <project timestamp="1675815558226" name="All files">
-    <metrics statements="7" coveredstatements="6" conditionals="10" coveredconditionals="5" methods="5" coveredmethods="4" elements="22" coveredelements="15" complexity="0" loc="7" ncloc="7" packages="2" files="3" classes="3"/>
+<coverage generated="1675819393323" clover="3.2.0">
+  <project timestamp="1675819393323" name="All files">
+    <metrics statements="96" coveredstatements="79" conditionals="74" coveredconditionals="54" methods="38" coveredmethods="29" elements="208" coveredelements="162" complexity="0" loc="96" ncloc="96" packages="4" files="12" classes="12"/>
     <package name="Sub_ProductDetail">
-      <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <metrics statements="28" coveredstatements="26" conditionals="14" coveredconditionals="11" methods="10" coveredmethods="9"/>
+      <file name="ImageGallery.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/ImageGallery.jsx">
+        <metrics statements="17" coveredstatements="16" conditionals="8" coveredconditionals="7" methods="5" coveredmethods="5"/>
+        <line num="6" count="25" type="stmt"/>
+        <line num="7" count="25" type="stmt"/>
+        <line num="11" count="25" type="stmt"/>
+        <line num="13" count="25" type="stmt"/>
+        <line num="15" count="25" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="20" count="25" type="stmt"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="24" count="25" type="stmt"/>
+        <line num="25" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="8" type="stmt"/>
+        <line num="32" count="25" type="stmt"/>
+        <line num="33" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="9" type="stmt"/>
+        <line num="37" count="25" type="stmt"/>
+      </file>
+      <file name="ProductInfo.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/ProductInfo.jsx">
+        <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="20" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="20" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+      </file>
       <file name="StyleSelector.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/StyleSelector.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="Sub_ProductDetail.Sub_ImageGallery">
+      <metrics statements="48" coveredstatements="34" conditionals="46" coveredconditionals="35" methods="19" coveredmethods="13"/>
+      <file name="ImageSlide.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_ImageGallery/ImageSlide.jsx">
+        <metrics statements="11" coveredstatements="8" conditionals="14" coveredconditionals="11" methods="5" coveredmethods="4"/>
+        <line num="9" count="27" type="stmt"/>
+        <line num="10" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="27" type="stmt"/>
+        <line num="13" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="27" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="32" count="297" type="cond" truecount="4" falsecount="0"/>
+        <line num="47" count="1" type="stmt"/>
+      </file>
+      <file name="ImageThumbnail.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_ImageGallery/ImageThumbnail.jsx">
+        <metrics statements="5" coveredstatements="3" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="1"/>
+        <line num="5" count="108" type="stmt"/>
+        <line num="6" count="108" type="stmt"/>
+        <line num="7" count="108" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+      </file>
+      <file name="MainImage.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_ImageGallery/MainImage.jsx">
+        <metrics statements="10" coveredstatements="9" conditionals="20" coveredconditionals="16" methods="4" coveredmethods="3"/>
+        <line num="10" count="29" type="stmt"/>
+        <line num="11" count="29" type="stmt"/>
+        <line num="12" count="29" type="stmt"/>
+        <line num="13" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="29" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+      <file name="ModalView.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_ImageGallery/ModalView.jsx">
+        <metrics statements="6" coveredstatements="4" conditionals="8" coveredconditionals="5" methods="2" coveredmethods="2"/>
+        <line num="9" count="29" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="29" type="stmt"/>
+      </file>
+      <file name="ZoomImage.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_ImageGallery/ZoomImage.jsx">
+        <metrics statements="16" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
     </package>
     <package name="Sub_ProductDetail.Sub_StyleSelector">
-      <metrics statements="5" coveredstatements="4" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="3"/>
+      <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="4"/>
       <file name="StyleEntry.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_StyleSelector/StyleEntry.jsx">
-        <metrics statements="3" coveredstatements="2" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="1"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
       </file>
       <file name="StyleList.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_ProductDetail/Sub_StyleSelector/StyleList.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="Sub_RatingsReviews">
+      <metrics statements="15" coveredstatements="14" conditionals="8" coveredconditionals="5" methods="5" coveredmethods="3"/>
+      <file name="Star.jsx" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_RatingsReviews/Star.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="9" count="20" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+      </file>
+      <file name="generateStars.js" path="/Users/qchen/Documents/Course/HackReactor/Course/atelier/client/src/components/Sub_RatingsReviews/generateStars.js">
+        <metrics statements="13" coveredstatements="13" conditionals="8" coveredconditionals="5" methods="3" coveredmethods="2"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="12" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="13" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="17" count="20" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="22" count="20" type="stmt"/>
       </file>
     </package>
   </project>
