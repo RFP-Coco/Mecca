@@ -15,6 +15,7 @@ function SizeSelector({ skuID, validSkus, startSelect, handleSize }) {
     <div className="size-selector">
       {showAlert && <div>please select a style</div>}
       <select
+        role="listbox"
         name="size"
         value={skuID ? skuID.size : ''}
         onClick={handleClick}

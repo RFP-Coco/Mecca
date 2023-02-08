@@ -23,6 +23,7 @@ function MainImage({
           className="main-image-button"
           style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
           onClick={() => setCurrentImageIndex(currentImageIndex - 1)}
+          aria-label="previous image"
         />
       )}
 
@@ -30,7 +31,7 @@ function MainImage({
         <img
           onClick={handleClick}
           src={url ? url.substring(url.indexOf('http')) : defaultUrl}
-          alt="product"
+          alt="main product"
         />
       )}
 
@@ -47,6 +48,7 @@ function MainImage({
           className="main-image-button"
           style={{ visibility: (currentImageIndex !== images.length - 1) ? 'visible' : 'hidden' }}
           onClick={() => setCurrentImageIndex(currentImageIndex + 1)}
+          aria-label="next image"
         />
       )}
 
