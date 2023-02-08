@@ -24,6 +24,7 @@ function ImageSlide({
         className="image-slide-button"
         style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
         onClick={() => setCurrentImageIndex(currentImageIndex - 1)}
+        aria-label="previous thumbnail"
       />
 
       <div className="image-slide-show">
@@ -44,6 +45,7 @@ function ImageSlide({
         className="image-slide-button"
         style={{ visibility: (currentImageIndex < images.length - 1) ? 'visible' : 'hidden' }}
         onClick={() => { setCurrentImageIndex(currentImageIndex + 1); }}
+        aria-label="next thumbnail"
       />
     </div>
   );

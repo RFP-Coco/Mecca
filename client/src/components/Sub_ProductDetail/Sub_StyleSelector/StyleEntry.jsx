@@ -6,6 +6,7 @@ function StyleEntry({ style, currentStyle, setCurrentStyle, startSelect, setStar
   const { thumbnail_url } = style.photos[0];
   return (
     <div
+      aria-label="individual style"
       className="style-entry-container"
       style={{
         backgroundImage: `url(${thumbnail_url

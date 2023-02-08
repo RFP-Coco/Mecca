@@ -5,7 +5,6 @@ import QuantitySelector from './Sub_AddToCart/QuantitySelector.jsx';
 import SocialMediaShare from './Sub_ProductInfo/SocialMediaShare.jsx';
 import { AiOutlineStar } from 'react-icons/ai';
 
-
 function AddToCart({ product, skus, startSelect, currentStyle }) {
   const [skuID, setSkuID] = useState();
   const [quantity, setQuantity] = useState(1);
@@ -50,6 +49,7 @@ function AddToCart({ product, skus, startSelect, currentStyle }) {
   return (
     <div>
       <div
+        aria-label="select size alert"
         style={{ visibility: showAlert ? 'visible' : 'hidden' }}>
         Please select size
       </div>
