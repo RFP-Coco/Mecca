@@ -36,6 +36,7 @@
   scroll-snap-type: inline mandatory;
   scroll-snap-align: start;
   scroll-padding-inline: 1rem;
+  border-radius: 0.3rem;
 }
 
 .scrollable > * {
@@ -50,10 +51,11 @@
 .single-prod {
   flex-direction: column;
   margin-inline: auto;
-  border: 2px solid #636363;
-  padding: 2px;
+  /* border: 2px solid #636363; */
   border-radius: var(--littleRound);
-  margin: 0.2rem;
+  padding: 2px;
+  margin: 0.5rem;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .scroll-left,

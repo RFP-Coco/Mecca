@@ -47,6 +47,8 @@ table {
 
 html {
 	scroll-behavior: smooth;
+	background-color: var(--motion-theme);
+	font-family: 'Rubik', 
 }
 
 :root {
