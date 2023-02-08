@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 
 import axios from 'axios';
-
+import Head from './Head.jsx';
 import ProductDetail from './ProductDetail.jsx';
 import RelatedItems from './RelatedItems.jsx';
 import QuestionsAnswers from './QuestionsAnswers.jsx';
@@ -42,6 +42,9 @@ function App() {
 
   return (
     <div id="global">
+      <div id="Head" onClick={trackClick}>
+        <Head />
+      </div>
       <div id="ProductOverview" onClick={trackClick}>
         { Object.keys(productStyle).length && (
         <ProductDetail

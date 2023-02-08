@@ -29,5 +29,4 @@ describe('Test product basic information', () => {
     // console.log(productCategory.textContent);
     expect(productDesciption.textContent.toLowerCase()).toMatch(product.description.toLowerCase());
   });
-
 });
