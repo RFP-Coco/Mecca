@@ -8,7 +8,6 @@ export default function RelatedItems({
   product, productID, setProductID,
   productStyle, currentStyle, reviewMetadata,
 }) {
-
   const [allowCardClick, setAllowCardClick] = useState(true);
 
   const setAsNewOverview = (id) => {

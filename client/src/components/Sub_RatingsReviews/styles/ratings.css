@@ -212,7 +212,7 @@
 .review-list {
   height: 50vh;
   overflow-y: scroll;
-  width: 80vw;
+  /* width: 80vw; */
   border: 1px solid grey;
   border-radius: 2em;
   margin-top: 1em;
