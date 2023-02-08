@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Sub_ProductDetail/Sub_ImageGallery/ImageThumbnail.jsx</title>
+    <title>Code coverage report for Sub_ProductDetail/Sub_StyleSelector/StyleEntry.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">Sub_ProductDetail/Sub_ImageGallery</a> ImageThumbnail.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">Sub_ProductDetail/Sub_StyleSelector</a> StyleEntry.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
@@ -86,19 +86,21 @@
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">108x</span>
-<span class="cline-any cline-yes">108x</span>
-<span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,37 +109,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { AiFillCheckCircle } from 'react-icons/ai';
 &nbsp;
-function ImageThumbnail({ index, img, currentImageIndex, setCurrentImageIndex }) {
-  const { thumbnail_url } = img;
-  const defaultUrl = '../../../assets/noProdImg.png';
+function StyleEntry({ style, currentStyle, setCurrentStyle, startSelect, setStartSelect }) {
+  // console.log('SHOW CURRENT STYLE: ', currentStyle);
+  const { thumbnail_url } = style.photos[0];
   return (
     &lt;div
-      className="image-thumbnail-container"
-      onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; { <span class="cstat-no" title="statement not covered" >setCurrentImageIndex(index); </span>}}
-      onKeyDown={<span class="fstat-no" title="function not covered" >()</span> =&gt; { <span class="cstat-no" title="statement not covered" >setCurrentImageIndex(index); </span>}}
-    &gt;
-      &lt;img
-        className="image-thumbnail"
-        style={index === currentImageIndex ? { borderBottom: '8px solid blue' } : {}}
-        src={thumbnail_url
+      className="style-entry-container"
+      style={{
+        backgroundImage: `url(${thumbnail_url
           ? thumbnail_url.substring(thumbnail_url.indexOf('http'))
-          : <span class="branch-1 cbranch-no" title="branch not covered" >defaultUrl}</span>
-        alt="thumbnail"
-      /&gt;
+          : <span class="branch-1 cbranch-no" title="branch not covered" >'../../../assets/noProdImg.png'}</span>)`,
+      }}
+      onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; { <span class="cstat-no" title="statement not covered" >setCurrentStyle(style); <span class="cstat-no" title="statement not covered" ></span>setStartSelect(true); </span>}}
+    &gt;
+      {startSelect &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >style.style_id === currentStyle.style_id</span>
+        ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;AiFillCheckCircle className="checkmark" /&gt;</span>
+        : null}
     &lt;/div&gt;
-&nbsp;
   );
 }
-export default ImageThumbnail;
+export default StyleEntry;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -145,7 +139,7 @@ export default ImageThumbnail;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-07T23:03:43.489Z
+                at 2023-02-08T00:19:18.199Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

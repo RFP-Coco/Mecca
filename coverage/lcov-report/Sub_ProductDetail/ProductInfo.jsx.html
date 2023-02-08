@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">11.11% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -101,17 +101,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,27 +133,27 @@ import generateStars from '../Sub_RatingsReviews/generateStars.js';
 &nbsp;
 function ProductInfo({ product, reviewMetadata, reviewRef }) {
   const { ratings } = reviewMetadata;
-  const totalStars = <span class="cstat-no" title="statement not covered" >Object.entries(ratings).reduce((</span>
-<span class="fstat-no" title="function not covered" >    (a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a + Number(b[0]) * Number(b[1]))</span>, 0);
-  const totalVotes = <span class="cstat-no" title="statement not covered" >Object.entries(ratings).reduce((</span>
-<span class="fstat-no" title="function not covered" >    (a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a + Number(b[1]))</span>, 0);
-  const avgStarRating = <span class="cstat-no" title="statement not covered" >totalStars / totalVotes;</span>
+  const totalStars = Object.entries(ratings).reduce((
+    (a, b) =&gt; a + Number(b[0]) * Number(b[1])), 0);
+  const totalVotes = Object.entries(ratings).reduce((
+    (a, b) =&gt; a + Number(b[1])), 0);
+  const avgStarRating = totalStars / totalVotes;
 &nbsp;
-  const handleClick = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+  const handleClick = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >    reviewRef.current.scrollIntoView({ behavior: 'smooth' });</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;div className="product-info"&gt;
       &lt;div className="stars-container"&gt;
-        &lt;span className="stars"&gt;
+        &lt;span aria-label="product rating stars" className="stars"&gt;
           {avgStarRating !== null
             &amp;&amp; generateStars(avgStarRating, 5, 20)}
         &lt;/span&gt;
-        &lt;span className="link-review" onClick={handleClick}&gt;Read all {totalVotes} reviews&lt;/span&gt;
+        &lt;span aria-label="link to review section" className="link-review" onClick={handleClick}&gt;Read all {totalVotes} reviews&lt;/span&gt;
       &lt;/div&gt;
-      &lt;div className="product-category"&gt;Category {'&gt;'} {product.category}&lt;/div&gt;
-      &lt;div className="product-name"&gt;{product.name}&lt;/div&gt;
+      &lt;div aria-label="product cateogy" className="product-category"&gt;Category {'&gt;'} {product.category}&lt;/div&gt;
+      &lt;div role="heading" aria-level="2" className="product-name"&gt;{product.name}&lt;/div&gt;
     &lt;/div&gt;
   );
 }
@@ -166,7 +166,7 @@ export default ProductInfo;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-07T04:27:06.211Z
+                at 2023-02-07T23:56:02.803Z
             </div>
         <script src="../prettify.js"></script>
         <script>

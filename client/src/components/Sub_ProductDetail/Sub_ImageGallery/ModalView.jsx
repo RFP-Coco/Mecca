@@ -14,7 +14,7 @@ function ModalView({
     }
   };
   return (
-    <div className={modalClass}>
+    <div data-testid="modalView" className={modalClass}>
       {modalView !== 'zoom' && (
       <ImageSlide
         images={currentStyle.photos}
@@ -31,7 +31,7 @@ function ModalView({
         modalView={modalView}
         setModalView={setModalView}
       />
-      { modalView === 'expand' && <AiOutlineClose className="close-icon" onClick={handleClick} />}
+      { modalView === 'expand' && <AiOutlineClose className="close-icon" onClick={handleClick} aria-label="close expand view" />}
 
     </div>
   );

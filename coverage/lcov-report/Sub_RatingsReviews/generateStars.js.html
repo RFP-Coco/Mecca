@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,23 +99,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,24 +129,24 @@
 import uuid4 from 'uuid4';
 import Star from './Star.jsx';
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >generateStars(</span>rating, amtStars = <span class="branch-0 cbranch-no" title="branch not covered" >5,</span> size = <span class="branch-0 cbranch-no" title="branch not covered" >25,</span> color = <span class="branch-0 cbranch-no" title="branch not covered" >'#FFB940',</span> callback = <span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >()</span> =&gt; {})</span> {
-  const result = <span class="cstat-no" title="statement not covered" >[];</span>
-  let remaining = <span class="cstat-no" title="statement not covered" >rating;</span>
-  let counter = <span class="cstat-no" title="statement not covered" >0;</span>
-<span class="cstat-no" title="statement not covered" >  while (counter &lt; amtStars) {</span>
-<span class="cstat-no" title="statement not covered" >    if (remaining - 1 &gt;= 0) {</span>
-<span class="cstat-no" title="statement not covered" >      remaining -= 1;</span>
-<span class="cstat-no" title="statement not covered" >      result.push(1);</span>
-    } else <span class="cstat-no" title="statement not covered" >if (remaining - 1 &lt;= 0) {</span>
-<span class="cstat-no" title="statement not covered" >      result.push(remaining);</span>
-<span class="cstat-no" title="statement not covered" >      remaining = 0;</span>
+export default function generateStars(rating, amtStars = <span class="branch-0 cbranch-no" title="branch not covered" >5,</span> size = <span class="branch-0 cbranch-no" title="branch not covered" >25,</span> color = '#FFB940', callback = <span class="fstat-no" title="function not covered" >()</span> =&gt; {}) {
+  const result = [];
+  let remaining = rating;
+  let counter = 0;
+  while (counter &lt; amtStars) {
+    if (remaining - 1 &gt;= 0) {
+      remaining -= 1;
+      result.push(1);
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (remaining - 1 &lt;= 0) {
+      result.push(remaining);
+      remaining = 0;
     }
-<span class="cstat-no" title="statement not covered" >    counter += 1;</span>
+    counter += 1;
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return result</span>
-    .map(<span class="fstat-no" title="function not covered" >(p</span>ercent, index) =&gt; (
-<span class="cstat-no" title="statement not covered" >      &lt;Star</span>
+  return result
+    .map((percent, index) =&gt; (
+      &lt;Star
         callback={callback}
         color={color}
         size={size}
@@ -163,7 +163,7 @@ export default function <span class="fstat-no" title="function not covered" >gen
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-07T04:27:06.211Z
+                at 2023-02-07T23:56:02.803Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -44,7 +44,6 @@ function ProductDetail({
           productStyle={productStyle}
           currentStyle={currentStyle}
           setCurrentStyle={setCurrentStyle}
-          productID={productID}
           startSelect={startSelect}
           setStartSelect={setStartSelect}
         />
