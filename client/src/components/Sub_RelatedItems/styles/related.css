@@ -15,7 +15,8 @@
 .title {
   font-size: x-large;
   font-weight: 600;
-  border-top: 1.5rem solid #20364ecc;
+  /* border-top: 1.5rem solid #20364ecc; */
+  border-top: 0.5rem solid #D6E4E5;
   padding: 0.5rem;
   padding-left: 3rem;
   margin: 0.3rem;
@@ -50,10 +51,11 @@
 .single-prod {
   flex-direction: column;
   margin-inline: auto;
-  border: 2px solid #636363;
-  padding: 2px;
+  /* border: 2px solid #636363; */
   border-radius: var(--littleRound);
-  margin: 0.2rem;
+  padding: 2px;
+  margin: 0.5rem;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .scroll-left,

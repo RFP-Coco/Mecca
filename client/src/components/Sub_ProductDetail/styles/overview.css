@@ -8,6 +8,10 @@
   /* height: 50rem; */
 }
 
+.product-detail img {
+  border-radius: 0.3rem;
+
+}
 /* image-gallery */
 
 .product-text {
