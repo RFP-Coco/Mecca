@@ -314,10 +314,6 @@
   transform: translateX(2px);
 }
 
-.rating-bar:hover{
-  background-color: aquamarine;
-}
-
 .bar-container{
   display: flex;
   flex-direction: column;
@@ -328,16 +324,18 @@
   text-align: center;
 }
 progress {
-  border: 0px solid grey;
-  border-radius: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0rem 1rem 0.5rem;
   width: 100%;
 }
 
 progress::-webkit-progress-value {
-  background: rgb(141, 183, 139);
+  background: var(--accent-color)
 }
 progress::-webkit-progress-bar {
   background: rgb(220, 220, 234);
+  background: var(--border-color);
 }
 
 /* PRODUCT DASHBOARD */
