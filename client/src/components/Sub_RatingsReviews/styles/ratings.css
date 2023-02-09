@@ -303,6 +303,11 @@
   display: flex;
   flex-direction: row;
   gap: 0.5em;
+  align-items: center;
+}
+
+.rating-bar-label{
+  width: 25%;
 }
 
 .rating-container:hover {
@@ -313,6 +318,15 @@
   background-color: aquamarine;
 }
 
+.bar-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.rating-amt {
+  text-align: center;
+}
 progress {
   border: 0px solid grey;
   border-radius: 20px;

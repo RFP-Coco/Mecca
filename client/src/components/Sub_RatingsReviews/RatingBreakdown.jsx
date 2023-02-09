@@ -21,12 +21,14 @@ export default function RatingBreakdown({
             onClick={() => toggleSelectedRating(entry[0])}
           >
             <div className="rating-bar-label">{entry[0]} stars:</div>
-            <progress
-              className="rating-bar"
-              max="100"
-              value={percentage}
-            />
-            <div className="rating-amt">{entry[2]}</div>
+            <div className="bar-container">
+              <progress
+                className="rating-bar"
+                max="100"
+                value={percentage}
+              />
+              <div className="rating-amt">{entry[2]} reviews</div>
+            </div>
           </div>
         );
       })}
