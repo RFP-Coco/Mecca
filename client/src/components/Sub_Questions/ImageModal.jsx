@@ -23,6 +23,9 @@ export default function ImageModal({ display, photos, setPhotos }) {
   return (
     <div className="modal">
       <div className="modal-content">
+        <div className="modal-header">
+          <h3>Add your images here.</h3>
+        </div>
         <div className="modal-body">
           <div className="images">
             {photos.map((photo, index) => (
@@ -40,6 +43,8 @@ export default function ImageModal({ display, photos, setPhotos }) {
               onChange={(e) => { addImage(e.target.files); }}
             />
           )}
+        </div>
+        <div className="modal-footer">
           <div
             className="submit-img-buttons"
           >

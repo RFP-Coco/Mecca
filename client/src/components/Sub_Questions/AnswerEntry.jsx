@@ -39,7 +39,7 @@ export default function AnswerEntry({ answer, updateAnswers }) {
         </div>
       </div>
       <div className="answer-info">
-        by {answer.answerer_name}  {format(parseISO(answer.date), 'LLLL d, yyyy')}   |  Helpful?
+        by {answer.answerer_name}  {format(parseISO(answer.date), 'LLLL d, yyyy')}   |  <span className="helpful">Helpful?</span>
         {voted
           ? (
             <span>Yes({answer.helpfulness})</span>
