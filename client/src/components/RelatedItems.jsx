@@ -6,7 +6,7 @@ import './Sub_RelatedItems/styles/related.css';
 
 export default function RelatedItems({
   product, productID, setProductID,
-  productStyle, currentStyle, reviewMetadata,
+  productStyle, currentStyle, reviewMetadata, relItemRef,
 }) {
   const [allowCardClick, setAllowCardClick] = useState(true);
 
@@ -16,7 +16,7 @@ export default function RelatedItems({
 
   return (
     <section>
-      <div className="title">Items related to {`${product.name}`}</div>
+      <div className="title" ref={relItemRef}>Items related to {`${product.name}`}</div>
       <div className="related-items">
         <RelProdContainer
           parentProduct={product}
