@@ -7,6 +7,7 @@ import React, {
 
 import axios from 'axios';
 import Head from './Head.jsx';
+import NavBar from './NavBar.jsx';
 import ProductDetail from './ProductDetail.jsx';
 import RelatedItems from './RelatedItems.jsx';
 import QuestionsAnswers from './QuestionsAnswers.jsx';
@@ -19,7 +20,11 @@ function App() {
   const [currentProduct, setCurrentProduct] = useState({});
   const [productStyle, setProductStyle] = useState({});
   const [reviewMetadata, setReviewMetadata] = useState({});
+  const headRef = useRef(null);
   const reviewRef = useRef(null);
+  const qnaRef = useRef(null);
+  const relItemRef = useRef(null);
+  const overviewRef = useRef(null);
   const [currentStyle, setCurrentStyle] = useState();
 
   console.log('productID: ', productID);
@@ -42,9 +47,16 @@ function App() {
 
   return (
     <div id="global">
-      <div id="Head" onClick={trackClick}>
+      <div id="Head" onClick={trackClick} ref={headRef}>
         <Head />
       </div>
+      <NavBar
+        reviewRef={reviewRef}
+        qnaRef={qnaRef}
+        relItemRef={relItemRef}
+        overviewRef={overviewRef}
+        headRef={headRef}
+      />
       <div id="ProductOverview" onClick={trackClick}>
         { Object.keys(productStyle).length && (
         <ProductDetail
@@ -55,10 +67,11 @@ function App() {
           reviewRef={reviewRef}
           currentStyle={currentStyle}
           setCurrentStyle={setCurrentStyle}
+          overviewRef={overviewRef}
         />
         )}
       </div>
-      <div id="RelatedProducts" onClick={trackClick}>
+      <div id="RelatedProducts" onClick={trackClick} >
         <RelatedItems
           reviewMetadata={reviewMetadata}
           productStyle={productStyle}
@@ -66,12 +79,14 @@ function App() {
           productID={productID}
           setProductID={setProductID}
           currentStyle={currentStyle}
+          relItemRef={relItemRef}
         />
       </div>
       <div id="QA" onClick={trackClick}>
         <QuestionsAnswers
           productID={productID}
           productName={currentProduct.name}
+          qnaref={qnaRef}
         />
       </div>
       <div id="RatingsAndReviews" onClick={trackClick}>

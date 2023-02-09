@@ -1,0 +1,12 @@
+.nav-bar {
+  z-index: 10;
+  position: sticky;
+  top: 0;
+  background-color: var(--accent-color);
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  padding: 1rem;
+  cursor: ;
+}
