@@ -29,6 +29,7 @@
   position: relative;
   padding: 2px;
   margin: 0.3rem;
+  width: min-content;
 }
 
 .scrollable {
@@ -65,7 +66,7 @@
   background-color: #e2e2e2b4;
   border: none;
   border-radius: 50%;
-  position: absolute;
+  /* position: absolute; */
   cursor: pointer;
   transition: all 0.2s ease-in;
   transform: scale(1);
@@ -75,10 +76,12 @@
 }
 
 .scroll-right {
+  position: sticky;
   right: 2%;
 }
 
 .scroll-left {
+  position: sticky;
   left: 2%;
 }
 
@@ -188,8 +191,9 @@ td {
 
 .compare-btn,
 .remove-btn {
-  border: none;
+  position: -webkit-sticky; /* Safari */
   position:sticky;
+  border: none;
   background-color: transparent;
   cursor: pointer;
 }
