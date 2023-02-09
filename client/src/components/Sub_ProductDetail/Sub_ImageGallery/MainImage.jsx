@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from 'react-icons/md';
+
 import ZoomImage from './ZoomImage.jsx';
 
 function MainImage({
@@ -21,6 +22,7 @@ function MainImage({
       {modalView !== 'zoom' && (
         <MdOutlineArrowBackIos
           className="main-image-button"
+          size={30}
           style={{ visibility: (currentImageIndex !== 0) ? 'visible' : 'hidden' }}
           onClick={() => setCurrentImageIndex(currentImageIndex - 1)}
           aria-label="previous image"
@@ -46,6 +48,7 @@ function MainImage({
       {modalView !== 'zoom' && (
         <MdOutlineArrowForwardIos
           className="main-image-button"
+          size={30}
           style={{ visibility: (currentImageIndex !== images.length - 1) ? 'visible' : 'hidden' }}
           onClick={() => setCurrentImageIndex(currentImageIndex + 1)}
           aria-label="next image"

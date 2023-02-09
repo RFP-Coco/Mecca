@@ -75,7 +75,10 @@ export default function RelProdContainer({
   return (
     <div className="scrollable container">
       {!relatedProds.length && (
-        <div className="related-prod null">
+        <div
+          className="related-prod null"
+          data-testid="null"
+        >
           There are no related products to display at this time...
         </div>
       )}
@@ -83,6 +86,7 @@ export default function RelProdContainer({
         <BiChevronLeftCircle
           className="scroll-left"
           onClick={handleLeftClick}
+          data-testid="scroll-left"
         />
       )}
       {relatedProds.map((thisProduct, i) => (
@@ -102,6 +106,7 @@ export default function RelProdContainer({
         <BiChevronRightCircle
           className="scroll-right"
           onClick={handleRightClick}
+          data-testid="scroll-right"
         />
       )}
     </div>

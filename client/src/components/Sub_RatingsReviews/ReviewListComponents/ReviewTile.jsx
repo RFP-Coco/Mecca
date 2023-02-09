@@ -46,7 +46,7 @@ export default function ReviewTile({
   return (
     <li className="review-tile">
       <div className="stars">
-        {generateStars(review.rating, review.rating, 25, '#EB6440')}
+        {generateStars(review.rating, review.rating, 25)}
       </div>
       <div className="review-top-corner">
         <p className="reviewer-name">{review.reviewer_name}</p>
@@ -89,7 +89,7 @@ export default function ReviewTile({
       )}
       {review.response && <p className="review-response">Response From Seller: {review.response}</p>}
       <div className="review-helpfulness">
-        Was this review helpful?
+        Was this review helpful?&nbsp;
         <a
           href=""
           onClick={(event) => handleHelpfulClick(event, review)}

@@ -2,7 +2,7 @@ import React from 'react';
 import uuid4 from 'uuid4';
 import Star from './Star.jsx';
 
-export default function generateStars(rating, amtStars = 5, size = 25, color = '#FFB940', callback = () => {}) {
+export default function generateStars(rating, amtStars = 5, size = 25, color = 'rgb(235, 69, 95)', callback = () => {}) {
   const result = [];
   let remaining = rating;
   let counter = 0;

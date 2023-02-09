@@ -17,7 +17,7 @@ export default function QuestionItem({ question, setShow, updateQuestions }) {
     <div className="question">
       <div className="question-container">
         <span className="question-item">Q: {question.question_body}</span>
-        <span>Helpful?</span>
+        <span className="helpful">Helpful?</span>
         {voted
           ? (
             <span>Yes({question.question_helpfulness})</span>

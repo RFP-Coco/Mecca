@@ -50,11 +50,11 @@ html {
 	font-size: 16px;
 	font-family: 'Montserrat', sans-serif;
 	background-color: #EFF5F5;
-	color: var(--accent-color);
+	color: var(--text-color);
 }
 
 :root {
-	--mecca-theme: #EAEAEA;
+	--mecca-theme: #EFF5F5;
 	--border-color: #D6E4E5;
 	--accent-color: rgb(235, 69, 95);
 	--text-color: #497174;

@@ -12,7 +12,7 @@ export default function QuestionsSearch({ questionList, setFilteredList }) {
     }
   };
   return (
-    <div>
+    <div className="search-bar-container">
       <input
         className="search-bar"
         placeholder="Have a question? Search for answers…"

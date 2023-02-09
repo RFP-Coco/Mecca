@@ -3,7 +3,14 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
 export default function ReviewList({
-  reviews, update, onChange, sort, selectedRatings, filtered, setShowModal,
+  reviews,
+  update,
+  onChange,
+  sort,
+  selectedRatings,
+  filtered,
+  setShowModal,
+  totalAmtOfReviews,
 }) {
   const [displayedReviews, setDisplayedReviews] = useState(2);
 
@@ -67,12 +74,13 @@ export default function ReviewList({
   return (
     <div className="review-list-container">
       <div>
-        <p>sorted by: </p>
-        <select value={sort} onChange={onChange}>
-          <option value="relevant">Relevant</option>
-          <option value="helpful">Helpful</option>
-          <option value="newest">Newest</option>
-        </select>
+        <span className="sort-container">{totalAmtOfReviews} reviews,&nbsp;<p>sorted by:</p>
+          <select value={sort} onChange={onChange}>
+            <option value="relevant">relevance</option>
+            <option value="helpful">helpfulness</option>
+            <option value="newest">newest</option>
+          </select>
+        </span>
       </div>
       <ul className="review-list">
         {filtered === true
