@@ -71,6 +71,14 @@ export default function RatingsReviews({
     });
   };
 
+  const totalAmtOfReviews = Object.values(reviewMetadata.ratings)
+    .reduce((accumulator, currrent) => Number(currrent) + accumulator, 0);
+
+  const totalStarRating = Object.entries(reviewMetadata.ratings)
+    .map((entry) => Number(entry[0]) * Number(entry[1]))
+    .reduce((accumulator, current) => accumulator + current, 0);
+
+
   return (
     <div className="ratings-reviews" ref={reviewRef}>
       <h3>Ratings & Reviews</h3>
@@ -87,6 +95,8 @@ export default function RatingsReviews({
         {reviews && reviewMetadata
         && (
         <Dashboard
+          totalStarRating={totalStarRating}
+          totalAmtOfReviews={totalAmtOfReviews}
           clear={clearFilters}
           selectedRatings={selectedRatings}
           toggleSelectedRating={toggleSelectedRating}
@@ -99,6 +109,7 @@ export default function RatingsReviews({
         && reviewMetadata
         && (
           <ReviewList
+            totalAmtOfReviews={totalAmtOfReviews}
             setShowModal={setShowModal}
             filtered={filtered}
             selectedRatings={selectedRatings}
