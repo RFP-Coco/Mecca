@@ -205,6 +205,28 @@
   font-weight: bold;
 }
 
+/* REIVEW LIST */
+.sort-container{
+  display: flex;
+  align-items: baseline;
+}
+
+.sort-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  background-color: var(--mecca-theme);
+  color: var(--text-color);
+  font-size: 1.2em;
+  padding: 0.2em;
+  text-align: center;
+}
+
+.sort-container select:hover {
+  color: var(--accent-color);
+}
+
 .review-list-container {
   border-radius: 2em;
   margin-left: 6em;
@@ -299,12 +321,13 @@
 .rating-summary .stars {
   display: flex;
   gap: 0.5em;
-  padding: 1em 1em 0em 0em;
+  padding: 1em 1em 1em 0em;
 }
 
 .rating-summary .stars star {
   background-color: var(--star-color)
 }
+
 .rating-container {
   display: flex;
   flex-direction: row;
@@ -319,6 +342,10 @@
 
 .rating-container:hover {
   transform: translateX(2px);
+}
+
+.filter-label{
+  font-weight: 300;
 }
 
 .bar-container{

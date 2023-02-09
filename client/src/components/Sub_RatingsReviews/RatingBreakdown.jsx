@@ -32,7 +32,7 @@ export default function RatingBreakdown({
           </div>
         );
       })}
-      <div className="">currently displaying:&nbsp;
+      <div className="filter-label">currently displaying:&nbsp;
         {currentFilters.length === 0 || currentFilters.length === 5
           ? 'all'
           : `${currentFilters.join(', ')} star`} reviews
