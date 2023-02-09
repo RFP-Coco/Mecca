@@ -16,7 +16,8 @@
 .title {
   font-size: x-large;
   font-weight: 600;
-  border-top: 1.5rem solid #20364ecc;
+  /* border-top: 1.5rem solid #20364ecc; */
+  border-top: 0.5rem solid #D6E4E5;
   padding: 0.5rem;
   padding-left: 3rem;
   margin: 0.3rem;

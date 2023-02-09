@@ -2,11 +2,14 @@
 
 .header {
   height: 7rem;
-  background-color: hsl(205, 78%, 60%);
+  /* background-image: linear-gradient(to right, rgb(235, 69, 95), rgb(255, 153, 153)); */
+  background-image: linear-gradient(to right, rgb(235, 69, 95), rgb(175, 120, 200));
+  /* background-image: linear-gradient(to right, rgb(235, 69, 95), rgb(70, 200, 150)); */
+  background-color: var(--accent-color);
   /* box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3); */
-  font-family: 'Montserrat', sans-serif;
-  font-size: xx-large;
-  font-style: normal;
+	font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
   padding-left: 5rem;
   padding-right: 3rem;
   color: white;
@@ -34,7 +37,7 @@
 }
 
 .search-container input {
-  background-color: hsl(212, 33%, 89%);
+  background-color:var(--mecca-theme);
 }
 
 .search-container input:focus {
@@ -50,5 +53,5 @@
 }
 
 .icon-magnifying-glass {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }

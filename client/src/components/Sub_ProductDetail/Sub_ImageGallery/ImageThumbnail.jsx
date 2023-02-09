@@ -11,13 +11,15 @@ function ImageThumbnail({ index, img, currentImageIndex, setCurrentImageIndex })
       onKeyDown={() => { setCurrentImageIndex(index); }}
     >
       <img
-        className="image-thumbnail"
-        style={index === currentImageIndex ? { borderBottom: '8px solid blue' } : {}}
+        className={`image-thumbnail ${index === currentImageIndex ? 'image-thumbnail-selected' : ''}`}
+        // style={index === currentImageIndex ? { borderBottom: '8px solid blue' } : {}}
+
         src={thumbnail_url
           ? thumbnail_url.substring(thumbnail_url.indexOf('http'))
           : defaultUrl}
         alt="thumbnail"
       />
+      {index === currentImageIndex && <div class="overlay" />}
     </div>
 
   );

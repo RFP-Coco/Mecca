@@ -47,11 +47,15 @@ table {
 
 html {
 	scroll-behavior: smooth;
-	background-color: var(--motion-theme);
-	font-family: 'Rubik', 
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #EFF5F5;
+	color: var(--text-color);
 }
 
 :root {
-	--motion-theme: #EFF5F5;
-	--star-color: #EB6440;
+	--mecca-theme: #EFF5F5;
+	--border-color: #D6E4E5;
+	--accent-color: rgb(235, 69, 95);
+	--text-color: #497174;
 }
