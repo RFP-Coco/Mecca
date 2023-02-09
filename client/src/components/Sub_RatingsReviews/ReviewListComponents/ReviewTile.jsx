@@ -89,7 +89,7 @@ export default function ReviewTile({
       )}
       {review.response && <p className="review-response">Response From Seller: {review.response}</p>}
       <div className="review-helpfulness">
-        Was this review helpful?
+        Was this review helpful?&nbsp;
         <a
           href=""
           onClick={(event) => handleHelpfulClick(event, review)}

@@ -242,13 +242,19 @@
   padding: .5em
   /* overflow-y: scroll; */;
   flex-direction: column;
+  gap: 1em;
 }
 
 .review-top-corner{
   position: relative;
-  left: 68vw;
+  display: flex;
+  left: 70%;
   top: -2em;
-  color: #a3bec0
+  color: #a3bec0;
+  flex-direction: column;
+  margin-right: 0;
+  width: 10em;
+  text-align: end;
 }
 
 .review-photos {
@@ -307,6 +313,7 @@
 }
 
 .rating-bar-label{
+  font-weight: 500;
   width: 25%;
 }
 
@@ -318,6 +325,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 0.5rem;
 }
 
 .rating-amt {
@@ -336,6 +344,25 @@ progress::-webkit-progress-value {
 progress::-webkit-progress-bar {
   background: rgb(220, 220, 234);
   background: var(--border-color);
+}
+
+.clear-filters-btn {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border: 0px;
+  outline: 2px solid var(--text-color);
+  color: var(--text-color);
+  cursor: pointer;
+  /* display: inline-block; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  touch-action: manipulation;
 }
 
 /* PRODUCT DASHBOARD */
