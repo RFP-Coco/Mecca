@@ -17,6 +17,46 @@
   justify-content: space-between;
   align-items: center;
 }
+.free-shipping {
+  animation: scrolling-text 10s linear infinite;
+  white-space: nowrap;
+  font-size: medium;
+  text-decoration: underline;
+}
+
+
+@keyframes scrolling-text {
+  from {
+    transform: translateX(60%);
+  }
+  to {
+    transform: translateX(-60%);
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .free-shipping {
+    animation: none;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .free-shipping {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
 
 .search-container {
   width: 15rem;
