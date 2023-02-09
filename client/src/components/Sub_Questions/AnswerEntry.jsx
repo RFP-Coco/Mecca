@@ -42,7 +42,7 @@ export default function AnswerEntry({ answer, updateAnswers }) {
         by {answer.answerer_name}  {format(parseISO(answer.date), 'LLLL d, yyyy')}   |  <span className="helpful">Helpful?</span>
         {voted
           ? (
-            <span>Yes({answer.helpfulness})</span>
+            <span>Yes ({answer.helpfulness})</span>
           )
           : (
             <button
@@ -50,7 +50,7 @@ export default function AnswerEntry({ answer, updateAnswers }) {
               type="button"
               onClick={handleHelpful}
             >
-              Yes({answer.helpfulness})
+              Yes ({answer.helpfulness})
             </button>
           )}
         {reported

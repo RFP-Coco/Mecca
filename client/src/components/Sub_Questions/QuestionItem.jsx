@@ -20,14 +20,14 @@ export default function QuestionItem({ question, setShow, updateQuestions }) {
         <span className="helpful">Helpful?</span>
         {voted
           ? (
-            <span>Yes({question.question_helpfulness})</span>
+            <span>Yes ({question.question_helpfulness})</span>
           )
           : (
             <button
               className="stringbutton"
               type="button"
               onClick={handleHelpful}
-            >Yes({question.question_helpfulness})
+            >Yes ({question.question_helpfulness})
             </button>
           )}
         <button
