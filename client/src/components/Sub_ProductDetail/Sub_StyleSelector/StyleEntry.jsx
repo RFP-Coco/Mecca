@@ -7,7 +7,8 @@ function StyleEntry({ style, currentStyle, setCurrentStyle, startSelect, setStar
   return (
     <div
       aria-label="individual style"
-      className="style-entry-container"
+      // className="style-entry-container"
+      className={`style-entry-container ${startSelect && style.style_id === currentStyle.style_id ? 'style-entry-container-selected' : ''}`}
       style={{
         backgroundImage: `url(${thumbnail_url
           ? thumbnail_url.substring(thumbnail_url.indexOf('http'))

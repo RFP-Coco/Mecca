@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-template-rows: 4fr 1fr;
+  color: var(	--text-color);
   /* height: 50rem; */
 }
 
@@ -32,14 +33,14 @@
 }
 
 .main-image-button {
-  height: 3rem;
+  height: 5rem;
   background-color: "transparent";
   transition: "background-color 0.2s ease-in-out";
   transition: "transform 0.3s";
 }
 
 .main-image-button:hover {
-  background-color: rgb(235, 235, 235);
+  /* background-color: rgb(235, 235, 235); */
   transform: scale(2);
 }
 
@@ -51,7 +52,7 @@
 }
 
 .image-slide-button:hover {
-  background-color: rgb(235, 235, 235);
+  /* background-color: rgb(235, 235, 235); */
 transform: scale(2);
 
 }
@@ -69,12 +70,12 @@ transform: scale(2);
 }
 
 .default-view .image-slide {
-  max-width: 5rem;
+  max-width: 6rem;
   max-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-self: end;
+  justify-self:end;
   overflow: hidden;
 }
 
@@ -86,27 +87,47 @@ transform: scale(2);
 .default-view .image-slide-show {
   width: 100%;
   overflow-y: scroll;
+  background-color: white;
+  /* background: radial-gradient(rgb(250, 250, 250) 0%, rgb(180, 180, 180) 80%); */
 }
 
 .default-view .image-thumbnail-container {
+  width: 6rem;
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.5rem 0;
+  position:relative;
 }
 
 .default-view .image-thumbnail {
-  width: 5rem;
-  height: 5rem;
-  /* max-width: 100%;
-  max-height: 2rem; */
-  /* height: auto; */
-  border-bottom: 8px solid transparent;
-  transition: border 0.5s;
+  width: 4rem;
+  height: 4rem;
+  transition: opacity 0.5s, transform 0.5s;
+  transform: scale(1);
+  opacity: 0.5;
 }
 
+
 .default-view .image-thumbnail:hover {
-  border-bottom: 8px solid grey;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.default-view .image-thumbnail-selected {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.default-view .overlay {
+  display: block;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 3rem;
+  height: 5px;
+  transform: translate(-50%, -50%);
+  background-color: var(--accent-color);
 }
 
 .default-view .main-image {
@@ -152,7 +173,7 @@ transform: scale(2);
 .expand-view .image-slide {
   display: flex;
   flex-direction: row;
-  align-items:flex-start;
+  align-items:center;
   margin-top: 2%;
   justify-content: space-between;
   height: 10%;
@@ -173,22 +194,49 @@ transform: scale(2);
 
 
 .expand-view .image-thumbnail-container {
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .expand-view .image-thumbnail {
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
   margin: 0 0.5rem;
   object-fit: none;
-  border-bottom: 8px solid transparent;
-  transition: border 0.5s;
+}
+
+.expand-view .image-thumbnail-container {
+  position:relative;
+}
+
+.expand-view .image-thumbnail {
+  transition: opacity 0.5s, transform 0.5s;
+  transform: scale(1);
+  opacity: 0.5;
 }
 
 .expand-view .image-thumbnail:hover {
-  border-bottom: 8px solid grey;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.expand-view .image-thumbnail-selected {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.expand-view .overlay {
+  display: block;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 50%;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  background-color: var(--accent-color);
 }
 
 .expand-view .main-image {
@@ -213,6 +261,12 @@ transform: scale(2);
   background-color: white;
   width: 3%;
   height: 3%;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+}
+
+.close-icon:hover {
+  transform: scale(2);
 }
 
 /* zoom-view */
@@ -332,16 +386,24 @@ transform: scale(2);
 }
 
 .style-entry-container {
+
   width: 100%;
+  height: 0;
   padding-bottom: 100%;
   background-size: cover;
   background-position: center;
-  border-radius: 50%;
+  border-radius: 50% 50% 50% 50%;
   position: relative;
+  box-shadow: 0 0 10px #333;
+  transition: outline 0.2s;
 }
 
 .style-entry-container:hover {
-  box-shadow: 0 0 10px #333;
+  outline: 0.4rem solid var(--accent-color);
+}
+
+.style-entry-container-selected {
+  outline: 0.4rem solid var(--accent-color);
 }
 
 .style-entry-container .checkmark {
@@ -350,7 +412,7 @@ transform: scale(2);
   right: 0;
   width: 40%;
   height: 40%;
-  color:red;
+  color:var(--accent-color);
   background-color: transparent;
 }
 
@@ -429,7 +491,7 @@ transform: scale(2);
 
 /* product-info */
 .product-name {
-  font-size: xx-large;
+  font-size:3rem;
   font-weight: bolder;
   margin-top: 1rem
 }
