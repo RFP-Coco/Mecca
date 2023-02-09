@@ -198,6 +198,7 @@
 
 .review-dashboard {
   margin-left: 1.5em;
+  /* width: 120% */
 }
 
 .review-summary{
@@ -329,14 +330,13 @@ progress::-webkit-progress-bar {
 .review-product-dashboard {
   margin: 1.5em;
   margin-left: 0;
+  width: 100%;
 }
 
 
 datalist#labels {
   display: flex;
   flex-direction: column;
-  /* writing-mode: vertical-lr; */
-  width: 11rem;
   flex-wrap: wrap;
   justify-content: flex-end;
   height: 2em;
@@ -348,8 +348,7 @@ datalist#labels {
 
 .characteristics-label{
   font-size: 0.6rem;
-  margin: 1em;
-  margin-left: 0;
+  margin: 1em 0 1em 0;
   justify-content: center;
   z-index: -1;
 }
@@ -358,7 +357,7 @@ datalist#labels {
 
 .slider-container {
   background: var(--mecca-theme);
-  width: 120%;
+  /* width: 110%; */
 }
 
 
@@ -405,6 +404,6 @@ input[type=range]::-moz-range-thumb {
 
 .label-container{
   display: flex;
-  width: 126%;
+  /* width: 126%; */
   justify-content: space-between;
 }
