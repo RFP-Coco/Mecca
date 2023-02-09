@@ -37,7 +37,7 @@ export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
         {`$${niceOriginalPrice}`}
       </p>
       <p className="star-rating">
-        {generateStars(thisAvgRating[0], 5)} total reviews: {`(${thisAvgRating[1]})`}
+        {generateStars(thisAvgRating[0], 5)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`(${thisAvgRating[1]})`}
       </p>
     </div>
   );

@@ -55,7 +55,7 @@
   margin-inline: auto;
   /* border: 2px solid #636363; */
   border-radius: var(--littleRound);
-  padding: 2px;
+  padding: 0.8rem;
   margin: 0.5rem;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
@@ -67,17 +67,25 @@
   border-radius: 50%;
   position: absolute;
   cursor: pointer;
+  transition: all 0.2s ease-in;
+  transform: scale(1);
   top: 35%;
   z-index: 3;
   font-size: 3rem;
 }
 
 .scroll-right {
-  right: 1%;
+  right: 2%;
 }
 
 .scroll-left {
-  left: 1%;
+  left: 2%;
+}
+
+.scroll-left:hover,
+.scroll-right:hover {
+  color: var(--accent-color);
+  transform: scale(1.2);
 }
 
 /* ======== COMPARISON MODAL ======== */
@@ -167,7 +175,7 @@ td {
   cursor: pointer;
 }
 
-/* ======== CARD PIC ======== */
+/* ======== CARD PIC & ITS BUTTONS ======== */
 .default-pic,
 .add-outfit {
   border-radius: var(--littleRound);
@@ -193,9 +201,25 @@ td {
   cursor: pointer;
   object-fit: cover;
   top: 0.4rem;
+  transition: all 0.2s ease-in;
+  transform: scale(1);
+}
+
+.compare-btn > img {
   left: 17.3rem;
+  height: 2.6rem;
+  width: 2.6rem;
+}
+
+.remove-btn > img {
+  left: 17.5rem;
   height: 2.2rem;
   width: 2.2rem;
+}
+
+.compare-btn > img:hover,
+.remove-btn > img:hover {
+  transform: scale(1.2);
 }
 
 .single-prod.container.add-outfit {
@@ -209,13 +233,14 @@ td {
 }
 
 .prod-info > * {
-  padding-top: 2px;
+  padding-top: 0.5rem;
 }
 
 .prod-info > .category {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #636363;
   text-transform: uppercase;
+  padding-top: 1rem;
 }
 
 .prod-info > .name {
@@ -229,12 +254,20 @@ td {
   font-style: italic;
 }
 
+.prod-info > .price {
+  font-size: 1.1rem;
+}
+
 .prod-info > .star-rating {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   font-size: 1rem;
   font-style: italic;
   font-weight: 400;
+  padding-top: 1.1rem;
 }
 
 .sale {
-  color: #ff0000;
+  color: var(--accent-color);
 }
