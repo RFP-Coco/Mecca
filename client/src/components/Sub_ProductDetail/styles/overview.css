@@ -87,6 +87,8 @@ transform: scale(2);
 .default-view .image-slide-show {
   width: 100%;
   overflow-y: scroll;
+  background-color: white;
+  /* background: radial-gradient(rgb(250, 250, 250) 0%, rgb(180, 180, 180) 80%); */
 }
 
 .default-view .image-thumbnail-container {
