@@ -47,9 +47,15 @@ table {
 
 html {
 	scroll-behavior: smooth;
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #EFF5F5;
+	color: var(--accent-color);
 }
 
 :root {
-	--motion-theme: #EFF5F5;
-	--star-color: #EB6440;
+	--mecca-theme: #EAEAEA;
+	--border-color: #D6E4E5;
+	--accent-color: rgb(235, 69, 95);
+	--text-color: #497174;
 }

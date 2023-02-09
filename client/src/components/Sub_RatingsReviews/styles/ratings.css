@@ -1,8 +1,8 @@
 .ratings-reviews {
   /* background-color: #EFF5F5; */
-  background-color: var(--motion-theme);
-  font-family: 'Merriweather', serif;
-  /* font-family: 'Montserrat', 'Times New Roman'; */
+  /* background-color: var(--motion-theme); */
+  /* font-family: 'Merriweather', serif; */
+  font-family: 'Montserrat', 'Times New Roman';
   color: #497174;
 }
 
