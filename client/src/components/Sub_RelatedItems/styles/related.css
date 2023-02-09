@@ -9,6 +9,7 @@
 .related-items > *,
 .my-outfit,
 .my-outfit > * {
+  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
