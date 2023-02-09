@@ -34,7 +34,7 @@
 }
 
 .search-container input {
-  background-color: hsl(212, 33%, 89%);
+  background-color:var(--mecca-theme);
 }
 
 .search-container input:focus {
