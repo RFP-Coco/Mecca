@@ -8,7 +8,6 @@ import QuestionItem from './QuestionItem.jsx';
 export default function QuestionEntry({
   question, updateQuestions, productName, index,
 }) {
-  console.log(index);
   const [allAnswers, setAllAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
