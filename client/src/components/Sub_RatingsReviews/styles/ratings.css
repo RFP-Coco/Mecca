@@ -267,8 +267,13 @@
   gap: 1em;
 }
 
+.stars-name-date-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .review-top-corner{
-  position: relative;
   display: flex;
   left: 70%;
   top: -2em;
