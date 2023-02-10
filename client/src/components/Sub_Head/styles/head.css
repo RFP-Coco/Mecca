@@ -60,7 +60,7 @@
 
 .search-container {
   width: 15rem;
-  height: 2rem;
+  /* height: 2rem; */
   display: flex;
   align-items: center;
 
@@ -68,7 +68,7 @@
 
 /* Search Bar */
 .search-container .form {
-  height: 2rem;
+  /* height: 2rem; */
 
   display: flex;
   justify-content: center;
@@ -100,4 +100,15 @@
 
 .icon-magnifying-glass {
   font-size: 1.2rem;
+}
+
+.search-button:hover {
+  box-shadow: none;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .search-container {
+    display: none;
+  }
 }
