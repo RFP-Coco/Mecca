@@ -52,6 +52,7 @@ export default function RatingsReviews({
   useEffect(() => {
     updateData();
     clearFilters();
+    setSort('relevant');
   }, [productID]);
 
   useEffect(() => {
