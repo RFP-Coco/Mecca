@@ -23,6 +23,16 @@ export default function RatingsReviews({
   const [reviews, setReviews] = useState(null);
   const [filtered, setFiltered] = useState(false);
 
+  const clearFilters = () => {
+    setSelectedRatings({
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+    });
+  };
+
   // EFFECTS
   const updateData = () => {
     const url = `/api/reviews/?product_id=${productID}&sort=${sort}&count=50`;
@@ -33,9 +43,16 @@ export default function RatingsReviews({
       .catch((err) => console.log(err));
   };
 
+  // render new review list on sort change
   useEffect(() => {
     updateData();
-  }, [productID, sort]);
+  }, [sort]);
+
+  // on product change, pull new reviews + clear active filters
+  useEffect(() => {
+    updateData();
+    clearFilters();
+  }, [productID]);
 
   useEffect(() => {
     if (showModal) document.body.style.overflow = 'hidden';
@@ -61,23 +78,12 @@ export default function RatingsReviews({
     setFiltered(true);
   };
 
-  const clearFilters = () => {
-    setSelectedRatings({
-      1: false,
-      2: false,
-      3: false,
-      4: false,
-      5: false,
-    });
-  };
-
   const totalAmtOfReviews = Object.values(reviewMetadata.ratings)
     .reduce((accumulator, currrent) => Number(currrent) + accumulator, 0);
 
   const totalStarRating = Object.entries(reviewMetadata.ratings)
     .map((entry) => Number(entry[0]) * Number(entry[1]))
     .reduce((accumulator, current) => accumulator + current, 0);
-
 
   return (
     <div className="ratings-reviews" ref={reviewRef}>
