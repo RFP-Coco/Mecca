@@ -8,5 +8,10 @@
   justify-content: space-evenly;
   font-size: 1rem;
   padding: 1rem;
-  cursor: ;
+  cursor: pointer;
+  display: none;}
+
+
+.nav-bar.scrolled {
+  display: flex;
 }

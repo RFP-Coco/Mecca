@@ -47,9 +47,7 @@ function App() {
 
   return (
     <div id="global">
-      <div id="Head" onClick={trackClick} ref={headRef}>
-        <Head />
-      </div>
+      <Head />
       <NavBar
         reviewRef={reviewRef}
         qnaRef={qnaRef}
