@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function ZoomImage({ src, modalView, setModalView }) {
   const [imageX, setImageX] = useState(0);
@@ -13,12 +13,16 @@ function ZoomImage({ src, modalView, setModalView }) {
   };
 
   const handleMouseMove = (e) => {
-    const rect = imageRef.current.getBoundingClientRect();
-    /* Calculate the cursor's x and y coordinates, relative to the image: */
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setImageX(rect.width / 2 - x);
-    setImageY(rect.height / 2 - y);
+    // get the coordinates of the image
+    const {
+      left, top, width, height,
+    } = e.target.getBoundingClientRect();
+    // e.pageX is the x coordinates of the cursor
+    const x = (e.pageX - left) / width * 100;
+    const y = (e.pageY - top) / height * 100;
+    // get the updated x and y coordinates of the image
+    setImageX(x);
+    setImageY(y);
   };
 
   useEffect(() => {
@@ -29,19 +33,10 @@ function ZoomImage({ src, modalView, setModalView }) {
   }, [modalView]);
 
   return (
-    <img
-      ref={imageRef}
-      src={src}
-      alt="main product in zoom view"
-      style={{
-        width: '250%',
-        height: '250%',
-        transform: `translate(${imageX}px, ${imageY}px)`,
-        transition: 'all 0.5s ease-out',
-        cursor: 'zoom-out',
-      }}
-      onClick={handleClick}
-    />
+    <figure onClick={handleClick} onMouseMove={handleMouseMove} style={{ backgroundImage: `url(${src})`, backgroundPosition: `${imageX}% ${imageY}%`, backgroundSize: '250%', cursor: 'zoom-out', }}>
+      <img src={src} />
+    </figure>
+
   );
 }
 
