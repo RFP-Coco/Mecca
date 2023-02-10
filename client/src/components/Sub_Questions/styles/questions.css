@@ -11,10 +11,11 @@
 }
 
 .qna h3 {
-  font-size: 2.5rem;
+  font-size: 2em;
   font-weight: 600;
-  padding: 0.5rem;
-  padding-left: 3rem;
+  padding: 1rem;
+  border-top: 0.5rem solid #D6E4E5;
+  padding-left: 2rem;
 }
 
 .search-bar {
@@ -29,6 +30,7 @@
 
 .search-bar-container {
   display: flex;
+  margin-left: 2rem;
 }
 
 .question-item, .answer-item {
@@ -36,7 +38,7 @@
 }
 
 .question-item, .answer-entry {
-  font-size: 1.8rem;
+  font-size: 1rem;
 }
 
 .question-item {
@@ -44,7 +46,7 @@
 }
 
 .answer-info {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .modal {
@@ -110,6 +112,7 @@
 
 .question-container {
   display: flex;
+  align-items: center;
 }
 
 .helpful {
@@ -131,6 +134,7 @@
 
 /* CSS */
 .stringbutton, button {
+  text-transform: uppercase;
   appearance: none;
   background-color: var(--border-color);
   border: none;
@@ -170,4 +174,9 @@
 .stringbutton:active, button:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+.bottom {
+  margin-left: 2rem;
+  margin-right: -1rem;
 }
