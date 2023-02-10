@@ -42,19 +42,20 @@
 .main-image-button:hover {
   /* background-color: rgb(235, 235, 235); */
   transform: scale(2);
+  color:var(--accent-color);
+
 }
 
 .image-slide-button {
   background-color: "transparent";
   transition: "background-color 0.2s ease-in-out";
   transition: "transform 0.3s";
-
 }
 
 .image-slide-button:hover {
   /* background-color: rgb(235, 235, 235); */
 transform: scale(2);
-
+color:var(--accent-color);
 }
 
 /* default-view */
@@ -498,6 +499,7 @@ transform: scale(2);
 .cart .fav-icon {
   width: 12%;
   background-color: white;
+  border: 1px solid grey;
 }
 
 .cart .fav-icon:hover {
