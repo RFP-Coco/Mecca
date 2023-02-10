@@ -8,7 +8,9 @@
     "client-dev": "npx webpack --watch",
     "build": "npx webpack",
     "start": "node server/index.js",
+
     "test": "jest --updateSnapshot --coverage spec/__overviewTests__"
+
   },
   "repository": {
     "type": "git",

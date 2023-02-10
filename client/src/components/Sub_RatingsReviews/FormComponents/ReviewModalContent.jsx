@@ -134,7 +134,7 @@ export default function ReviewModalContent({
       </h1>
       <div className="form-body-container">
         <h3>{product.name}</h3>
-        <div>OVERALL RATING: *
+        <div className="form-header">OVERALL RATING: *
           <div className="overall-rating">
             {reviewBody.rating === 0
               ? (
@@ -153,13 +153,13 @@ export default function ReviewModalContent({
                 </span>
               )}
           </div>
+          <RecommendedButton
+            toggle={toggleRecommended}
+            setReviewBody={setReviewBody}
+          />
         </div>
-        <RecommendedButton
-          toggle={toggleRecommended}
-          setReviewBody={setReviewBody}
-        />
         <fieldset className="form-characteristics">
-          <legend>
+          <legend className="form-characteristics-header">
             Please select a rating for each of these characteristics: *
             <div>
               {

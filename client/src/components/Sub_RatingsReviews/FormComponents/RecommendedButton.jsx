@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function RecommendedButton({ toggle }) {
   return (
-    <fieldset>
+    <fieldset className="form-header">
       <legend>Do you recommend this product? *</legend>
       <label value="Yes">
         Yes
