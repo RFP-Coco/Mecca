@@ -203,7 +203,7 @@ td {
   position: absolute;
   cursor: pointer;
   object-fit: cover;
-  top: 0.4rem;
+  top: 2rem;
   transition: all 0.2s ease-in;
   transform: scale(1);
 }
