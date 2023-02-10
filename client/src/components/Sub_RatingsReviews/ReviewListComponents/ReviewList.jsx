@@ -95,8 +95,10 @@ export default function ReviewList({
               />
             ))}
       </ul>
-      {displayButton()}
-      <button type="button" onClick={() => setShowModal(true)}>Add a review</button>
+      <div className="review-list-btns">
+        {displayButton()}
+        <button type="button" onClick={() => setShowModal(true)}>Add a review</button>
+      </div>
     </div>
   );
 }
