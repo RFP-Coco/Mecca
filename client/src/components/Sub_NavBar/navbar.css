@@ -6,7 +6,13 @@
   color: white;
   display: flex;
   justify-content: space-evenly;
-  font-size: 1.5rem;
-  padding: 1rem;
-  cursor: ;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+
+.nav-bar.scrolled {
+  display: flex;
 }
