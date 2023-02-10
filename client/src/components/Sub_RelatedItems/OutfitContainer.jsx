@@ -7,11 +7,12 @@ export default function OutfitContainer({
   parentProduct, setParentProductID,
   parentProductStyle, currentParentProductStyle,
   parentReviewMetadata, setAsNewOverview, setAllowCardClick,
-  index, setIndex,
+  /* index, setIndex, */
 }) {
   // =================== STATES ===================
   const [myOutfits, setMyOutfits] = useState([]);
   const [checkStyles, setCheckStyles] = useState({});
+  const [index, setIndex] = useState(0);
   const cardsRef = useRef(null);
 
   // =================== EFFECTS ===================
@@ -80,23 +81,23 @@ export default function OutfitContainer({
 
     localStorage.setItem('inUse', JSON.stringify(checkStyles));
     localStorage.setItem(style_id, JSON.stringify(myOutfitEntry));
-    window.scrollTo(0, 0);
   };
 
   // =================== COMPONENT ===================
   return (
     <div className="scrollable container">
-      {index > 0 && (
-        <BiChevronLeftCircle
-          className="scroll-left"
-          onClick={handleLeftClick}
-        />
-      )}
+      {/* {index > 0 && ( */}
+      <BiChevronLeftCircle
+        className="scroll-left"
+        onClick={handleLeftClick}
+      />
+
       <AddOutfitCard
         parentProduct={parentProduct}
         myOutfits={myOutfits}
         setMyOutfits={setMyOutfits}
         handleAddOutfit={handleAddOutfit}
+
       />
       {myOutfits.map((thisProduct, i) => (
         <SingleProd
@@ -120,12 +121,12 @@ export default function OutfitContainer({
           setCheckStyles={setCheckStyles}
         />
       ))}
-      {index < myOutfits.length - 1 && (
-        <BiChevronRightCircle
-          className="scroll-right"
-          onClick={handleRightClick}
-        />
-      )}
+      {/* {index < myOutfits.length - 1 && ( */}
+      <BiChevronRightCircle
+        className="scroll-right"
+        onClick={handleRightClick}
+      />
+
     </div>
   );
 }

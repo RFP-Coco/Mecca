@@ -32,7 +32,7 @@
 }
 
 .scrollable {
-  overflow-x: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;

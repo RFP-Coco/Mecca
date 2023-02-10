@@ -9,14 +9,10 @@ export default function RelatedItems({
   productStyle, currentStyle, reviewMetadata,
 }) {
   const [allowCardClick, setAllowCardClick] = useState(true);
-  const [relProdIndex, setRelProdIndex] = useState(0);
-  const [myOutfitIndex, setMyOutfitIndex] = useState(0);
 
   const setAsNewOverview = (id) => {
     if (allowCardClick) {
       setProductID(id);
-      setRelProdIndex(0);
-      setMyOutfitIndex(0);
       window.scrollTo(0, 0);
     }
   };
@@ -26,8 +22,6 @@ export default function RelatedItems({
       <div className="title">Items related to {`${product.name}`}</div>
       <div className="related-items">
         <RelProdContainer
-          index={relProdIndex}
-          setIndex={setRelProdIndex}
           parentProduct={product}
           parentProductID={productID}
           setParentProductID={setProductID}
@@ -40,8 +34,6 @@ export default function RelatedItems({
       <div className="title">My Outfit Menagerie</div>
       <div className="my-outfit">
         <OutfitContainer
-          index={myOutfitIndex}
-          setIndex={setMyOutfitIndex}
           parentProduct={product}
           parentProductID={productID}
           setParentProductID={setProductID}

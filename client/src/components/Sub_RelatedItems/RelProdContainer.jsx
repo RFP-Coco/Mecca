@@ -8,11 +8,12 @@ import SingleProd from './SingleProd.jsx';
 export default function RelProdContainer({
   parentProduct, parentProductID, setParentProductID,
   parentProductStyle, parentReviewMetadata,
-  setAsNewOverview, setAllowCardClick, index, setIndex,
+  setAsNewOverview, setAllowCardClick, /* index, setIndex, */
 }) {
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
   const [relatedProds, setRelatedProds] = useState([]);
+  const [index, setIndex] = useState(0);
   const cardsRef = useRef(null);
 
   // =================== EFFECTS ===================
@@ -37,11 +38,6 @@ export default function RelProdContainer({
         return prodSetter;
       })
       .catch((err) => err);
-
-    // const scrollbar = document.querySelector(
-    //   '#RelatedProducts > section > div.related-items > div',
-    // );
-    // scrollbar.scrollLeft = 1110;
   }, [parentProductID]);
 
   // =================== HELPERS ===================
@@ -56,8 +52,8 @@ export default function RelProdContainer({
 
     cardsRef.current.scrollIntoView({
       behavior: 'smooth',
-      block: 'start',
-      inline: 'start',
+      block: 'nearest',
+      inline: 'center',
     });
   };
 
@@ -72,8 +68,8 @@ export default function RelProdContainer({
 
     cardsRef.current.scrollIntoView({
       behavior: 'smooth',
-      block: 'start',
-      inline: 'start',
+      block: 'nearest',
+      inline: 'center',
     });
   };
 
@@ -88,13 +84,13 @@ export default function RelProdContainer({
           There are no related products to display at this time...
         </div>
       )}
-      {index > 0 && (
-        <BiChevronLeftCircle
-          className="scroll-left"
-          onClick={handleLeftClick}
-          data-testid="scroll-left"
-        />
-      )}
+      {/* {index > 0 && ( */}
+      <BiChevronLeftCircle
+        className="scroll-left"
+        onClick={handleLeftClick}
+        data-testid="scroll-left"
+      />
+
       {relatedProds.map((thisProduct, i) => (
         <SingleProd
           key={thisProduct.id}
@@ -108,13 +104,13 @@ export default function RelProdContainer({
           setAsNewOverview={setAsNewOverview}
         />
       ))}
-      {index < relatedProds.length - 1 && (
-        <BiChevronRightCircle
-          className="scroll-right"
-          onClick={handleRightClick}
-          data-testid="scroll-right"
-        />
-      )}
+      {/* {index < relatedProds.length - 1 && ( */}
+      <BiChevronRightCircle
+        className="scroll-right"
+        onClick={handleRightClick}
+        data-testid="scroll-right"
+      />
+
     </div>
   );
 }
