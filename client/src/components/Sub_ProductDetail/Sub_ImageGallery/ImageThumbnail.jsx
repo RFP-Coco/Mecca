@@ -19,7 +19,7 @@ function ImageThumbnail({ index, img, currentImageIndex, setCurrentImageIndex })
           : defaultUrl}
         alt="thumbnail"
       />
-      {index === currentImageIndex && <div class="overlay" />}
+      {index === currentImageIndex && <div className="overlay" />}
     </div>
 
   );

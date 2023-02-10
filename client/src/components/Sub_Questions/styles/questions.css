@@ -1,11 +1,44 @@
-.question-search-bar input {
-  width: 90%;
-  font-size: 20px;
+.qna {
+  color: var(--text-color);
+}
+
+.qna-header {
+  background-color: var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.qna h3 {
+  font-size: 2em;
+  font-weight: 600;
+  padding: 1rem;
+  border-top: 0.5rem solid #D6E4E5;
+  padding-left: 2rem;
+}
+
+.search-bar {
+  width: 18rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2rem;
+  outline: none;
+  background-color: white;
+}
+
+.search-bar-container {
+  display: flex;
+  margin-left: 2rem;
 }
 
 .question-item, .answer-item {
-  font-size: 18px;
   font-weight: bold;
+}
+
+.question-item, .answer-entry {
+  font-size: 1rem;
 }
 
 .question-item {
@@ -13,7 +46,7 @@
 }
 
 .answer-info {
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 
 .modal {
@@ -30,12 +63,22 @@
 }
 
 .modal-content {
-  width: 500px;
-  background-color: #fff;
+  width: 32rem;
+  background-color: var(--mecca-theme);
+  border-radius: 1rem;
+}
+
+.modal-content form {
+  padding: 0.5rem;
 }
 
 .modal-header, .modal-footer {
-  padding: 10px;
+  padding: 0.5rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .modal-title {
@@ -43,51 +86,63 @@
 }
 
 .modal-body {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  padding: 0.5rem;
+  border-top: 0.2rem solid var(--text-color);
+  border-bottom: 0.2rem solid var(--text-color);
 }
 
 .question-list {
   min-height: 20vh;
   max-height: 70vh;
   overflow-y: scroll;
+  margin-left: 1rem;
 }
 .answer-list {
-  border: 1px solid rgb(0, 0, 0);
-  border-radius: 5px ;
   min-height: 5vh;
   max-height: 20vh;
   overflow-y: scroll;
 }
 
 .answer-entry {
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-
-.question {
-  margin-top: 10px;
+  margin-top: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 .question-container {
   display: flex;
+  align-items: center;
+}
+
+.helpful {
+  margin-right: 1rem;
+}
+
+.add-image-button {
+  margin-right: auto;
+}
+
+.element-container {
+  border-top: 0.2rem solid #D6E4E5;
+  padding: 1.3rem;
+}
+
+.entry1 {
+  border: none;
 }
 
 /* CSS */
-.stringbutton {
-  z-index: 0;
+.stringbutton, button {
+  text-transform: uppercase;
   appearance: none;
-  background-color: #000000;
-  border: 2px solid #1A1A1A;
-  border-radius: 15px;
+  background-color: var(--border-color);
+  border: none;
+  border-radius: 1rem;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: var(--text-color);
   cursor: pointer;
   display: inline-block;
-  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 14px;
   font-weight: 600;
   line-height: normal;
@@ -96,7 +151,7 @@
   min-height: 30px;
   min-width: 0;
   outline: none;
-  padding: 0 4px;
+  padding: 0px 11px;
   text-align: center;
   text-decoration: none;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -107,29 +162,21 @@
   will-change: transform;
 }
 
-.stringbutton:disabled {
+.stringbutton:disabled, button:disabled {
   pointer-events: none;
 }
 
-.stringbutton:hover {
+.stringbutton:hover, button:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
 
-.stringbutton:active {
+.stringbutton:active, button:active {
   box-shadow: none;
   transform: translateY(0);
 }
 
 .bottom {
-  margin-top: 5px;
-}
-
-.search-bar {
-  height: 46px;
-  border-radius: 48px;
-  border: 0.5px solid lightgrey;
-  width: 85%;
-  padding-right: 40px;
-  padding-left: 10px;
+  margin-left: 2rem;
+  margin-right: -1rem;
 }

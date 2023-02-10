@@ -5,7 +5,9 @@ import AnswerButtons from './AnswerButtons.jsx';
 import AnswerQuestion from './AnswerQuestion.jsx';
 import QuestionItem from './QuestionItem.jsx';
 
-export default function QuestionEntry({ question, updateQuestions, productName }) {
+export default function QuestionEntry({
+  question, updateQuestions, productName, index,
+}) {
   const [allAnswers, setAllAnswers] = useState([]);
   const [currentAnswers, setCurrentAnswers] = useState([]);
   const [clicked, setClicked] = useState(false);
@@ -39,7 +41,7 @@ export default function QuestionEntry({ question, updateQuestions, productName }
   }, [currentAnswers]);
 
   return (
-    <div>
+    <div className={`element-container entry${index + 1}`}>
       <QuestionItem
         updateQuestions={updateQuestions}
         question={question}

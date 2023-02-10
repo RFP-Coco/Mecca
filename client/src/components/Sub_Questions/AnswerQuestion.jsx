@@ -81,11 +81,6 @@ export default function AnswerQuestion({
                 />
               ))}
             </div>
-            <button
-              type="button"
-              onClick={() => { setDisplayModal(true); }}
-            > Add Image
-            </button>
             {displayModal && (
               <ImageModal
                 display={setDisplayModal}
@@ -97,6 +92,12 @@ export default function AnswerQuestion({
             For authentication reasons, you will not be emailed
           </div>
           <div className="modal-footer">
+            <button
+              className="add-image-button"
+              type="button"
+              onClick={() => { setDisplayModal(true); }}
+            > Add Image
+            </button>
             <button type="submit" onClick={handleSubmit}> Submit </button>
             <button type="button" onClick={() => { setShow(false); }}> Cancel</button>
           </div>
