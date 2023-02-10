@@ -7,6 +7,7 @@ export default function OutfitContainer({
   parentProduct, setParentProductID,
   parentProductStyle, currentParentProductStyle,
   parentReviewMetadata, setAsNewOverview, setAllowCardClick,
+  /* index, setIndex, */
 }) {
   // =================== STATES ===================
   const [myOutfits, setMyOutfits] = useState([]);
@@ -21,9 +22,6 @@ export default function OutfitContainer({
 
       const storedKeys = Object.keys(localStorage);
       const checkStyleIdx = storedKeys.indexOf('inUse');
-
-      console.log('\nstoredCheckStyles: ', storedCheckStyles);
-      console.log('\nstoredKeys: ', storedKeys, '\ncheckStyleIdx: ', checkStyleIdx);
 
       storedKeys.splice(checkStyleIdx, 1);
 
@@ -68,8 +66,13 @@ export default function OutfitContainer({
 
   const handleAddOutfit = (e) => {
     e.preventDefault();
-    const { style_id, photos, original_price, sale_price } = currentParentProductStyle;
-    const myOutfitEntry = Object.assign(parentProduct, { style_id, photos, original_price, sale_price });
+    const {
+      style_id, photos, original_price, sale_price,
+    } = currentParentProductStyle;
+
+    const myOutfitEntry = Object.assign(parentProduct, {
+      style_id, photos, original_price, sale_price,
+    });
 
     if (checkStyles[style_id]) return;
 
@@ -83,17 +86,18 @@ export default function OutfitContainer({
   // =================== COMPONENT ===================
   return (
     <div className="scrollable container">
-      {index > 0 && (
-        <BiChevronLeftCircle
-          className="scroll-left"
-          onClick={handleLeftClick}
-        />
-      )}
+      {/* {index > 0 && ( */}
+      <BiChevronLeftCircle
+        className="scroll-left"
+        onClick={handleLeftClick}
+      />
+
       <AddOutfitCard
         parentProduct={parentProduct}
         myOutfits={myOutfits}
         setMyOutfits={setMyOutfits}
         handleAddOutfit={handleAddOutfit}
+
       />
       {myOutfits.map((thisProduct, i) => (
         <SingleProd
@@ -117,18 +121,18 @@ export default function OutfitContainer({
           setCheckStyles={setCheckStyles}
         />
       ))}
-      {index < myOutfits.length - 1 && (
-        <BiChevronRightCircle
-          className="scroll-right"
-          onClick={handleRightClick}
-        />
-      )}
+      {/* {index < myOutfits.length - 1 && ( */}
+      <BiChevronRightCircle
+        className="scroll-right"
+        onClick={handleRightClick}
+      />
+
     </div>
   );
 }
 
 function AddOutfitCard({ handleAddOutfit }) {
-  const addOutfitPic = '../../../../assets/addToOutfit.png';
+  const addOutfitPic = '../../../../assets/addToOutfitGreenish.png';
 
   return (
     <div className="single-prod container add-outfit">

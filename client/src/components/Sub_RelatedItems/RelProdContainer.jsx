@@ -8,7 +8,7 @@ import SingleProd from './SingleProd.jsx';
 export default function RelProdContainer({
   parentProduct, parentProductID, setParentProductID,
   parentProductStyle, parentReviewMetadata,
-  setAsNewOverview, setAllowCardClick,
+  setAsNewOverview, setAllowCardClick, /* index, setIndex, */
 }) {
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
@@ -49,6 +49,7 @@ export default function RelProdContainer({
         setIndex(0);
       }
     });
+
     cardsRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
@@ -64,6 +65,7 @@ export default function RelProdContainer({
         setIndex(index - 1);
       }
     });
+
     cardsRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
@@ -82,13 +84,13 @@ export default function RelProdContainer({
           There are no related products to display at this time...
         </div>
       )}
-      {index > 0 && (
-        <BiChevronLeftCircle
-          className="scroll-left"
-          onClick={handleLeftClick}
-          data-testid="scroll-left"
-        />
-      )}
+      {/* {index > 0 && ( */}
+      <BiChevronLeftCircle
+        className="scroll-left"
+        onClick={handleLeftClick}
+        data-testid="scroll-left"
+      />
+
       {relatedProds.map((thisProduct, i) => (
         <SingleProd
           key={thisProduct.id}
@@ -102,13 +104,13 @@ export default function RelProdContainer({
           setAsNewOverview={setAsNewOverview}
         />
       ))}
-      {index < relatedProds.length - 1 && (
-        <BiChevronRightCircle
-          className="scroll-right"
-          onClick={handleRightClick}
-          data-testid="scroll-right"
-        />
-      )}
+      {/* {index < relatedProds.length - 1 && ( */}
+      <BiChevronRightCircle
+        className="scroll-right"
+        onClick={handleRightClick}
+        data-testid="scroll-right"
+      />
+
     </div>
   );
 }
