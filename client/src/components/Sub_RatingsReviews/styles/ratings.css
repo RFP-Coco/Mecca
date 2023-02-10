@@ -8,7 +8,7 @@
 
 .ratings-reviews h3 {
   margin: 2rem 1rem;
-  font-size: 32px;
+  font-size: 2em;
   border-top: 0.5rem solid var(--border-color);
   padding: 1rem 0rem;
 }
@@ -89,7 +89,7 @@
   justify-content: center;
   inset: 0 0 0 0;
   margin: auto;
-  position: fixed;
+  /* position: fixed; */
 }
 
 .review-modal-overlay {
@@ -104,7 +104,7 @@
 /* ReviewModalContent.jsx */
 .review-modal-container {
   position: fixed;
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   background-color: var(--gray);
@@ -114,6 +114,20 @@
   padding: 8rem 16rem;
   z-index: 1000;
 }
+
+/* .review-modal-container{
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
 
 .return-btn-container {
   /* background-color: red; */
@@ -217,14 +231,16 @@
   -moz-appearance: none;
   border: 0;
   background-color: var(--mecca-theme);
-  color: var(--text-color);
+  /* color: var(--text-color); */
+  color: var(--accent-color);
   font-size: 1.2em;
   padding: 0.2em;
   text-align: center;
 }
 
 .sort-container select:hover {
-  color: var(--accent-color);
+  /* color: var(--accent-color); */
+  color: var(--text-color);
 }
 
 .review-list-container {
@@ -243,11 +259,23 @@
 }
 
 .review-list-container button {
-  padding: 1em;
-  margin: 1em;
-  box-shadow: 0 0 5px 3px #c5b8b8;
-  border-radius: 0.5em;
-  border: 2em;
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border: 0px;
+  outline: 1px solid var(--text-color);
+  color: var(--text-color);
+  cursor: pointer;
+  /* display: inline-block; */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  list-style: none;
+  margin: 1em 1em 0 0;
+  padding: 10px 12px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 200ms;
+  touch-action: manipulation;
 }
 
 .review-list-container button:hover {
@@ -255,6 +283,7 @@
   transform: translateY(-2px);
   cursor: pointer;
 }
+
 
 /* review tile body */
 .review-tile {
@@ -286,6 +315,8 @@
 .review-thumbnail {
   max-height: 20%;
   max-width: 20%;
+  margin: 0.25em;
+  box-shadow: rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px;
 }
 
 .expanded-thumbnail{

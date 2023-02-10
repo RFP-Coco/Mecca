@@ -51,6 +51,7 @@ html {
 	font-family: 'Montserrat', sans-serif;
 	background-color: #EFF5F5;
 	color: var(--text-color);
+	scrollbar-color: var(--accent-color);
 }
 
 :root {
