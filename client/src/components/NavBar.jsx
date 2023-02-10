@@ -20,7 +20,7 @@ export default function NavBar({
   }, []);
 
   return (
-    <div className={scrollPosition > 500 ? 'nav-bar scrolled' : 'nav-bar'}>
+    <div className={scrollPosition > 112 ? 'nav-bar scrolled' : 'nav-bar'}>
       <div onClick={() => handleClick(overviewRef)}>Product Overview</div>
       <div onClick={() => handleClick(relItemRef)}>Related Items</div>
       <div onClick={() => handleClick(qnaRef)}>Questions & Answers</div>

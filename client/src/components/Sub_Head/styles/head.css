@@ -60,17 +60,23 @@
 
 .search-container {
   width: 15rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+
 }
 
 /* Search Bar */
 .search-container .form {
+  height: 2rem;
+
   display: flex;
   justify-content: center;
 }
 
 .search-field {
   width: 90%;
-  padding: 10px 35px 10px 15px;
+  padding: 10px 35px 5px 15px;
   border: none;
   border-radius: 100px;
   outline: none;
@@ -93,5 +99,5 @@
 }
 
 .icon-magnifying-glass {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
