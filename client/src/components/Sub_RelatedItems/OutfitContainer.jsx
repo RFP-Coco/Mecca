@@ -7,11 +7,11 @@ export default function OutfitContainer({
   parentProduct, setParentProductID,
   parentProductStyle, currentParentProductStyle,
   parentReviewMetadata, setAsNewOverview, setAllowCardClick,
+  index, setIndex,
 }) {
   // =================== STATES ===================
   const [myOutfits, setMyOutfits] = useState([]);
   const [checkStyles, setCheckStyles] = useState({});
-  const [index, setIndex] = useState(0);
   const cardsRef = useRef(null);
 
   // =================== EFFECTS ===================
@@ -21,9 +21,6 @@ export default function OutfitContainer({
 
       const storedKeys = Object.keys(localStorage);
       const checkStyleIdx = storedKeys.indexOf('inUse');
-
-      console.log('\nstoredCheckStyles: ', storedCheckStyles);
-      console.log('\nstoredKeys: ', storedKeys, '\ncheckStyleIdx: ', checkStyleIdx);
 
       storedKeys.splice(checkStyleIdx, 1);
 
@@ -68,8 +65,13 @@ export default function OutfitContainer({
 
   const handleAddOutfit = (e) => {
     e.preventDefault();
-    const { style_id, photos, original_price, sale_price } = currentParentProductStyle;
-    const myOutfitEntry = Object.assign(parentProduct, { style_id, photos, original_price, sale_price });
+    const {
+      style_id, photos, original_price, sale_price,
+    } = currentParentProductStyle;
+
+    const myOutfitEntry = Object.assign(parentProduct, {
+      style_id, photos, original_price, sale_price,
+    });
 
     if (checkStyles[style_id]) return;
 
@@ -78,6 +80,7 @@ export default function OutfitContainer({
 
     localStorage.setItem('inUse', JSON.stringify(checkStyles));
     localStorage.setItem(style_id, JSON.stringify(myOutfitEntry));
+    window.scrollTo(0, 0);
   };
 
   // =================== COMPONENT ===================
@@ -128,7 +131,7 @@ export default function OutfitContainer({
 }
 
 function AddOutfitCard({ handleAddOutfit }) {
-  const addOutfitPic = '../../../../assets/addToOutfit.png';
+  const addOutfitPic = '../../../../assets/addToOutfitGreenish.png';
 
   return (
     <div className="single-prod container add-outfit">

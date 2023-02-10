@@ -3,7 +3,6 @@
 }
 
 /* ======== WIDGET ======== */
-
 .title,
 .related-items,
 .related-items > *,
@@ -29,11 +28,11 @@
   position: relative;
   padding: 2px;
   margin: 0.3rem;
-  width: min-content;
+  /* width: min-content; */ /* toggle */
 }
 
 .scrollable {
-  overflow-x: hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
@@ -66,7 +65,7 @@
   background-color: #e2e2e2b4;
   border: none;
   border-radius: 50%;
-  /* position: absolute; */
+  position: absolute; /* toggle */
   cursor: pointer;
   transition: all 0.2s ease-in;
   transform: scale(1);
@@ -76,12 +75,12 @@
 }
 
 .scroll-right {
-  position: sticky;
+  /* position: sticky; */ /* toggle */
   right: 2%;
 }
 
 .scroll-left {
-  position: sticky;
+  /* position: sticky; */ /* toggle */
   left: 2%;
 }
 

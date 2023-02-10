@@ -44,7 +44,6 @@ const SingleProd = forwardRef(({
         return [{ original_price, sale_price }];
       })
       .then((style) => {
-        console.log('setting price on: ', style);
         setPrice(style);
       })
       .catch((err) => err);

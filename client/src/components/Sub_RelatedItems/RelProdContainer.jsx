@@ -8,12 +8,11 @@ import SingleProd from './SingleProd.jsx';
 export default function RelProdContainer({
   parentProduct, parentProductID, setParentProductID,
   parentProductStyle, parentReviewMetadata,
-  setAsNewOverview, setAllowCardClick,
+  setAsNewOverview, setAllowCardClick, index, setIndex,
 }) {
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
   const [relatedProds, setRelatedProds] = useState([]);
-  const [index, setIndex] = useState(0);
   const cardsRef = useRef(null);
 
   // =================== EFFECTS ===================
@@ -38,6 +37,11 @@ export default function RelProdContainer({
         return prodSetter;
       })
       .catch((err) => err);
+
+    // const scrollbar = document.querySelector(
+    //   '#RelatedProducts > section > div.related-items > div',
+    // );
+    // scrollbar.scrollLeft = 1110;
   }, [parentProductID]);
 
   // =================== HELPERS ===================
@@ -49,10 +53,11 @@ export default function RelProdContainer({
         setIndex(0);
       }
     });
+
     cardsRef.current.scrollIntoView({
       behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
+      block: 'start',
+      inline: 'start',
     });
   };
 
@@ -64,10 +69,11 @@ export default function RelProdContainer({
         setIndex(index - 1);
       }
     });
+
     cardsRef.current.scrollIntoView({
       behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
+      block: 'start',
+      inline: 'start',
     });
   };
 
