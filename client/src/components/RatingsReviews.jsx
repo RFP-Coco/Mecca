@@ -35,7 +35,7 @@ export default function RatingsReviews({
 
   useEffect(() => {
     updateData();
-  }, [sort]);
+  }, [productID, sort]);
 
   useEffect(() => {
     if (showModal) document.body.style.overflow = 'hidden';
