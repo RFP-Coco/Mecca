@@ -99,12 +99,6 @@
   width: 30vw;
   font-weight: 600;
 }
-/*
-.form-characteristics{
-  display: flex;
-  flex-direction: column;
-  width: 27em;
-} */
 
 /* MODAL STYLING */
 /* ReviewModal.jsx */
@@ -256,15 +250,14 @@
   -moz-appearance: none;
   border: 0;
   background-color: var(--mecca-theme);
-  /* color: var(--text-color); */
   color: var(--accent-color);
   font-size: 1.2em;
   padding: 0.2em;
   text-align: center;
+  font-style: italic;
 }
 
 .sort-container select:hover {
-  /* color: var(--accent-color); */
   color: var(--text-color);
 }
 
@@ -377,6 +370,7 @@
 .star-rating {
   font-size: 4em;
   font-weight: bold;
+  margin-bottom: 0.25em;
 }
 
 .rating-summary .stars {
