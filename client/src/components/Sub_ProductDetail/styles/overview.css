@@ -281,7 +281,6 @@ color:var(--accent-color);
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -289,7 +288,7 @@ color:var(--accent-color);
   justify-content:center;
 }
 
-.zoom-view .main-image {
+/* .zoom-view .main-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -300,14 +299,20 @@ color:var(--accent-color);
   height: auto;
   object-fit: contain;
   transition: transform .3s;
-}
+} */
 
-.img-zoom:hover {
+/* .img-zoom:hover {
   transform: scale(1.3);
+} */
+
+figure {
+  /* width: 100%; */
+  background-repeat: no-repeat;
 }
 
-
-
+figure:hover img {
+  opacity: 0;
+}
 
 .product-detail transparent-button {
   visibility: hidden;
