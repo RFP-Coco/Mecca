@@ -3,7 +3,7 @@ import StyleEntry from './StyleEntry.jsx';
 
 function StyleList({ productStyle, currentStyle, setCurrentStyle, startSelect, setStartSelect }) {
   return (
-    <div className="style-list-container">
+    <div aria-label="select a style" className="style-list-container">
       {productStyle.results.map((style) => (
         <StyleEntry
           style={style}

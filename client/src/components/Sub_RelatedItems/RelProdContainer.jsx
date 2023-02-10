@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { BiChevronLeftCircle, BiChevronRightCircle } from 'react-icons/bi';
+import { flushSync } from 'react-dom';
 import axios from 'axios';
 
 import SingleProd from './SingleProd.jsx';
@@ -10,11 +12,11 @@ export default function RelProdContainer({
 }) {
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);
-
   const [relatedProds, setRelatedProds] = useState([]);
+  const [index, setIndex] = useState(0);
+  const cardsRef = useRef(null);
 
   // =================== EFFECTS ===================
-
   useEffect(() => {
     axios.get(`/api/products/${parentProductID}/related`)
       .then((response) => {
@@ -38,17 +40,59 @@ export default function RelProdContainer({
       .catch((err) => err);
   }, [parentProductID]);
 
+  // =================== HELPERS ===================
+  const handleRightClick = () => {
+    flushSync(() => {
+      if (index < relatedProds.length - 1) {
+        setIndex(index + 1);
+      } else {
+        setIndex(0);
+      }
+    });
+    cardsRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    });
+  };
+
+  const handleLeftClick = () => {
+    flushSync(() => {
+      if (!index) {
+        setIndex(relatedProds.length - 1);
+      } else {
+        setIndex(index - 1);
+      }
+    });
+    cardsRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    });
+  };
+
   // =================== COMPONENT ===================
   return (
     <div className="scrollable container">
       {!relatedProds.length && (
-        <div className="related-prod null">
+        <div
+          className="related-prod null"
+          data-testid="null"
+        >
           There are no related products to display at this time...
         </div>
       )}
-      {relatedProds.map((thisProduct) => (
+      {index > 0 && (
+        <BiChevronLeftCircle
+          className="scroll-left"
+          onClick={handleLeftClick}
+          data-testid="scroll-left"
+        />
+      )}
+      {relatedProds.map((thisProduct, i) => (
         <SingleProd
           key={thisProduct.id}
+          ref={index === i ? cardsRef : null}
           parentProduct={parentProduct}
           setParentProductID={setParentProductID}
           parentProductStyle={parentProductStyle}
@@ -58,6 +102,13 @@ export default function RelProdContainer({
           setAsNewOverview={setAsNewOverview}
         />
       ))}
+      {index < relatedProds.length - 1 && (
+        <BiChevronRightCircle
+          className="scroll-right"
+          onClick={handleRightClick}
+          data-testid="scroll-right"
+        />
+      )}
     </div>
   );
 }

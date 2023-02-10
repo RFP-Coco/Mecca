@@ -1,7 +1,6 @@
 import React from 'react';
 import generateStars from '../../Sub_RatingsReviews/generateStars.js';
 
-
 export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
   // =================== HELPERS ===================
   const {
@@ -10,6 +9,8 @@ export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
     slogan,
   } = thisProduct;
 
+  // let niceOriginalPrice = undefined || original_price;
+  // let niceSalePrice = undefined || sale_price;
   let niceOriginalPrice;
   let niceSalePrice;
 
@@ -19,6 +20,8 @@ export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
   if (thisPrice[1]) {
     niceSalePrice = thisPrice[1].slice(0, thisPrice[0].length - 3);
   }
+
+  // ['89.00', '79.00']
 
   // =================== COMPONENT ===================
   return (
@@ -34,7 +37,7 @@ export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
         {`$${niceOriginalPrice}`}
       </p>
       <p className="star-rating">
-        {generateStars(thisAvgRating[0], 5)} | {`(${thisAvgRating[1]})`}
+        {generateStars(thisAvgRating[0], 5)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`(${thisAvgRating[1]})`}
       </p>
     </div>
   );

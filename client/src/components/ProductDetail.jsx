@@ -8,7 +8,7 @@ import ProductDesciption from './Sub_ProductDetail/ProductDesciption.jsx';
 import ProductFeature from './Sub_ProductDetail/ProductFeature.jsx';
 
 function ProductDetail({
-  product, productStyle, productID,
+  product, productStyle, productID, overviewRef,
   currentStyle, setCurrentStyle, reviewMetadata, reviewRef,
 }) {
   const [startSelect, setStartSelect] = useState(false);
@@ -29,7 +29,7 @@ function ProductDetail({
   }
 
   return (
-    <div className="product-detail">
+    <div className="product-detail" ref={overviewRef}>
       <ImageGallery
         currentStyle={currentStyle}
         productID={productID}
@@ -44,7 +44,6 @@ function ProductDetail({
           productStyle={productStyle}
           currentStyle={currentStyle}
           setCurrentStyle={setCurrentStyle}
-          productID={productID}
           startSelect={startSelect}
           setStartSelect={setStartSelect}
         />

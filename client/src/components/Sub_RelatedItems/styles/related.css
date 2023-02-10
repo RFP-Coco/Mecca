@@ -1,6 +1,5 @@
 :root {
   --littleRound: 0.3rem;
-  --circle: 50%;
 }
 
 /* ======== WIDGET ======== */
@@ -10,13 +9,15 @@
 .related-items > *,
 .my-outfit,
 .my-outfit > * {
+  font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
 
 .title {
   font-size: x-large;
   font-weight: 600;
-  border-top: 1.5rem solid #20364ecc;
+  /* border-top: 1.5rem solid #20364ecc; */
+  border-top: 0.5rem solid #D6E4E5;
   padding: 0.5rem;
   padding-left: 3rem;
   margin: 0.3rem;
@@ -25,15 +26,20 @@
 .related-items,
 .my-outfit {
   display: flex;
+  position: relative;
   padding: 2px;
   margin: 0.3rem;
+  width: min-content;
 }
 
 .scrollable {
-  overflow-x: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
+  scroll-snap-align: start;
   scroll-padding-inline: 1rem;
+  border-radius: 0.3rem;
 }
 
 .scrollable > * {
@@ -48,10 +54,41 @@
 .single-prod {
   flex-direction: column;
   margin-inline: auto;
-  border: 2px solid #636363;
-  padding: 2px;
+  /* border: 2px solid #636363; */
   border-radius: var(--littleRound);
-  margin: 0.2rem;
+  padding: 0.8rem;
+  margin: 0.5rem;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.scroll-left,
+.scroll-right {
+  background-color: #e2e2e2b4;
+  border: none;
+  border-radius: 50%;
+  /* position: absolute; */
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  transform: scale(1);
+  top: 35%;
+  z-index: 3;
+  font-size: 3rem;
+}
+
+.scroll-right {
+  position: sticky;
+  right: 2%;
+}
+
+.scroll-left {
+  position: sticky;
+  left: 2%;
+}
+
+.scroll-left:hover,
+.scroll-right:hover {
+  color: var(--accent-color);
+  transform: scale(1.2);
 }
 
 /* ======== COMPARISON MODAL ======== */
@@ -110,7 +147,7 @@
 }
 
 .comparison-modal-header > th:last-of-type {
-  border-radius: 0rem 0.5rem 0.5rem 0
+  border-radius: 0 0.5rem 0.5rem 0
 }
 
 tr {
@@ -141,10 +178,11 @@ td {
   cursor: pointer;
 }
 
-/* ======== CARD PIC ======== */
+/* ======== CARD PIC & ITS BUTTONS ======== */
 .default-pic,
 .add-outfit {
   border-radius: var(--littleRound);
+  display: flex;
   width: 20rem;
   height: 20rem;
   object-fit: cover;
@@ -153,8 +191,9 @@ td {
 
 .compare-btn,
 .remove-btn {
-  border: none;
+  position: -webkit-sticky; /* Safari */
   position:sticky;
+  border: none;
   background-color: transparent;
   cursor: pointer;
 }
@@ -166,13 +205,25 @@ td {
   cursor: pointer;
   object-fit: cover;
   top: 0.4rem;
+  transition: all 0.2s ease-in;
+  transform: scale(1);
+}
+
+.compare-btn > img {
   left: 17.3rem;
+  height: 2.6rem;
+  width: 2.6rem;
+}
+
+.remove-btn > img {
+  left: 17.5rem;
   height: 2.2rem;
   width: 2.2rem;
 }
 
-.add-outfit {
-  border:
+.compare-btn > img:hover,
+.remove-btn > img:hover {
+  transform: scale(1.2);
 }
 
 .single-prod.container.add-outfit {
@@ -186,13 +237,14 @@ td {
 }
 
 .prod-info > * {
-  padding-top: 2px;
+  padding-top: 0.5rem;
 }
 
 .prod-info > .category {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #636363;
   text-transform: uppercase;
+  padding-top: 1rem;
 }
 
 .prod-info > .name {
@@ -206,10 +258,20 @@ td {
   font-style: italic;
 }
 
+.prod-info > .price {
+  font-size: 1.1rem;
+}
+
 .prod-info > .star-rating {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  padding-top: 1.1rem;
 }
 
 .sale {
-  color: #ff0000;
+  color: var(--accent-color);
 }

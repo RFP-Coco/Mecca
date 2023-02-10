@@ -6,7 +6,9 @@ function StyleEntry({ style, currentStyle, setCurrentStyle, startSelect, setStar
   const { thumbnail_url } = style.photos[0];
   return (
     <div
-      className="style-entry-container"
+      aria-label="individual style"
+      // className="style-entry-container"
+      className={`style-entry-container ${startSelect && style.style_id === currentStyle.style_id ? 'style-entry-container-selected' : ''}`}
       style={{
         backgroundImage: `url(${thumbnail_url
           ? thumbnail_url.substring(thumbnail_url.indexOf('http'))

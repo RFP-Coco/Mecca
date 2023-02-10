@@ -17,14 +17,14 @@ function ProductInfo({ product, reviewMetadata, reviewRef }) {
   return (
     <div className="product-info">
       <div className="stars-container">
-        <span className="stars">
+        <span aria-label="product rating stars" className="stars">
           {avgStarRating !== null
             && generateStars(avgStarRating, 5, 20)}
         </span>
-        <span className="link-review" onClick={handleClick}>Read {totalVotes} reviews</span>
+        <span aria-label="link to review section" className="link-review" onClick={handleClick}>Read all {totalVotes} reviews</span>
       </div>
-      <div className="product-category">Category {'>'} {product.category}</div>
-      <div className="product-name">{product.name}</div>
+      <div aria-label="product cateogy" className="product-category">Category {'>'} {product.category}</div>
+      <div role="heading" aria-level="2" className="product-name">{product.name}</div>
     </div>
   );
 }

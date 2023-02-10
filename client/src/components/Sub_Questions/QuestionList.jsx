@@ -15,8 +15,8 @@ export default function QuestionList({
   }, [questionList]);
 
   useEffect(() => {
-    setCurrentDisplay(allQuestions.slice(0, 2));
-    setMoreQuestions(allQuestions.length > 2);
+    setCurrentDisplay(allQuestions.slice(0, 4));
+    setMoreQuestions(allQuestions.length > 4);
   }, [allQuestions]);
 
   const handleClick = () => {
@@ -35,15 +35,18 @@ export default function QuestionList({
   }
 
   return (
-    <div className="question-list">
-      {currentDisplay.map((question) => (
-        <QuestionEntry
-          productName={productName}
-          question={question}
-          key={question.question_id}
-          updateQuestions={updateQuestions}
-        />
-      ))}
+    <div className="list-container">
+      <div className="question-list">
+        {currentDisplay.map((question, index) => (
+          <QuestionEntry
+            productName={productName}
+            question={question}
+            key={question.question_id}
+            updateQuestions={updateQuestions}
+            index={index}
+          />
+        ))}
+      </div>
       {moreQuestions && (
         <button
           className="stringbutton bottom"

@@ -4,7 +4,7 @@ export default function ProdImg({
   defaultPic, thisProduct,
   currentParentProductStyle, setAllowCardClick,
   showComparisonModal, setShowComparisonModal, thisStyleID,
-  myOutfits, setMyOutfits, checkStyles, setCheckStyles
+  myOutfits, setMyOutfits, checkStyles, setCheckStyles,
 }) {
   const picUrl = defaultPic || '../../../assets/noProdImg.png';
 
@@ -17,6 +17,8 @@ export default function ProdImg({
   const handleRemoveOutfit = (e) => {
     e.preventDefault();
 
+    const storedCheckStyles = JSON.parse(localStorage.getItem('inUse'));
+
     const toRemove = myOutfits.indexOf(myOutfits.find((outfit) => (
       outfit.style_id === thisStyleID
     )));
@@ -25,8 +27,10 @@ export default function ProdImg({
     const tempChecks = { ...checkStyles };
     tempOutfits.splice(toRemove, 1);
     delete tempChecks[thisStyleID];
+    delete storedCheckStyles[thisStyleID];
 
-    console.log(tempChecks);
+    localStorage.setItem('inUse', JSON.stringify(storedCheckStyles));
+    localStorage.removeItem(thisStyleID);
 
     setCheckStyles(tempChecks);
     setMyOutfits(tempOutfits);
