@@ -110,7 +110,7 @@
   margin-bottom: 0.2rem;
 }
 
-.question-container {
+.question-container, .answer-info {
   display: flex;
   align-items: center;
 }
@@ -179,4 +179,18 @@
 .bottom {
   margin-left: 2rem;
   margin-right: -1rem;
+}
+
+@media (max-width: 500px) {
+  .question-container, .answer-info {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .helpful-container {
+    order: 1;
+  }
+  .bottom {
+    margin-top: 1rem;
+  }
 }

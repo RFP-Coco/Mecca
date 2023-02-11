@@ -17,19 +17,21 @@ export default function QuestionItem({ question, setShow, updateQuestions }) {
     <div className="question">
       <div className="question-container">
         <span className="question-item">Q: {question.question_body}</span>
-        <span className="helpful">Helpful?</span>
-        {voted
-          ? (
-            <span>Yes ({question.question_helpfulness})</span>
-          )
-          : (
-            <button
-              className="stringbutton"
-              type="button"
-              onClick={handleHelpful}
-            >Yes ({question.question_helpfulness})
-            </button>
-          )}
+        <div className="helpful-container">
+          <span className="helpful">Helpful?</span>
+          {voted
+            ? (
+              <span>Yes ({question.question_helpfulness})</span>
+            )
+            : (
+              <button
+                className="stringbutton"
+                type="button"
+                onClick={handleHelpful}
+              >Yes ({question.question_helpfulness})
+              </button>
+            )}
+        </div>
         <button
           className="stringbutton"
           type="button"
