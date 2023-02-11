@@ -233,11 +233,13 @@
 .review-dashboard {
   display: flex;
   margin-left: 1.5em;
-  /* max-width: 50%; */
-  gap: 10em;
+  width: 99%;
+  max-width: 100%;
+  /* gap: 10em; */
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .review-summary{
