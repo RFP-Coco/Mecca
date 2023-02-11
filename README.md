@@ -41,7 +41,7 @@
   <li>Gallery updates with new style, allows zooming and browsing</li>
 </ul>
 </details>
-<img width="650" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/218281099-aa0575a1-1f70-42e1-8664-3e70c265662d.png">
+<img width="650" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/218284573-293a273e-12de-41a7-9989-c348019452f5.png">
 
 ### Image Gallery
 <details>
