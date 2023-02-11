@@ -47,12 +47,3 @@ export default function RelatedItems({
     </section>
   );
 }
-
-
-// use a state to track size of Window (ecvent listener)
-  // at resize, query select the width
-
-// use a state to store current scroll width (size of container)
-
-// when window state =< scroll state
-  // so something with the button - switch its position css?

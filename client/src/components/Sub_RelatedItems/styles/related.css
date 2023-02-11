@@ -27,7 +27,6 @@
   position: relative;
   padding: 2px;
   margin: 0.3rem;
-  /* width: min-content; */ /* toggle */
 }
 
 .scrollable {
@@ -67,7 +66,7 @@
   background-color: #e2e2e2b4;
   border: none;
   border-radius: 50%;
-  position: absolute; /* toggle */
+  position: absolute;
   cursor: pointer;
   transition: all 0.2s ease-in;
   transform: scale(1);
@@ -77,12 +76,10 @@
 }
 
 .scroll-right {
-  /* position: sticky; */ /* toggle */
   right: 2%;
 }
 
 .scroll-left {
-  /* position: sticky; */ /* toggle */
   left: 2%;
 }
 
@@ -93,7 +90,6 @@
 }
 
 /* ======== COMPARISON MODAL ======== */
-
 .modal-close {
   background-color: transparent;
   cursor: pointer;
@@ -188,6 +184,20 @@ td {
   height: 20rem;
   object-fit: cover;
   cursor: pointer;
+}
+
+.add-outfit-img {
+  object-fit: contain;
+  border: transparent;
+  border-radius: var(--littleRound);
+  height: 20rem;
+  width: 20rem;
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 .compare-btn,

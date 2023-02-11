@@ -8,7 +8,7 @@ import SingleProd from './SingleProd.jsx';
 export default function RelProdContainer({
   parentProduct, parentProductID, setParentProductID,
   parentProductStyle, parentReviewMetadata,
-  setAsNewOverview, setAllowCardClick, /* index, setIndex, */
+  setAsNewOverview, setAllowCardClick,
 }) {
   // =================== STATES ===================
   const [relatedIDs, setRelatedIDs] = useState([]);

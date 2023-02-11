@@ -66,6 +66,5 @@ export default function ProdImg({
         alt={`a sample of the ${thisProduct.name} product`}
       />
     </div>
-
   );
 }
