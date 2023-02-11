@@ -1,10 +1,10 @@
-# Project Atelier
-## by Team Coco (RFP2212)
-
 <h1 align="center">
   <br>
     Mecca
-  </br>
+    <h4 align="center">
+        <i>"A place that is regarded as the center of an activity or interest"</i>
+      <br>
+    </h4>
 </h1>
 
 ## technologies used
