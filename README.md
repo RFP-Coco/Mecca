@@ -25,6 +25,8 @@
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
+<br>
+
 ## Product Overview
 
 <details>
@@ -88,6 +90,8 @@
 </details>
 <img width="300" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/218281994-8ef141a5-aafb-4e88-9bfa-b85ff8913f15.png">
 
+<br>
+
 ## Related Items & My Outfit Menagerie
 
 <details>
@@ -145,3 +149,5 @@
 </details>
 
 <img width="650" alt="my outfit sample" src="https://user-images.githubusercontent.com/112882051/218277806-b896af73-1fd3-45e1-9c18-cd7de5fd818c.png">
+
+<br>
