@@ -145,3 +145,7 @@ function AddOutfitCard({ handleAddOutfit }) {
     </div>
   );
 }
+
+{/* <figure onClick={handleClick} onMouseMove={handleMouseMove} style={{ backgroundImage: `url(${src})`, backgroundPosition: `${imageX}% ${imageY}%`, backgroundSize: '250%', cursor: 'zoom-out', }}>
+<img src={src} />
+</figure> */}
