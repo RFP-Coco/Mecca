@@ -124,9 +124,10 @@
 
 <details>
 <summary>Comparison View and Card Select detail</summary>
-<br>
 <ul>
-  <li>Product card’s action button opens a modal populated with all review data, comparing current product card and current product overview item</li>
+  <li>Product card’s action button opens a modal populated with all review data, 
+    <br>comparing current product card and current product overview item</li>
+<img left="20" width="300" alt="comparison modal sample" src="https://user-images.githubusercontent.com/112882051/218283954-c732b1c6-1e20-4ccb-a557-0521ea262274.png">
   <li>Clicking a product card will:
     <ul>
       <li>load it to the product overview</li>
