@@ -92,7 +92,7 @@ const SingleProd = forwardRef(({
   return (
     <div
       ref={ref}
-      className="single-prod container"
+      className={ref ? 'single-prod container focused' : 'single-prod container'}
       onClick={() => setAsNewOverview(id)}
     >
       {showComparisonModal
