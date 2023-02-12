@@ -15,21 +15,14 @@ const SingleProd = forwardRef(({
   const { id } = thisProduct;
 
   // =================== STATES ===================
-
   const [theseStyles, setTheseStyles] = useState([]);
-
   const [thisPrice, setThisPrice] = useState([]);
-
   const [imgUrl, setImgUrl] = useState('');
-
   const [showComparisonModal, setShowComparisonModal] = useState(false);
-
   const [thisReviewMeta, setThisReviewMeta] = useState({});
-
   const [thisAvgRating, setThisAvgRating] = useState([]);
 
   // =================== EFFECTS ===================
-
   useEffect(() => {
     axios.get(`/api/products/${id}/styles`)
       .then((styles) => {
@@ -59,7 +52,6 @@ const SingleProd = forwardRef(({
   }, [id]);
 
   // =================== HELPERS ===================
-
   const setPrice = (item) => {
     const find = item[0];
 
@@ -131,4 +123,5 @@ const SingleProd = forwardRef(({
     </div>
   );
 });
+
 export default SingleProd;

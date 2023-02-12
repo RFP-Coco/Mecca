@@ -7,7 +7,6 @@ export default function OutfitContainer({
   parentProduct, setParentProductID,
   parentProductStyle, currentParentProductStyle,
   parentReviewMetadata, setAsNewOverview, setAllowCardClick,
-  /* index, setIndex, */
 }) {
   // =================== STATES ===================
   const [myOutfits, setMyOutfits] = useState([]);
@@ -86,14 +85,15 @@ export default function OutfitContainer({
   // =================== COMPONENT ===================
   return (
     <div className="scrollable container">
-      {/* {index > 0 && ( */}
+      {index > 0 && (
       <BiChevronLeftCircle
         className="scroll-left"
         onClick={handleLeftClick}
       />
-
+      )}
       <AddOutfitCard
         parentProduct={parentProduct}
+        currentParentProductStyle={currentParentProductStyle}
         myOutfits={myOutfits}
         setMyOutfits={setMyOutfits}
         handleAddOutfit={handleAddOutfit}
@@ -121,31 +121,43 @@ export default function OutfitContainer({
           setCheckStyles={setCheckStyles}
         />
       ))}
-      {/* {index < myOutfits.length - 1 && ( */}
+      {index < myOutfits.length - 1 && (
       <BiChevronRightCircle
         className="scroll-right"
         onClick={handleRightClick}
       />
-
+      )}
     </div>
   );
 }
 
-function AddOutfitCard({ handleAddOutfit }) {
+function AddOutfitCard({ handleAddOutfit, currentParentProductStyle }) {
   const addOutfitPic = '../../../../assets/addToOutfitGreenish.png';
+
+  const [pic, setPic] = useState(addOutfitPic);
+  const [transition, setTransition] = useState(false);
+
+  const handleMouseEnter = () => {
+    const { photos } = currentParentProductStyle;
+    setTransition(true);
+    setPic(photos[0].url);
+  };
+
+  const handleMouseLeave = () => {
+    setTransition(false);
+    setPic(addOutfitPic);
+  };
 
   return (
     <div className="single-prod container add-outfit">
       <img
         onClick={handleAddOutfit}
-        className="add-outfit"
-        src={addOutfitPic}
+        className={transition ? 'add-outfit-img' : 'add-outfit'}
+        src={pic}
         alt="add the current product to your collection"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       />
     </div>
   );
 }
-
-{/* <figure onClick={handleClick} onMouseMove={handleMouseMove} style={{ backgroundImage: `url(${src})`, backgroundPosition: `${imageX}% ${imageY}%`, backgroundSize: '250%', cursor: 'zoom-out', }}>
-<img src={src} />
-</figure> */}
