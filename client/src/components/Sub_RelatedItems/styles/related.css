@@ -5,9 +5,9 @@
 /* ======== WIDGET ======== */
 .title,
 .related-items,
-.related-items > *,
+.related-items>*,
 .my-outfit,
-.my-outfit > * {
+.my-outfit>* {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
 }
@@ -39,7 +39,7 @@
   border-radius: 0.3rem;
 }
 
-.scrollable > * {
+.scrollable>* {
   scroll-snap-align: start;
 }
 
@@ -102,21 +102,22 @@
   z-index: 2;
 }
 
-.comparison-modal-content > table {
-  position:fixed;
+.comparison-modal-content>table {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  left: 20%;
-  top: 20%;
+  border-radius: 6rem;
+  left: 25%;
+  top: 15%;
   right: 20%;
-  bottom: 20%;
-  background-color: rgba(198, 207, 217, 0.9);
+  bottom: 45%;
+  background-color: rgba(73, 113, 116, 0.9);
+
   z-index: 1;
 }
 
-.comparison-modal-content > * {
+.comparison-modal-content>* {
   vertical-align: middle;
 }
 
@@ -124,12 +125,12 @@
   border-radius: 2rem;
 }
 
-.comparison-modal-header > table {
+.comparison-modal-header>table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.comparison-modal-header > th {
+.comparison-modal-header>th {
   overflow-y: auto;
   font-weight: 700;
   font-size: 1.4rem;
@@ -139,11 +140,11 @@
   margin: 0.3rem;
 }
 
-.comparison-modal-header > th:first-of-type {
+.comparison-modal-header>th:first-of-type {
   border-radius: 0.5rem 0 0 0.5rem
 }
 
-.comparison-modal-header > th:last-of-type {
+.comparison-modal-header>th:last-of-type {
   border-radius: 0 0.5rem 0.5rem 0
 }
 
@@ -158,13 +159,14 @@ tr.additional-rating:hover {
 
 td {
   text-align: right;
-  font-size: 1.2rem;;
+  color: #ffffff;
+  font-size: 1.2rem;
   padding: 0.2rem 0;
   margin: 0.2rem 0;
 }
 
-.overall-rating > td,
-.additional-rating > td {
+.overall-rating>td,
+.additional-rating>td {
   text-align: center;
 }
 
@@ -174,6 +176,37 @@ td {
   padding-bottom: 2rem;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 440px) {
+  .comparison-modal-content>table {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    border-radius: 6rem;
+    left: 12%;
+    top: 12%;
+    right: 20%;
+    bottom: 7%;
+    background-color: rgba(73, 113, 116, 0.9);
+    z-index: 1;
+  }
+
+  td:nth-child(3) {
+    padding-bottom: 0.5rem;
+    border-bottom: 0.2rem dotted var(--accent-color);
+  }
+
+  .comparison-modal-header>th{
+    border-radius: 0.3rem;
+  }
+
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
+
 
 /* ======== CARD PIC & ITS BUTTONS ======== */
 .default-pic,
@@ -196,21 +229,27 @@ td {
 }
 
 @keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .compare-btn,
 .remove-btn {
-  position: -webkit-sticky; /* Safari */
-  position:sticky;
+  position: -webkit-sticky;
+  /* Safari */
+  position: sticky;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 
-.compare-btn > img,
-.remove-btn > img {
+.compare-btn>img,
+.remove-btn>img {
   border: none;
   position: absolute;
   cursor: pointer;
@@ -220,20 +259,20 @@ td {
   transform: scale(1);
 }
 
-.compare-btn > img {
+.compare-btn>img {
   left: 17.3rem;
   height: 2.6rem;
   width: 2.6rem;
 }
 
-.remove-btn > img {
+.remove-btn>img {
   left: 17.5rem;
   height: 2.2rem;
   width: 2.2rem;
 }
 
-.compare-btn > img:hover,
-.remove-btn > img:hover {
+.compare-btn>img:hover,
+.remove-btn>img:hover {
   transform: scale(1.2);
 }
 
@@ -247,33 +286,33 @@ td {
   text-align: left;
 }
 
-.prod-info > * {
+.prod-info>* {
   padding-top: 0.5rem;
 }
 
-.prod-info > .category {
+.prod-info>.category {
   font-size: 0.9rem;
   color: #636363;
   text-transform: uppercase;
   padding-top: 1rem;
 }
 
-.prod-info > .name {
+.prod-info>.name {
   font-size: 1.5rem;
   font-style: bold;
 }
 
-.prod-info > .slogan {
+.prod-info>.slogan {
   font-size: 1.2rem;
   text-transform: lowercase;
   font-style: italic;
 }
 
-.prod-info > .price {
+.prod-info>.price {
   font-size: 1.1rem;
 }
 
-.prod-info > .star-rating {
+.prod-info>.star-rating {
   display: flex;
   align-items: center;
   justify-content: flex-start;

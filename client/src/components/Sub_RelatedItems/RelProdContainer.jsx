@@ -84,13 +84,13 @@ export default function RelProdContainer({
           There are no related products to display at this time...
         </div>
       )}
-      {/* {index > 0 && ( */}
+      {index > 0 && (
       <BiChevronLeftCircle
         className="scroll-left"
         onClick={handleLeftClick}
         data-testid="scroll-left"
       />
-
+      )}
       {relatedProds.map((thisProduct, i) => (
         <SingleProd
           key={thisProduct.id}
@@ -104,13 +104,13 @@ export default function RelProdContainer({
           setAsNewOverview={setAsNewOverview}
         />
       ))}
-      {/* {index < relatedProds.length - 1 && ( */}
+      {index < relatedProds.length - 1 && (
       <BiChevronRightCircle
         className="scroll-right"
         onClick={handleRightClick}
         data-testid="scroll-right"
       />
-
+      )}
     </div>
   );
 }
