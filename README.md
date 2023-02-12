@@ -30,6 +30,8 @@
 
 ## Product Overview
 
+### View the [MECCA](https://docs.google.com/presentation/d/1k-QbhCpZMpY7bRpsPgSTiFSLWwwJpmyba1Tr0vdUtQM/edit?usp=sharing) demo
+
 <details>
 <summary>Summary</summary>
 <br>
