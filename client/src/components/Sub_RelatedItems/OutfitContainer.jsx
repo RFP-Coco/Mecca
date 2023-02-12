@@ -85,12 +85,12 @@ export default function OutfitContainer({
   // =================== COMPONENT ===================
   return (
     <div className="scrollable container">
-      {/* {index > 0 && ( */}
+      {index > 0 && (
       <BiChevronLeftCircle
         className="scroll-left"
         onClick={handleLeftClick}
       />
-
+      )}
       <AddOutfitCard
         parentProduct={parentProduct}
         currentParentProductStyle={currentParentProductStyle}
@@ -121,12 +121,12 @@ export default function OutfitContainer({
           setCheckStyles={setCheckStyles}
         />
       ))}
-      {/* {index < myOutfits.length - 1 && ( */}
+      {index < myOutfits.length - 1 && (
       <BiChevronRightCircle
         className="scroll-right"
         onClick={handleRightClick}
       />
-
+      )}
     </div>
   );
 }
