@@ -39,20 +39,23 @@ export default function AnswerEntry({ answer, updateAnswers }) {
         </div>
       </div>
       <div className="answer-info">
-        by {answer.answerer_name}  {format(parseISO(answer.date), 'LLLL d, yyyy')}   |  <span className="helpful">Helpful?</span>
-        {voted
-          ? (
-            <span>Yes ({answer.helpfulness})</span>
-          )
-          : (
-            <button
-              className="stringbutton helpful"
-              type="button"
-              onClick={handleHelpful}
-            >
-              Yes ({answer.helpfulness})
-            </button>
-          )}
+        by {answer.answerer_name}  {format(parseISO(answer.date), 'LLLL d, yyyy')}   |
+        <div className="helpful-container">
+          <span className="helpful">Helpful?</span>
+          {voted
+            ? (
+              <span>Yes ({answer.helpfulness})</span>
+            )
+            : (
+              <button
+                className="stringbutton helpful"
+                type="button"
+                onClick={handleHelpful}
+              >
+                Yes ({answer.helpfulness})
+              </button>
+            )}
+        </div>
         {reported
           ? (
             <>

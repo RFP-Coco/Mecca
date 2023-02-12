@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
 import { RxDoubleArrowUp, RxDoubleArrowDown } from 'react-icons/rx';
-import { BiChevronUpCircle, BiChevronDownCircle } from 'react-icons/';
+// import { BiChevronUpCircle, BiChevronDownCircle } from 'react-icons/';
 import ImageThumbnail from './ImageThumbnail.jsx';
 
 function ImageSlide({
