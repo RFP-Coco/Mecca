@@ -53,10 +53,10 @@ export default function ReviewList({
     if (filtered === true
       && displayedReviews <= reviews.results
         .filter((review) => !!selectedRatings[review.rating]).length) {
-      return <button type="button" onClick={handleMoreReviews}>More Reviews</button>;
+      return <button aria-label="render more reviews" type="button" onClick={handleMoreReviews}>More Reviews</button>;
     } if (filtered === false
       && displayedReviews <= reviews.results.length) {
-      return <button type="button" onClick={handleMoreReviews}>More Reviews</button>;
+      return <button aria-label="render more reviews" type="button" onClick={handleMoreReviews}>More Reviews</button>;
     }
     return null;
   };
@@ -75,14 +75,14 @@ export default function ReviewList({
     <div className="review-list-container">
       <div>
         <span className="sort-container">{totalAmtOfReviews} reviews,&nbsp;<p>sorted by:</p>
-          <select value={sort} onChange={onChange}>
+          <select aria-label="choose sorting algorithm" value={sort} onChange={onChange}>
             <option value="relevant">relevance</option>
             <option value="helpful">helpfulness</option>
             <option value="newest">newest</option>
           </select>
         </span>
       </div>
-      <ul className="review-list">
+      <ul aria-label="product reviews" className="review-list">
         {filtered === true
           ? mappedFilter()
           : reviews.results
@@ -97,7 +97,7 @@ export default function ReviewList({
       </ul>
       <div className="review-list-btns">
         {displayButton()}
-        <button type="button" onClick={() => setShowModal(true)}>Add a review</button>
+        <button aria-label="add review" type="button" onClick={() => setShowModal(true)}>Add a review</button>
       </div>
     </div>
   );

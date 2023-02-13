@@ -16,7 +16,7 @@ export default function ThumbnailModal({
           className="expanded-thumbnail"
           onClick={() => { expand(false); setCurrImg(''); }}
           src={imgUrl}
-          alt="expanded pic"
+          alt="expanded view"
         />
       </div>
     </div>

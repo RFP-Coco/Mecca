@@ -44,27 +44,27 @@ export default function ReviewTile({
   };
 
   return (
-    <li className="review-tile">
+    <li aria-label="an individual review" className="review-tile">
       <div className="stars-name-date-container">
-        <div className="stars">
+        <div aria-label="review star rating" className="stars">
           {generateStars(review.rating, review.rating, 25)}
         </div>
         <div className="review-top-corner">
-          <p className="reviewer-name">{review.reviewer_name}</p>
-          <small className="review-date">{date}</small>
+          <p aria-label="reviewer username" className="reviewer-name">{review.reviewer_name}</p>
+          <small aria-label="review timestamp" className="review-date">{date}</small>
         </div>
 
       </div>
 
-      <b className="review-summary">{summary}</b>
-      <p>{!showMoreBody
+      <b aria-label="review summary" className="review-summary">{summary}</b>
+      <p aria-label="review body" className="review-body">{!showMoreBody
         ? review.body.slice(0, defaultBodyLength)
         : review.body}
       </p>
       {review.body.length > defaultBodyLength && !showMoreBody
-        ? <button type="button" onClick={() => setShowMoreBody(true)}>Show More</button>
+        ? <button aria-label="show more review body text" type="button" onClick={() => setShowMoreBody(true)}>Show More</button>
         : null}
-      <div className="review-photos">
+      <div aria-label="individual review photos" className="review-photos">
         {review.photos.length > 0
           ? review.photos.map((img) => (
             <img
@@ -86,15 +86,16 @@ export default function ReviewTile({
       )}
       {review.recommend
       && (
-      <small className="review-recommend">
+      <small aria-label="user recommends product" className="review-recommend">
         I recommend this product
         <IoMdCheckmarkCircleOutline />
       </small>
       )}
-      {review.response && <p className="review-response">Response From Seller: {review.response}</p>}
+      {review.response && <p aria-label="response from seller" className="review-response">Response From Seller: {review.response}</p>}
       <div className="review-helpfulness">
         Was this review helpful?&nbsp;
         <a
+          aria-label="Mark a review helpful"
           href=""
           onClick={(event) => handleHelpfulClick(event, review)}
         >{review.helpfulness}

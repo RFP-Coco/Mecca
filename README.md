@@ -5,6 +5,10 @@
         <i>"A place that is regarded as the center of an activity or interest"</i>
       <br>
     </h4>
+    <h4 align="center">
+        <i>A redesigned shopping experience with React-based tools for browsing, interacting, and learning about our client's products.</i>
+      <br>
+    </h4>
     <br>
 </h1>
 
@@ -28,12 +32,15 @@
 
 <br>
 
+## See how it works
+View the demo slides [here](https://docs.google.com/presentation/d/1k-QbhCpZMpY7bRpsPgSTiFSLWwwJpmyba1Tr0vdUtQM/edit?usp=sharing)
+
+<br>
+
 ## Product Overview
 
-### View the [MECCA](https://docs.google.com/presentation/d/1k-QbhCpZMpY7bRpsPgSTiFSLWwwJpmyba1Tr0vdUtQM/edit?usp=sharing) demo
-
 <details>
-<summary>Summary</summary>
+<summary>Features</summary>
 <br>
 <ul>
   <li>Renders general information about the product</li>
@@ -100,7 +107,7 @@
 ## Related Items & My Outfit Menagerie
 
 <details>
-<summary>Summary</summary>
+<summary>Features</summary>
 <br>
 <ul>
   <li>Renders information about each product related to current item in product overview</li>
@@ -128,7 +135,7 @@
 <details>
 <summary>Comparison View and Card Select detail</summary>
 <ul>
-  <li>Product card’s action button opens a modal populated with all review data, 
+  <li>Product card’s action button opens a modal populated with all review data,
     <br>comparing current product card and current product overview item</li>
 <img width="300" alt="comparison modal sample" src="https://user-images.githubusercontent.com/112882051/218294667-b06d6ac8-b85b-42d5-a40e-14d16db137d6.png">
   <li>Clicking a product card will:
@@ -157,3 +164,22 @@
 <img width="650" alt="my outfit sample" src="https://user-images.githubusercontent.com/112882051/218277806-b896af73-1fd3-45e1-9c18-cd7de5fd818c.png">
 
 <br>
+
+## Ratings and Reviews
+
+### Key Features
+
+#### Displays review rating distribution by star
+  <img width="650" alt="ratings dashboard" src="https://user-images.githubusercontent.com/60834712/218337770-09da4738-b27b-43bc-b6de-572a14369fbc.png">
+
+#### Allows users to additively filter reviews by star rating & sort them by relevance, helpfulness, and by newest
+  <img width="650" alt="filter and sort reviews" src="https://user-images.githubusercontent.com/60834712/218337603-1cea75ba-3864-4ec7-9048-3bffafb48c9f.gif">
+
+#### Allows users to add a review with a modal
+  <img width="650" alt="add a review" src="https://user-images.githubusercontent.com/60834712/218337223-888beb6f-da1a-4725-b676-b3ea99f70138.png">
+
+#### Allows users to upload images to a review using Cloudinary API
+  <img width="650" alt="add a review" src="https://user-images.githubusercontent.com/60834712/218337363-c2607a98-6673-4194-b754-2b5abd4f280e.gif">
+
+
+

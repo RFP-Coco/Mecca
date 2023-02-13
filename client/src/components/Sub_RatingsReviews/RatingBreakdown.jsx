@@ -11,7 +11,7 @@ export default function RatingBreakdown({
     .map((entry) => entry[0]);
 
   return (
-    <div className="rating-breakdown">
+    <div aria-label="product rating breakdown by stars" className="rating-breakdown">
       {progress.map((entry) => {
         const percentage = Math.round(entry[1] * 100);
         return (
@@ -23,6 +23,7 @@ export default function RatingBreakdown({
             <div className="rating-bar-label">{entry[0]} stars:</div>
             <div className="bar-container">
               <progress
+                aria-label="rating percent"
                 className="rating-bar"
                 max="100"
                 value={percentage}
