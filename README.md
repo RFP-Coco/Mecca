@@ -181,5 +181,54 @@ View the demo slides [here](https://docs.google.com/presentation/d/1k-QbhCpZMpY7
 #### Allows users to upload images to a review using Cloudinary API
   <img width="650" alt="add a review" src="https://user-images.githubusercontent.com/60834712/218337363-c2607a98-6673-4194-b754-2b5abd4f280e.gif">
 
+## Questions and Answers
 
+<details>
+<summary>Summary</summary>
+<br>
+<ul>
+  <li>Loads questions and answers related to the current product.</li>
+  <li>Able to search questions.</li>
+  <li>Ask any questions related to current product.</li>
+  <li>Answer to any questions.</li>
+  <li>Upload images with your answer.</li>
+</ul>
+</details>
+
+<img width="650" alt="my outfit sample" src="https://user-images.githubusercontent.com/53969430/218285638-3847b7a8-73b4-4644-b016-47db7b2fac8f.png">
+
+<details>
+<summary>Adding Questions Modal</summary>
+<br>
+<ul>
+  <li>With the click of the ask question button the modal will appear.</li>
+  <li>Able to fill the form and clicking the submit button will send the data to the server.</li>
+  <li>You may also add up to 5 images.</li>
+</ul>
+<img width="650" src="https://user-images.githubusercontent.com/53969430/218660838-ed7b2651-0f71-495b-8ef8-f35b1afc58d4.gif">
+</details>
+
+<details>
+<summary>Searching Questions</summary>
+<br>
+<ul>
+  <li>By filling out the search bar you can filter questions.</li>
+  <li>With 3 more characters it will automatically filter at every change you make on your input.</li>
+  <li>The list will stay in sorted order even after filtering happens.</li>
+</ul>
+<img width="650" alt="my outfit sample" src="https://user-images.githubusercontent.com/53969430/218661635-f5747fa2-9978-4049-beed-1337cc136ad8.gif">
+</details>
+
+<details>
+<summary>Interaction Buttons</summary>
+<br>
+<ul>
+  <li>The helpful button will increase the number of helpfulness.</li>
+  <li>On click of the button it will send request to the server to increment the value</li>
+  <li>The report button will allow user to report the answer for internal review.</li>
+  <li>If the item is reported it will not be rendered anymore.</li>
+  <li>There are options to see more questions and answers.</li>
+  <li>This gives better user experience to see data.</li>
+</ul>
+</details>
 
