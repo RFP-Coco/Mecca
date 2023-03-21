@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import axios from "axios";
 import "./Sub_RatingsReviews/styles/ratings.css";
-import ReviewList from "./Sub_RatingsReviews/ReviewListComponents/ReviewList.jsx";
+// import ReviewList from "./Sub_RatingsReviews/ReviewListComponents/ReviewList.jsx";
+const ReviewList = lazy(() =>
+  import("./Sub_RatingsReviews/ReviewListComponents/ReviewList.jsx")
+);
+
 import Dashboard from "./Sub_RatingsReviews/Dashboard.jsx";
 import ReviewModal from "./Sub_RatingsReviews/FormComponents/ReviewModal.jsx";
 
@@ -118,18 +122,20 @@ export default function RatingsReviews({
             reviews={reviews}
           />
         )}
-        {reviews && reviewMetadata && (
-          <ReviewList
-            totalAmtOfReviews={totalAmtOfReviews}
-            setShowModal={setShowModal}
-            filtered={filtered}
-            selectedRatings={selectedRatings}
-            sort={sort}
-            onChange={handleSortChange}
-            reviews={reviews}
-            update={updateData}
-          />
-        )}
+        <Suspense fallback={<div>LOADING ANIMATION</div>}>
+          {reviews && reviewMetadata && (
+            <ReviewList
+              totalAmtOfReviews={totalAmtOfReviews}
+              setShowModal={setShowModal}
+              filtered={filtered}
+              selectedRatings={selectedRatings}
+              sort={sort}
+              onChange={handleSortChange}
+              reviews={reviews}
+              update={updateData}
+            />
+          )}
+        </Suspense>
       </div>
     </div>
   );

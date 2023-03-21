@@ -1,15 +1,16 @@
-import React from 'react';
-import { createPortal } from 'react-dom';
-import ReviewImageModalContent from './ReviewImageModalContent.jsx';
+import React from "react";
+import { createPortal } from "react-dom";
+import ReviewImageModalContent from "./ReviewImageModalContent.jsx";
 
-export default function ReviewImageModal({ setShowImgModal, reviewBody, setReviewBody }) {
-  const portal = document.getElementById('modal');
+export default function ReviewImageModal({
+  setShowImgModal,
+  reviewBody,
+  setReviewBody,
+}) {
+  const portal = document.getElementById("modal");
   const modal = (
     <div className="review-comp-container">
-      <div
-        className="review-modal-overlay"
-        // onClick={() => setShowImgModal(false)}
-      >
+      <div className="review-modal-overlay">
         <ReviewImageModalContent
           setShowImgModal={setShowImgModal}
           reviewBody={reviewBody}
