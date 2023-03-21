@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../../../dist/assets/ratings/star.svg";
-import Star from "./Star.jsx";
-import generateStars from "./generateStars.js";
+import "../../../../dist/assets/ratings/star.svg";
+// import Star from "../Star.jsx";
+import generateStars from "../../Shared/generateStars.js";
 
 export default function RatingSummary({ avgStarRating, reviewMetadata }) {
   const { recommended } = reviewMetadata;

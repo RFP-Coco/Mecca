@@ -27,6 +27,7 @@ export default function RatingBreakdown({
         const percentage = Math.round(entry[1] * 100);
         return (
           <BreakdownBar
+            key={entry[0]}
             onClick={toggleSelectedRating}
             entry={entry}
             percentage={percentage}

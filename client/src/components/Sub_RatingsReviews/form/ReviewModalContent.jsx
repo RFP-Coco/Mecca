@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import generateStars from "../generateStars.js";
+import generateStars from "../../Shared/generateStars.js";
 import RadioGroup from "./RadioGroup.jsx";
 import AddReviewBody from "./AddReviewBody.jsx";
-import ReviewImageModal from "./ImageModal/ReviewImageModal.jsx";
+import ReviewImageModal from "./image-modal/ReviewImageModal.jsx";
 import { Image } from "cloudinary-react";
 import FormInput from "../../Shared/FormInput.jsx";
 

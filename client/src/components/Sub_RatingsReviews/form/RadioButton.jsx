@@ -1,7 +1,13 @@
-import React from 'react';
+import React from "react";
 
 export default function RadioButton({
-  id, name, value, labelText, subLabel, onClick, char_id,
+  id,
+  name,
+  value,
+  labelText,
+  subLabel,
+  onClick,
+  char_id,
 }) {
   return (
     <div className="radio-btn">
@@ -15,9 +21,7 @@ export default function RadioButton({
           name={name}
           value={value}
         />
-        <span className="radio-label-text">
-          {labelText}
-        </span>
+        <span className="radio-label-text">{labelText}</span>
       </label>
       <div className={`${id}-meaning`}>{subLabel}</div>
     </div>
