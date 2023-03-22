@@ -1,17 +1,24 @@
-import React from 'react';
-import generateStars from '../../Sub_RatingsReviews/generateStars.js';
+import React from "react";
+import generateStars from "../../Shared/generateStars.js";
 
 export default function ComparisonModal({
-  thisProduct, thisReviewMetadata,
-  parentProduct, parentReviewMetadata,
-  setAllowCardClick, setShowComparisonModal, getAvgRating,
+  thisProduct,
+  thisReviewMetadata,
+  parentProduct,
+  parentReviewMetadata,
+  setAllowCardClick,
+  setShowComparisonModal,
+  getAvgRating,
 }) {
   const thisAvgRating = getAvgRating(thisReviewMetadata.ratings)[0];
   const parentAvgRating = getAvgRating(parentReviewMetadata.ratings)[0];
 
   const allCharacteristics = [
-    ...new Set(Object.keys(thisReviewMetadata.characteristics)
-      .concat(Object.keys(parentReviewMetadata.characteristics))),
+    ...new Set(
+      Object.keys(thisReviewMetadata.characteristics).concat(
+        Object.keys(parentReviewMetadata.characteristics)
+      )
+    ),
   ];
 
   const combinedStats = allCharacteristics.map((descriptor) => {
@@ -74,9 +81,13 @@ export default function ComparisonModal({
             </tr>
             {combinedStats.map((nestedStats, i) => (
               <tr key={i} className="additional-rating">
-                <td>{nestedStats[0] ? generateStars(nestedStats[0], 5) : null}</td>
+                <td>
+                  {nestedStats[0] ? generateStars(nestedStats[0], 5) : null}
+                </td>
                 <td>{nestedStats[1]}</td>
-                <td>{nestedStats[2] ? generateStars(nestedStats[2], 5) : null}</td>
+                <td>
+                  {nestedStats[2] ? generateStars(nestedStats[2], 5) : null}
+                </td>
               </tr>
             ))}
           </tbody>

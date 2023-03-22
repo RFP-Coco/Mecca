@@ -1,8 +1,12 @@
-import React from 'react';
-import axios from 'axios';
-import { Image } from 'cloudinary-react';
+import React from "react";
+import axios from "axios";
+import { Image } from "cloudinary-react";
 
-export default function ReviewImageModalContent({ reviewBody, setShowImgModal, setReviewBody }) {
+export default function ReviewImageModalContent({
+  reviewBody,
+  setShowImgModal,
+  setReviewBody,
+}) {
   /**
    * @type {array} photos
    */
@@ -19,12 +23,13 @@ export default function ReviewImageModalContent({ reviewBody, setShowImgModal, s
     if (!files[0]) return null;
 
     const imgConfig = new FormData();
-    imgConfig.append('file', files[0]);
-    imgConfig.append('upload_preset', 'wtgoio26');
+    imgConfig.append("file", files[0]);
+    imgConfig.append("upload_preset", "wtgoio26");
 
     // TODO: image should not upload to cloud immediately after file is chosen
     // TODO: allow users to add multiple images at a time
-    axios.post('https://api.cloudinary.com/v1_1/do544o5be/image/upload', imgConfig)
+    axios
+      .post("https://api.cloudinary.com/v1_1/do544o5be/image/upload", imgConfig)
       .then((result) => {
         setReviewBody({
           ...reviewBody,
@@ -46,13 +51,18 @@ export default function ReviewImageModalContent({ reviewBody, setShowImgModal, s
             photos: [],
           });
         }}
-      >X
+      >
+        X
       </button>
       <div>
         <button
           type="button"
           className="choose-btn-container"
-          style={photos.length >= 5 ? { visibility: 'hidden' } : { visibility: 'visible' }}
+          style={
+            photos.length >= 5
+              ? { visibility: "hidden" }
+              : { visibility: "visible" }
+          }
         >
           <input
             type="file"
@@ -69,10 +79,8 @@ export default function ReviewImageModalContent({ reviewBody, setShowImgModal, s
             />
           ))}
         </div>
-        <button
-          type="button"
-          onClick={() => setShowImgModal(false)}
-        >submit photos
+        <button type="button" onClick={() => setShowImgModal(false)}>
+          submit photos
         </button>
       </div>
     </div>

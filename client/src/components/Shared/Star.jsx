@@ -1,8 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export default function Star({
-  size, percentage, id, color, callback,
-}) {
+export default function Star({ size, percentage, id, color, callback }) {
   // star default size is 50, if you want to resize, pass in the size as props
   // need 2 stops inside of the linearGradient to ensure instant transition.
 
@@ -17,14 +15,8 @@ export default function Star({
     >
       <defs>
         <linearGradient id={`grad-${id}`}>
-          <stop
-            offset={percentage}
-            stopColor={color}
-          />
-          <stop
-            offset={percentage}
-            stopColor="white"
-          />
+          <stop offset={percentage} stopColor={color} />
+          <stop offset={percentage} stopColor="white" />
         </linearGradient>
       </defs>
       <path
@@ -36,6 +28,5 @@ export default function Star({
         strokeWidth="10"
       />
     </svg>
-
   );
 }

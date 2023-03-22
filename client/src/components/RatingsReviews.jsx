@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './Sub_RatingsReviews/styles/ratings.css';
-import ReviewList from './Sub_RatingsReviews/ReviewListComponents/ReviewList.jsx';
-import Dashboard from './Sub_RatingsReviews/Dashboard.jsx';
-import ReviewModal from './Sub_RatingsReviews/FormComponents/ReviewModal.jsx';
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import axios from "axios";
+import "./Sub_RatingsReviews/styles/ratings.css";
+// import ReviewList from "./Sub_RatingsReviews/ReviewListComponents/ReviewList.jsx";
+const ReviewList = lazy(() =>
+  import("./Sub_RatingsReviews/list/ReviewList.jsx")
+);
+
+import Dashboard from "./Sub_RatingsReviews/dashboard/Dashboard.jsx";
+import ReviewModal from "./Sub_RatingsReviews/form/ReviewModal.jsx";
 
 export default function RatingsReviews({
-  productID, reviewMetadata, product, reviewRef,
+  productID,
+  reviewMetadata,
+  product,
+  reviewRef,
 }) {
   // STATES
-  const [sort, setSort] = useState('relevant');
+  const [sort, setSort] = useState("relevant");
   const [showModal, setShowModal] = useState(false);
 
   const [selectedRatings, setSelectedRatings] = useState({
@@ -36,7 +43,8 @@ export default function RatingsReviews({
   // EFFECTS
   const updateData = () => {
     const url = `/api/reviews/?product_id=${productID}&sort=${sort}&count=50`;
-    axios.get(url)
+    axios
+      .get(url)
       .then((results) => {
         setReviews(results.data);
       })
@@ -52,16 +60,18 @@ export default function RatingsReviews({
   useEffect(() => {
     updateData();
     clearFilters();
-    setSort('relevant');
+    setSort("relevant");
   }, [productID]);
 
   useEffect(() => {
-    if (showModal) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'scroll';
+    if (showModal) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "scroll";
   }, [showModal]);
 
   useEffect(() => {
-    if (Object.values(selectedRatings).every((selected) => selected === false)) {
+    if (
+      Object.values(selectedRatings).every((selected) => selected === false)
+    ) {
       setFiltered(false);
     }
   }, [selectedRatings]);
@@ -79,8 +89,10 @@ export default function RatingsReviews({
     setFiltered(true);
   };
 
-  const totalAmtOfReviews = Object.values(reviewMetadata.ratings)
-    .reduce((accumulator, currrent) => Number(currrent) + accumulator, 0);
+  const totalAmtOfReviews = Object.values(reviewMetadata.ratings).reduce(
+    (accumulator, currrent) => Number(currrent) + accumulator,
+    0
+  );
 
   const totalStarRating = Object.entries(reviewMetadata.ratings)
     .map((entry) => Number(entry[0]) * Number(entry[1]))
@@ -89,43 +101,41 @@ export default function RatingsReviews({
   return (
     <div className="ratings-reviews" ref={reviewRef}>
       <h3>Ratings & Reviews</h3>
-      {showModal
-      && (
-      <ReviewModal
-        reviewMetadata={reviewMetadata}
-        setShowModal={setShowModal}
-        product={product}
-        update={updateData}
-      />
+      {showModal && (
+        <ReviewModal
+          reviewMetadata={reviewMetadata}
+          setShowModal={setShowModal}
+          product={product}
+          update={updateData}
+        />
       )}
       <div className="ratings-reviews-body">
-        {reviews && reviewMetadata
-        && (
-        <Dashboard
-          totalStarRating={totalStarRating}
-          totalAmtOfReviews={totalAmtOfReviews}
-          clear={clearFilters}
-          selectedRatings={selectedRatings}
-          toggleSelectedRating={toggleSelectedRating}
-          setSelectedRatings={setSelectedRatings}
-          reviewMetadata={reviewMetadata}
-          reviews={reviews}
-        />
-        )}
-        {reviews
-        && reviewMetadata
-        && (
-          <ReviewList
+        {reviews && reviewMetadata && (
+          <Dashboard
+            totalStarRating={totalStarRating}
             totalAmtOfReviews={totalAmtOfReviews}
-            setShowModal={setShowModal}
-            filtered={filtered}
+            clear={clearFilters}
             selectedRatings={selectedRatings}
-            sort={sort}
-            onChange={handleSortChange}
+            toggleSelectedRating={toggleSelectedRating}
+            setSelectedRatings={setSelectedRatings}
+            reviewMetadata={reviewMetadata}
             reviews={reviews}
-            update={updateData}
           />
         )}
+        <Suspense fallback={<div>LOADING ANIMATION</div>}>
+          {reviews && reviewMetadata && (
+            <ReviewList
+              totalAmtOfReviews={totalAmtOfReviews}
+              setShowModal={setShowModal}
+              filtered={filtered}
+              selectedRatings={selectedRatings}
+              sort={sort}
+              onChange={handleSortChange}
+              reviews={reviews}
+              update={updateData}
+            />
+          )}
+        </Suspense>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import ReviewTile from './ReviewTile.jsx';
+import React, { useState } from "react";
+import axios from "axios";
+import ReviewTile from "./ReviewTile.jsx";
 
 export default function ReviewList({
   reviews,
@@ -17,14 +17,17 @@ export default function ReviewList({
   // increments a review's helpfulness
   const handleHelpfulClick = (event, review) => {
     event.preventDefault();
-    axios.put(`/api/reviews/${review.review_id}/helpful`, review)
+    axios
+      .put(`/api/reviews/${review.review_id}/helpful`, review)
       .then(() => update())
       .catch((err) => console.log(err));
   };
 
   // filtering logic
   const mappedFilter = () => {
-    const filteredReviews = reviews.results.filter((review) => !!selectedRatings[review.rating]);
+    const filteredReviews = reviews.results.filter(
+      (review) => !!selectedRatings[review.rating]
+    );
     if (filteredReviews.length === 0) {
       return reviews.results
         .slice(0, displayedReviews)
@@ -50,13 +53,32 @@ export default function ReviewList({
 
   // display button logic
   const displayButton = () => {
-    if (filtered === true
-      && displayedReviews <= reviews.results
-        .filter((review) => !!selectedRatings[review.rating]).length) {
-      return <button aria-label="render more reviews" type="button" onClick={handleMoreReviews}>More Reviews</button>;
-    } if (filtered === false
-      && displayedReviews <= reviews.results.length) {
-      return <button aria-label="render more reviews" type="button" onClick={handleMoreReviews}>More Reviews</button>;
+    if (
+      filtered === true &&
+      displayedReviews <=
+        reviews.results.filter((review) => !!selectedRatings[review.rating])
+          .length
+    ) {
+      return (
+        <button
+          aria-label="render more reviews"
+          type="button"
+          onClick={handleMoreReviews}
+        >
+          More Reviews
+        </button>
+      );
+    }
+    if (filtered === false && displayedReviews <= reviews.results.length) {
+      return (
+        <button
+          aria-label="render more reviews"
+          type="button"
+          onClick={handleMoreReviews}
+        >
+          More Reviews
+        </button>
+      );
     }
     return null;
   };
@@ -74,8 +96,13 @@ export default function ReviewList({
   return (
     <div className="review-list-container">
       <div>
-        <span className="sort-container">{totalAmtOfReviews} reviews,&nbsp;<p>sorted by:</p>
-          <select aria-label="choose sorting algorithm" value={sort} onChange={onChange}>
+        <span className="sort-container">
+          {totalAmtOfReviews} reviews,&nbsp;<p>sorted by:</p>
+          <select
+            aria-label="choose sorting algorithm"
+            value={sort}
+            onChange={onChange}
+          >
             <option value="relevant">relevance</option>
             <option value="helpful">helpfulness</option>
             <option value="newest">newest</option>
@@ -86,18 +113,24 @@ export default function ReviewList({
         {filtered === true
           ? mappedFilter()
           : reviews.results
-            .slice(0, displayedReviews)
-            .map((review) => (
-              <ReviewTile
-                key={review.review_id}
-                review={review}
-                handleHelpfulClick={handleHelpfulClick}
-              />
-            ))}
+              .slice(0, displayedReviews)
+              .map((review) => (
+                <ReviewTile
+                  key={review.review_id}
+                  review={review}
+                  handleHelpfulClick={handleHelpfulClick}
+                />
+              ))}
       </ul>
       <div className="review-list-btns">
         {displayButton()}
-        <button aria-label="add review" type="button" onClick={() => setShowModal(true)}>Add a review</button>
+        <button
+          aria-label="add review"
+          type="button"
+          onClick={() => setShowModal(true)}
+        >
+          Add a review
+        </button>
       </div>
     </div>
   );

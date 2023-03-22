@@ -1,13 +1,9 @@
-import React from 'react';
-import generateStars from '../../Sub_RatingsReviews/generateStars.js';
+import React from "react";
+import generateStars from "../../Shared/generateStars.js";
 
 export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
   // =================== HELPERS ===================
-  const {
-    category,
-    name,
-    slogan,
-  } = thisProduct;
+  const { category, name, slogan } = thisProduct;
 
   let niceOriginalPrice;
   let niceSalePrice;
@@ -28,12 +24,13 @@ export default function ProdInfo({ thisProduct, thisPrice, thisAvgRating }) {
       <p className="sale price">{thisPrice[1] && `$${niceSalePrice}`}</p>
       <p
         className="no-sale price"
-        style={thisPrice[1] && { textDecorationLine: 'line-through' }}
+        style={thisPrice[1] && { textDecorationLine: "line-through" }}
       >
         {`$${niceOriginalPrice}`}
       </p>
       <p className="star-rating">
-        {generateStars(thisAvgRating[0], 5)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`(${thisAvgRating[1]})`}
+        {generateStars(thisAvgRating[0], 5)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {`(${thisAvgRating[1]})`}
       </p>
     </div>
   );
